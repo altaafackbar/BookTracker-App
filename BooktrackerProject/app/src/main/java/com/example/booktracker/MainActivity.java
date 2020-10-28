@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    TextView descriptionBox = (TextView) (findViewById(R.id.descriptionTV));
-    TextView ownerBox = (TextView) (findViewById(R.id.ownerTV));
-    TextView statusBox = (TextView) (findViewById(R.id.statusTV));
+    //TextView descriptionBox = (TextView) (findViewById(R.id.descriptionTV));
+    //TextView ownerBox = (TextView) (findViewById(R.id.ownerTV));
+    //TextView statusBox = (TextView) (findViewById(R.id.statusTV));
 
     public void searchKeyword() {
         //get keyword from editText

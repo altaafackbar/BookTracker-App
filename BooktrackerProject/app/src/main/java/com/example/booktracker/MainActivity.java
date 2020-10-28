@@ -17,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
     TextView ownerBox = (TextView) (findViewById(R.id.ownerTV));
     TextView statusBox = (TextView) (findViewById(R.id.statusTV));
 
+    public void searchKeyword() {
+        //get keyword from editText
+        //iterate through list of books whose description contains the word with
+
+    }
+
 
 }
 

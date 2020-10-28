@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "user name:" + name);
             Log.d(TAG, "user email:" + email);
 
-            Intent intent = new Intent(this, Profile.class);
+            Intent intent = new Intent(this, MainScreen.class);
             //intent.putExtra("name", name);
             //intent.putExtra("email", email);
             startActivity(intent);

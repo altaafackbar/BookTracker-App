@@ -42,7 +42,7 @@ public class Profile extends AppCompatActivity {
         name.setText(user.getDisplayName());
         email.setText(user.getEmail());
 
-        sign_out_button = findViewById(R.id.sign_out_button);
+        sign_out_button = findViewById(R.id.sign_out_button2);
         sign_out_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

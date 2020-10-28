@@ -18,6 +18,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -25,6 +27,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -33,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private SignInButton signInButton;
     private Button signOutButton;
     private int RC_SIGN_IN = 1;
+    private FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.sign_in);
         signOutButton = findViewById(R.id.sign_out);
         signOutButton.setVisibility(View.INVISIBLE);
+
+
 // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -123,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         if (user != null) {
             // Name, email address, and profile photo Url
             String name = user.getDisplayName();
-            String email = user.getEmail();
+            final String email = user.getEmail();
             Uri photoUrl = user.getPhotoUrl();
 
             // Check if user's email is verified
@@ -136,9 +148,22 @@ public class MainActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
                         public void onComplete(@NonNull Task<GetTokenResult> task) {
                             if (task.isSuccessful()) {
-                                String idToken = task.getResult().getToken();
+                                final String idToken = task.getResult().getToken();
                                 // Send token to your backend via HTTPS
                                 // ...
+                                final HashMap<String, String> data = new HashMap<>();
+                                data.put("UserEmail", email);
+                                db = FirebaseFirestore.getInstance();
+                                final CollectionReference collectionReference = db.collection("Users");
+                                collectionReference.document(idToken).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> doc) {
+                                        if(!doc.getResult().exists()){
+                                            //add new user
+                                            collectionReference.document(idToken).set(data);
+                                        }
+                                    }
+                                    });
                                 Log.d(TAG, "userid:" + idToken);
                             } else {
                                 // Handle error -> task.getException();

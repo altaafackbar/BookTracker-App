@@ -160,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
                                 final HashMap<String, String> data = new HashMap<>();
                                 data.put("UserEmail", email);
                                 db = FirebaseFirestore.getInstance();
-                                //DocumentReference usersRef = db.collection("Users").document(idToken);
                                 final CollectionReference collectionReference = db.collection("Users");
                                 db.collection("Users").document(uid).set(data);
 

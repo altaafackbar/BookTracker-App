@@ -1,6 +1,7 @@
 package com.example.booktracker;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -28,8 +29,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
@@ -133,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void updateUI(FirebaseUser user){
         if (user != null) {
+            Log.d(TAG, "updateUI: good user");
             // Name, email address, and profile photo Url
             String name = user.getDisplayName();
             final String email = user.getEmail();
@@ -154,16 +159,26 @@ public class MainActivity extends AppCompatActivity {
                                 final HashMap<String, String> data = new HashMap<>();
                                 data.put("UserEmail", email);
                                 db = FirebaseFirestore.getInstance();
+                                DocumentReference usersRef = db.collection("Users").document(idToken);
                                 final CollectionReference collectionReference = db.collection("Users");
-                                collectionReference.document(idToken).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                usersRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> doc) {
-                                        if(!doc.getResult().exists()){
-                                            //add new user
-                                            collectionReference.document(idToken).set(data);
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot document = task.getResult();
+                                            if (document.exists()) {
+                                                Log.d(TAG, "User exists");
+                                            } else {
+                                                Log.d(TAG, "User doesnt exist");
+                                                collectionReference.document(idToken).set(data);
+                                            }
+                                        } else {
+                                            Log.d(TAG, "fail");
+
                                         }
                                     }
-                                    });
+                                });
+
                                 Log.d(TAG, "userid:" + idToken);
                             } else {
                                 // Handle error -> task.getException();
@@ -178,6 +193,8 @@ public class MainActivity extends AppCompatActivity {
             //intent.putExtra("name", name);
             //intent.putExtra("email", email);
             startActivity(intent);
+        }else{
+            Log.d(TAG, "updateUI: null user");
         }
 
 
@@ -199,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+        Log.d(TAG, "onStart: signing in");
         updateUI(currentUser);
     }
 

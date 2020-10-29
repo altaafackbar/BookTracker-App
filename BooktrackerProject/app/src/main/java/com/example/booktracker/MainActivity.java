@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
             // The user's ID, unique to the Firebase project. Do NOT use this value to
             // authenticate with your backend server, if you have one. Use
             // FirebaseUser.getIdToken() instead.
+            final String uid = user.getUid();
             user.getIdToken(true)
                     .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
                         public void onComplete(@NonNull Task<GetTokenResult> task) {
@@ -159,25 +160,9 @@ public class MainActivity extends AppCompatActivity {
                                 final HashMap<String, String> data = new HashMap<>();
                                 data.put("UserEmail", email);
                                 db = FirebaseFirestore.getInstance();
-                                DocumentReference usersRef = db.collection("Users").document(idToken);
+                                //DocumentReference usersRef = db.collection("Users").document(idToken);
                                 final CollectionReference collectionReference = db.collection("Users");
-                                usersRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                        if (task.isSuccessful()) {
-                                            DocumentSnapshot document = task.getResult();
-                                            if (document.exists()) {
-                                                Log.d(TAG, "User exists");
-                                            } else {
-                                                Log.d(TAG, "User doesnt exist");
-                                                collectionReference.document(idToken).set(data);
-                                            }
-                                        } else {
-                                            Log.d(TAG, "fail");
-
-                                        }
-                                    }
-                                });
+                                db.collection("Users").document(uid).set(data);
 
                                 Log.d(TAG, "userid:" + idToken);
                             } else {
@@ -185,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     });
-            String uid = user.getUid();
+
             Log.d(TAG, "user name:" + name);
             Log.d(TAG, "user email:" + email);
 

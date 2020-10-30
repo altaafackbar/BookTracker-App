@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "172821890534-gfdb4mf0s8ig1c9qeulmi3v5ma6bnurq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.booktracker",
+            "certificate_hash": "38bb57382bdffec1938bbb3127759fc02b5ac1e3"
+          }
+        },
+        {
           "client_id": "172821890534-emc7btia2hh2bqrragfrd6186ot32rl7.apps.googleusercontent.com",
           "client_type": 3
         }

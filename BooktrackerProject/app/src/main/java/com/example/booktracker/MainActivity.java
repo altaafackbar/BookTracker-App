@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private String TAG = "MainActivity";
-    private SignInButton signInButton;
+    private Button signInButton;
     private Button signOutButton;
     private int RC_SIGN_IN = 1;
     private FirebaseFirestore db;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         signOutButton = findViewById(R.id.sign_out);
         signOutButton.setVisibility(View.INVISIBLE);
 
-
+/*
 // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+ */
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,8 +94,40 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
     private void signIn() {
+        /*
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
+         */
+        EditText email = findViewById(R.id.email2);
+        EditText pass = findViewById(R.id.password);
+        String email_s = email.getText().toString();
+        final String passw = pass.getText().toString();
+        final HashMap<String, String> data = new HashMap<>();
+        data.put("UserEmail", email_s);
+        data.put("UserPass", passw);
+        db = FirebaseFirestore.getInstance();
+        DocumentReference docIdRef = db.collection("Users").document(email_s);
+        final Intent intent = new Intent(this, MainScreen.class);
+        docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d(TAG, "Document exists!");
+                        startActivity(intent);
+                    } else {
+                        Log.d(TAG, "Document does not exist!");
+                        db.collection("Users").document(passw).set(data);
+                        startActivity(intent);
+
+                    }
+                } else {
+                    Log.d(TAG, "Failed with: ", task.getException());
+                }
+            }
+        });
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

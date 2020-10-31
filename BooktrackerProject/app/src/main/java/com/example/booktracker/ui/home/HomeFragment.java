@@ -21,6 +21,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.concurrent.Executor;
 
@@ -47,6 +49,7 @@ public class HomeFragment extends Fragment {
         });
 
          */
+        /*
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
@@ -56,9 +59,12 @@ public class HomeFragment extends Fragment {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this.getActivity(), gso);
-        textView.setText(user.getDisplayName());
-        email.setText(user.getEmail());
 
+         */
+
+        //textView.setText(user.getDisplayName());
+        //email.setText(user.getEmail());
+/*
         sign_out_button = root.findViewById(R.id.sign_out_button2);
         sign_out_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +72,8 @@ public class HomeFragment extends Fragment {
                 signOut();
             }
         });
+
+ */
 
         return root;
     }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "172821890534",
+    "firebase_url": "https://booktracker-3ab42.firebaseio.com",
+    "project_id": "booktracker-3ab42",
+    "storage_bucket": "booktracker-3ab42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172821890534:android:c099fae70b9498ad8d4227",
+        "android_client_info": {
+          "package_name": "com.example.booktracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172821890534-gfdb4mf0s8ig1c9qeulmi3v5ma6bnurq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.booktracker",
+            "certificate_hash": "38bb57382bdffec1938bbb3127759fc02b5ac1e3"
+          }
+        },
+        {
+          "client_id": "172821890534-emc7btia2hh2bqrragfrd6186ot32rl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDnaoOUiHZyIyyMzsK1dRobS9K7u5a1io"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172821890534-emc7btia2hh2bqrragfrd6186ot32rl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

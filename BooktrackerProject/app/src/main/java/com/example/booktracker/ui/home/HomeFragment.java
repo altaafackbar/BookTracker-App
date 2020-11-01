@@ -29,8 +29,6 @@ import java.util.concurrent.Executor;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private FirebaseAuth mAuth;
-    private GoogleSignInClient mGoogleSignInClient;
     private Button sign_out_button;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,22 +47,6 @@ public class HomeFragment extends Fragment {
         });
 
          */
-        /*
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
-
-        // Configure Google Sign In
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this.getActivity(), gso);
-
-         */
-
-        //textView.setText(user.getDisplayName());
-        //email.setText(user.getEmail());
-/*
         sign_out_button = root.findViewById(R.id.sign_out_button2);
         sign_out_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,21 +54,13 @@ public class HomeFragment extends Fragment {
                 signOut();
             }
         });
+        email.setText("Welcome back " + MainActivity.current_user);
 
- */
 
         return root;
     }
     private void signOut(){
-        mAuth.signOut();
-
-        // Google sign out
-        mGoogleSignInClient.signOut().addOnCompleteListener(this.getActivity(),
-                new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        getActivity().finish();
-                    }
-                });
+        MainActivity.current_user = null;
+        this.getActivity().finish();
     }
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -45,9 +46,10 @@ public class MainActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private String TAG = "MainActivity";
     private Button signInButton;
-    private Button signOutButton;
+    private Button create_acc_btn;
     private int RC_SIGN_IN = 1;
     private FirebaseFirestore db;
+    public static String current_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         signInButton = findViewById(R.id.sign_in);
-        signOutButton = findViewById(R.id.sign_out);
-        signOutButton.setVisibility(View.INVISIBLE);
+        create_acc_btn = findViewById(R.id.create_acc);
 
 /*
 // Configure Google Sign In
@@ -67,19 +68,32 @@ public class MainActivity extends AppCompatActivity {
 // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
- */
+
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
             }
         });
-        signOutButton.setOnClickListener(new View.OnClickListener() {
+
+ */
+        create_acc_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signOut();
+                create_account();
             }
         });
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signIn();
+            }
+        });
+    }
+    private void create_account(){
+        Intent new_user = new Intent(this, CreateAccount.class);
+        new_user.setFlags(new_user.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+        startActivity(new_user);
     }
     private void signOut(){
         mAuth.signOut();
@@ -101,26 +115,36 @@ public class MainActivity extends AppCompatActivity {
          */
         EditText email = findViewById(R.id.email2);
         EditText pass = findViewById(R.id.password);
-        String email_s = email.getText().toString();
+        final String email_s = email.getText().toString();
         final String passw = pass.getText().toString();
         final HashMap<String, String> data = new HashMap<>();
         data.put("UserEmail", email_s);
         data.put("UserPass", passw);
         db = FirebaseFirestore.getInstance();
-        DocumentReference docIdRef = db.collection("Users").document(email_s);
-        final Intent intent = new Intent(this, MainScreen.class);
+        final DocumentReference docIdRef = db.collection("Users").document(email_s);
+        final Intent sign_in = new Intent(this, MainScreen.class);
+        sign_in.setFlags(sign_in.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
         docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
+                        String pass = document.getData().get("UserPass").toString();
                         Log.d(TAG, "Document exists!");
-                        startActivity(intent);
+                        Log.d(TAG, "Password is: " + document.getData().get("UserPass"));
+                        if(pass.equals(passw)){
+                            current_user = document.getData().get("UserPass").toString();
+                            startActivity(sign_in);
+                        }else{
+                            Toast toast = Toast.makeText(getApplicationContext(), "Password is wrong", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+
                     } else {
                         Log.d(TAG, "Document does not exist!");
-                        db.collection("Users").document(passw).set(data);
-                        startActivity(intent);
+                        Toast toast = Toast.makeText(getApplicationContext(), "User does not exist, please make an account", Toast.LENGTH_SHORT);
+                        toast.show();
 
                     }
                 } else {

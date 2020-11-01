@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Ian\\Desktop\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-km\\values-km.xml",
+            "outputFile": "C:\\Users\\Ian\\Desktop\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-km\\values-km.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Ian\\.gradle\\caches\\transforms-2\\files-2.1\\9d661c53592b1f8279a38784a8da1d66\\jetified-play-services-base-17.1.0\\res\\values-km\\values.xml",

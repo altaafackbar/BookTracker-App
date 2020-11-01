@@ -1861,6 +1861,7 @@ id contentPanel
 id coordinator
 id cos
 id country_list
+id create_acc
 id cross_device_linking_body
 id custom
 id customPanel
@@ -2023,6 +2024,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id number
 id off
 id on
 id outline
@@ -2089,11 +2091,10 @@ id showCustom
 id showHome
 id showTitle
 id sign_in
-id sign_in2
 id sign_in_email_sent_header_text
 id sign_in_email_sent_text
-id sign_out
 id sign_out_button2
+id sign_up
 id sin
 id skipCollapsed
 id slide
@@ -2144,7 +2145,11 @@ id textStart
 id textView
 id textView_back
 id textView_title
-id text_add
+id text_addAuthor
+id text_addDescription
+id text_addISBN
+id text_addPhoto
+id text_addTitle
 id text_home
 id text_input_end_icon
 id text_input_start_icon
@@ -2259,6 +2264,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_create_account
 layout activity_main
 layout activity_main_screen
 layout activity_profile

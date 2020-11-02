@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7af8fa43-d6f7-4af8-a3c1-11f2d32f7a1f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_scan_barcode.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +35,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="navigationResourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -151,31 +151,40 @@
       <option name="project" value="LOCAL" />
       <updated>1604354424951</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added mobile vision dependency in manifest metadata">
+      <created>1604354778101</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604354778101</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes to add book page" />
     <MESSAGE value="Added mobile vision dependency in gradle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added mobile vision dependency in gradle" />
+    <MESSAGE value="Added mobile vision dependency in manifest metadata" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added mobile vision dependency in manifest metadata" />
   </component>
   <component name="WindowStateProjectService">
     <state x="511" y="461" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604179340427">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="511" y="461" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604179340427" />
-    <state x="531" y="460" key="AndroidCreateResourceFileDialog" timestamp="1604295314501">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="311" y="315" key="AndroidCreateResourceFileDialog" timestamp="1604354875482">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
+    <state x="311" y="315" key="AndroidCreateResourceFileDialog/0.0.1500.960@0.0.1500.960" timestamp="1604354875482" />
     <state x="531" y="460" key="AndroidCreateResourceFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604295314501" />
     <state x="640" y="544" key="AndroidCreateXmlResourceDialog" timestamp="1604189987816">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="640" y="544" key="AndroidCreateXmlResourceDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604189987816" />
-    <state x="246" y="149" key="CommitChangelistDialog2" timestamp="1604354763623">
+    <state x="246" y="149" key="CommitChangelistDialog2" timestamp="1604354777382">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="246" y="149" key="CommitChangelistDialog2/0.0.1500.960@0.0.1500.960" timestamp="1604354763623" />
+    <state x="246" y="149" key="CommitChangelistDialog2/0.0.1500.960@0.0.1500.960" timestamp="1604354777382" />
     <state x="419" y="314" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1604296986120" />
     <state x="561" y="469" key="FileChooserDialogImpl" timestamp="1604175651944">
       <screen x="0" y="0" width="2560" height="1400" />

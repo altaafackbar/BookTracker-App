@@ -18,6 +18,7 @@ import java.io.IOException;
 
 public class ScanBarcodeActivity extends Activity {
     SurfaceView cameraPreview;
+    private static final int MY_PERMISSION_REQUEST_CAMERA = 2569;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +48,8 @@ public class ScanBarcodeActivity extends Activity {
                         //                                          int[] grantResults)
                         // to handle the case where the user grants the permission. See the documentation
                         // for ActivityCompat#requestPermissions for more details.
+                        ActivityCompat.requestPermissions(ScanBarcodeActivity.this, new String[]{Manifest.permission.CAMERA},
+                                MY_PERMISSION_REQUEST_CAMERA);
                         return;
                     }
                     cameraSource.start(cameraPreview.getHolder());

@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7af8fa43-d6f7-4af8-a3c1-11f2d32f7a1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_scan_barcode.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/ScanBarcodeActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,9 +35,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="navigationResourceFile" />
-        <option value="Class" />
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -158,16 +158,28 @@
       <option name="project" value="LOCAL" />
       <updated>1604354778101</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added camera preview for scanner xml">
+      <created>1604354987991</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604354987991</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes to add book page" />
     <MESSAGE value="Added mobile vision dependency in gradle" />
     <MESSAGE value="Added mobile vision dependency in manifest metadata" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added mobile vision dependency in manifest metadata" />
+    <MESSAGE value="Added camera preview for scanner xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added camera preview for scanner xml" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="556" y="190" key="#com.intellij.ide.util.MemberChooser" timestamp="1604355130787">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="556" y="190" key="#com.intellij.ide.util.MemberChooser/0.0.1500.960@0.0.1500.960" timestamp="1604355130787" />
     <state x="511" y="461" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604179340427">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -181,10 +193,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="640" y="544" key="AndroidCreateXmlResourceDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604189987816" />
-    <state x="246" y="149" key="CommitChangelistDialog2" timestamp="1604354777382">
+    <state x="246" y="149" key="CommitChangelistDialog2" timestamp="1604354987291">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="246" y="149" key="CommitChangelistDialog2/0.0.1500.960@0.0.1500.960" timestamp="1604354777382" />
+    <state x="246" y="149" key="CommitChangelistDialog2/0.0.1500.960@0.0.1500.960" timestamp="1604354987291" />
     <state x="419" y="314" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1604296986120" />
     <state x="561" y="469" key="FileChooserDialogImpl" timestamp="1604175651944">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -214,10 +226,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="556" y="349" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1604218342365" />
-    <state x="376" y="297" key="Vcs.Push.Dialog.v2" timestamp="1604354438190">
+    <state x="376" y="297" key="Vcs.Push.Dialog.v2" timestamp="1604355020774">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="376" y="297" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1604354438190" />
+    <state x="376" y="297" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1604355020774" />
     <state x="641" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1604227400531" />
     <state x="597" y="492" key="chooseDestDirectoryDialog" timestamp="1604217138283">
       <screen x="0" y="0" width="2560" height="1400" />

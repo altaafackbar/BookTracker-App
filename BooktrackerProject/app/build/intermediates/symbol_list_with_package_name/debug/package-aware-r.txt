@@ -1793,6 +1793,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_button
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1903,6 +1904,7 @@ id easeOut
 id editPageFragment
 id editPageFragment_to_bookPageFragment
 id editPage_back
+id edit_addButton
 id edit_button
 id edit_phone_number
 id edit_query
@@ -2155,6 +2157,11 @@ id text_addDescription
 id text_addISBN
 id text_addPhoto
 id text_addTitle
+id text_editAuthor
+id text_editDescription
+id text_editISBN
+id text_editPhoto
+id text_editTitle
 id text_home
 id text_input_end_icon
 id text_input_start_icon

@@ -8,6 +8,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.booktracker.R;
@@ -69,6 +70,13 @@ public class BookPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_dashboard);
+            }
+        });
+        final Button edit = view.findViewById(R.id.edit_button);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment);
             }
         });
         return view;

@@ -39,5 +39,17 @@
         <action
             android:id="@+id/bookPageFragment_to_dashboard"
             app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/bookPageFragment_to_editPageFragment"
+            app:destination="@id/editPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPageFragment"
+        android:name="com.example.booktracker.ui.editPageFragment"
+        android:label="fragment_edit_page"
+        tools:layout="@layout/fragment_edit_page" >
+        <action
+            android:id="@+id/editPageFragment_to_bookPageFragment"
+            app:destination="@id/bookPageFragment" />
     </fragment>
 </navigation>

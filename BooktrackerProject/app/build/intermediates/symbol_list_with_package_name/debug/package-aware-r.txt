@@ -1630,6 +1630,7 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable book_cover
+drawable border
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1814,6 +1815,7 @@ id beginning
 id blocking
 id bookPageFragment
 id bookPageFragment_to_dashboard
+id bookPageFragment_to_editPageFragment
 id book_cover
 id book_list
 id bottom
@@ -1898,6 +1900,9 @@ id dynamic
 id easeIn
 id easeInOut
 id easeOut
+id editPageFragment
+id editPageFragment_to_bookPageFragment
+id editPage_back
 id edit_button
 id edit_phone_number
 id edit_query
@@ -2289,6 +2294,7 @@ layout design_text_input_start_icon
 layout fragment_add
 layout fragment_book_page
 layout fragment_dashboard
+layout fragment_edit_page
 layout fragment_home
 layout fragment_notifications
 layout fui_activity_invisible

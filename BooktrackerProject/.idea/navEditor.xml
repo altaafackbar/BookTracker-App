@@ -19,7 +19,33 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_bookPageFragment_to_navigation_dashboard">
+                            <entry key="action_bookPageFragment_to_editPageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="bookPageFragment_to_dashboard">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="editPageFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="806" />
+                            <option name="y" value="-375" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_editPageFragment_to_bookPageFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -52,7 +78,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_navigation_dashboard_to_bookPageFragment2">
+                            <entry key="dashboard_to_bookPageFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

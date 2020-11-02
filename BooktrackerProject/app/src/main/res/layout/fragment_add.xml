@@ -89,6 +89,7 @@
         android:background="@drawable/border"/>
 
     <Button
+        android:id="@+id/add_button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="88dp"

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Ian\\Desktop\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw360dp-v13\\values-sw360dp-v13.xml",
+            "outputFile": "C:\\Users\\STruo\\Desktop\\master\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw360dp-v13\\values-sw360dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ian\\.gradle\\caches\\transforms-2\\files-2.1\\69c4213391efefc6813bc95afdb69809\\jetified-firebase-ui-auth-4.3.2\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
+                    "source": "C:\\Users\\STruo\\.gradle\\caches\\transforms-2\\files-2.1\\d20fe8488e6125dbc28d1229ab6ad693\\jetified-firebase-ui-auth-4.3.2\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",

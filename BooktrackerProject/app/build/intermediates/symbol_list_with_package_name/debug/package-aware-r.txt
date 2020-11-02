@@ -1793,6 +1793,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_button
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1834,6 +1835,7 @@ id button_next
 id button_resend_email
 id button_sign_in
 id cache_measures
+id camera_preview
 id cancel_action
 id cancel_button
 id center
@@ -1903,6 +1905,7 @@ id easeOut
 id editPageFragment
 id editPageFragment_to_bookPageFragment
 id editPage_back
+id edit_addButton
 id edit_button
 id edit_phone_number
 id edit_query
@@ -2155,6 +2158,11 @@ id text_addDescription
 id text_addISBN
 id text_addPhoto
 id text_addTitle
+id text_editAuthor
+id text_editDescription
+id text_editISBN
+id text_editPhoto
+id text_editTitle
 id text_home
 id text_input_end_icon
 id text_input_start_icon
@@ -2273,6 +2281,7 @@ layout activity_create_account
 layout activity_main
 layout activity_main_screen
 layout activity_profile
+layout activity_scan_barcode
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog

@@ -4,6 +4,15 @@ public class Book {
     private String title;
     private String author;
     private int isbn;
+    private boolean status;
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
     public String getTitle() {
         return title;

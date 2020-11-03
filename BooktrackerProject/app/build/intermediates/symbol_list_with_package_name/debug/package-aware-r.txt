@@ -1720,6 +1720,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable profile_icon
 drawable profile_pic
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -2201,6 +2202,10 @@ id up
 id useLogo
 id username
 id view_offset_helper
+id view_profile_back_button
+id view_profile_book_list
+id view_profile_profile_pic
+id view_profule_username
 id visible
 id visible_removing_fragment_view_tag
 id welcome
@@ -2282,6 +2287,7 @@ layout activity_main
 layout activity_main_screen
 layout activity_profile
 layout activity_scan_barcode
+layout activity_view_profile
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -2392,6 +2398,7 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu bottom_nav_menu
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation mobile_navigation
 plurals fui_error_weak_password

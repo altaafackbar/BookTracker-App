@@ -19,12 +19,12 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_bookPageFragment_to_editPageFragment">
+                            <entry key="bookPageFragment_to_dashboard">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="bookPageFragment_to_dashboard">
+                            <entry key="bookPageFragment_to_editPageFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -45,7 +45,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_editPageFragment_to_bookPageFragment">
+                            <entry key="editPageFragment_to_bookPageFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -108,6 +108,27 @@
                             <option name="x" value="12" />
                             <option name="y" value="368" />
                           </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="viewProfileFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-21" />
+                            <option name="y" value="-359" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_viewProfileFragment_to_navigation_home">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

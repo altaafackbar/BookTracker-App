@@ -82,4 +82,6 @@ public class BookPageFragment extends Fragment {
         return view;
 
     }
+
+
 }

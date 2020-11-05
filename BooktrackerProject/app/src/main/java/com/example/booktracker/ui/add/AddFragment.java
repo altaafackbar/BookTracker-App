@@ -106,8 +106,10 @@ public class AddFragment extends Fragment {
         String authorS = author.getText().toString();
         String titleS = title.getText().toString();
         String isbnS = isbn.getText().toString();
+        String owner = MainActivity.current_user;
+        String status = "available";
         Map<String, Book> book = new HashMap<>();
-        Book bookObj = new Book(titleS, authorS, isbnS,true, MainActivity.current_user);
+        Book bookObj = new Book(titleS, authorS, isbnS, status, owner);
         String imgString = null;
         if(imageInfo != null  && imageInfo.length > 0){
             Log.d(TAG, "addNewBook: book image is empty");

@@ -4,11 +4,11 @@ public class Book {
     private String title;
     private String author;
     private String isbn;
-    private boolean status;
+    private String status;
     private String image;
     private String owner;
 
-    public Book(String title, String author, String isbn, boolean status, String owner) {
+    public Book(String title, String author, String isbn, String status, String owner) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
@@ -22,14 +22,6 @@ public class Book {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public String getTitle() {
@@ -55,4 +47,22 @@ public class Book {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
 }

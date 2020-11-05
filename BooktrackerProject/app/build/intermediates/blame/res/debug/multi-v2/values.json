@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\altaa\\Desktop\\nbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\altaa\\.gradle\\caches\\transforms-2\\files-2.1\\e5f575e96cbc950f1d6ecc9ad39f0f2a\\navigation-ui-2.3.1\\res\\values\\values.xml",
@@ -35,6 +35,42 @@
                         "startOffsets": "56453,61793",
                         "endColumns": "67,166",
                         "endOffsets": "56516,61955"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,311,393,497,606,726,827",
+                        "endColumns": "143,111,81,103,108,119,100,77",
+                        "endOffsets": "194,306,388,492,601,721,822,900"
+                    },
+                    "to": {
+                        "startLines": "1054,1061,1163,1166,1167,1168,1169,1219",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "63086,63875,79531,79769,79873,79982,80102,89859",
+                        "endColumns": "143,111,81,103,108,119,100,77",
+                        "endOffsets": "63225,63982,79608,79868,79977,80097,80198,89932"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "7",
+                        "endColumns": "12",
+                        "endOffsets": "374"
+                    },
+                    "to": {
+                        "startLines": "1244",
+                        "startColumns": "4",
+                        "startOffsets": "91590",
+                        "endLines": "1249",
+                        "endColumns": "12",
+                        "endOffsets": "91904"
                     }
                 },
                 {
@@ -76,20 +112,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\altaa\\Desktop\\nbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\values\\dimens.xml",
+                    "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "90,149",
-                        "endColumns": "57,55",
-                        "endOffsets": "143,200"
+                        "startLines": "1,7,8,2,4,3,5",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "17,358,429,67,181,136,236",
+                        "endColumns": "48,69,1414,67,53,43,61",
+                        "endOffsets": "61,423,1839,130,230,175,293"
                     },
                     "to": {
-                        "startLines": "596,597",
-                        "startColumns": "4,4",
-                        "startOffsets": "32588,32646",
-                        "endColumns": "57,55",
-                        "endOffsets": "32641,32697"
+                        "startLines": "1028,1170,1174,1222,1223,1224,1225",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "59998,80203,80639,90061,90129,90183,90227",
+                        "endColumns": "48,69,1414,67,53,43,61",
+                        "endOffsets": "60042,80268,82049,90124,90178,90222,90284"
                     }
                 },
                 {
@@ -126,23 +162,6 @@
                         "startOffsets": "19345,19403,19469,19532,32767,32838",
                         "endColumns": "57,65,62,61,70,71",
                         "endOffsets": "19398,19464,19527,19589,32833,32905"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\altaa\\Desktop\\nbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1,7,8,2,4,3,5",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "17,358,429,67,181,136,236",
-                        "endColumns": "48,69,1414,67,53,43,61",
-                        "endOffsets": "61,423,1839,130,230,175,293"
-                    },
-                    "to": {
-                        "startLines": "1028,1170,1174,1222,1223,1224,1225",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "59998,80203,80639,90061,90129,90183,90227",
-                        "endColumns": "48,69,1414,67,53,43,61",
-                        "endOffsets": "60042,80268,82049,90124,90178,90222,90284"
                     }
                 },
                 {
@@ -241,23 +260,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\altaa\\Desktop\\nbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "4,2,3",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "157,57,105",
-                        "endColumns": "45,46,50",
-                        "endOffsets": "198,99,151"
-                    },
-                    "to": {
-                        "startLines": "408,409,410",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "19958,20004,20051",
-                        "endColumns": "45,46,50",
-                        "endOffsets": "19999,20046,20097"
-                    }
-                },
-                {
                     "source": "C:\\Users\\altaa\\.gradle\\caches\\transforms-2\\files-2.1\\516fe5ba6e7a5904110f03fcfac34d32\\coordinatorlayout-1.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,6,16",
@@ -296,22 +298,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\altaa\\Desktop\\nbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "7",
-                        "endColumns": "12",
-                        "endOffsets": "374"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "90,149",
+                        "endColumns": "57,55",
+                        "endOffsets": "143,200"
                     },
                     "to": {
-                        "startLines": "1244",
-                        "startColumns": "4",
-                        "startOffsets": "91590",
-                        "endLines": "1249",
-                        "endColumns": "12",
-                        "endOffsets": "91904"
+                        "startLines": "596,597",
+                        "startColumns": "4,4",
+                        "startOffsets": "32588,32646",
+                        "endColumns": "57,55",
+                        "endOffsets": "32641,32697"
                     }
                 },
                 {
@@ -444,6 +444,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "157,57,105",
+                        "endColumns": "45,46,50",
+                        "endOffsets": "198,99,151"
+                    },
+                    "to": {
+                        "startLines": "408,409,410",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "19958,20004,20051",
+                        "endColumns": "45,46,50",
+                        "endOffsets": "19999,20046,20097"
+                    }
+                },
+                {
                     "source": "C:\\Users\\altaa\\.gradle\\caches\\transforms-2\\files-2.1\\b87dd5ce073a98d88152ba90e0494fa9\\navigation-common-2.3.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,13,19,25,28",
@@ -479,23 +496,6 @@
                         "endLines": "933,5209,7215,7221",
                         "endColumns": "52,24,24,24",
                         "endOffsets": "54092,350400,477395,477637"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\altaa\\Desktop\\nbkt\\booktracker\\BooktrackerProject\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,311,393,497,606,726,827",
-                        "endColumns": "143,111,81,103,108,119,100,77",
-                        "endOffsets": "194,306,388,492,601,721,822,900"
-                    },
-                    "to": {
-                        "startLines": "1054,1061,1163,1166,1167,1168,1169,1219",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "63086,63875,79531,79769,79873,79982,80102,89859",
-                        "endColumns": "143,111,81,103,108,119,100,77",
-                        "endOffsets": "63225,63982,79608,79868,79977,80097,80198,89932"
                     }
                 }
             ]

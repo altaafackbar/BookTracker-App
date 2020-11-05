@@ -1822,8 +1822,12 @@ id blocking
 id bookPageFragment
 id bookPageFragment_to_dashboard
 id bookPageFragment_to_editPageFragment
+id book_author
 id book_cover
+id book_isbn
 id book_list
+id book_status
+id book_title
 id bottom
 id bounce
 id browser_actions_header_text
@@ -1965,6 +1969,8 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView2
+id imageViewScan
 id info
 id invisible
 id invisible_frame
@@ -2292,6 +2298,7 @@ layout activity_main
 layout activity_main_screen
 layout activity_profile
 layout activity_scan_barcode
+layout book_adapter_view_layout
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog

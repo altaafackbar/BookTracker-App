@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,7 +43,6 @@ public class AddFragment extends Fragment {
         addViewModel =
                 ViewModelProviders.of(this).get(AddViewModel.class);
        View root = inflater.inflate(R.layout.fragment_add, container,false);
-        final TextView textView = root.findViewById(R.id.titleText);
         addViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -67,6 +67,9 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 addNewBook();
+                author.setText("");
+                title.setText("");
+                isbn.setText("");
             }
         });
 
@@ -81,7 +84,9 @@ public class AddFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         db.collection("Users").document(MainActivity.current_user)
                 .collection("Books")
-                .document(String.valueOf(isbnS)).set(book);
+                .document(isbnS).set(book);
+        Toast toast = Toast.makeText(getContext(), "Book Successfully Added", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     @Override

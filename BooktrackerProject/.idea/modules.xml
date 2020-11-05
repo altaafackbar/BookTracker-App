@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Booktracker.iml" filepath="$PROJECT_DIR$/.idea/modules/Booktracker.iml" group="Booktracker" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Booktracker-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Booktracker-app.iml" group="Booktracker/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Booktracker.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Booktracker.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Booktracker/app" />
     </modules>

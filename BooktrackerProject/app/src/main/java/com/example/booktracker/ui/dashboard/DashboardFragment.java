@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,11 +22,13 @@ import com.example.booktracker.ScanBarcodeActivity;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 
+import java.util.ArrayList;
+
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     Button returnButton;
-
+    ListView tempListView;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
@@ -38,6 +42,14 @@ public class DashboardFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        tempListView = (ListView)root.findViewById(R.id.book_list);
+        ArrayList<String> tempArray = new ArrayList<>();
+        tempArray.add("Book1");
+        tempArray.add("Book2");
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,tempArray);
+        tempListView.setAdapter(arrayAdapter);
+
 //
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

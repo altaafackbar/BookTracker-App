@@ -44,12 +44,19 @@ public class DashboardFragment extends Fragment {
         });
 
         tempListView = (ListView)root.findViewById(R.id.book_list);
-        ArrayList<String> tempArray = new ArrayList<>();
+        final ArrayList<String> tempArray = new ArrayList<>();
         tempArray.add("Book1");
         tempArray.add("Book2");
         ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,tempArray);
         tempListView.setAdapter(arrayAdapter);
 
+        tempListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(),tempArray.get(position), Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(root).navigate(R.id.dashboard_to_bookPageFragment);
+            }
+        });
 //
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

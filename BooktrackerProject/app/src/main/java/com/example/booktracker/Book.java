@@ -3,10 +3,10 @@ package com.example.booktracker;
 public class Book {
     private String title;
     private String author;
-    private int isbn;
+    private String isbn;
     private boolean status;
 
-    public Book(String title, String author, int isbn, boolean status) {
+    public Book(String title, String author, String isbn, boolean status) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
@@ -37,11 +37,11 @@ public class Book {
         this.author = author;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 }

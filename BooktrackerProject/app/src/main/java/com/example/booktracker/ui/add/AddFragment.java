@@ -75,7 +75,7 @@ public class AddFragment extends Fragment {
     public void addNewBook(){
         String authorS = author.getText().toString();
         String titleS = title.getText().toString();
-        int isbnS = Integer.parseInt(isbn.getText().toString());
+        String isbnS = isbn.getText().toString();
         Map<String, Book> book = new HashMap<>();
         book.put("book", new Book(titleS, authorS, isbnS,false));
         db = FirebaseFirestore.getInstance();
@@ -93,8 +93,6 @@ public class AddFragment extends Fragment {
                     String queryString = barcode.displayValue;
                     isbn.setText(barcode.displayValue);
                     new FetchBook(title, author, isbn).execute(queryString);
-
-
                 }
                 else {
                     isbn.setText("Barcode not found");

@@ -155,7 +155,7 @@ public class FetchBook extends AsyncTask<String,Void,String>{
             // If both are found, display the result.
             if (title != null && authors != null){
                 mTitleText.setText(title);
-                mAuthorText.setText(authors);
+                mAuthorText.setText(authors.substring(2, authors.length()-2));
             } else {
                 // If none are found, update the UI to show failed results.
                 mTitleText.setText("No result");

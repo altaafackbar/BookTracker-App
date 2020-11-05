@@ -2098,6 +2098,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchUserButton
 id search_badge
 id search_bar
 id search_button
@@ -2176,7 +2177,6 @@ id text_editDescription
 id text_editISBN
 id text_editPhoto
 id text_editTitle
-id text_home
 id text_input_end_icon
 id text_input_start_icon
 id text_notifications
@@ -2213,6 +2213,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userSearch
 id username
 id viewProfileFragment
 id view_offset_helper

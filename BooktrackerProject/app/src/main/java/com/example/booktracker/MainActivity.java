@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, "Document exists!");
                         Log.d(TAG, "Password is: " + document.getData().get("UserPass"));
                         if(pass.equals(passw)){
-                            current_user = document.getData().get("UserPass").toString();
+                            current_user = document.getData().get("UserEmail").toString();
                             startActivity(sign_in);
                         }else{
                             Toast toast = Toast.makeText(getApplicationContext(), "Password is wrong", Toast.LENGTH_SHORT);

@@ -6,6 +6,13 @@ public class Book {
     private int isbn;
     private boolean status;
 
+    public Book(String title, String author, int isbn, boolean status) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.status = status;
+    }
+
     public boolean isStatus() {
         return status;
     }

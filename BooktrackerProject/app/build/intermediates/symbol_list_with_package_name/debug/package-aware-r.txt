@@ -1791,10 +1791,13 @@ id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
 id action_text
+id action_viewProfileFragment_to_bookPageFragment
+id action_viewProfileFragment_to_navigation_home
 id actions
 id activity_chooser_view_content
 id add
 id add_button
+id add_image
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1806,6 +1809,7 @@ id animateToStart
 id anonymous_button
 id asConfigured
 id async
+id authorText
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -1964,6 +1968,7 @@ id image
 id info
 id invisible
 id invisible_frame
+id isbnText
 id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
@@ -1976,6 +1981,7 @@ id light
 id line1
 id line3
 id linear
+id linearLayout
 id listMode
 id list_item
 id logo
@@ -2062,8 +2068,10 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id relativeLayout
 id resend_barrier
 id resend_code
+id returnButton
 id reverseSawtooth
 id right
 id right_icon
@@ -2154,11 +2162,6 @@ id textStart
 id textView
 id textView_back
 id textView_title
-id text_addAuthor
-id text_addDescription
-id text_addISBN
-id text_addPhoto
-id text_addTitle
 id text_editAuthor
 id text_editDescription
 id text_editISBN
@@ -2178,6 +2181,7 @@ id ticker
 id time
 id title
 id titleDividerNoCustom
+id titleText
 id title_template
 id toggle
 id top
@@ -2201,6 +2205,7 @@ id unlabeled
 id up
 id useLogo
 id username
+id viewProfileFragment
 id view_offset_helper
 id view_profile_back_button
 id view_profile_book_list
@@ -2287,7 +2292,6 @@ layout activity_main
 layout activity_main_screen
 layout activity_profile
 layout activity_scan_barcode
-layout activity_view_profile
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -2312,6 +2316,7 @@ layout fragment_dashboard
 layout fragment_edit_page
 layout fragment_home
 layout fragment_notifications
+layout fragment_view_profile
 layout fui_activity_invisible
 layout fui_activity_register_email
 layout fui_activity_register_phone

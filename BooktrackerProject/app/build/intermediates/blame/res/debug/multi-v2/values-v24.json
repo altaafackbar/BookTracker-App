@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Logan Clarke\\Documents\\GitHub\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "C:\\Users\\altaa\\Desktop\\nbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Logan Clarke\\.gradle\\caches\\transforms-2\\files-2.1\\b9c0dfc0e8adaeca43121c09410b9b17\\appcompat-1.2.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\altaa\\.gradle\\caches\\transforms-2\\files-2.1\\b9c0dfc0e8adaeca43121c09410b9b17\\appcompat-1.2.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Logan Clarke\\.gradle\\caches\\transforms-2\\files-2.1\\063d51b4c0d2d4546a8c7bae6522f028\\media-1.0.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\altaa\\.gradle\\caches\\transforms-2\\files-2.1\\063d51b4c0d2d4546a8c7bae6522f028\\media-1.0.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

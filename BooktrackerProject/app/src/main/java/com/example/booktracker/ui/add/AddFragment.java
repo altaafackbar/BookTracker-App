@@ -112,24 +112,31 @@ public class AddFragment extends Fragment {
         String isbnS = isbn.getText().toString();
         String owner = MainActivity.current_user;
         String status = "available";
-        Map<String, Book> book = new HashMap<>();
-        Book bookObj = new Book(titleS, authorS, isbnS, status, owner);
-        String imgString = null;
-        if(imageInfo != null  && imageInfo.length > 0){
-            Log.d(TAG, "addNewBook: book image is empty");
-            imgString = Base64.encodeToString(imageInfo, Base64.DEFAULT);
+        if(authorS.isEmpty() || titleS.isEmpty() || isbnS.isEmpty()){
+            Toast toast = Toast.makeText(getContext(), "Please enter missing information", Toast.LENGTH_SHORT);
+            toast.show();
         }
         else{
-            imgString = "";
+            Map<String, Book> book = new HashMap<>();
+            Book bookObj = new Book(titleS, authorS, isbnS, status, owner);
+            String imgString = null;
+            if(imageInfo != null  && imageInfo.length > 0){
+                Log.d(TAG, "addNewBook: book image is empty");
+                imgString = Base64.encodeToString(imageInfo, Base64.DEFAULT);
+            }
+            else{
+                imgString = "";
+            }
+            bookObj.setImage(imgString);
+            book.put("book", bookObj);
+            db = FirebaseFirestore.getInstance();
+            db.collection("Users").document(MainActivity.current_user)
+                    .collection("Books")
+                    .document(isbnS).set(book);
+            Toast toast = Toast.makeText(getContext(), "Book Successfully Added", Toast.LENGTH_SHORT);
+            toast.show();
         }
-        bookObj.setImage(imgString);
-        book.put("book", bookObj);
-        db = FirebaseFirestore.getInstance();
-        db.collection("Users").document(MainActivity.current_user)
-                .collection("Books")
-                .document(isbnS).set(book);
-        Toast toast = Toast.makeText(getContext(), "Book Successfully Added", Toast.LENGTH_SHORT);
-        toast.show();
+
     }
 
     @Override

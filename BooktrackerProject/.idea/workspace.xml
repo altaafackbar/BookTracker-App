@@ -20,19 +20,21 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/add/AddFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/add/AddFragment$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/add/AddFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/add/AddFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/Book.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/Book.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/add/AddFragment$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/add/AddFragment$1.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainActivity$4.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainActivity$4.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainActivity$5.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainActivity$5.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainActivity$6.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainActivity$6.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainActivity.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/add/AddFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/add/AddFragment.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/CreateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/CreateAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/RecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/RecyclerViewAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/ui/add/AddFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/ui/add/AddFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
@@ -289,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604608532831</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="makes sure user enters info in acc creation, back button">
+      <created>1604615423918</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1604615423918</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -304,7 +313,8 @@
     <MESSAGE value="Unique usernames, checks if username is taken" />
     <MESSAGE value="start of searching for users" />
     <MESSAGE value="does not crash when no pic is added" />
-    <option name="LAST_COMMIT_MESSAGE" value="does not crash when no pic is added" />
+    <MESSAGE value="makes sure user enters info in acc creation, back button" />
+    <option name="LAST_COMMIT_MESSAGE" value="makes sure user enters info in acc creation, back button" />
   </component>
   <component name="WindowStateProjectService">
     <state x="339" y="269" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604531255243">
@@ -333,10 +343,10 @@
     </state>
     <state x="480" y="404" key="AndroidCreateXmlResourceDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604364121184" />
     <state x="640" y="544" key="AndroidCreateXmlResourceDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604189987816" />
-    <state x="224" y="62" key="CommitChangelistDialog2" timestamp="1604608527484">
+    <state x="224" y="62" key="CommitChangelistDialog2" timestamp="1604615412146">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="224" y="62" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1604608527484" />
+    <state x="224" y="62" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1604615412146" />
     <state x="246" y="149" key="CommitChangelistDialog2/0.0.1500.960@0.0.1500.960" timestamp="1604355492392" />
     <state x="419" y="314" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1604296986120" />
     <state x="95" y="100" key="DiffContextDialog" timestamp="1604531289372">
@@ -385,10 +395,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="556" y="349" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1604218342365" />
-    <state x="343" y="270" key="Vcs.Push.Dialog.v2" timestamp="1604608535769">
+    <state x="343" y="270" key="Vcs.Push.Dialog.v2" timestamp="1604615439827">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="343" y="270" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604608535769" />
+    <state x="343" y="270" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604615439827" />
     <state x="376" y="297" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1604355020774" />
     <state x="641" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1604227400531" />
     <state x="448" y="365" key="chooseDestDirectoryDialog" timestamp="1604374191866">
@@ -418,5 +428,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1470" y="0" width="1097" height="953" key="dock-window-2/0.0.2560.1400@0.0.2560.1400" timestamp="1604224568714" />
+    <state x="346" y="183" width="672" height="678" key="search.everywhere.popup" timestamp="1604616054430">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="346" y="183" width="672" height="678" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1604616054430" />
   </component>
 </project>

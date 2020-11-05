@@ -117,41 +117,47 @@ public class MainActivity extends AppCompatActivity {
         EditText pass = findViewById(R.id.password);
         final String email_s = email.getText().toString();
         final String passw = pass.getText().toString();
-        final HashMap<String, String> data = new HashMap<>();
-        data.put("UserEmail", email_s);
-        data.put("UserPass", passw);
-        db = FirebaseFirestore.getInstance();
-        final DocumentReference docIdRef = db.collection("Users").document(email_s);
-        final Intent sign_in = new Intent(this, MainScreen.class);
-        //sign_in.setFlags(sign_in.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
-        docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        String pass = document.getData().get("UserPass").toString();
-                        Log.d(TAG, "Document exists!");
-                        Log.d(TAG, "Password is: " + document.getData().get("UserPass"));
-                        if(pass.equals(passw)){
-                            current_user = document.getData().get("UserEmail").toString();
-                            startActivity(sign_in);
-                        }else{
-                            Toast toast = Toast.makeText(getApplicationContext(), "Password is wrong", Toast.LENGTH_SHORT);
+        if(email_s.isEmpty() || passw.isEmpty()){
+            Toast toast = Toast.makeText(getApplicationContext(), "Please enter login info", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else{
+            final HashMap<String, String> data = new HashMap<>();
+            data.put("UserEmail", email_s);
+            data.put("UserPass", passw);
+            db = FirebaseFirestore.getInstance();
+            final DocumentReference docIdRef = db.collection("Users").document(email_s);
+            final Intent sign_in = new Intent(this, MainScreen.class);
+            docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            String pass = document.getData().get("UserPass").toString();
+                            Log.d(TAG, "Document exists!");
+                            Log.d(TAG, "Password is: " + document.getData().get("UserPass"));
+                            if(pass.equals(passw)){
+                                current_user = document.getData().get("UserEmail").toString();
+                                startActivity(sign_in);
+                            }else{
+                                Toast toast = Toast.makeText(getApplicationContext(), "Password is wrong", Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
+
+                        } else {
+                            Log.d(TAG, "Document does not exist!");
+                            Toast toast = Toast.makeText(getApplicationContext(), "User does not exist, please make an account", Toast.LENGTH_SHORT);
                             toast.show();
+
                         }
-
                     } else {
-                        Log.d(TAG, "Document does not exist!");
-                        Toast toast = Toast.makeText(getApplicationContext(), "User does not exist, please make an account", Toast.LENGTH_SHORT);
-                        toast.show();
-
+                        Log.d(TAG, "Failed with: ", task.getException());
                     }
-                } else {
-                    Log.d(TAG, "Failed with: ", task.getException());
                 }
-            }
-        });
+            });
+        }
+
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

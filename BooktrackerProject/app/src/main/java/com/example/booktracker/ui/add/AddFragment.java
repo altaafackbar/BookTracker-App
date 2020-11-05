@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 public class AddFragment extends Fragment {
     private static final int GET_FROM_GALLERY = 1;
@@ -105,7 +108,14 @@ public class AddFragment extends Fragment {
         String isbnS = isbn.getText().toString();
         Map<String, Book> book = new HashMap<>();
         Book bookObj = new Book(titleS, authorS, isbnS,true, MainActivity.current_user);
-        String imgString =Base64.encodeToString(imageInfo, Base64.DEFAULT);
+        String imgString = null;
+        if(imageInfo != null  && imageInfo.length > 0){
+            Log.d(TAG, "addNewBook: book image is empty");
+            imgString = Base64.encodeToString(imageInfo, Base64.DEFAULT);
+        }
+        else{
+            imgString = "";
+        }
         bookObj.setImage(imgString);
         book.put("book", bookObj);
         db = FirebaseFirestore.getInstance();

@@ -1823,6 +1823,7 @@ id blocking
 id bookPageFragment
 id bookPageFragment_to_dashboard
 id bookPageFragment_to_editPageFragment
+id bookPageFragment_to_trackPageFragment
 id book_author
 id book_cover
 id book_isbn
@@ -2170,6 +2171,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView2
 id textView_back
 id textView_title
 id text_editAuthor
@@ -2198,6 +2200,9 @@ id topPanel
 id top_level_view
 id top_progress_bar
 id touch_outside
+id trackPageFragment
+id trackPageFragment_to_bookPageFragment
+id track_button
 id transitionToEnd
 id transitionToStart
 id transition_current_scene
@@ -2327,6 +2332,7 @@ layout fragment_dashboard
 layout fragment_edit_page
 layout fragment_home
 layout fragment_notifications
+layout fragment_track_page
 layout fragment_view_profile
 layout fui_activity_invisible
 layout fui_activity_register_email

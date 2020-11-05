@@ -15,10 +15,10 @@ import com.example.booktracker.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link BookPageFragment#newInstance} factory method to
+ * Use the {@link BookTrackerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BookPageFragment extends Fragment {
+public class BookTrackerFragment extends Fragment {
     public TextView back;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +29,7 @@ public class BookPageFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public BookPageFragment() {
+    public BookTrackerFragment() {
         // Required empty public constructor
     }
 
@@ -42,8 +42,8 @@ public class BookPageFragment extends Fragment {
      * @return A new instance of fragment BookPageFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BookPageFragment newInstance(String param1, String param2) {
-        BookPageFragment fragment = new BookPageFragment();
+    public static BookTrackerFragment newInstance(String param1, String param2) {
+        BookTrackerFragment fragment = new BookTrackerFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,30 +64,8 @@ public class BookPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_book_page, container, false);
-        final TextView textView = view.findViewById(R.id.textView_back);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_dashboard);
-            }
-        });
-        final Button edit = view.findViewById(R.id.edit_button);
-        edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment);
-            }
-        });
-        final Button track_button = view.findViewById(R.id.track_button);
-        track_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_trackPageFragment);
-            }
-        });
+        final View view = inflater.inflate(R.layout.fragment_track_page, container, false);
         return view;
-
     }
 
 

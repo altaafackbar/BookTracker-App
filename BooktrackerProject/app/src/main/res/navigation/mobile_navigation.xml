@@ -42,6 +42,9 @@
         <action
             android:id="@+id/bookPageFragment_to_editPageFragment"
             app:destination="@id/editPageFragment" />
+        <action
+            android:id="@+id/bookPageFragment_to_trackPageFragment"
+            app:destination="@id/trackPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/editPageFragment"
@@ -51,6 +54,15 @@
         <action
             android:id="@+id/editPageFragment_to_bookPageFragment"
             app:destination="@id/bookPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackPageFragment"
+        android:name="com.example.booktracker.ui.BookTrackerFragment"
+        android:label="Book_Tracker_Fragment"
+        tools:layout="@layout/fragment_track_page" >
+        <action
+            android:id="@+id/trackPageFragment_to_bookPageFragment"
+            app:destination="@id/trackPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewProfileFragment"

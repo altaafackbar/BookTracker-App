@@ -6,12 +6,14 @@ public class Book {
     private String isbn;
     private boolean status;
     private String image;
+    private String owner;
 
-    public Book(String title, String author, String isbn, boolean status) {
+    public Book(String title, String author, String isbn, boolean status, String owner) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.status = status;
+        this.owner = owner;
     }
 
     public String getImage() {

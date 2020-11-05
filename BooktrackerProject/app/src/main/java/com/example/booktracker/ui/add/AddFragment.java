@@ -104,7 +104,7 @@ public class AddFragment extends Fragment {
         String titleS = title.getText().toString();
         String isbnS = isbn.getText().toString();
         Map<String, Book> book = new HashMap<>();
-        Book bookObj = new Book(titleS, authorS, isbnS,false);
+        Book bookObj = new Book(titleS, authorS, isbnS,true, MainActivity.current_user);
         String imgString =Base64.encodeToString(imageInfo, Base64.DEFAULT);
         bookObj.setImage(imgString);
         book.put("book", bookObj);

@@ -17,6 +17,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.booktracker.Book;
+import com.example.booktracker.FetchBook;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.example.booktracker.ScanBarcodeActivity;
@@ -49,7 +50,7 @@ public class AddFragment extends Fragment {
             }
         });
         author = root.findViewById(R.id.authorText);
-        title = root.findViewById(R.id.authorText);
+        title = root.findViewById(R.id.titleText);
         isbn = root.findViewById(R.id.isbnText);
         addBook = root.findViewById(R.id.add_button);
         scanButton = root.findViewById(R.id.imageViewScan);
@@ -81,7 +82,6 @@ public class AddFragment extends Fragment {
         db.collection("Users").document(MainActivity.current_user)
                 .collection("Books")
                 .document(String.valueOf(isbnS)).set(book);
-
     }
 
     @Override
@@ -90,7 +90,11 @@ public class AddFragment extends Fragment {
             if (resultCode== CommonStatusCodes.SUCCESS) {
                 if(data!=null) {
                     Barcode barcode = data.getParcelableExtra("barcode");
+                    String queryString = barcode.displayValue;
                     isbn.setText(barcode.displayValue);
+                    new FetchBook(title, author, isbn).execute(queryString);
+
+
                 }
                 else {
                     isbn.setText("Barcode not found");
@@ -98,7 +102,6 @@ public class AddFragment extends Fragment {
             }
         }
         else {
-
             super.onActivityResult(requestCode, resultCode, data);
         }
     }

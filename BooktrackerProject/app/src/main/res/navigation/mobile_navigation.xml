@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.booktracker.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.booktracker.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/dashboard_to_bookPageFragment"
+            app:destination="@id/bookPageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.booktracker.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_add"
+        android:name="com.example.booktracker.ui.add.AddFragment"
+        android:label="Add"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/bookPageFragment"
+        android:name="com.example.booktracker.ui.BookPageFragment"
+        android:label="fragment_book_page"
+        tools:layout="@layout/fragment_book_page" >
+        <action
+            android:id="@+id/bookPageFragment_to_dashboard"
+            app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/bookPageFragment_to_editPageFragment"
+            app:destination="@id/editPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPageFragment"
+        android:name="com.example.booktracker.ui.editPageFragment"
+        android:label="fragment_edit_page"
+        tools:layout="@layout/fragment_edit_page" >
+        <action
+            android:id="@+id/editPageFragment_to_bookPageFragment"
+            app:destination="@id/bookPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewProfileFragment"
+        android:name="com.example.booktracker.ViewProfileFragment"
+        android:label="ViewProfileFragment" >
+        <action
+            android:id="@+id/action_viewProfileFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_viewProfileFragment_to_bookPageFragment"
+            app:destination="@id/bookPageFragment" />
+    </fragment>
+</navigation>

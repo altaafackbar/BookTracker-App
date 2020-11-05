@@ -5,12 +5,21 @@ public class Book {
     private String author;
     private String isbn;
     private boolean status;
+    private String image;
 
     public Book(String title, String author, String isbn, boolean status) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.status = status;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public boolean isStatus() {

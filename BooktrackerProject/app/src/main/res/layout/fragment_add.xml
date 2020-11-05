@@ -10,7 +10,7 @@
         android:id="@+id/add_button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="60dp"
         android:background="#7B1313"
         android:text="Add"
         android:textColor="#ffff"
@@ -20,13 +20,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_image" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewScan" />
 
     <EditText
         android:id="@+id/authorText"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="200dp"
         android:background="#EFA63B"
         android:ems="10"
         android:hint="Enter author name"
@@ -61,23 +61,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
-    <ImageButton
-        android:id="@+id/add_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+    <ImageView
+        android:id="@+id/imageViewScan"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
         android:src="@android:drawable/ic_menu_camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/isbnText" />
 
     <ImageView
-        android:id="@+id/imageViewScan"
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/image_needed"
+        app:layout_constraintBottom_toTopOf="@+id/authorText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/addImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_camera"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/isbnText"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="50dp"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/pressToScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:text="Click button to scan "
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewScan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewScan" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

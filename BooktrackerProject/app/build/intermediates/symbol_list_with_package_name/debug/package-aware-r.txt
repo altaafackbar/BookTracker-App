@@ -1691,6 +1691,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notifications_black_24dp
+drawable image_needed
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
 drawable material_ic_edit_black_24dp
@@ -1796,8 +1797,8 @@ id action_viewProfileFragment_to_navigation_home
 id actions
 id activity_chooser_view_content
 id add
+id addImage
 id add_button
-id add_image
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1969,6 +1970,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id imageView2
 id imageViewScan
 id info
@@ -2068,6 +2070,7 @@ id phone_number
 id pin
 id position
 id postLayout
+id pressToScan
 id profile_picture
 id progress_circular
 id progress_horizontal

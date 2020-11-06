@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.booktracker.Book;
 import com.example.booktracker.FetchBook;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.MainScreen;
@@ -28,7 +29,12 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class HomeFragment extends Fragment {
@@ -36,6 +42,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FirebaseFirestore db;
     private EditText searchText;
+    private String owner;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -114,13 +121,38 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == 0) {
+        db = FirebaseFirestore.getInstance();
+        if (requestCode == 0) { //If the owner wants to lend a book.
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (data != null) {
-                    Barcode barcode = data.getParcelableExtra("barcode");
-                    db = FirebaseFirestore.getInstance();
-                    db.collection("Users").document(MainActivity.current_user).collection("Books")
-                            .document(barcode.displayValue).update("book.status", "borrowed");
+                    final Barcode barcode = data.getParcelableExtra("barcode"); //Contains barcode
+                    db.collection("Users").document(MainActivity.current_user)
+                            .collection("Books")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                            Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
+                                            Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
+                                                //Update as borrowed
+                                                owner = (String) book.get("owner");
+                                            //Check if the Owner is the one lending the book.
+                                            if (owner != null && owner.equals(MainActivity.current_user)) {
+                                                    //Change status to borrowed
+                                                    db.collection("Users").document(MainActivity.current_user).collection("Books")
+                                                            .document(barcode.displayValue).update("book.status", "borrowed");
+                                                    Toast toast1 = Toast.makeText(getContext(), "Successfully lent!", Toast.LENGTH_SHORT);
+                                                    toast1.show();
+                                                } else {
+                                                    Toast toast = Toast.makeText(getContext(), "You are not the owner!", Toast.LENGTH_SHORT);
+                                                    toast.show();
+                                                }
+                                        }
+                                    }
+                                }
+                            });
                 }
             }
         }

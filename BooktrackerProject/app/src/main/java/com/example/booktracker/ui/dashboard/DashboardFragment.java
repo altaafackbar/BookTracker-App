@@ -88,7 +88,7 @@ public class DashboardFragment extends Fragment {
                                 isbn = document.getId();
                                 title = (String) book.get("title");
                                 author = (String) book.get("author");
-                                //status = (String)book.get("status");
+                                status = (String)book.get("status");
                                 bookImg = (String) book.get("image");
                                 Book newBook = new Book(title, author, isbn,status, MainActivity.current_user);
                                 newBook.setImage(bookImg);

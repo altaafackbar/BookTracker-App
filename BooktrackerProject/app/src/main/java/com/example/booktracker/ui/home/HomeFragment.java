@@ -43,6 +43,7 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore db;
     private EditText searchText;
     private String owner;
+    private String status;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -138,17 +139,22 @@ public class HomeFragment extends Fragment {
                                             Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
                                                 //Update as borrowed
                                                 owner = (String) book.get("owner");
+                                                status = (String) book.get("status");
                                             //Check if the Owner is the one lending the book.
-                                            if (owner != null && owner.equals(MainActivity.current_user)) {
+                                            if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available")) {
                                                     //Change status to borrowed
                                                     db.collection("Users").document(MainActivity.current_user).collection("Books")
                                                             .document(barcode.displayValue).update("book.status", "borrowed");
                                                     Toast toast1 = Toast.makeText(getContext(), "Successfully lent!", Toast.LENGTH_SHORT);
                                                     toast1.show();
-                                                } else {
-                                                    Toast toast = Toast.makeText(getContext(), "You are not the owner!", Toast.LENGTH_SHORT);
-                                                    toast.show();
                                                 }
+                                            //If owner is accepting a returned book
+                                            else if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available(pending)")) {
+                                                db.collection("Users").document(MainActivity.current_user).collection("Books")
+                                                        .document(barcode.displayValue).update("book.status", "available");
+                                                Toast toast1 = Toast.makeText(getContext(), "Successfully Accepted!", Toast.LENGTH_SHORT);
+                                                toast1.show();
+                                            }
                                         }
                                     }
                                 }

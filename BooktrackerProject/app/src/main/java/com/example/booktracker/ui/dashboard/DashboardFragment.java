@@ -88,7 +88,7 @@ public class DashboardFragment extends Fragment {
                                 isbn = document.getId();
                                 title = (String) book.get("title");
                                 author = (String) book.get("author");
-                                status = (String)book.get("status");
+                                //status = (String)book.get("status");
                                 bookImg = (String) book.get("image");
                                 Book newBook = new Book(title, author, isbn,status, MainActivity.current_user);
                                 newBook.setImage(bookImg);
@@ -162,7 +162,7 @@ public class DashboardFragment extends Fragment {
                                                                     Log.d(TAG, document.getId() + " ISBN:" + document1.getId() + " ==> " + title);
                                                                     if (barcode.displayValue.equals(document1.getId())) {
                                                                         db.collection("Users").document(document.getId()).collection("Books")
-                                                                                .document(barcode.displayValue).update("book.status", "available");
+                                                                                .document(barcode.displayValue).update("book.status", "available(pending)");
                                                                         Toast toast1 = Toast.makeText(getContext(), "Successfully Returned!!", Toast.LENGTH_SHORT);
                                                                         toast1.show();
                                                                     }

@@ -25,6 +25,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 
 import com.example.booktracker.Book;
 import com.example.booktracker.FetchBook;
@@ -101,6 +102,9 @@ public class AddFragment extends Fragment {
                 isbn.setText("");
                 Drawable resImg = ResourcesCompat.getDrawable(getResources(), R.drawable.image_needed, null);
                 imgV.setImageDrawable(resImg);
+                Bundle args = new Bundle();
+                args.putString("key", title.getText().toString());
+                Navigation.findNavController(view).navigate(R.id.navigation_dashboard, args);
             }
         });
 

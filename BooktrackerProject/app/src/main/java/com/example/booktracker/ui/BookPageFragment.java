@@ -83,13 +83,13 @@ public class BookPageFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment);
             }
         });
-//        final Button track_button = view.findViewById(R.id.track_button);
-//        track_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_trackPageFragment);
-//            }
-//        });
+        final Button track_button = view.findViewById(R.id.track_button);
+        track_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_trackPageFragment);
+            }
+        });
         if (getArguments() != null){
             title = getArguments().getString("title");
             author = getArguments().getString("author");

@@ -1,4 +1,4 @@
-package com.example.booktracker;
+/*package com.example.booktracker;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -72,3 +72,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 }
+*/

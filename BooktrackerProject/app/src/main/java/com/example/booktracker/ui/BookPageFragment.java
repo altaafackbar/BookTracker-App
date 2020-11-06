@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -19,9 +20,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import static android.content.ContentValues.TAG;
@@ -40,6 +44,8 @@ public class BookPageFragment extends Fragment {
     private String img;
     private Bitmap bitmap;
     private FirebaseFirestore db;
+
+    private boolean delete;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -152,6 +158,32 @@ public class BookPageFragment extends Fragment {
                 deleteImage();
                 bookCover.setImageDrawable(resImg);
                 deleteButton.setVisibility(View.INVISIBLE);
+            }
+        });
+        final Button deleteBook = view.findViewById(R.id.deleteBook_button);
+        deleteBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               //delete = true;
+               db = FirebaseFirestore.getInstance();
+               db.collection("Users").document(MainActivity.current_user).collection("Books")
+                       .document(isbn)
+                       .delete()
+                       .addOnSuccessListener(new OnSuccessListener<Void>() {
+                           @Override
+                           public void onSuccess(Void aVoid) {
+                               Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                           }
+                       })
+                       .addOnFailureListener(new OnFailureListener() {
+                           @Override
+                           public void onFailure(@NonNull Exception e) {
+                               Log.w(TAG, "Error deleting document", e);
+                           }
+                       });
+                Navigation.findNavController(view).navigate(R.id.navigation_dashboard);
+                Toast toast = Toast.makeText(getContext(), "Book Successfully Deleted", Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
 

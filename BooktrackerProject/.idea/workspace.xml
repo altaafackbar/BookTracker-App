@@ -13,8 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7af8fa43-d6f7-4af8-a3c1-11f2d32f7a1f" name="Default Changelist" comment="add attached photo in thumbnail">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/EditProfile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/androidTest/debug/com/example/booktracker/test/BuildConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/booktracker/CreateAccountTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/booktracker/MainActivityTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -25,10 +26,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/bundle-manifest/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/bundle-manifest/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes2.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes2.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes3.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes3.dex" afterDir="false" />
@@ -38,23 +43,22 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/CreateAccount$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/CreateAccount$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/CreateAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/CreateAccount.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainActivity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/MainScreen.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/Profile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ScanBarcodeActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ScanBarcodeActivity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/BookPageFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/BookPageFragment$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/BookPageFragment$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/BookPageFragment$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/BookPageFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/BookPageFragment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/add/AddFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/add/AddFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/dashboard/DashboardFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/dashboard/DashboardFragment$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/dashboard/DashboardFragment$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/dashboard/DashboardFragment$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/dashboard/DashboardFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/dashboard/DashboardFragment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/editPageFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/editPageFragment$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/editPageFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/editPageFragment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/home/HomeFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/home/HomeFragment$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/home/HomeFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/home/HomeFragment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/notifications/NotificationsFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/booktracker/ui/notifications/NotificationsFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/CreateAccount$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/CreateAccount$1.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/CreateAccount.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/CreateAccount.dex" afterDir="false" />
@@ -62,23 +66,23 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainScreen.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/MainScreen.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/Profile.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/Profile.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ScanBarcodeActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ScanBarcodeActivity.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/BookPageFragment$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/BookPageFragment$1.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/BookPageFragment$2.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/BookPageFragment$2.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/BookPageFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/BookPageFragment.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/add/AddFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/add/AddFragment.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/dashboard/DashboardFragment$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/dashboard/DashboardFragment$1.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/dashboard/DashboardFragment$2.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/dashboard/DashboardFragment$2.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/dashboard/DashboardFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/dashboard/DashboardFragment.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/editPageFragment$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/editPageFragment$1.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/editPageFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/editPageFragment.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/home/HomeFragment$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/home/HomeFragment$1.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/home/HomeFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/home/HomeFragment.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/notifications/NotificationsFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/booktracker/ui/notifications/NotificationsFragment.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_dashboard.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_dashboard.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_book_page.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_book_page.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/navigation_mobile_navigation.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/navigation_mobile_navigation.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/CreateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/CreateAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/ui/dashboard/DashboardFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/booktracker/ui/dashboard/DashboardFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_dashboard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,8 +108,8 @@
       <list>
         <option value="navigationResourceFile" />
         <option value="resourceFile" />
-        <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -130,6 +134,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -255,6 +260,59 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainActivityTest" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="Booktracker-app" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="com.example.booktracker.MainActivityTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android Instrumented Tests.MainActivityTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -372,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604655181686</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="user profile edit">
+      <created>1604658699429</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1604658699429</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -392,7 +457,8 @@
     <MESSAGE value="add attached photo in thumbnail" />
     <MESSAGE value="changed recycler status to a string" />
     <MESSAGE value="All Photograph Stories (Complete)" />
-    <option name="LAST_COMMIT_MESSAGE" value="All Photograph Stories (Complete)" />
+    <MESSAGE value="user profile edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="user profile edit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="339" y="269" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604531255243">
@@ -410,6 +476,10 @@
     </state>
     <state x="273" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1604565110283" />
     <state x="511" y="461" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604179340427" />
+    <state x="390" y="274" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1604688508594">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="390" y="274" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1368.872@0.0.1368.872" timestamp="1604688508594" />
     <state x="398" y="341" key="AndroidCreateResourceFileDialog" timestamp="1604360712459">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -421,20 +491,20 @@
     </state>
     <state x="480" y="404" key="AndroidCreateXmlResourceDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604364121184" />
     <state x="640" y="544" key="AndroidCreateXmlResourceDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604189987816" />
-    <state x="224" y="62" key="CommitChangelistDialog2" timestamp="1604655172478">
+    <state x="224" y="62" key="CommitChangelistDialog2" timestamp="1604658689375">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="224" y="62" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1604655172478" />
+    <state x="224" y="62" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1604658689375" />
     <state x="246" y="149" key="CommitChangelistDialog2/0.0.1500.960@0.0.1500.960" timestamp="1604355492392" />
     <state x="419" y="314" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1604296986120" />
     <state x="95" y="100" key="DiffContextDialog" timestamp="1604531289372">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="95" y="100" key="DiffContextDialog/0.0.1368.872@0.0.1368.872" timestamp="1604531289372" />
-    <state x="323" y="237" key="FileChooserDialogImpl" timestamp="1604564452923">
+    <state x="323" y="237" key="FileChooserDialogImpl" timestamp="1604688827285">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="323" y="237" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1604564452923" />
+    <state x="323" y="237" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1604688827285" />
     <state x="453" y="283" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604372044205" />
     <state x="561" y="469" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1604175651944" />
     <state x="0" y="0" key="FileDocumentManager.FileCacheConflict" timestamp="1604624930106">
@@ -445,25 +515,25 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="816" y="600" key="Github.ShareDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604218360067" />
-    <state width="1324" height="265" key="GridCell.Tab.0.bottom" timestamp="1604658491715">
+    <state width="1324" height="364" key="GridCell.Tab.0.bottom" timestamp="1604693058606">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1324" height="265" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1604658491715" />
+    <state width="1324" height="364" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1604693058606" />
     <state width="880" height="398" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1604218083673" />
-    <state width="1324" height="265" key="GridCell.Tab.0.center" timestamp="1604658491715">
+    <state width="1324" height="364" key="GridCell.Tab.0.center" timestamp="1604693058606">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1324" height="265" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1604658491715" />
+    <state width="1324" height="364" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1604693058606" />
     <state width="880" height="398" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1604218083672" />
-    <state width="1324" height="265" key="GridCell.Tab.0.left" timestamp="1604658491715">
+    <state width="1324" height="364" key="GridCell.Tab.0.left" timestamp="1604693058606">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1324" height="265" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1604658491715" />
+    <state width="1324" height="364" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1604693058606" />
     <state width="880" height="398" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1604218083672" />
-    <state width="1324" height="265" key="GridCell.Tab.0.right" timestamp="1604658491715">
+    <state width="1324" height="364" key="GridCell.Tab.0.right" timestamp="1604693058606">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1324" height="265" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1604658491715" />
+    <state width="1324" height="364" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1604693058606" />
     <state width="880" height="398" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1604218083672" />
     <state x="129" y="70" key="MergeDialog" timestamp="1604654474433">
       <screen x="0" y="0" width="1368" height="872" />
@@ -477,10 +547,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="556" y="349" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1604218342365" />
-    <state x="343" y="270" key="Vcs.Push.Dialog.v2" timestamp="1604655184477">
+    <state x="343" y="270" key="Vcs.Push.Dialog.v2" timestamp="1604658701186">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="343" y="270" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604655184477" />
+    <state x="343" y="270" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604658701186" />
     <state x="376" y="297" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1604355020774" />
     <state x="641" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1604227400531" />
     <state x="448" y="365" key="chooseDestDirectoryDialog" timestamp="1604374191866">
@@ -497,10 +567,10 @@
     </state>
     <state x="718" y="328" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1604525962973" />
     <state x="1343" y="526" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604162439599" />
-    <state x="492" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604658651147">
+    <state x="492" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604693768905">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="492" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1604658651147" />
+    <state x="492" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1604693768905" />
     <state x="1920" y="0" width="1553" height="1027" key="dock-window-1" timestamp="1604378660128">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.booktracker.Book;
+import com.example.booktracker.CreateAccount;
+import com.example.booktracker.EditProfile;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.example.booktracker.RecyclerViewAdapter;
@@ -131,7 +133,15 @@ public class DashboardFragment extends Fragment {
                 startActivityForResult(intent, 0);
             }
         });
-
+        Button editProfile = root.findViewById(R.id.editProfile);
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CreateAccount.class);
+                intent.putExtra("task", "edit");
+                startActivity(intent);
+            }
+        });
         return root;
     }
 

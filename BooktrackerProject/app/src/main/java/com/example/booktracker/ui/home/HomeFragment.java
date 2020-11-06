@@ -16,12 +16,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.booktracker.Book;
-import com.example.booktracker.FetchBook;
 import com.example.booktracker.MainActivity;
-import com.example.booktracker.MainScreen;
 import com.example.booktracker.R;
 import com.example.booktracker.ScanBarcodeActivity;
+import com.example.booktracker.ViewProfileFragment;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,7 +33,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class HomeFragment extends Fragment {
 
@@ -43,13 +40,14 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore db;
     private EditText searchText;
     private String owner;
+    public static String searchUser;
     private String status;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+         final View root = inflater.inflate(R.layout.fragment_home, container, false);
         final TextView email = root.findViewById(R.id.email);
         /*
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -74,9 +72,7 @@ public class HomeFragment extends Fragment {
         Button search = root.findViewById(R.id.searchUserButton);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                searchUser();
-            }
+            public void onClick(View view) { searchUser(); }
         });
 
         lendButton.setOnClickListener(new View.OnClickListener() {
@@ -87,32 +83,44 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
         return root;
     }
-    public void searchUser(){
-        db = FirebaseFirestore.getInstance();
-        String searchTerm = searchText.getText().toString();
-        DocumentReference docIdRef = db.collection("Users").document(searchTerm);
-        docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Log.d("TAG", "Document exists!");
-                        Toast toast = Toast.makeText(getContext(), "Username exists", Toast.LENGTH_SHORT);
-                        toast.show();
-                    } else {
-                        Log.d("TAG", "Document does not exist!");
-                        Toast toast = Toast.makeText(getContext(), "Username does not exist", Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
-                } else {
-                    Log.d("TAG", "Failed with: ", task.getException());
-                }
-            }
-        });
+
+   public void searchUser(){
+       db = FirebaseFirestore.getInstance();
+       String searchTerm = searchText.getText().toString();
+       DocumentReference docIdRef = db.collection("Users").document(searchTerm);
+       docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+           @Override
+           public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+               if (task.isSuccessful()) {
+                   DocumentSnapshot document = task.getResult();
+                   if (document.exists()) {
+                       Log.d("TAG", "Document exists!");
+                       Toast toast = Toast.makeText(getContext(), "Username exists", Toast.LENGTH_SHORT);
+                       toast.show();
+                       searchUser = searchText.getText().toString();
+
+                       /*
+                       //Call to ViewProfileFragment
+                       ViewProfileFragment nextFrag= new ViewProfileFragment();
+                       getActivity().getSupportFragmentManager().beginTransaction()
+                               .remove(HomeFragment.this)
+                               .replace(((ViewGroup)getView().getParent()).getId(), nextFrag, "findThisFragment")
+                               .addToBackStack(null)
+                               .commit();
+                        */
+
+                   } else {
+                       Log.d("TAG", "Document does not exist!");
+                       Toast toast = Toast.makeText(getContext(), "Username does not exist", Toast.LENGTH_SHORT);
+                       toast.show();
+                   }
+               } else {
+                   Log.d("TAG", "Failed with: ", task.getException());
+               }
+           }
+       });
     }
 
     private void signOut(){

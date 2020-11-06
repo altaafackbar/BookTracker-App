@@ -1682,6 +1682,7 @@ drawable fui_idp_button_background_twitter
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_baseline_add_24
+drawable ic_baseline_arrow_back
 drawable ic_dashboard_black_24dp
 drawable ic_home_black_24dp
 drawable ic_launcher_background
@@ -1892,6 +1893,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteImage
 id deltaRelative
 id dependency_ordering
 id description
@@ -1917,13 +1919,21 @@ id dynamic
 id easeIn
 id easeInOut
 id easeOut
+id editImageButton
 id editPageFragment
 id editPageFragment_to_bookPageFragment
-id editPage_back
-id edit_addButton
+id editView
+id edit_add_button
+id edit_authorText
+id edit_backArrow
 id edit_button
+id edit_imageView
+id edit_imageViewScan
+id edit_isbnText
 id edit_phone_number
+id edit_pressToScan
 id edit_query
+id edit_titleText
 id email
 id email2
 id email_button
@@ -2045,6 +2055,7 @@ id navigation_dashboard
 id navigation_header_container
 id navigation_home
 id navigation_notifications
+id nestedScrollView
 id never
 id noScroll
 id none
@@ -2182,11 +2193,6 @@ id textView_back
 id textView_isbn
 id textView_status
 id textView_title
-id text_editAuthor
-id text_editDescription
-id text_editISBN
-id text_editPhoto
-id text_editTitle
 id text_input_end_icon
 id text_input_start_icon
 id text_notifications
@@ -2230,6 +2236,7 @@ id up
 id useLogo
 id userSearch
 id username
+id viewImage
 id viewProfileFragment
 id view_offset_helper
 id view_profile_back_button

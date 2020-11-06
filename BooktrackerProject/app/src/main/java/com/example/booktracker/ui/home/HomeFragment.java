@@ -101,7 +101,7 @@ public class HomeFragment extends Fragment {
                        toast.show();
                        searchUser = searchText.getText().toString();
 
-                       /*
+
                        //Call to ViewProfileFragment
                        ViewProfileFragment nextFrag= new ViewProfileFragment();
                        getActivity().getSupportFragmentManager().beginTransaction()
@@ -109,7 +109,7 @@ public class HomeFragment extends Fragment {
                                .replace(((ViewGroup)getView().getParent()).getId(), nextFrag, "findThisFragment")
                                .addToBackStack(null)
                                .commit();
-                        */
+
 
                    } else {
                        Log.d("TAG", "Document does not exist!");

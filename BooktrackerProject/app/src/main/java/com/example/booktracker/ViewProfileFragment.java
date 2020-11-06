@@ -50,7 +50,7 @@ public class ViewProfileFragment extends Fragment {
         {
             searchTerm = bundle.getString("search");
         }
-        TextView username = getActivity().findViewById(R.id.view_profule_username);
+        TextView username = getActivity().findViewById(R.id.viewProfile_username);
         username.setText(searchTerm);
     }
 

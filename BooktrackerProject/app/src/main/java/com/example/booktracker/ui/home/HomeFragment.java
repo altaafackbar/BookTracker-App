@@ -105,8 +105,7 @@ public class HomeFragment extends Fragment {
                        //Call to ViewProfileFragment
                        ViewProfileFragment nextFrag= new ViewProfileFragment();
                        getActivity().getSupportFragmentManager().beginTransaction()
-                               .remove(HomeFragment.this)
-                               .replace(((ViewGroup)getView().getParent()).getId(), nextFrag, "findThisFragment")
+                               .replace(((ViewGroup)getView().getParent()).getId(), nextFrag)
                                .addToBackStack(null)
                                .commit();
 

@@ -34,7 +34,7 @@ public class ViewProfileFragment extends Fragment {
     private String title;
     private String author;
     private String isbn;
-    private Boolean status;
+    private String status;
     private String bookImg;
     RecyclerView profileRecyclerview;
     ArrayList<Book> profileBookList;
@@ -86,9 +86,11 @@ public class ViewProfileFragment extends Fragment {
                                 isbn = document.getId();
                                 title = (String) book.get("title");
                                 author = (String) book.get("author");
-                                //status = (Boolean)book.get("status");
-                                //bookImg = (String) book.get("image");
-                                profileBookList.add(new Book(title, author, isbn,"false", HomeFragment.searchUser ));
+                                status = (String)book.get("status");
+                                bookImg = (String) book.get("image");
+                                Book newBook = new Book(title, author, isbn,status, HomeFragment.searchUser);
+                                newBook.setImage(bookImg);
+                                profileBookList.add(newBook);
 
                             }
                         } else {

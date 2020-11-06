@@ -85,13 +85,6 @@ public class BookPageFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_dashboard);
             }
         });
-        final Button edit = view.findViewById(R.id.edit_button);
-        edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment);
-            }
-        });
         final Button track_button = view.findViewById(R.id.track_button);
         track_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +116,15 @@ public class BookPageFragment extends Fragment {
         TextView isbnView = view.findViewById(R.id.textView_isbn);
         isbnView.setText("ISBN: " + isbn);
 
+        final Button edit = view.findViewById(R.id.edit_button);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("editisbn", isbn);
+                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment,args);
+            }
+        });
         return view;
 
     }

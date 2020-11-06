@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
@@ -113,6 +114,9 @@ public class editPageFragment extends Fragment {
                                 "book.author", authorz,
                                 "book.isbn", isbnz
                         );
+                Toast toast = Toast.makeText(getContext(), "Book Successfully Edited", Toast.LENGTH_SHORT);
+                toast.show();
+                Navigation.findNavController(view).navigate(R.id.navigation_dashboard);
            }
         });
 

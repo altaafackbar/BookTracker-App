@@ -1,16 +1,28 @@
 package com.example.booktracker.ui;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +30,12 @@ import com.example.booktracker.R;
  * create an instance of this fragment.
  */
 public class editPageFragment extends Fragment {
-
+    private EditText author1;
+    private EditText title1;
+    private  EditText isbn1;
+    private String currentIsbn;
+    private FirebaseFirestore db;
+    private Button addEditedbook;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,13 +81,42 @@ public class editPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_edit_page, container, false);
-        final TextView textView = view.findViewById(R.id.editPage_back);
-        textView.setOnClickListener(new View.OnClickListener() {
+        final ImageView imageView = view.findViewById(R.id.edit_backArrow);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.editPageFragment_to_bookPageFragment);
             }
         });
+
+        if (getArguments() != null){
+            currentIsbn = getArguments().getString("editisbn");
+        }
+
+        author1 = view.findViewById(R.id.edit_authorText);
+        title1 = view.findViewById(R.id.edit_titleText);
+        isbn1 = view.findViewById(R.id.edit_isbnText);
+
+        addEditedbook = view.findViewById(R.id.edit_add_button);
+        addEditedbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String authorz = author1.getText().toString();
+                String titlez = title1.getText().toString();
+                String isbnz = isbn1.getText().toString();
+                db = FirebaseFirestore.getInstance();
+                db.collection("Users").document(MainActivity.current_user)
+                        .collection("Books")
+                        .document(currentIsbn)
+                        .update(
+                                "book.title", titlez,
+                                "book.author", authorz,
+                                "book.isbn", isbnz
+                        );
+           }
+        });
+
+
         return view;
     }
 }

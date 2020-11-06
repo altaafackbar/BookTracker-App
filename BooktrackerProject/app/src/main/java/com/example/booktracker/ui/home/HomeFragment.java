@@ -12,14 +12,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.booktracker.FetchBook;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.MainScreen;
 import com.example.booktracker.R;
+import com.example.booktracker.ScanBarcodeActivity;
+import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -49,6 +54,7 @@ public class HomeFragment extends Fragment {
          */
         searchText = root.findViewById(R.id.userSearch);
         Button sign_out_button = root.findViewById(R.id.sign_out_button2);
+        Button lendButton = root.findViewById(R.id.LendButton);
         sign_out_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,7 +71,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
+        lendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
 
 
         return root;
@@ -98,5 +110,19 @@ public class HomeFragment extends Fragment {
     private void signOut(){
         MainActivity.current_user = null;
         this.getActivity().finish();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == 0) {
+            if (resultCode == CommonStatusCodes.SUCCESS) {
+                if (data != null) {
+                    Barcode barcode = data.getParcelableExtra("barcode");
+                    db = FirebaseFirestore.getInstance();
+                    db.collection("Users").document(MainActivity.current_user).collection("Books")
+                            .document(barcode.displayValue).update("book.status", "borrowed");
+                }
+            }
+        }
     }
 }

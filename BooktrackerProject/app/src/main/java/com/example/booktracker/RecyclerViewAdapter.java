@@ -1,6 +1,7 @@
 /*package com.example.booktracker;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,21 +37,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
         holder.tv_book_title.setText(myData.get(position).getTitle());
-        holder.img_book_thumbnail.setImageResource(myData.get(position).getImage());
-        holder.cardView.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.dashboard_to_bookPageFragment));
-        Book book = myData.get(position);
+        //holder.img_book_thumbnail.setImageResource(Integer.parseInt(myData.get(position).getImage()));
 
-        //TextView bookTitle = holder.find
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.createNavigateOnClickListener(R.id.dashboard_to_bookPageFragment);
+                Bundle args = new Bundle();
+                args.putString("title", myData.get(position).getTitle());
+                args.putString("author", myData.get(position).getAuthor());
+                args.putString("status", myData.get(position).getStatus());
+               args.putString("isbn", myData.get(position).getIsbn());
+                Navigation.findNavController(view).navigate(R.id.bookPageFragment, args);
+            }
+        });
     }
-//        holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Navigation.findNavController().navigate(R.id.dashboard_to_bookPageFragment);
-//            }
-//        });
+
 
 
     @Override

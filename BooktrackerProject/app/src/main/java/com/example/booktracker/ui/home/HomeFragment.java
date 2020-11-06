@@ -89,37 +89,44 @@ public class HomeFragment extends Fragment {
    public void searchUser(){
        db = FirebaseFirestore.getInstance();
        String searchTerm = searchText.getText().toString();
-       DocumentReference docIdRef = db.collection("Users").document(searchTerm);
-       docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-           @Override
-           public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-               if (task.isSuccessful()) {
-                   DocumentSnapshot document = task.getResult();
-                   if (document.exists()) {
-                       Log.d("TAG", "Document exists!");
-                       Toast toast = Toast.makeText(getContext(), "Username exists", Toast.LENGTH_SHORT);
-                       toast.show();
-                       searchUser = searchText.getText().toString();
+       if(!searchTerm.isEmpty()){
+           DocumentReference docIdRef = db.collection("Users").document(searchTerm);
+           docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+               @Override
+               public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                   if (task.isSuccessful()) {
+                       DocumentSnapshot document = task.getResult();
+                       if (document.exists()) {
+                           Log.d("TAG", "Document exists!");
+                           Toast toast = Toast.makeText(getContext(), "Username exists", Toast.LENGTH_SHORT);
+                           toast.show();
+                           searchUser = searchText.getText().toString();
 
 
-                       //Call to ViewProfileFragment
-                       ViewProfileFragment nextFrag= new ViewProfileFragment();
-                       getActivity().getSupportFragmentManager().beginTransaction()
-                               .replace(((ViewGroup)getView().getParent()).getId(), nextFrag)
-                               .addToBackStack(null)
-                               .commit();
+                           //Call to ViewProfileFragment
+                           ViewProfileFragment nextFrag= new ViewProfileFragment();
+                           getActivity().getSupportFragmentManager().beginTransaction()
+                                   .replace(((ViewGroup)getView().getParent()).getId(), nextFrag)
+                                   .addToBackStack(null)
+                                   .commit();
 
 
+                       } else {
+                           Log.d("TAG", "Document does not exist!");
+                           Toast toast = Toast.makeText(getContext(), "Username does not exist", Toast.LENGTH_SHORT);
+                           toast.show();
+                       }
                    } else {
-                       Log.d("TAG", "Document does not exist!");
-                       Toast toast = Toast.makeText(getContext(), "Username does not exist", Toast.LENGTH_SHORT);
-                       toast.show();
+                       Log.d("TAG", "Failed with: ", task.getException());
                    }
-               } else {
-                   Log.d("TAG", "Failed with: ", task.getException());
                }
-           }
-       });
+           });
+       }
+       else{
+           Toast toast = Toast.makeText(getContext(), "Please enter a search term", Toast.LENGTH_SHORT);
+           toast.show();
+       }
+
     }
 
     private void signOut(){

@@ -18,7 +18,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
-
+//creates or edits account
 public class CreateAccount extends AppCompatActivity {
     private EditText email;
     private EditText password;
@@ -35,6 +35,7 @@ public class CreateAccount extends AppCompatActivity {
         password = findViewById(R.id.password);
         number = findViewById(R.id.number);
         Bundle editB = getIntent().getExtras();
+        //check if this is a edit task or create new account task
         if(editB != null){
             intentTask = getIntent().getExtras().getString("task");
         }
@@ -85,6 +86,7 @@ public class CreateAccount extends AppCompatActivity {
         String u_pass = password.getText().toString();
         final String u_num = number.getText().toString();
         if(u_email.isEmpty() || u_pass.isEmpty() || u_num.isEmpty()){
+            //if any fields are empty
             Toast toast = Toast.makeText(getApplicationContext(), "Please fill out all required information", Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -101,6 +103,7 @@ public class CreateAccount extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists() && !intentTask.equals("edit")) {
+                            //if we are creating an account and the usernamme is taken
                             Log.d("TAG", "Document exists!");
                             Toast toast = Toast.makeText(getApplicationContext(), "Username unavailable, please choose another", Toast.LENGTH_SHORT);
                             toast.show();

@@ -15,6 +15,9 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.Random;
+
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -60,11 +63,23 @@ public class MainActivityTest{
     public void create_acc(){
 //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        Random rand = new Random();
+// Obtain a number between [0 - 200].
+        int n = rand.nextInt(2000);
+        n += 1;
         Button msButton = (Button) solo.getView(
                 R.id.create_acc);
         solo.clickOnView(msButton); //Click new user Button
-        solo.waitForActivity("CreateAccount");
+
         solo.assertCurrentActivity("Should be create account activity", CreateAccount.class);
+        solo.enterText((EditText) solo.getView(R.id.email), "test" + n);
+        solo.enterText((EditText) solo.getView(R.id.password), "8");
+        solo.enterText((EditText) solo.getView(R.id.number), "7809823423");
+        Button sign_up = (Button) solo.getView(
+                R.id.sign_up);
+        solo.clickOnView(sign_up); //Click new user Button
+        solo.assertCurrentActivity("Should be main screen activity", MainScreen.class);
+
     }
 
 

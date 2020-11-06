@@ -1,5 +1,7 @@
 package com.example.booktracker;
 import android.app.Activity;
+
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
@@ -104,7 +106,7 @@ public class MainActivityTest{
         solo.clickOnView(add_book);
     }
     @Test
-    public void deleteBook(){
+    public void editInfo(){
 //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
         solo.enterText((EditText) solo.getView(R.id.email2), "test4");

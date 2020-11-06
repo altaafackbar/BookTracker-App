@@ -140,8 +140,43 @@ public class DashboardFragment extends Fragment {
         if (requestCode==0) {
             if (resultCode== CommonStatusCodes.SUCCESS) {
                 if(data!=null) {
-                    Barcode barcode = data.getParcelableExtra("barcode");
-                    System.out.println(barcode.displayValue);
+                    final Barcode barcode = data.getParcelableExtra("barcode");
+                    db = FirebaseFirestore.getInstance();
+                    db.collection("Users")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        for (final QueryDocumentSnapshot document : task.getResult()) {
+                                            Log.d(TAG, document.getId() + " => ");
+                                            db.collection("Users").document(document.getId())
+                                                    .collection("Books")
+                                                    .get()
+                                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                        public void onComplete(@NonNull Task<QuerySnapshot> task1) {
+                                                            if (task1.isSuccessful()) {
+                                                                for (QueryDocumentSnapshot document1 : task1.getResult()) {
+                                                                    Map<String, Object> book1 = (Map<String, Object>) document1.getData().get("book");
+                                                                    title = (String) book1.get("title");
+                                                                    Log.d(TAG, document.getId() + " ISBN:" + document1.getId() + " ==> " + title);
+                                                                    if (barcode.displayValue.equals(document1.getId())) {
+                                                                        db.collection("Users").document(document.getId()).collection("Books")
+                                                                                .document(barcode.displayValue).update("book.status", "available");
+                                                                        Toast toast1 = Toast.makeText(getContext(), "Successfully Returned!!", Toast.LENGTH_SHORT);
+                                                                        toast1.show();
+                                                                    }
+
+                                                                }
+                                                            }
+                                                        }
+                                                    });
+
+
+                                        }
+                                    }
+                                }
+                            });
                 }
                 else {
                     System.out.println("No barcode found");

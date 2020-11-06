@@ -1,4 +1,4 @@
-package com.example.booktracker;
+/*package com.example.booktracker;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -77,3 +77,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 }
+*/

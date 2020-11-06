@@ -20,6 +20,10 @@ import com.example.booktracker.R;
  */
 public class BookPageFragment extends Fragment {
     public TextView back;
+    private String title;
+    private String author;
+    private String status;
+    private String isbn;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -79,13 +83,33 @@ public class BookPageFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment);
             }
         });
-        final Button track_button = view.findViewById(R.id.track_button);
-        track_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_trackPageFragment);
-            }
-        });
+//        final Button track_button = view.findViewById(R.id.track_button);
+//        track_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_trackPageFragment);
+//            }
+//        });
+        if (getArguments() != null){
+            title = getArguments().getString("title");
+            author = getArguments().getString("author");
+            status = getArguments().getString("status");
+            isbn = getArguments().getString("isbn");
+        }
+        TextView titleView = view.findViewById(R.id.textView_title);
+        titleView.setText(title);
+        TextView authorView = view.findViewById(R.id.author_id);
+        authorView.setText(author);
+        TextView statusView = view.findViewById(R.id.textView_status);
+        if (status != "true"){
+            statusView.setText("Status: Not borrowed");
+        }
+        else {
+            statusView.setText("Status: Borrowed");
+        }
+        TextView isbnView = view.findViewById(R.id.textView_isbn);
+        isbnView.setText("ISBN: " + isbn);
+
         return view;
 
     }

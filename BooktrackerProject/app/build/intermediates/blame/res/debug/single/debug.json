@@ -80,6 +80,14 @@
         "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
+        "merged": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_request_tab.xml.flat",
+        "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\layout\\fragment_request_tab.xml"
+    },
+    {
+        "merged": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_cardview_book_item.xml.flat",
+        "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\layout\\cardview_book_item.xml"
+    },
+    {
         "merged": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
@@ -146,6 +154,10 @@
     {
         "merged": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_profile.xml.flat",
         "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_history_tab.xml.flat",
+        "source": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\layout\\fragment_history_tab.xml"
     },
     {
         "merged": "C:\\Users\\altaa\\Desktop\\abkt\\goodbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main_screen.xml.flat",

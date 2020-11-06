@@ -166,7 +166,7 @@ public class AddFragment extends Fragment {
                 imgV.setImageBitmap(bitmap);
 
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 10, stream);
                 imageInfo = stream.toByteArray();
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block

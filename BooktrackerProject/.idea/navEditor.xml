@@ -29,6 +29,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="bookPageFragment_to_trackPageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -112,6 +117,27 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="trackPageFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="32" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="trackPageFragment_to_bookPageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="viewProfileFragment">
                     <value>
                       <LayoutPositions>
@@ -123,6 +149,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_viewProfileFragment_to_bookPageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_viewProfileFragment_to_navigation_home">
                               <value>
                                 <LayoutPositions />

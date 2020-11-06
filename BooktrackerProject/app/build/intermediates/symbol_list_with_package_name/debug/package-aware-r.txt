@@ -1731,6 +1731,7 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id LendButton
 id META
 id NO_DEBUG
 id SHIFT
@@ -1811,6 +1812,7 @@ id anonymous_button
 id asConfigured
 id async
 id authorText
+id author_id
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -1827,8 +1829,8 @@ id bookPageFragment_to_editPageFragment
 id bookPageFragment_to_trackPageFragment
 id book_author
 id book_cover
+id book_img
 id book_isbn
-id book_list
 id book_status
 id book_title
 id bottom
@@ -1850,6 +1852,7 @@ id cache_measures
 id camera_preview
 id cancel_action
 id cancel_button
+id cardview_id
 id center
 id center_horizontal
 id center_vertical
@@ -1956,11 +1959,11 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
-id guideline
 id header
 id header_text
 id heading
 id hideable
+id history_tab
 id home
 id homeAsUp
 id honorRequest
@@ -2079,7 +2082,9 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerview_id
 id relativeLayout
+id request_tab
 id resend_barrier
 id resend_code
 id returnButton
@@ -2172,8 +2177,10 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
-id textView2
+id textView3
 id textView_back
+id textView_isbn
+id textView_status
 id textView_title
 id text_editAuthor
 id text_editDescription
@@ -2204,6 +2211,8 @@ id touch_outside
 id trackPageFragment
 id trackPageFragment_to_bookPageFragment
 id track_button
+id track_tab_layout
+id track_viewpager
 id transitionToEnd
 id transitionToStart
 id transition_current_scene
@@ -2311,6 +2320,7 @@ layout activity_scan_barcode
 layout book_adapter_view_layout
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
+layout cardview_book_item
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2331,8 +2341,10 @@ layout fragment_add
 layout fragment_book_page
 layout fragment_dashboard
 layout fragment_edit_page
+layout fragment_history_tab
 layout fragment_home
 layout fragment_notifications
+layout fragment_request_tab
 layout fragment_track_page
 layout fragment_view_profile
 layout fui_activity_invisible

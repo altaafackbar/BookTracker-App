@@ -89,8 +89,10 @@ public class DashboardFragment extends Fragment {
                                 title = (String) book.get("title");
                                 author = (String) book.get("author");
                                 //status = (Boolean)book.get("status");
-                                //bookImg = (String) book.get("image");
-                                bookList.add(new Book(title, author, isbn,"false", MainActivity.current_user ));
+                                bookImg = (String) book.get("image");
+                                Book newBook = new Book(title, author, isbn,"false", MainActivity.current_user);
+                                newBook.setImage(bookImg);
+                                bookList.add(newBook);
 
                             }
                         } else {

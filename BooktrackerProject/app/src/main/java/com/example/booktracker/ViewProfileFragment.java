@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,10 +14,18 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 public class ViewProfileFragment extends Fragment {
-
+    private String searchTerm;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = getActivity().getIntent().getExtras();
+
+        if(bundle.getString("search")!= null)
+        {
+            searchTerm = bundle.getString("search");
+        }
+        TextView username = getActivity().findViewById(R.id.view_profule_username);
+        username.setText(searchTerm);
     }
 
     @Nullable

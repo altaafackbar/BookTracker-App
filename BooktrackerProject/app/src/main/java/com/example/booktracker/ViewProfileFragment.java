@@ -45,13 +45,14 @@ public class ViewProfileFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getActivity().getIntent().getExtras();
-
+        /*
         if(bundle.getString("search")!= null)
         {
             searchTerm = bundle.getString("search");
         }
         TextView username = getActivity().findViewById(R.id.viewProfile_username);
         username.setText(searchTerm);
+        */
     }
 
     @Nullable
@@ -97,7 +98,9 @@ public class ViewProfileFragment extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(profile).navigate(R.id.viewProfileFragment_to_navigation_home);
+
+                getFragmentManager().popBackStackImmediate();
+              //  Navigation.findNavController(profile).navigate(R.id.viewProfileFragment_to_navigation_home);
             }
         });
 

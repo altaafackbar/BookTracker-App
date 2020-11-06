@@ -24,6 +24,7 @@ public class CreateAccount extends AppCompatActivity {
     private EditText password;
     private EditText number;
     private FirebaseFirestore db;
+    private String intentTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,39 @@ public class CreateAccount extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         number = findViewById(R.id.number);
+        Bundle editB = getIntent().getExtras();
+        if(editB != null){
+            intentTask = getIntent().getExtras().getString("task");
+        }
+        else{
+            intentTask = "create";
+        }
+
+        if(intentTask != null && intentTask.equals("edit")){
+            db = FirebaseFirestore.getInstance();
+            DocumentReference docIdRef = db.collection("Users").document(MainActivity.current_user);
+            docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            Log.d("TAG", "DocumentSnapshot data: " + document.getData().get("UserEmail"));
+                            email.setText(document.getData().get("UserEmail").toString());
+                            password.setText(document.getData().get("UserPass").toString());
+                            number.setText(document.getData().get("UserNum").toString());
+                            //grey out everything except number
+                            email.setEnabled(false);
+                            email.setFocusable(false);
+                            password.setEnabled(false);
+                            password.setFocusable(false);
+                        }
+                    }
+                }
+            });
+
+
+        }
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +83,7 @@ public class CreateAccount extends AppCompatActivity {
     private void new_user(){
         final String u_email = email.getText().toString();
         String u_pass = password.getText().toString();
-        String u_num = number.getText().toString();
+        final String u_num = number.getText().toString();
         if(u_email.isEmpty() || u_pass.isEmpty() || u_num.isEmpty()){
             Toast toast = Toast.makeText(getApplicationContext(), "Please fill out all required information", Toast.LENGTH_SHORT);
             toast.show();
@@ -66,16 +100,23 @@ public class CreateAccount extends AppCompatActivity {
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     if (task.isSuccessful()) {
                         DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
+                        if (document.exists() && !intentTask.equals("edit")) {
                             Log.d("TAG", "Document exists!");
                             Toast toast = Toast.makeText(getApplicationContext(), "Username unavailable, please choose another", Toast.LENGTH_SHORT);
                             toast.show();
                         } else {
                             Log.d("TAG", "Document does not exist!");
-                            db.collection("Users").document(u_email).set(data);
-                            MainActivity.current_user = u_email;
-                            Intent sign_in = new Intent(getApplicationContext(), MainScreen.class);
-                            startActivity(sign_in);
+                            if(intentTask.equals("edit")){
+                                db.collection("Users").document(u_email).update("UserNum", u_num);
+                                finish();
+                            }
+                            else{
+                                db.collection("Users").document(u_email).set(data);
+                                MainActivity.current_user = u_email;
+                                Intent sign_in = new Intent(getApplicationContext(), MainScreen.class);
+                                startActivity(sign_in);
+                            }
+
                         }
                     } else {
                         Log.d("TAG", "Failed with: ", task.getException());

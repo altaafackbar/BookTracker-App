@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.booktracker.Book;
+import com.example.booktracker.CreateAccount;
+import com.example.booktracker.EditProfile;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.example.booktracker.RecyclerViewAdapter;
@@ -44,7 +46,7 @@ public class DashboardFragment extends Fragment {
     private String title;
     private String author;
     private String isbn;
-    private Boolean status;
+    private String status;
     private String bookImg;
     RecyclerView myRecyclerview;
     ArrayList<Book> bookList;
@@ -88,9 +90,11 @@ public class DashboardFragment extends Fragment {
                                 isbn = document.getId();
                                 title = (String) book.get("title");
                                 author = (String) book.get("author");
-                                //status = (Boolean)book.get("status");
-                                //bookImg = (String) book.get("image");
-                                bookList.add(new Book(title, author, isbn,"false", MainActivity.current_user ));
+                                status = (String)book.get("status");
+                                bookImg = (String) book.get("image");
+                                Book newBook = new Book(title, author, isbn,status, MainActivity.current_user);
+                                newBook.setImage(bookImg);
+                                bookList.add(newBook);
 
                             }
                         } else {
@@ -129,7 +133,15 @@ public class DashboardFragment extends Fragment {
                 startActivityForResult(intent, 0);
             }
         });
-
+        Button editProfile = root.findViewById(R.id.editProfile);
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CreateAccount.class);
+                intent.putExtra("task", "edit");
+                startActivity(intent);
+            }
+        });
         return root;
     }
 
@@ -138,8 +150,43 @@ public class DashboardFragment extends Fragment {
         if (requestCode==0) {
             if (resultCode== CommonStatusCodes.SUCCESS) {
                 if(data!=null) {
-                    Barcode barcode = data.getParcelableExtra("barcode");
-                    System.out.println(barcode.displayValue);
+                    final Barcode barcode = data.getParcelableExtra("barcode");
+                    db = FirebaseFirestore.getInstance();
+                    db.collection("Users")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        for (final QueryDocumentSnapshot document : task.getResult()) {
+                                            Log.d(TAG, document.getId() + " => ");
+                                            db.collection("Users").document(document.getId())
+                                                    .collection("Books")
+                                                    .get()
+                                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                        public void onComplete(@NonNull Task<QuerySnapshot> task1) {
+                                                            if (task1.isSuccessful()) {
+                                                                for (QueryDocumentSnapshot document1 : task1.getResult()) {
+                                                                    Map<String, Object> book1 = (Map<String, Object>) document1.getData().get("book");
+                                                                    title = (String) book1.get("title");
+                                                                    Log.d(TAG, document.getId() + " ISBN:" + document1.getId() + " ==> " + title);
+                                                                    if (barcode.displayValue.equals(document1.getId())) {
+                                                                        db.collection("Users").document(document.getId()).collection("Books")
+                                                                                .document(barcode.displayValue).update("book.status", "available(pending)");
+                                                                        Toast toast1 = Toast.makeText(getContext(), "Successfully Returned!!", Toast.LENGTH_SHORT);
+                                                                        toast1.show();
+                                                                    }
+
+                                                                }
+                                                            }
+                                                        }
+                                                    });
+
+
+                                        }
+                                    }
+                                }
+                            });
                 }
                 else {
                     System.out.println("No barcode found");

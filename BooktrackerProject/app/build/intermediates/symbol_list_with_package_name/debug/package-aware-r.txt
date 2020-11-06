@@ -1682,6 +1682,7 @@ drawable fui_idp_button_background_twitter
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_baseline_add_24
+drawable ic_baseline_arrow_back
 drawable ic_dashboard_black_24dp
 drawable ic_home_black_24dp
 drawable ic_launcher_background
@@ -1731,6 +1732,7 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id LendButton
 id META
 id NO_DEBUG
 id SHIFT
@@ -1811,6 +1813,7 @@ id anonymous_button
 id asConfigured
 id async
 id authorText
+id author_id
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -1827,8 +1830,8 @@ id bookPageFragment_to_editPageFragment
 id bookPageFragment_to_trackPageFragment
 id book_author
 id book_cover
+id book_img
 id book_isbn
-id book_list
 id book_status
 id book_title
 id bottom
@@ -1850,6 +1853,7 @@ id cache_measures
 id camera_preview
 id cancel_action
 id cancel_button
+id cardview_id
 id center
 id center_horizontal
 id center_vertical
@@ -1889,6 +1893,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteImage
 id deltaRelative
 id dependency_ordering
 id description
@@ -1914,13 +1919,22 @@ id dynamic
 id easeIn
 id easeInOut
 id easeOut
+id editImageButton
 id editPageFragment
 id editPageFragment_to_bookPageFragment
-id editPage_back
-id edit_addButton
+id editProfile
+id editView
+id edit_add_button
+id edit_authorText
+id edit_backArrow
 id edit_button
+id edit_imageView
+id edit_imageViewScan
+id edit_isbnText
 id edit_phone_number
+id edit_pressToScan
 id edit_query
+id edit_titleText
 id email
 id email2
 id email_button
@@ -1956,11 +1970,11 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
-id guideline
 id header
 id header_text
 id heading
 id hideable
+id history_tab
 id home
 id homeAsUp
 id honorRequest
@@ -2042,6 +2056,7 @@ id navigation_dashboard
 id navigation_header_container
 id navigation_home
 id navigation_notifications
+id nestedScrollView
 id never
 id noScroll
 id none
@@ -2079,7 +2094,9 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerview_id
 id relativeLayout
+id request_tab
 id resend_barrier
 id resend_code
 id returnButton
@@ -2172,14 +2189,11 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
-id textView2
+id textView3
 id textView_back
+id textView_isbn
+id textView_status
 id textView_title
-id text_editAuthor
-id text_editDescription
-id text_editISBN
-id text_editPhoto
-id text_editTitle
 id text_input_end_icon
 id text_input_start_icon
 id text_notifications
@@ -2204,6 +2218,8 @@ id touch_outside
 id trackPageFragment
 id trackPageFragment_to_bookPageFragment
 id track_button
+id track_tab_layout
+id track_viewpager
 id transitionToEnd
 id transitionToStart
 id transition_current_scene
@@ -2221,6 +2237,7 @@ id up
 id useLogo
 id userSearch
 id username
+id viewImage
 id viewProfileFragment
 id view_offset_helper
 id view_profile_back_button
@@ -2304,6 +2321,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_create_account
+layout activity_edit_profile
 layout activity_main
 layout activity_main_screen
 layout activity_profile
@@ -2311,6 +2329,7 @@ layout activity_scan_barcode
 layout book_adapter_view_layout
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
+layout cardview_book_item
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2331,8 +2350,10 @@ layout fragment_add
 layout fragment_book_page
 layout fragment_dashboard
 layout fragment_edit_page
+layout fragment_history_tab
 layout fragment_home
 layout fragment_notifications
+layout fragment_request_tab
 layout fragment_track_page
 layout fragment_view_profile
 layout fui_activity_invisible

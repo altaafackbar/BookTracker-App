@@ -1,7 +1,11 @@
 package com.example.booktracker;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +19,8 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
@@ -40,7 +46,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
         holder.tv_book_title.setText(myData.get(position).getTitle());
-        //holder.img_book_thumbnail.setImageResource(Integer.parseInt(myData.get(position).getImage()));
+        String encodedString = myData.get(position).getImage();
+
+        if(encodedString != null){
+            Log.d(TAG, "onBindViewHolder: pic exists");
+            byte [] encodeByte=Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            //holder.img_book_thumbnail.setImageResource(Integer.parseInt(myData.get(position).getImage()));
+            holder.img_book_thumbnail.setImageBitmap(bitmap);
+        }
+        else{
+            Log.d(TAG, "onBindViewHolder: pic doesnt exists");
+        }
+
+
+
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +71,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 args.putString("author", myData.get(position).getAuthor());
                 args.putString("status", myData.get(position).getStatus());
                args.putString("isbn", myData.get(position).getIsbn());
+               args.putString("img",myData.get(position).getImage());
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment, args);
             }
         });

@@ -1,17 +1,25 @@
 package com.example.booktracker.ui;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.booktracker.R;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +32,7 @@ public class BookPageFragment extends Fragment {
     private String author;
     private String status;
     private String isbn;
+    private String img;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -95,18 +104,22 @@ public class BookPageFragment extends Fragment {
             author = getArguments().getString("author");
             status = getArguments().getString("status");
             isbn = getArguments().getString("isbn");
+            img = getArguments().getString("img");
+        }
+        ImageView bookCover = view.findViewById(R.id.book_cover);
+        if(img != null){
+            Log.d(TAG, "onBindViewHolder: pic exists");
+            byte [] encodeByte= Base64.decode(img, Base64.DEFAULT);
+            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            bookCover.setImageBitmap(bitmap);
         }
         TextView titleView = view.findViewById(R.id.textView_title);
         titleView.setText(title);
         TextView authorView = view.findViewById(R.id.author_id);
         authorView.setText(author);
         TextView statusView = view.findViewById(R.id.textView_status);
-        if (status != "true"){
-            statusView.setText("Status: Not borrowed");
-        }
-        else {
-            statusView.setText("Status: Borrowed");
-        }
+        statusView.setText("Status: "+status);
+
         TextView isbnView = view.findViewById(R.id.textView_isbn);
         isbnView.setText("ISBN: " + isbn);
 

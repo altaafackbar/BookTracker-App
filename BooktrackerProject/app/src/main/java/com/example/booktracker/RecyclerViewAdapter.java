@@ -71,6 +71,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 args.putString("author", myData.get(position).getAuthor());
                 args.putString("status", myData.get(position).getStatus());
                args.putString("isbn", myData.get(position).getIsbn());
+               args.putString("img",myData.get(position).getImage());
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment, args);
             }
         });

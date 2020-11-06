@@ -1832,6 +1832,7 @@ id book_img
 id book_isbn
 id book_status
 id book_title
+id borrower_text
 id bottom
 id bounce
 id browser_actions_header_text
@@ -1973,6 +1974,7 @@ id header
 id header_text
 id heading
 id hideable
+id history_list_view
 id history_tab
 id home
 id homeAsUp
@@ -2105,6 +2107,7 @@ id requester_username
 id resend_barrier
 id resend_code
 id returnButton
+id return_date_text
 id reverseSawtooth
 id right
 id right_icon
@@ -2386,6 +2389,7 @@ layout fui_register_email_layout
 layout fui_welcome_back_email_link_prompt_layout
 layout fui_welcome_back_idp_prompt_layout
 layout fui_welcome_back_password_prompt_layout
+layout history_list_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title

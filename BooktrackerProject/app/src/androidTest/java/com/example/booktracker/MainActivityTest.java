@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.booktracker.ui.home.HomeFragment;
 import com.robotium.solo.Solo;
 import org.junit.After;
 import org.junit.Before;
@@ -51,7 +52,7 @@ public class MainActivityTest{
      * Add a city to the listview and check the city name using assertTrue
      * Clear all the cities from the listview and check again with assertFalse
      */
-    //@Test
+    @Test
     public void sign_in(){
 //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
@@ -65,7 +66,7 @@ public class MainActivityTest{
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
         Random rand = new Random();
 // Obtain a number between [0 - 200].
-        int n = rand.nextInt(2000);
+        int n = rand.nextInt(20000);
         n += 1;
         Button msButton = (Button) solo.getView(
                 R.id.create_acc);
@@ -79,6 +80,52 @@ public class MainActivityTest{
                 R.id.sign_up);
         solo.clickOnView(sign_up); //Click new user Button
         solo.assertCurrentActivity("Should be main screen activity", MainScreen.class);
+
+    }
+    @Test
+    public void addBook(){
+//Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
+        solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        solo.enterText((EditText) solo.getView(R.id.email2), "test4");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click ADD CITY Button
+
+        solo.assertCurrentActivity("Should be create account activity", MainScreen.class);
+        solo.clickOnView(solo.getView(R.id.navigation_add));
+
+        Random rand = new Random();
+// Obtain a number between [0 - 200].
+        int n = rand.nextInt(20000);
+        n += 1;
+        solo.enterText((EditText) solo.getView(R.id.authorText), "TestAuthor");
+        solo.enterText((EditText) solo.getView(R.id.titleText), "TestTitle");
+        solo.enterText((EditText) solo.getView(R.id.isbnText), "0" + n);
+        Button add_book = (Button) solo.getView(R.id.add_button);
+        solo.clickOnView(add_book);
+    }
+    @Test
+    public void deleteBook(){
+//Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
+        solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        solo.enterText((EditText) solo.getView(R.id.email2), "test4");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click ADD CITY Button
+
+        solo.assertCurrentActivity("Should be create account activity", MainScreen.class);
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
+
+        solo.clickOnView(solo.getView(R.id.editProfile));
+        Random rand = new Random();
+// Obtain a number between [0 - 200].
+        int n = rand.nextInt(200000);
+        n += 1;
+        solo.assertCurrentActivity("Should be create account activity", CreateAccount.class);
+        EditText number = (EditText) solo.getView(R.id.number);
+        solo.clearEditText(number);
+        solo.enterText(number, String.valueOf(n));
+        solo.clickOnView(solo.getView(R.id.sign_up));
+        solo.assertCurrentActivity("Should be main screen activity", MainScreen.class);
+
 
     }
 

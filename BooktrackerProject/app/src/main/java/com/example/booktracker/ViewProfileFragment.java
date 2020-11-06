@@ -45,6 +45,7 @@ public class ViewProfileFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getActivity().getIntent().getExtras();
+
         /*
         if(bundle.getString("search")!= null)
         {
@@ -53,6 +54,7 @@ public class ViewProfileFragment extends Fragment {
         TextView username = getActivity().findViewById(R.id.viewProfile_username);
         username.setText(searchTerm);
         */
+
     }
 
     @Nullable
@@ -61,6 +63,8 @@ public class ViewProfileFragment extends Fragment {
 
         final View profile = inflater.inflate(R.layout.fragment_view_profile,container,false);
         final Button back = profile.findViewById(R.id.viewProfile_backButton);
+        final TextView username = profile.findViewById(R.id.viewProfile_username);
+        username.setText(HomeFragment.searchUser);
 
         profileBookList = new ArrayList<>();
         profileRecyclerview = (RecyclerView) profile.findViewById(R.id.viewProfile_recyclerview_id);

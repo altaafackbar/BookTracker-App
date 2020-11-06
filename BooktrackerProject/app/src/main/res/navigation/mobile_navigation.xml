@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.booktracker.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/navigation_home_to_viewProfileFragment"
+            app:destination="@id/viewProfileFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -69,10 +73,10 @@
         android:name="com.example.booktracker.ViewProfileFragment"
         android:label="ViewProfileFragment" >
         <action
-            android:id="@+id/action_viewProfileFragment_to_navigation_home"
+            android:id="@+id/viewProfileFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
         <action
-            android:id="@+id/action_viewProfileFragment_to_bookPageFragment"
+            android:id="@+id/viewProfileFragment_to_bookPageFragment"
             app:destination="@id/bookPageFragment" />
     </fragment>
 </navigation>

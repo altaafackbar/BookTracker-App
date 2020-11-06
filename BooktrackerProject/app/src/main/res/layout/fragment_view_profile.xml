@@ -1,90 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
+    <!--tools:context=".ui.dashboard.DashboardFragment" -->
+
+    <Button
+        android:id="@+id/viewProfile_backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go Back"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/view_profile_back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:text="Back"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <!-- get profile picture and set it for user           -->
 
         <ImageView
-            android:id="@+id/view_profile_profile_pic"
-            android:layout_width="122dp"
-            android:layout_height="118dp"
+            android:id="@+id/viewProfile_profilePicture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="145dp"
-            android:layout_marginRight="145dp"
+            android:layout_marginEnd="148dp"
+            android:layout_marginRight="148dp"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:cropToPadding="true"
             app:srcCompat="@drawable/profile_icon" />
 
         <TextView
-            android:id="@+id/view_profule_username"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:layout_below="@+id/profile_picture"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
+            android:id="@+id/viewProfile_username"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="151dp"
-            android:layout_marginLeft="151dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="158dp"
-            android:layout_marginRight="158dp"
-            android:layout_marginBottom="21dp"
+            android:layout_marginEnd="148dp"
+            android:layout_marginRight="148dp"
+            android:layout_marginBottom="51dp"
             android:adjustViewBounds="true"
-            android:gravity="center_vertical"
+            android:gravity="center_horizontal"
             android:scaleType="centerInside"
             android:text="Username"
+            android:textAlignment="center"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="9dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="151dp"
-            android:layout_marginLeft="151dp"
-            android:layout_marginTop="182dp"
-            android:layout_marginEnd="158dp"
-            android:layout_marginRight="158dp"
-            android:gravity="center_vertical"
-            android:scaleType="centerInside"
-            android:adjustViewBounds="true"
-            android:text="About" />
-
 
     </RelativeLayout>
+    <!--    <TextView-->
+    <!--        android:id="@+id/text_dashboard"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:gravity="center_horizontal"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:layout_editor_absoluteX="9dp" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/my_books"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:text="My Books"-->
+    <!--        android:textSize="30dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />-->
+
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
@@ -95,17 +92,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/viewProfile_recyclerview_id"
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="250dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <ListView
-            android:id="@+id/view_profile_book_list"
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:layout_marginTop="250dp">
+        </androidx.recyclerview.widget.RecyclerView>
 
-        </ListView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

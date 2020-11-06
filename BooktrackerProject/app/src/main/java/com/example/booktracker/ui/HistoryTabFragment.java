@@ -1,14 +1,24 @@
 package com.example.booktracker.ui;
-
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.booktracker.R;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +71,51 @@ public class HistoryTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history_tab, container, false);
+        View view = inflater.inflate(R.layout.fragment_history_tab, container, false);
+
+        ArrayList<String> tempUnames = new ArrayList<String>(); //Temporary Usernames to add to list, to be replaced with requesters
+        tempUnames.add("User1"); //Temporary Usernames to add to list, to be replaced with requesters
+        tempUnames.add("User2"); //Temporary Usernames to add to list, to be replaced with requesters
+
+        ListView historyListView = (ListView)view.findViewById(R.id.history_list_view);
+        historyListView.setAdapter(new HistoryTabFragment.HistoryListAdapter(getActivity(),R.layout.history_list_item,tempUnames));
+        return view;
+    }
+
+    private class HistoryListAdapter extends ArrayAdapter<String> {
+        private int layout;
+        public HistoryListAdapter(@NonNull Context context, int resource, @NonNull List<String> objects) {
+            super(context, resource, objects);
+            layout = resource;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            HistoryViewHolder mainViewholder = null;
+            if(convertView==null){
+                LayoutInflater inflater = LayoutInflater.from(getContext());
+                convertView = inflater.inflate(layout, parent, false);
+                HistoryViewHolder viewHolder = new HistoryViewHolder();
+                viewHolder.borrower_name = (TextView) convertView.findViewById(R.id.borrower_text);
+                viewHolder.return_date = (TextView) convertView.findViewById(R.id.return_date_text);
+                viewHolder.borrower_name.setText("Borrowed by: Username"); //Temporary to test list view
+                viewHolder.return_date.setText("Returned on: March 20, 2020"); //Temporary to test list view
+                convertView.setTag(viewHolder);
+            }
+            else{
+                mainViewholder = (HistoryViewHolder) convertView.getTag();
+                mainViewholder.borrower_name.setText("Borrowed by: Username1"); //Temporary hardcoded string to test, to be replaced with users
+                mainViewholder.return_date.setText("Returned on: March 20, 2020"); //Temporary hardcoded string, to be replaced with dates
+
+            }
+            return convertView;
+        }
+
+    }
+
+    public class HistoryViewHolder{
+        TextView borrower_name;
+        TextView return_date;
     }
 }

@@ -49,6 +49,9 @@
         <action
             android:id="@+id/bookPageFragment_to_trackPageFragment"
             app:destination="@id/trackPageFragment" />
+        <action
+            android:id="@+id/bookPageFragment_to_borrowPageFragment"
+            app:destination="@id/borrowPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/editPageFragment"
@@ -67,6 +70,15 @@
         <action
             android:id="@+id/trackPageFragment_to_bookPageFragment"
             app:destination="@id/trackPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/borrowPageFragment"
+        android:name="com.example.booktracker.ui.BookBorrowFragment"
+        android:label="Book_Borrow_Fragment"
+        tools:layout="@layout/fragment_book_borrow" >
+        <action
+            android:id="@+id/borrowPageFragment_to_bookPageFragment"
+            app:destination="@id/borrowPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewProfileFragment"

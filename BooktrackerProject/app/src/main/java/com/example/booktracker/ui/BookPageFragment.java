@@ -106,6 +106,16 @@ public class BookPageFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_trackPageFragment);
             }
         });
+
+        final Button borrow_button = view.findViewById(R.id.borrow_btn);
+        borrow_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_borrowPageFragment);
+            }
+        });
+
+
         final ImageView popup = view.findViewById(R.id.viewImage);
         popup.setVisibility(View.INVISIBLE);
         if (getArguments() != null){

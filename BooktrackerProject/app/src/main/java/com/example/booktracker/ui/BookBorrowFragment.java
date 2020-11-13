@@ -18,10 +18,42 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.booktracker.Book;
 import com.example.booktracker.R;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.util.Log;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +61,16 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class BookBorrowFragment extends Fragment {
+    private String title;
+    private String author;
+    private String isbn;
+    private String status;
+    private String bookImg;
+    private ArrayList<Book> bookList;
+    private FirebaseFirestore db;
+    private ArrayList<String> userEmailList = new ArrayList<>();
+    BorrowListAdapter borrowAdapter;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -74,12 +116,34 @@ public class BookBorrowFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ArrayList<String> tempUnames = new ArrayList<String>(); //Temporary Usernames to add to list, to be replaced with owners
-        tempUnames.add("User1"); //Temporary Usernames to add to list, to be replaced with owners
-        tempUnames.add("User2"); //Temporary Usernames to add to list, to be replaced with owners
         View view = inflater.inflate(R.layout.fragment_book_borrow, container, false);
+        bookList = new ArrayList<>();
+
+        db = FirebaseFirestore.getInstance();
+        final CollectionReference collectionReference = db.collection("Users");
+
         ListView listView = (ListView)view.findViewById(R.id.available_borrow_list);
-        listView.setAdapter(new BorrowListAdapter(getActivity(),R.layout.borrow_list_item,tempUnames));
+        borrowAdapter = new BorrowListAdapter(getActivity(),R.layout.borrow_list_item, userEmailList);
+        listView.setAdapter(borrowAdapter);
+        borrowAdapter.notifyDataSetChanged();
+
+
+        collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
+                bookList.clear();
+                for(QueryDocumentSnapshot doc: queryDocumentSnapshots)
+                {
+
+                    userEmailList.add((String) doc.getData().get("UserEmail"));
+                }
+                borrowAdapter.notifyDataSetChanged();
+            }
+        });
+
+
+
+
         return view;
     }
 
@@ -105,14 +169,17 @@ public class BookBorrowFragment extends Fragment {
                 viewHolder.request_button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getContext(), "Request button clicked", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Requested", Toast.LENGTH_SHORT).show();
                     }
                 });
                 convertView.setTag(viewHolder);
+
+                viewHolder.owner_name.setText(getItem(position));
             }
             else{
                 mainViewHolder = (ViewHolder) convertView.getTag();
                 mainViewHolder.owner_name.setText(getItem(position));
+
 
             }
             return convertView;

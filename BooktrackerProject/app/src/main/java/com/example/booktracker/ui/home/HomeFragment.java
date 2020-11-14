@@ -28,9 +28,12 @@ import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.vision.barcode.Barcode;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -99,7 +102,7 @@ public class HomeFragment extends Fragment {
         myRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 3 ));
         myRecyclerview.setAdapter(myAdapter);
 
-
+        /*
         db = FirebaseFirestore.getInstance();
         db.collection("Users").document(MainActivity.current_user)
                 .collection("Books")
@@ -127,6 +130,52 @@ public class HomeFragment extends Fragment {
                         myAdapter.notifyDataSetChanged();
                     }
                 });
+
+        */
+        db = FirebaseFirestore.getInstance();
+        final CollectionReference collectionReference = db.collection("Users");
+        collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
+                bookList.clear();
+                ArrayList<String> userEmailList = new ArrayList<>();
+                for(QueryDocumentSnapshot doc: queryDocumentSnapshots)
+                {
+
+                    userEmailList.add((String) doc.getData().get("UserEmail"));
+                }
+                for(String uEmail:userEmailList){
+                    db.collection("Users").document(uEmail)
+                            .collection("Books")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if(task.isSuccessful()){
+                                        for (QueryDocumentSnapshot document:task.getResult()){
+                                            Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
+                                            Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
+                                            status = (String) book.get("status");
+                                            if(status.equals("available")){
+                                                isbn = document.getId();
+                                                title = (String) book.get("title");
+                                                author = (String) book.get("author");
+                                                bookImg = (String) book.get("image");
+                                                Book newBook = new Book(title, author, isbn, status, MainActivity.current_user);
+                                                newBook.setImage(bookImg);
+                                                bookList.add(newBook);
+                                            }
+                                        }
+                                    } else{
+                                        Log.d(TAG, "Error getting documents: ", task.getException());
+                                    }
+                                    myAdapter.notifyDataSetChanged();
+                                }
+                            });
+                }
+            }
+        });
+
         return root;
     }
 

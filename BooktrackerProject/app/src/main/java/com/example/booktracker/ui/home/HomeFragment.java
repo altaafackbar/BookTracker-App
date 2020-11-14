@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.booktracker.AvailableRecyclerViewAdapter;
 import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
@@ -98,7 +99,7 @@ public class HomeFragment extends Fragment {
         });
         bookList = new ArrayList<>();
         myRecyclerview = (RecyclerView) root.findViewById(R.id.recyclerview_id_home);
-        final RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getActivity(), bookList);
+        final AvailableRecyclerViewAdapter myAdapter = new AvailableRecyclerViewAdapter(getActivity(), bookList);
         myRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 3 ));
         myRecyclerview.setAdapter(myAdapter);
         db = FirebaseFirestore.getInstance();

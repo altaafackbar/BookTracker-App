@@ -13,6 +13,18 @@
         <action
             android:id="@+id/navigation_home_to_viewProfileFragment"
             app:destination="@id/viewProfileFragment" />
+        <action
+            android:id="@+id/navigation_home_to_requestPageFragment"
+            app:destination="@id/requestPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestPageFragment"
+        android:name="com.example.booktracker.ui.RequestPageFragment"
+        android:label="Request Page"
+        tools:layout="@layout/fragment_request_page" >
+        <action
+            android:id="@+id/requestPageFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment

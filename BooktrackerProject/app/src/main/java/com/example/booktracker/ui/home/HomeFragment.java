@@ -101,37 +101,6 @@ public class HomeFragment extends Fragment {
         final RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getActivity(), bookList);
         myRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 3 ));
         myRecyclerview.setAdapter(myAdapter);
-
-        /*
-        db = FirebaseFirestore.getInstance();
-        db.collection("Users").document(MainActivity.current_user)
-                .collection("Books")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
-                                Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
-                                isbn = document.getId();
-                                title = (String) book.get("title");
-                                author = (String) book.get("author");
-                                status = (String)book.get("status");
-                                bookImg = (String) book.get("image");
-                                Book newBook = new Book(title, author, isbn,status, MainActivity.current_user);
-                                newBook.setImage(bookImg);
-                                bookList.add(newBook);
-
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                        myAdapter.notifyDataSetChanged();
-                    }
-                });
-
-        */
         db = FirebaseFirestore.getInstance();
         final CollectionReference collectionReference = db.collection("Users");
         collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {

@@ -20,11 +20,15 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
@@ -145,9 +149,27 @@ public class RequestPageFragment extends Fragment {
         requestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), owner, Toast.LENGTH_SHORT).show();
+                Map<String, Book> book = new HashMap<>();
+                Book newBook = new Book(title, author, isbn, status, owner);
+                book.put("book",newBook);
+                
+                //Add book to Requested Books of current user
+                db = FirebaseFirestore.getInstance();
+                db.collection("Users").document(MainActivity.current_user)
+                        .collection("Requested Books")
+                        .document(isbn).set(book);
+
+
+                //Add book to Book Requests Received of Owner
+                db.collection("Users").document(owner)
+                        .collection("Book Requests Received")
+                        .document(MainActivity.current_user).set(book);
+                Toast.makeText(getContext(), "Book Successfully Requested", Toast.LENGTH_SHORT).show();
+
             }
         });
+
+
         return view;
     }
 }

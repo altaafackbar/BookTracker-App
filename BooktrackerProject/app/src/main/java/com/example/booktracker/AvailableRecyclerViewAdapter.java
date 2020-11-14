@@ -71,6 +71,7 @@ public class AvailableRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
                 args.putString("status", myData.get(position).getStatus());
                 args.putString("isbn", myData.get(position).getIsbn());
                 args.putString("img",myData.get(position).getImage());
+                args.putString("owner",myData.get(position).getOwner());
                 Navigation.findNavController(view).navigate(R.id.requestPageFragment, args);
             }
         });

@@ -36,6 +36,7 @@ public class RequestPageFragment extends Fragment {
     private String isbn;
     private String img;
     private Bitmap bitmap;
+    private String owner;
     private FirebaseFirestore db;
 
     private boolean delete;
@@ -100,6 +101,7 @@ public class RequestPageFragment extends Fragment {
             status = getArguments().getString("status");
             isbn = getArguments().getString("isbn");
             img = getArguments().getString("img");
+            owner = getArguments().getString("owner");
         }
         final ImageView bookCover = view.findViewById(R.id.book_cover_request);
         final Drawable resImg = ResourcesCompat.getDrawable(getResources(), R.drawable.image_needed, null);
@@ -112,13 +114,15 @@ public class RequestPageFragment extends Fragment {
         }
         TextView titleView = view.findViewById(R.id.textView_title_request);
         titleView.setText(title);
+        TextView ownerView = view.findViewById(R.id.textView_owner_request);
+        ownerView.setText("Owner: "+owner);
         TextView authorView = view.findViewById(R.id.author_id_request);
         authorView.setText(author);
         TextView statusView = view.findViewById(R.id.textView_status_request);
         statusView.setText("Status: "+status);
 
         TextView isbnView = view.findViewById(R.id.textView_isbn_request);
-        isbnView.setText("ISBN: " + isbn);
+        isbnView.setText("ISBN: " +isbn);
         //if user clicks book cover, blow up image
         bookCover.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +145,7 @@ public class RequestPageFragment extends Fragment {
         requestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Requested", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), owner, Toast.LENGTH_SHORT).show();
             }
         });
         return view;

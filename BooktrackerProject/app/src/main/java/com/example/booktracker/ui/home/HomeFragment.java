@@ -132,7 +132,8 @@ public class HomeFragment extends Fragment {
                                                     title = (String) book.get("title");
                                                     author = (String) book.get("author");
                                                     bookImg = (String) book.get("image");
-                                                    Book newBook = new Book(title, author, isbn, status, MainActivity.current_user);
+                                                    owner = (String)book.get("owner");
+                                                    Book newBook = new Book(title, author, isbn, status, owner);
                                                     newBook.setImage(bookImg);
                                                     bookList.add(newBook);
                                                 }

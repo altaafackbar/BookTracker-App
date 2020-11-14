@@ -114,33 +114,35 @@ public class HomeFragment extends Fragment {
                     userEmailList.add((String) doc.getData().get("UserEmail"));
                 }
                 for(String uEmail:userEmailList){
-                    db.collection("Users").document(uEmail)
-                            .collection("Books")
-                            .get()
-                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if(task.isSuccessful()){
-                                        for (QueryDocumentSnapshot document:task.getResult()){
-                                            Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
-                                            Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
-                                            status = (String) book.get("status");
-                                            if(status.equals("available")){
-                                                isbn = document.getId();
-                                                title = (String) book.get("title");
-                                                author = (String) book.get("author");
-                                                bookImg = (String) book.get("image");
-                                                Book newBook = new Book(title, author, isbn, status, MainActivity.current_user);
-                                                newBook.setImage(bookImg);
-                                                bookList.add(newBook);
+                    if (!uEmail.equals(MainActivity.current_user)) {
+                        db.collection("Users").document(uEmail)
+                                .collection("Books")
+                                .get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                                Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
+                                                Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
+                                                status = (String) book.get("status");
+                                                if (status.equals("available")) {
+                                                    isbn = document.getId();
+                                                    title = (String) book.get("title");
+                                                    author = (String) book.get("author");
+                                                    bookImg = (String) book.get("image");
+                                                    Book newBook = new Book(title, author, isbn, status, MainActivity.current_user);
+                                                    newBook.setImage(bookImg);
+                                                    bookList.add(newBook);
+                                                }
                                             }
+                                        } else {
+                                            Log.d(TAG, "Error getting documents: ", task.getException());
                                         }
-                                    } else{
-                                        Log.d(TAG, "Error getting documents: ", task.getException());
+                                        myAdapter.notifyDataSetChanged();
                                     }
-                                    myAdapter.notifyDataSetChanged();
-                                }
-                            });
+                                });
+                    }
                 }
             }
         });

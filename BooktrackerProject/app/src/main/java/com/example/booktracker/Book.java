@@ -7,6 +7,7 @@ public class Book {
     private String status;
     private String image;
     private String owner;
+    private String requestStatus;
 
     public Book(String title, String author, String isbn, String status, String owner) {
         this.title = title;
@@ -14,6 +15,15 @@ public class Book {
         this.isbn = isbn;
         this.status = status;
         this.owner = owner;
+        this.requestStatus = null;
+    }
+
+    public String getRequestStatus() {
+        return requestStatus;
+    }
+
+    public void setRequestStatus(String requestStatus) {
+        this.requestStatus = requestStatus;
     }
 
     public String getImage() {

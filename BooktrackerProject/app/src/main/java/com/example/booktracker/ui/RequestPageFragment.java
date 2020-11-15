@@ -151,6 +151,7 @@ public class RequestPageFragment extends Fragment {
             public void onClick(View v) {
                 Map<String, Book> book = new HashMap<>();
                 Book newBook = new Book(title, author, isbn, status, owner);
+                newBook.setRequestStatus("Pending Request");
                 book.put("book",newBook);
                 
                 //Add book to Requested Books of current user

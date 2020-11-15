@@ -110,6 +110,7 @@ public class NotificationRequestedTabFragment extends Fragment {
                                 bookImg = (String) book.get("image");
                                 owner = (String) book.get("owner");
                                 Book newBook = new Book(title, author, isbn, status, owner);
+                                newBook.setRequestStatus((String)book.get("requestStatus"));
                                 newBook.setImage(bookImg);
                                 bookList.add(newBook);
 
@@ -152,7 +153,7 @@ public class NotificationRequestedTabFragment extends Fragment {
                 viewHolder.title.setText("Title: "+getItem(position).getTitle());
                 viewHolder.owner.setText("Owner: " + getItem(position).getOwner());
                 viewHolder.description.setText("Description: ");
-                viewHolder.status.setText("Status: ");
+                viewHolder.status.setText("Status: "+getItem(position).getRequestStatus());
 
                 convertView.setTag(viewHolder);
             }

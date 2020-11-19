@@ -47,7 +47,7 @@
         android:ems="10"
         android:hint="Enter User Info"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/searchUserButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -55,19 +55,22 @@
         android:id="@+id/searchUserButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:text="Search User"
+        app:layout_constraintBottom_toBottomOf="@+id/userSearch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userSearch" />
+        app:layout_constraintTop_toTopOf="@+id/userSearch" />
 
     <Button
         android:id="@+id/LendButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Lend/Accept"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchUserButton" />
+        app:layout_constraintTop_toBottomOf="@+id/bookSearch" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_id_home"
@@ -79,5 +82,29 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/bookSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Search Books"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userSearch" />
+
+    <EditText
+        android:id="@+id/bookText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter Book Keyword"
+        app:layout_constraintBottom_toBottomOf="@+id/bookSearch"
+        app:layout_constraintEnd_toStartOf="@+id/bookSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userSearch"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

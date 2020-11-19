@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.booktracker.AvailableRecyclerViewAdapter;
 import com.example.booktracker.Book;
+import com.example.booktracker.BookSearch;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.example.booktracker.RecyclerViewAdapter;
@@ -48,6 +49,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FirebaseFirestore db;
     private EditText searchText;
+    private  EditText bookSearchText;
     private String owner;
     public static String searchUser;
     private String status;
@@ -148,7 +150,17 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-
+        final Button BookSearchButton = root.findViewById(R.id.bookSearch);
+        bookSearchText = root.findViewById(R.id.bookText);
+        BookSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchTerm = bookSearchText.getText().toString();
+                Intent intent = new Intent(getActivity(), BookSearch.class);
+                intent.putExtra("searchTerm", searchTerm);
+                startActivity(intent);
+            }
+        });
         return root;
     }
 

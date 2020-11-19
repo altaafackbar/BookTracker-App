@@ -103,7 +103,9 @@ public class BookPageFragment extends Fragment {
         track_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_trackPageFragment);
+                Bundle args = new Bundle();
+                args.putString("isbn", isbn);
+                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_acceptRequestFragment,args);
             }
         });
 

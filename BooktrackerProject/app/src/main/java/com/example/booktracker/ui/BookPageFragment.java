@@ -130,7 +130,7 @@ public class BookPageFragment extends Fragment {
         final Drawable resImg = ResourcesCompat.getDrawable(getResources(), R.drawable.image_needed, null);
         //if image exists, set the book cover to user image
         if(img != null && !img.isEmpty()){
-            Log.d(TAG, "onBindViewHolder: pic exists");
+            Log.d(TAG, "onBindViewHolder: pic exists in fragment");
             byte [] encodeByte= Base64.decode(img, Base64.DEFAULT);
             bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
             bookCover.setImageBitmap(bitmap);

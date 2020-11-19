@@ -1978,6 +1978,7 @@ id forever
 id fragment_container_view_tag
 id fragment_phone
 id fragment_register_email
+id frameLayout
 id ghost_view
 id ghost_view_holder
 id gone
@@ -2023,6 +2024,7 @@ id line1
 id line3
 id linear
 id linearLayout
+id linearLayout2
 id listMode
 id list_item
 id logo
@@ -2402,6 +2404,7 @@ layout design_text_input_start_icon
 layout fragment_add
 layout fragment_book_borrow
 layout fragment_book_page
+layout fragment_book_search
 layout fragment_dashboard
 layout fragment_edit_page
 layout fragment_history_tab

@@ -42,7 +42,7 @@ public class BookSearch extends AppCompatActivity {
     RecyclerView myRecyclerview;
     ArrayList<Book> bookList;
     private FirebaseFirestore db;
-    private AvailableRecyclerViewAdapter myAdapter;
+    private BookRecyclerViewAdapter myAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +58,7 @@ public class BookSearch extends AppCompatActivity {
         }
         bookList = new ArrayList<>();
         myRecyclerview = (RecyclerView) findViewById(R.id.bookSearch_recycler_view_id);
-        myAdapter = new AvailableRecyclerViewAdapter(this, bookList);
+        myAdapter = new BookRecyclerViewAdapter(this, bookList);
         myRecyclerview.setLayoutManager(new GridLayoutManager(this, 3 ));
         myRecyclerview.setAdapter(myAdapter);
         db = FirebaseFirestore.getInstance();

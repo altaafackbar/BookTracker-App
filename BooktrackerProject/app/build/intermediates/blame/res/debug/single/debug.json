@@ -340,6 +340,10 @@
         "source": "C:\\Users\\altaa\\Desktop\\abkt\\testbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\layout\\activity_book_search.xml"
     },
     {
+        "merged": "C:\\Users\\altaa\\Desktop\\abkt\\testbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_book_search.xml.flat",
+        "source": "C:\\Users\\altaa\\Desktop\\abkt\\testbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\layout\\fragment_book_search.xml"
+    },
+    {
         "merged": "C:\\Users\\altaa\\Desktop\\abkt\\testbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_request_list_item.xml.flat",
         "source": "C:\\Users\\altaa\\Desktop\\abkt\\testbkt\\booktracker\\BooktrackerProject\\app\\src\\main\\res\\layout\\request_list_item.xml"
     },

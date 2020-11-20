@@ -236,7 +236,7 @@ public class HomeFragment extends Fragment {
                                             if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available")) {
                                                     //Change status to borrowed
                                                     db.collection("Users").document(MainActivity.current_user).collection("Books")
-                                                            .document(barcode.displayValue).update("book.status", "borrowed");
+                                                            .document(barcode.displayValue).update("book.status", "borrowed(pending)");
                                                     Toast toast1 = Toast.makeText(getContext(), "Successfully lent!", Toast.LENGTH_SHORT);
                                                     toast1.show();
                                                 }
@@ -244,6 +244,13 @@ public class HomeFragment extends Fragment {
                                             else if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available(pending)")) {
                                                 db.collection("Users").document(MainActivity.current_user).collection("Books")
                                                         .document(barcode.displayValue).update("book.status", "available");
+                                                Toast toast1 = Toast.makeText(getContext(), "Successfully Accepted!", Toast.LENGTH_SHORT);
+                                                toast1.show();
+                                            }
+                                            //If user is accepting an accepted request book
+                                            else if (status.equals("borrowed(pending)")) {
+                                                db.collection("Users").document(MainActivity.current_user).collection("Books")
+                                                        .document(barcode.displayValue).update("book.status", "borrowed");
                                                 Toast toast1 = Toast.makeText(getContext(), "Successfully Accepted!", Toast.LENGTH_SHORT);
                                                 toast1.show();
                                             }

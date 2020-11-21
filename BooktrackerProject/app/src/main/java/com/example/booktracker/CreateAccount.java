@@ -22,6 +22,7 @@ import java.util.HashMap;
 public class CreateAccount extends AppCompatActivity {
     private EditText email;
     private EditText password;
+    private EditText confirmPass;
     private EditText number;
     private FirebaseFirestore db;
     private String intentTask;
@@ -33,6 +34,7 @@ public class CreateAccount extends AppCompatActivity {
         Button backBtn = findViewById(R.id.back_button);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        confirmPass = findViewById(R.id.confirmPassword);
         number = findViewById(R.id.number);
         Bundle editB = getIntent().getExtras();
         //check if this is a edit task or create new account task
@@ -55,12 +57,15 @@ public class CreateAccount extends AppCompatActivity {
                             Log.d("TAG", "DocumentSnapshot data: " + document.getData().get("UserEmail"));
                             email.setText(document.getData().get("UserEmail").toString());
                             password.setText(document.getData().get("UserPass").toString());
+                            confirmPass.setText(document.getData().get("UserPass").toString());
                             number.setText(document.getData().get("UserNum").toString());
                             //grey out everything except number
                             email.setEnabled(false);
                             email.setFocusable(false);
                             password.setEnabled(false);
                             password.setFocusable(false);
+                            confirmPass.setEnabled(false);
+                            confirmPass.setFocusable(false);
                         }
                     }
                 }
@@ -83,7 +88,7 @@ public class CreateAccount extends AppCompatActivity {
     }
     private void new_user(){
         final String u_email = email.getText().toString();
-        String u_pass = password.getText().toString();
+        final String u_pass = password.getText().toString();
         final String u_num = number.getText().toString();
         if(u_email.isEmpty() || u_pass.isEmpty() || u_num.isEmpty()){
             //if any fields are empty
@@ -114,10 +119,17 @@ public class CreateAccount extends AppCompatActivity {
                                 finish();
                             }
                             else{
-                                db.collection("Users").document(u_email).set(data);
-                                MainActivity.current_user = u_email;
-                                Intent sign_in = new Intent(getApplicationContext(), MainScreen.class);
-                                startActivity(sign_in);
+                                if(u_pass.equals(confirmPass.getText().toString())){
+                                    db.collection("Users").document(u_email).set(data);
+                                    MainActivity.current_user = u_email;
+                                    Intent sign_in = new Intent(getApplicationContext(), MainScreen.class);
+                                    startActivity(sign_in);
+                                }
+                                else{
+                                    Toast toast = Toast.makeText(getApplicationContext(), "The passwords do not match", Toast.LENGTH_SHORT);
+                                    toast.show();
+                                }
+
                             }
 
                         }

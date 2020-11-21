@@ -1744,6 +1744,8 @@ id SYM
 id TOP_END
 id TOP_START
 id accelerate
+id acceptRequestFragment
+id acceptRequestFragment_to_bookPageFragment
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1826,10 +1828,10 @@ id beginOnFirstDraw
 id beginning
 id blocking
 id bookPageFragment
+id bookPageFragment_to_acceptRequestFragment
 id bookPageFragment_to_borrowPageFragment
 id bookPageFragment_to_dashboard
 id bookPageFragment_to_editPageFragment
-id bookPageFragment_to_trackPageFragment
 id bookSearch
 id bookSearch_recycler_view_id
 id bookText
@@ -1886,6 +1888,7 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id confirmPassword
 id confirm_button
 id confirmation_code
 id confirmation_code_layout
@@ -2124,11 +2127,13 @@ id rectangles
 id recyclerview_id
 id recyclerview_id_home
 id relativeLayout
+id relativeLayout2
 id requestBook_button
 id requestListView
 id requestPageFragment
 id requestPageFragment_to_navigation_home
 id request_accept_btn
+id request_date
 id request_decline_btn
 id request_tab
 id requested_book_description
@@ -2139,6 +2144,7 @@ id requested_book_title
 id requested_tab
 id requester_profile_pic
 id requester_username
+id requests_accept_list
 id requests_tab
 id resend_barrier
 id resend_code
@@ -2401,10 +2407,10 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_accept_request
 layout fragment_add
 layout fragment_book_borrow
 layout fragment_book_page
-layout fragment_book_search
 layout fragment_dashboard
 layout fragment_edit_page
 layout fragment_history_tab

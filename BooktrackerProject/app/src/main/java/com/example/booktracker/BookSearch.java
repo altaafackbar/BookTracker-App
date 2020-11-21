@@ -54,7 +54,6 @@ public class BookSearch extends AppCompatActivity {
         if(bundle!=null)
         {
             searchTerm =(String) bundle.get("searchTerm");
-            result.setText("X results found for " + searchTerm);
         }
         bookList = new ArrayList<>();
         myRecyclerview = (RecyclerView) findViewById(R.id.bookSearch_recycler_view_id);
@@ -83,7 +82,7 @@ public class BookSearch extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                         if (task.isSuccessful()) {
                                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                                Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
+                                                //Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
                                                 Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
                                                 status = (String) book.get("status");
                                                 isbn = document.getId();
@@ -101,6 +100,7 @@ public class BookSearch extends AppCompatActivity {
                                                 }
 
                                             }
+                                            result.setText(bookList.size() + " results found for " + searchTerm);
                                         } else {
                                             Log.d(TAG, "Error getting documents: ", task.getException());
                                         }
@@ -111,6 +111,8 @@ public class BookSearch extends AppCompatActivity {
                 }
             }
         });
+        Log.d(TAG, "onCreate: "+ bookList +" "+ bookList.size());
+
 
     }
 

@@ -23,6 +23,7 @@ import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,7 +31,11 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -40,10 +45,10 @@ public class AcceptRequestFragment extends Fragment {
     public TextView back;
     private String title;
     private String author;
-    ArrayList<String> requesterList;
+    SimpleDateFormat dateFor;
     private String owner;
     private String requestStatus;
-
+    ArrayList<RequestInfo> requestInfoList;
     private String status;
     private String current_isbn;
     private String isbn;
@@ -96,21 +101,21 @@ public class AcceptRequestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_accept_request, container, false);
-        requesterList = new ArrayList<>();
+        requestInfoList = new ArrayList<>();
         isbn = getArguments().getString("isbn");
         db = FirebaseFirestore.getInstance();
         final CollectionReference collectionReference = db.collection("Users");
 
 
         ListView listView = (ListView)view.findViewById(R.id.requests_accept_list);
-        final RequestListAdapter myAdapter = (new RequestListAdapter(getActivity(),R.layout.request_list_item, requesterList));
+        final RequestListAdapter myAdapter = (new RequestListAdapter(getActivity(),R.layout.request_list_item, requestInfoList));
         listView.setAdapter(myAdapter);
 
 
         collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
-                requesterList.clear();
+                requestInfoList.clear();
                 final ArrayList<String> userEmailList = new ArrayList<>();
                 for(QueryDocumentSnapshot doc: queryDocumentSnapshots)
                 {
@@ -132,12 +137,22 @@ public class AcceptRequestFragment extends Fragment {
                                                 owner = (String)book.get("owner");
                                                 current_isbn = (String)book.get("isbn");
                                                 if (owner != null && requestStatus != null && requestStatus.equals("Pending Request") && owner.equals(MainActivity.current_user) && current_isbn.equals(isbn)) {
-                                                    requesterList.add(uEmail);
+                                                    RequestInfo newinfo = new RequestInfo();
+                                                    newinfo.requester = uEmail;
+                                                    newinfo.request_date = ((Timestamp)book.get("requestDate")).toDate();
+                                                    requestInfoList.add(newinfo);
                                                 }
                                             }
                                         } else {
                                             Log.d(TAG, "Error getting documents: ", task.getException());
                                         }
+
+                                        Collections.sort(requestInfoList, new Comparator<RequestInfo>() {
+                                            @Override
+                                            public int compare(RequestInfo o1, RequestInfo o2) {
+                                                return o1.request_date.compareTo(o2.request_date);
+                                            }
+                                        });
                                         myAdapter.notifyDataSetChanged();
                                     }
                                 });
@@ -147,12 +162,13 @@ public class AcceptRequestFragment extends Fragment {
         });
 
 
+
         return view;
     }
 
-    private class RequestListAdapter extends ArrayAdapter<String> {
+    private class RequestListAdapter extends ArrayAdapter<RequestInfo> {
         private int layout;
-        public RequestListAdapter(@NonNull Context context, int resource, @NonNull List<String> objects) {
+        public RequestListAdapter(@NonNull Context context, int resource, @NonNull List<RequestInfo> objects) {
             super(context, resource, objects);
             layout = resource;
         }
@@ -169,6 +185,7 @@ public class AcceptRequestFragment extends Fragment {
                 viewHolder.r_username = (TextView)convertView.findViewById(R.id.requester_username);
                 viewHolder.accept_btn = (Button)convertView.findViewById(R.id.request_accept_btn);
                 viewHolder.decline_btn = (Button)convertView.findViewById(R.id.request_decline_btn);
+                viewHolder.request_date = (TextView)convertView.findViewById(R.id.request_date);
 
                 viewHolder.accept_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -183,13 +200,14 @@ public class AcceptRequestFragment extends Fragment {
                         Toast.makeText(getContext(),"Declined",Toast.LENGTH_SHORT).show();
                     }
                 }));
-                viewHolder.r_username.setText(getItem(position));
-
+                viewHolder.r_username.setText("Requested By: "+getItem(position).requester);
+                dateFor = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+                viewHolder.request_date.setText("Requested on: "+getItem(position).request_date.toString());
                 convertView.setTag(viewHolder);
             }
             else{
                 mainViewHolder = (ViewHolder)convertView.getTag();
-                mainViewHolder.r_username.setText(getItem(position));
+                mainViewHolder.r_username.setText(getItem(position).requester);
             }
             return convertView;
         }
@@ -199,5 +217,10 @@ public class AcceptRequestFragment extends Fragment {
         TextView r_username;
         Button accept_btn;
         Button decline_btn;
+        TextView request_date;
+    }
+    private class RequestInfo{
+        String requester;
+        Date request_date;
     }
 }

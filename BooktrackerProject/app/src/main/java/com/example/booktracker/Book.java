@@ -1,5 +1,7 @@
 package com.example.booktracker;
 
+import java.util.Date;
+
 public class Book {
     private String title;
     private String author;
@@ -8,6 +10,7 @@ public class Book {
     private String image;
     private String owner;
     private String requestStatus;
+    private Date requestDate;
 
     public Book(String title, String author, String isbn, String status, String owner) {
         this.title = title;
@@ -16,6 +19,15 @@ public class Book {
         this.status = status;
         this.owner = owner;
         this.requestStatus = null;
+        this.requestDate = null;
+    }
+
+    public Date getRequestDate() {
+        return requestDate;
+    }
+
+    public void setRequestDate(Date requestDate) {
+        this.requestDate = requestDate;
     }
 
     public String getRequestStatus() {

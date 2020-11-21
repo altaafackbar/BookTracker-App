@@ -27,6 +27,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -152,8 +153,9 @@ public class RequestPageFragment extends Fragment {
                 Map<String, Book> book = new HashMap<>();
                 Book newBook = new Book(title, author, isbn, status, owner);
                 newBook.setRequestStatus("Pending Request");
+                newBook.setRequestDate(new Date());
                 book.put("book",newBook);
-                
+
                 //Add book to Requested Books of current user
                 db = FirebaseFirestore.getInstance();
                 db.collection("Users").document(MainActivity.current_user)

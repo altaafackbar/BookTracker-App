@@ -1,19 +1,13 @@
 package com.example.booktracker;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,49 +23,34 @@ import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
-public class ViewProfileFragment extends Fragment {
-
+public class SearchProfile extends AppCompatActivity {
+    private String searchTerm;
     private String title;
     private String author;
     private String isbn;
     private String status;
     private String bookImg;
+    //private Button back;
+    private TextView username;
     RecyclerView profileRecyclerview;
     ArrayList<Book> profileBookList;
     private FirebaseFirestore db;
+    private BookRecyclerViewAdapter profileAdapter;
 
-    private String searchTerm;
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle bundle = getActivity().getIntent().getExtras();
+        setContentView(R.layout.activity_search_profile);
 
-        /*
-        if(bundle.getString("search")!= null)
-        {
-            searchTerm = bundle.getString("search");
-        }
-        TextView username = getActivity().findViewById(R.id.viewProfile_username);
-        username.setText(searchTerm);
-        */
 
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        final View profile = inflater.inflate(R.layout.fragment_view_profile,container,false);
-        final Button back = profile.findViewById(R.id.viewProfile_backButton);
-        final TextView username = profile.findViewById(R.id.viewProfile_username);
+        username = findViewById(R.id.viewProfile_username);
         username.setText(HomeFragment.searchUser);
 
         profileBookList = new ArrayList<>();
-        profileRecyclerview = (RecyclerView) profile.findViewById(R.id.viewProfile_recyclerview_id);
-        final RecyclerViewAdapter profileAdapter = new RecyclerViewAdapter(getActivity(), profileBookList);
-        profileRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        profileRecyclerview = (RecyclerView) findViewById(R.id.viewProfile_recyclerview_id);
+        profileAdapter = new BookRecyclerViewAdapter (this,profileBookList);
+        profileRecyclerview.setLayoutManager(new GridLayoutManager(this,3));
         profileRecyclerview.setAdapter(profileAdapter);
-
         db = FirebaseFirestore.getInstance();
         db.collection("Users").document(HomeFragment.searchUser)
                 .collection("Books")
@@ -99,29 +78,6 @@ public class ViewProfileFragment extends Fragment {
                         profileAdapter.notifyDataSetChanged();
                     }
                 });
-
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                getFragmentManager().popBackStackImmediate();
-              //  Navigation.findNavController(profile).navigate(R.id.viewProfileFragment_to_navigation_home);
-            }
-        });
-
-        /*
-        final ListView bookList = profile.findViewById(R.id.viewProfile_recyclerview_id);
-        bookList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(profile).navigate(R.id.viewProfileFragment_to_bookPageFragment);
-            }
-        });
-        */
-
-        return profile;
-
 
     }
 }

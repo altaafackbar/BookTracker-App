@@ -1,6 +1,8 @@
 package com.example.booktracker.ui;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +34,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.sucho.placepicker.AddressData;
+import com.sucho.placepicker.Constants;
+import com.sucho.placepicker.MapType;
+import com.sucho.placepicker.PlacePicker;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,6 +48,7 @@ import java.util.List;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
+import static com.sucho.placepicker.Constants.GOOGLE_API_KEY;
 
 public class AcceptRequestFragment extends Fragment {
     public TextView back;
@@ -134,7 +141,26 @@ public class AcceptRequestFragment extends Fragment {
             viewHolder.accept_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Intent intent = new PlacePicker.IntentBuilder().setLatLong(40.748672, -73.985628)  // Initial Latitude and Longitude the Map will load into
+                            .showLatLong(true)  // Show Coordinates in the Activity
+                            .setMapZoom(12.0f)  // Map Zoom Level. Default: 14.0
+                            .setAddressRequired(true) // Set If return only Coordinates if cannot fetch Address for the coordinates. Default: True
+                            .hideMarkerShadow(true) // Hides the shadow under the map marker. Default: False
+                            .setMarkerDrawable(R.drawable.ic_map_marker) // Change the default Marker Image
+                            .setMarkerImageImageColor(R.color.colorPrimary)
+                            .setFabColor(R.color.quantum_bluegrey200)
+                            .setPrimaryTextColor(R.color.quantum_black_text) // Change text color of Shortened Address
+                            .setSecondaryTextColor(R.color.white) // Change text color of full Address
+                            .setBottomViewColor(R.color.quantum_bluegrey200) // Change Address View Background Color (Default: White)
+                            .setMapRawResourceStyle(R.raw.places_keep)  //Set Map Style (https://mapstyle.withgoogle.com/)
+                            .setMapType(MapType.NORMAL)
+                            .onlyCoordinates(true)  //Get only Coordinates from Place Picker
+                            .hideLocationButton(true)   //Hide Location Button (Default: false)
+                            .disableMarkerAnimation(true)   //Disable Marker Animation (Default: false)
+                            .build(getActivity());
+                    startActivityForResult(intent, Constants.PLACE_PICKER_REQUEST);
                     doAccept(getItem(position).requester);
+
                     Toast.makeText(getContext(),"Accepted",Toast.LENGTH_SHORT).show();
                     getInfoFromDB();
 
@@ -288,5 +314,16 @@ public class AcceptRequestFragment extends Fragment {
                 }
             }
         });
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == Constants.PLACE_PICKER_REQUEST) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                AddressData addressData = data.getParcelableExtra(Constants.ADDRESS_INTENT);
+                Toast.makeText(getActivity(),addressData.toString(),Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

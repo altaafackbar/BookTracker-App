@@ -1,17 +1,20 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-39:12
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-43:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\61d2cfe405903f3397fb19077fa68435\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.sucho:placepicker:1.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5193f4d877cece75b1efc62615a176b2\jetified-placepicker-1.1.2\AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:2:1-23:12
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:17:1-38:12
 MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:2:1-109:12
+MERGED from [androidx.navigation:navigation-ui:2.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e5f575e96cbc950f1d6ecc9ad39f0f2a\navigation-ui-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:17:1-91:12
 MERGED from [com.google.android.gms:play-services-auth:18.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\560756e26499f1381cae50b71e24acc2\jetified-play-services-auth-18.1.0\AndroidManifest.xml:17:1-40:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9e40811312e70ca064732d65c638f11f\constraintlayout-2.0.3\AndroidManifest.xml:2:1-11:12
-MERGED from [androidx.navigation:navigation-ui:2.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e5f575e96cbc950f1d6ecc9ad39f0f2a\navigation-ui-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e5b99ba51d0fcf1b04dc7a057832708\jetified-library-1.4.2\AndroidManifest.xml:6:1-16:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b9c0dfc0e8adaeca43121c09410b9b17\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-firestore:22.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ea755c86ed574f0cd0f2e0c583e499d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:2:1-26:12
@@ -26,6 +29,8 @@ MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\altaa\.g
 MERGED from [com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\c373e5c787c1ab82f9e46da64f79608b\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:17:1-36:12
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b95224ec4409dd23705480717e2a8a07\jetified-firebase-installations-16.3.3\AndroidManifest.xml:2:1-23:12
 MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90de2e207a7c455b15147d888e5e1cae\jetified-firebase-common-19.3.1\AndroidManifest.xml:15:1-40:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e8b0310bcdb65e4a1dc4f08da1c1ae24\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e654e39c0afb2281bf6292d591712e6d\jetified-play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\282a5c6e4fd1c04825c83bd3a04217ba\jetified-play-services-auth-api-phone-17.4.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\87943ca2fd2a8806ca6f49fe3dadad4f\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-auth-base:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\c2bb05ddfe10c312fea1880723fa7e53\jetified-play-services-auth-base-17.0.0\AndroidManifest.xml:2:1-7:12
@@ -34,25 +39,31 @@ MERGED from [com.google.firebase:firebase-database-collection:17.0.1] C:\Users\a
 MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8b14e9c2743a9034caa53da906cf309f\jetified-play-services-clearcut-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-flags:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b9fac322c1bb851d772532c1acf2e915\jetified-play-services-flags-17.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1086ec72c8c2a3916208d1d066a11404\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9d661c53592b1f8279a38784a8da1d66\jetified-play-services-base-17.1.0\AndroidManifest.xml:17:1-29:12
-MERGED from [com.google.firebase:firebase-installations-interop:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\100c0733d2b875eb2aaf8d6a0d07a480\jetified-firebase-installations-interop-16.0.0\AndroidManifest.xml:15:1-23:12
-MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90a7442b374a25ac4dd123790a224fc6\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2c04380089422f54f807c841690a6347\jetified-play-services-base-17.2.1\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:17:1-46:12
 MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\fb6930d67ff3e58459c6e6059000d716\jetified-play-services-measurement-sdk-18.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.firebase:firebase-installations-interop:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\100c0733d2b875eb2aaf8d6a0d07a480\jetified-firebase-installations-interop-16.0.0\AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.android.gms:play-services-tasks:17.0.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\011163fc1e55e78f7aacdda4c925fa21\jetified-play-services-tasks-17.0.2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ab7847a4b00c4b9f9725d0d4ef7e9ccf\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\981414ae8549253dbb200b0a21c7c0d9\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4308e610ce20b2064b7d466d11e264bc\jetified-play-services-measurement-sdk-api-18.0.0\AndroidManifest.xml:17:1-27:12
 MERGED from [com.google.android.gms:play-services-measurement-base:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\bb2bc07c9070f94437fb36e39686d344\jetified-play-services-measurement-base-18.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8dd894ed8ea2b396241b4855dda9ab71\jetified-play-services-stats-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e05e232ae34c2ca5afadb2c991542dc0\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:17:1-25:12
-MERGED from [com.google.android.gms:play-services-basement:17.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5df3d795794098ac836df81f4efef8a6\jetified-play-services-basement-17.1.1\AndroidManifest.xml:17:1-28:12
-MERGED from [androidx.browser:browser:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\68ae3f6060a9f0f985f65ff521fe2304\browser-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e8b0310bcdb65e4a1dc4f08da1c1ae24\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\07c6dda424d16dbbc0c50d684151774c\jetified-play-services-basement-17.2.1\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1cdc3230b60f1f90ae933a84451c26cf\fragment-1.2.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8404dddd08f4dc8c1d342f913a07d096\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\68ae3f6060a9f0f985f65ff521fe2304\browser-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ed634e806a076badd907ecf770cbaa68\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\03b324c1985b8c58d53e2db13ae4fc21\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\88e8c17d9d9a93d4f7d0bad296ed0634\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\516fe5ba6e7a5904110f03fcfac34d32\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:15:1-41:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\03b324c1985b8c58d53e2db13ae4fc21\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\f9945fa6f6a9766686c8d7c586a0a17e\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4335b76bc53e7908c7aa6e3011cb492c\jetified-firebase-components-16.0.0\AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\88e8c17d9d9a93d4f7d0bad296ed0634\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7a6fed11742eac36a6e17b822dafd2a9\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cf29bc2da64407dc5a1e726f5e2eec19\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.transition:transition:1.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\bafde717daeadcb4f02a53d3862f67ca\transition-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\d16127dc554a37d27c8f0f3704db4fe3\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -67,10 +78,6 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\alta
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\f629487dd05f12a34aa75d92c0c40c0a\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\38c4e2211f572c07747ccf408cd88ab2\core-1.3.1\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\947def8ce0cc1c0bf6ed1295dcab98a1\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\f9945fa6f6a9766686c8d7c586a0a17e\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4335b76bc53e7908c7aa6e3011cb492c\jetified-firebase-components-16.0.0\AndroidManifest.xml:15:1-23:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8404dddd08f4dc8c1d342f913a07d096\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7a6fed11742eac36a6e17b822dafd2a9\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9db893911385140e7a3088b651b5d305\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:17:1-32:12
 MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5673f15a4b17ed5c0001c8edfbd96b9c\jetified-lifecycle-service-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4bc16dcc2bf639f8e8f2c506d1e8450e\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
@@ -80,47 +87,56 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\altaa\.g
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\182b96cdc8b314e6b39e4fbed0e2ed4e\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\a13b313aefc896400d1fec7895e53237\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8cf64bbb4d7edccb12479be6c8c41f94\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-encoders-json:16.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\37fef691fe27328339a838df1be7806d\jetified-firebase-encoders-json-16.1.0\AndroidManifest.xml:15:1-23:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e63c2f72e555839c577a0314705899e4\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b06d4314a6e543e891947b05df52af8f\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e81cde7a7bbed91e4698cf2fd2298ec8\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\df12ae8f0adf231449e64e92aadc36a0\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.firebase:protolite-well-known-types:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7e0ba80650a4da13ab16703eca4baf29\jetified-protolite-well-known-types-17.1.0\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\37416faa61c8e72d612d8598780f40cb\jetified-volley-1.1.1\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.datatransport:transport-api:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1da2b09fad712dede7b1d4d2997497d2\jetified-transport-api-2.2.0\AndroidManifest.xml:15:1-22:12
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\291a7c3c493b1334674114fca4d550c0\jetified-grpc-android-1.28.0\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-39:12
+MERGED from [com.google.firebase:protolite-well-known-types:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7e0ba80650a4da13ab16703eca4baf29\jetified-protolite-well-known-types-17.1.0\AndroidManifest.xml:2:1-11:12
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-43:12
 	package
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:3:5-38
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-39:12
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-43:12
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-39:12
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:1-43:12
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:5:5-65
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:5:5-65
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:5:22-62
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:5:22-62
 application
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:7:5-37:19
-MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:7:5-20
-MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:7:5-20
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:7:5-41:19
+MERGED from [com.sucho:placepicker:1.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5193f4d877cece75b1efc62615a176b2\jetified-placepicker-1.1.2\AndroidManifest.xml:11:5-15:19
+MERGED from [com.sucho:placepicker:1.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5193f4d877cece75b1efc62615a176b2\jetified-placepicker-1.1.2\AndroidManifest.xml:11:5-15:19
+MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:13:5-21:19
+MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:13:5-21:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:30:5-36:19
 MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:15:5-107:19
 MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:15:5-107:19
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:26:5-89:19
 MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:26:5-89:19
 MERGED from [com.google.android.gms:play-services-auth:18.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\560756e26499f1381cae50b71e24acc2\jetified-play-services-auth-18.1.0\AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.android.gms:play-services-auth:18.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\560756e26499f1381cae50b71e24acc2\jetified-play-services-auth-18.1.0\AndroidManifest.xml:22:5-38:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9e40811312e70ca064732d65c638f11f\constraintlayout-2.0.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9e40811312e70ca064732d65c638f11f\constraintlayout-2.0.3\AndroidManifest.xml:9:5-20
-MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-firestore:22.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ea755c86ed574f0cd0f2e0c583e499d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-firestore:22.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ea755c86ed574f0cd0f2e0c583e499d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:16:5-24:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2e903ac938f045f4f1fcafb38ccdbdb2\lifecycle-extensions-2.2.0\AndroidManifest.xml:24:5-25:19
@@ -135,6 +151,8 @@ MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\altaa\.
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b95224ec4409dd23705480717e2a8a07\jetified-firebase-installations-16.3.3\AndroidManifest.xml:13:5-21:19
 MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90de2e207a7c455b15147d888e5e1cae\jetified-firebase-common-19.3.1\AndroidManifest.xml:25:5-38:19
 MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90de2e207a7c455b15147d888e5e1cae\jetified-firebase-common-19.3.1\AndroidManifest.xml:25:5-38:19
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e654e39c0afb2281bf6292d591712e6d\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e654e39c0afb2281bf6292d591712e6d\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\87943ca2fd2a8806ca6f49fe3dadad4f\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\87943ca2fd2a8806ca6f49fe3dadad4f\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-vision-common:19.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\3a42cbe7dfe56d11dba3937c41fbc831\jetified-play-services-vision-common-19.1.2\AndroidManifest.xml:7:5-20
@@ -143,14 +161,16 @@ MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\alta
 MERGED from [com.google.android.gms:play-services-clearcut:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8b14e9c2743a9034caa53da906cf309f\jetified-play-services-clearcut-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1086ec72c8c2a3916208d1d066a11404\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1086ec72c8c2a3916208d1d066a11404\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9d661c53592b1f8279a38784a8da1d66\jetified-play-services-base-17.1.0\AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9d661c53592b1f8279a38784a8da1d66\jetified-play-services-base-17.1.0\AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90a7442b374a25ac4dd123790a224fc6\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90a7442b374a25ac4dd123790a224fc6\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2c04380089422f54f807c841690a6347\jetified-play-services-base-17.2.1\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2c04380089422f54f807c841690a6347\jetified-play-services-base-17.2.1\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:28:5-44:19
 MERGED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:28:5-44:19
 MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\fb6930d67ff3e58459c6e6059000d716\jetified-play-services-measurement-sdk-18.0.0\AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\fb6930d67ff3e58459c6e6059000d716\jetified-play-services-measurement-sdk-18.0.0\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:17.0.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\011163fc1e55e78f7aacdda4c925fa21\jetified-play-services-tasks-17.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\011163fc1e55e78f7aacdda4c925fa21\jetified-play-services-tasks-17.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ab7847a4b00c4b9f9725d0d4ef7e9ccf\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ab7847a4b00c4b9f9725d0d4ef7e9ccf\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:28:5-29:19
 MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:28:5-29:19
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\981414ae8549253dbb200b0a21c7c0d9\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:22:5-20
@@ -161,98 +181,116 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\altaa\.
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8dd894ed8ea2b396241b4855dda9ab71\jetified-play-services-stats-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e05e232ae34c2ca5afadb2c991542dc0\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e05e232ae34c2ca5afadb2c991542dc0\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:22:5-23:19
-MERGED from [com.google.android.gms:play-services-basement:17.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5df3d795794098ac836df81f4efef8a6\jetified-play-services-basement-17.1.1\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:17.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5df3d795794098ac836df81f4efef8a6\jetified-play-services-basement-17.1.1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\07c6dda424d16dbbc0c50d684151774c\jetified-play-services-basement-17.2.1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\07c6dda424d16dbbc0c50d684151774c\jetified-play-services-basement-17.2.1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:25:5-39:19
 MERGED from [androidx.core:core:1.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\38c4e2211f572c07747ccf408cd88ab2\core-1.3.1\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\38c4e2211f572c07747ccf408cd88ab2\core-1.3.1\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\947def8ce0cc1c0bf6ed1295dcab98a1\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\947def8ce0cc1c0bf6ed1295dcab98a1\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9db893911385140e7a3088b651b5d305\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:24:5-30:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9db893911385140e7a3088b651b5d305\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:24:5-30:19
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\37416faa61c8e72d612d8598780f40cb\jetified-volley-1.1.1\AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\37416faa61c8e72d612d8598780f40cb\jetified-volley-1.1.1\AndroidManifest.xml:9:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\38c4e2211f572c07747ccf408cd88ab2\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:10:9-41
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:10:9-41
 	android:roundIcon
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:11:9-54
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:11:9-54
 	android:icon
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:9:9-43
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:9:9-43
 	android:allowBackup
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:8:9-35
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:13:9-40
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:13:9-40
 activity#com.example.booktracker.BookSearch
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:14:9-57
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:14:9-57
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:14:19-45
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:14:19-45
+meta-data#com.google.android.geo.API_KEY
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:16:9-18:71
+	android:value
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:18:13-68
+	android:name
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:17:13-58
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:16:9-18:69
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:20:9-22:69
 MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:16:9-18:69
 MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:16:9-18:69
-MERGED from [com.google.android.gms:play-services-basement:17.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5df3d795794098ac836df81f4efef8a6\jetified-play-services-basement-17.1.1\AndroidManifest.xml:23:9-25:69
-MERGED from [com.google.android.gms:play-services-basement:17.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5df3d795794098ac836df81f4efef8a6\jetified-play-services-basement-17.1.1\AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\07c6dda424d16dbbc0c50d684151774c\jetified-play-services-basement-17.2.1\AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\07c6dda424d16dbbc0c50d684151774c\jetified-play-services-basement-17.2.1\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:18:13-66
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:22:13-66
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:17:13-58
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:21:13-58
 meta-data#com.google.android.gms.vision.DEPENDENCIES
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:19:9-21:39
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:23:9-25:39
 	android:value
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:21:13-36
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:20:13-70
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:24:13-70
 activity#com.example.booktracker.CreateAccount
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:23:9-51
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:27:9-51
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:23:19-48
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:27:19-48
 activity#com.example.booktracker.MainScreen
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:24:9-26:66
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:28:9-30:66
 	android:label
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:26:13-63
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:30:13-63
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:25:13-39
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:29:13-39
 activity#com.example.booktracker.MainActivity
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:27:9-33:20
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:31:9-37:20
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:27:19-47
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:31:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:28:13-32:29
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:32:13-36:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:29:17-69
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:33:17-69
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:29:25-66
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:33:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:31:17-77
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:35:17-77
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:31:27-74
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:35:27-74
 activity#com.example.booktracker.ScanBarcodeActivity
-ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:34:9-36:44
+ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:38:9-40:44
 	android:label
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:36:13-41
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:40:13-41
 	android:name
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:35:13-48
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:39:13-48
 uses-sdk
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\61d2cfe405903f3397fb19077fa68435\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\61d2cfe405903f3397fb19077fa68435\multidex-2.0.0\AndroidManifest.xml:20:5-43
-MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.sucho:placepicker:1.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5193f4d877cece75b1efc62615a176b2\jetified-placepicker-1.1.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.sucho:placepicker:1.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5193f4d877cece75b1efc62615a176b2\jetified-placepicker-1.1.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:7:5-44
+MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:7:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:8:5-10:41
 MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:8:5-10:41
+MERGED from [androidx.navigation:navigation-ui:2.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e5f575e96cbc950f1d6ecc9ad39f0f2a\navigation-ui-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e5f575e96cbc950f1d6ecc9ad39f0f2a\navigation-ui-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4d1a8e0802c107ca9247bc9a01caa5b9\jetified-firebase-analytics-18.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:21:5-44
 MERGED from [com.google.android.gms:play-services-auth:18.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\560756e26499f1381cae50b71e24acc2\jetified-play-services-auth-18.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:18.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\560756e26499f1381cae50b71e24acc2\jetified-play-services-auth-18.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9e40811312e70ca064732d65c638f11f\constraintlayout-2.0.3\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9e40811312e70ca064732d65c638f11f\constraintlayout-2.0.3\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.navigation:navigation-ui:2.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e5f575e96cbc950f1d6ecc9ad39f0f2a\navigation-ui-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.navigation:navigation-ui:2.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e5f575e96cbc950f1d6ecc9ad39f0f2a\navigation-ui-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.material:material:1.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cc718053871a5905a810633fa90575c8\material-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e5b99ba51d0fcf1b04dc7a057832708\jetified-library-1.4.2\AndroidManifest.xml:12:5-14:41
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e5b99ba51d0fcf1b04dc7a057832708\jetified-library-1.4.2\AndroidManifest.xml:12:5-14:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b9c0dfc0e8adaeca43121c09410b9b17\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
@@ -281,6 +319,10 @@ MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\altaa\.
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b95224ec4409dd23705480717e2a8a07\jetified-firebase-installations-16.3.3\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90de2e207a7c455b15147d888e5e1cae\jetified-firebase-common-19.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90de2e207a7c455b15147d888e5e1cae\jetified-firebase-common-19.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e8b0310bcdb65e4a1dc4f08da1c1ae24\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e8b0310bcdb65e4a1dc4f08da1c1ae24\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e654e39c0afb2281bf6292d591712e6d\jetified-play-services-location-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e654e39c0afb2281bf6292d591712e6d\jetified-play-services-location-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\282a5c6e4fd1c04825c83bd3a04217ba\jetified-play-services-auth-api-phone-17.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\282a5c6e4fd1c04825c83bd3a04217ba\jetified-play-services-auth-api-phone-17.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\87943ca2fd2a8806ca6f49fe3dadad4f\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:20:5-44
@@ -297,16 +339,18 @@ MERGED from [com.google.android.gms:play-services-flags:17.0.0] C:\Users\altaa\.
 MERGED from [com.google.android.gms:play-services-flags:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b9fac322c1bb851d772532c1acf2e915\jetified-play-services-flags-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1086ec72c8c2a3916208d1d066a11404\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-phenotype:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1086ec72c8c2a3916208d1d066a11404\jetified-play-services-phenotype-17.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9d661c53592b1f8279a38784a8da1d66\jetified-play-services-base-17.1.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9d661c53592b1f8279a38784a8da1d66\jetified-play-services-base-17.1.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-installations-interop:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\100c0733d2b875eb2aaf8d6a0d07a480\jetified-firebase-installations-interop-16.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-installations-interop:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\100c0733d2b875eb2aaf8d6a0d07a480\jetified-firebase-installations-interop-16.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90a7442b374a25ac4dd123790a224fc6\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90a7442b374a25ac4dd123790a224fc6\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2c04380089422f54f807c841690a6347\jetified-play-services-base-17.2.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2c04380089422f54f807c841690a6347\jetified-play-services-base-17.2.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\fb6930d67ff3e58459c6e6059000d716\jetified-play-services-measurement-sdk-18.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-sdk:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\fb6930d67ff3e58459c6e6059000d716\jetified-play-services-measurement-sdk-18.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\100c0733d2b875eb2aaf8d6a0d07a480\jetified-firebase-installations-interop-16.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-installations-interop:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\100c0733d2b875eb2aaf8d6a0d07a480\jetified-firebase-installations-interop-16.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.gms:play-services-tasks:17.0.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\011163fc1e55e78f7aacdda4c925fa21\jetified-play-services-tasks-17.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\011163fc1e55e78f7aacdda4c925fa21\jetified-play-services-tasks-17.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ab7847a4b00c4b9f9725d0d4ef7e9ccf\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ab7847a4b00c4b9f9725d0d4ef7e9ccf\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\981414ae8549253dbb200b0a21c7c0d9\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:20:5-44
@@ -319,22 +363,32 @@ MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\altaa\.
 MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8dd894ed8ea2b396241b4855dda9ab71\jetified-play-services-stats-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e05e232ae34c2ca5afadb2c991542dc0\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e05e232ae34c2ca5afadb2c991542dc0\jetified-firebase-measurement-connector-18.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5df3d795794098ac836df81f4efef8a6\jetified-play-services-basement-17.1.1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5df3d795794098ac836df81f4efef8a6\jetified-play-services-basement-17.1.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.browser:browser:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\68ae3f6060a9f0f985f65ff521fe2304\browser-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.browser:browser:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\68ae3f6060a9f0f985f65ff521fe2304\browser-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e8b0310bcdb65e4a1dc4f08da1c1ae24\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e8b0310bcdb65e4a1dc4f08da1c1ae24\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-basement:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\07c6dda424d16dbbc0c50d684151774c\jetified-play-services-basement-17.2.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\07c6dda424d16dbbc0c50d684151774c\jetified-play-services-basement-17.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1cdc3230b60f1f90ae933a84451c26cf\fragment-1.2.4\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.2.4] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1cdc3230b60f1f90ae933a84451c26cf\fragment-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8404dddd08f4dc8c1d342f913a07d096\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8404dddd08f4dc8c1d342f913a07d096\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\68ae3f6060a9f0f985f65ff521fe2304\browser-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\68ae3f6060a9f0f985f65ff521fe2304\browser-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ed634e806a076badd907ecf770cbaa68\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ed634e806a076badd907ecf770cbaa68\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\03b324c1985b8c58d53e2db13ae4fc21\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\03b324c1985b8c58d53e2db13ae4fc21\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\88e8c17d9d9a93d4f7d0bad296ed0634\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\88e8c17d9d9a93d4f7d0bad296ed0634\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\516fe5ba6e7a5904110f03fcfac34d32\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\516fe5ba6e7a5904110f03fcfac34d32\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:18:5-20:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\03b324c1985b8c58d53e2db13ae4fc21\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\03b324c1985b8c58d53e2db13ae4fc21\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\f9945fa6f6a9766686c8d7c586a0a17e\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\f9945fa6f6a9766686c8d7c586a0a17e\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4335b76bc53e7908c7aa6e3011cb492c\jetified-firebase-components-16.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4335b76bc53e7908c7aa6e3011cb492c\jetified-firebase-components-16.0.0\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\88e8c17d9d9a93d4f7d0bad296ed0634\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\88e8c17d9d9a93d4f7d0bad296ed0634\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7a6fed11742eac36a6e17b822dafd2a9\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7a6fed11742eac36a6e17b822dafd2a9\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cf29bc2da64407dc5a1e726f5e2eec19\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\cf29bc2da64407dc5a1e726f5e2eec19\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.transition:transition:1.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\bafde717daeadcb4f02a53d3862f67ca\transition-1.3.0\AndroidManifest.xml:20:5-22:41
@@ -363,14 +417,6 @@ MERGED from [androidx.core:core:1.3.1] C:\Users\altaa\.gradle\caches\transforms-
 MERGED from [androidx.core:core:1.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\38c4e2211f572c07747ccf408cd88ab2\core-1.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\947def8ce0cc1c0bf6ed1295dcab98a1\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\947def8ce0cc1c0bf6ed1295dcab98a1\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\f9945fa6f6a9766686c8d7c586a0a17e\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\f9945fa6f6a9766686c8d7c586a0a17e\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4335b76bc53e7908c7aa6e3011cb492c\jetified-firebase-components-16.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4335b76bc53e7908c7aa6e3011cb492c\jetified-firebase-components-16.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8404dddd08f4dc8c1d342f913a07d096\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8404dddd08f4dc8c1d342f913a07d096\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7a6fed11742eac36a6e17b822dafd2a9\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7a6fed11742eac36a6e17b822dafd2a9\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9db893911385140e7a3088b651b5d305\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9db893911385140e7a3088b651b5d305\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5673f15a4b17ed5c0001c8edfbd96b9c\jetified-lifecycle-service-2.2.0\AndroidManifest.xml:20:5-22:41
@@ -389,6 +435,8 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\altaa\.gradle\caches
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\a13b313aefc896400d1fec7895e53237\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8cf64bbb4d7edccb12479be6c8c41f94\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8cf64bbb4d7edccb12479be6c8c41f94\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-encoders-json:16.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\37fef691fe27328339a838df1be7806d\jetified-firebase-encoders-json-16.1.0\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:16.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\37fef691fe27328339a838df1be7806d\jetified-firebase-encoders-json-16.1.0\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e63c2f72e555839c577a0314705899e4\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e63c2f72e555839c577a0314705899e4\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b06d4314a6e543e891947b05df52af8f\documentfile-1.0.0\AndroidManifest.xml:20:5-44
@@ -397,42 +445,44 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\altaa\.gradle\caches\transform
 MERGED from [androidx.print:print:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\e81cde7a7bbed91e4698cf2fd2298ec8\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\df12ae8f0adf231449e64e92aadc36a0\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\df12ae8f0adf231449e64e92aadc36a0\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:protolite-well-known-types:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7e0ba80650a4da13ab16703eca4baf29\jetified-protolite-well-known-types-17.1.0\AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.firebase:protolite-well-known-types:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7e0ba80650a4da13ab16703eca4baf29\jetified-protolite-well-known-types-17.1.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\37416faa61c8e72d612d8598780f40cb\jetified-volley-1.1.1\AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\37416faa61c8e72d612d8598780f40cb\jetified-volley-1.1.1\AndroidManifest.xml:7:5-43
+MERGED from [com.google.android.datatransport:transport-api:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1da2b09fad712dede7b1d4d2997497d2\jetified-transport-api-2.2.0\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\1da2b09fad712dede7b1d4d2997497d2\jetified-transport-api-2.2.0\AndroidManifest.xml:18:5-20:41
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\291a7c3c493b1334674114fca4d550c0\jetified-grpc-android-1.28.0\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\291a7c3c493b1334674114fca4d550c0\jetified-grpc-android-1.28.0\AndroidManifest.xml:7:5-9:41
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+MERGED from [com.google.firebase:protolite-well-known-types:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7e0ba80650a4da13ab16703eca4baf29\jetified-protolite-well-known-types-17.1.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7e0ba80650a4da13ab16703eca4baf29\jetified-protolite-well-known-types-17.1.0\AndroidManifest.xml:7:5-9:41
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\altaa\Desktop\abkt\testbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:12:5-79
-MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-firestore:22.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ea755c86ed574f0cd0f2e0c583e499d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:13:5-79
-MERGED from [com.google.firebase:firebase-firestore:22.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ea755c86ed574f0cd0f2e0c583e499d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:13:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\c373e5c787c1ab82f9e46da64f79608b\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\c373e5c787c1ab82f9e46da64f79608b\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b95224ec4409dd23705480717e2a8a07\jetified-firebase-installations-16.3.3\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b95224ec4409dd23705480717e2a8a07\jetified-firebase-installations-16.3.3\AndroidManifest.xml:10:5-79
-MERGED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4308e610ce20b2064b7d466d11e264bc\jetified-play-services-measurement-sdk-api-18.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4308e610ce20b2064b7d466d11e264bc\jetified-play-services-measurement-sdk-api-18.0.0\AndroidManifest.xml:24:5-79
-MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\291a7c3c493b1334674114fca4d550c0\jetified-grpc-android-1.28.0\AndroidManifest.xml:11:5-79
-MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\291a7c3c493b1334674114fca4d550c0\jetified-grpc-android-1.28.0\AndroidManifest.xml:11:5-79
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\altaa\Desktop\abkt\lastbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml
+activity#com.sucho.placepicker.PlacePickerActivity
+ADDED from [com.sucho:placepicker:1.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5193f4d877cece75b1efc62615a176b2\jetified-placepicker-1.1.2\AndroidManifest.xml:12:9-14:67
+	android:label
+		ADDED from [com.sucho:placepicker:1.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5193f4d877cece75b1efc62615a176b2\jetified-placepicker-1.1.2\AndroidManifest.xml:14:13-64
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:12:22-76
+		ADDED from [com.sucho:placepicker:1.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5193f4d877cece75b1efc62615a176b2\jetified-placepicker-1.1.2\AndroidManifest.xml:13:13-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:9:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:10:5-76
+	android:name
+		ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:10:22-73
 uses-permission#android.permission.INTERNET
-ADDED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:13:5-67
+ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
+MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:13:5-67
+MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:13:5-67
 MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-firestore:22.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ea755c86ed574f0cd0f2e0c583e499d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:14:5-67
@@ -447,8 +497,60 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4308e610ce20b2064b7d466d11e264bc\jetified-play-services-measurement-sdk-api-18.0.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4308e610ce20b2064b7d466d11e264bc\jetified-play-services-measurement-sdk-api-18.0.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:26:5-67
 	android:name
-		ADDED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:13:22-64
+		ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:11:22-64
+activity#com.google.android.libraries.places.widget.AutocompleteActivity
+ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:14:9-20:20
+	android:label
+		ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:17:13-62
+	android:windowSoftInputMode
+		ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:19:13-55
+	android:exported
+		ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:16:13-37
+	android:theme
+		ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:18:13-61
+	android:name
+		ADDED from [com.google.android.libraries.places:places:2.4.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\8e577275b2dd192a88cf8539dc67f63c\jetified-places-2.4.0\AndroidManifest.xml:15:13-91
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:12:5-79
+MERGED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:12:5-79
+MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-auth:20.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b6226cabd32b8a54a0c4b55f85ba8775\jetified-firebase-auth-20.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-firestore:22.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ea755c86ed574f0cd0f2e0c583e499d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-firestore:22.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\ea755c86ed574f0cd0f2e0c583e499d9\jetified-firebase-firestore-22.0.0\AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\c373e5c787c1ab82f9e46da64f79608b\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\c373e5c787c1ab82f9e46da64f79608b\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b95224ec4409dd23705480717e2a8a07\jetified-firebase-installations-16.3.3\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\b95224ec4409dd23705480717e2a8a07\jetified-firebase-installations-16.3.3\AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4308e610ce20b2064b7d466d11e264bc\jetified-play-services-measurement-sdk-api-18.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\4308e610ce20b2064b7d466d11e264bc\jetified-play-services-measurement-sdk-api-18.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:22:5-79
+MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\291a7c3c493b1334674114fca4d550c0\jetified-grpc-android-1.28.0\AndroidManifest.xml:11:5-79
+MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\291a7c3c493b1334674114fca4d550c0\jetified-grpc-android-1.28.0\AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\56ffcd59bb4dff27e993561fce14a638\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
 meta-data#com.facebook.sdk.ApplicationId
 ADDED from [com.firebaseui:firebase-ui-auth:4.3.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\7ddc893fa062f8ad616bc36d31109561\jetified-firebase-ui-auth-4.3.2\AndroidManifest.xml:19:9-21:63
 	android:value
@@ -764,13 +866,13 @@ ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\altaa\.gradle\c
 	android:name
 		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\90de2e207a7c455b15147d888e5e1cae\jetified-firebase-common-19.3.1\AndroidManifest.xml:27:13-77
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9d661c53592b1f8279a38784a8da1d66\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+ADDED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2c04380089422f54f807c841690a6347\jetified-play-services-base-17.2.1\AndroidManifest.xml:23:9-26:75
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9d661c53592b1f8279a38784a8da1d66\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+		ADDED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2c04380089422f54f807c841690a6347\jetified-play-services-base-17.2.1\AndroidManifest.xml:25:13-37
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9d661c53592b1f8279a38784a8da1d66\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+		ADDED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2c04380089422f54f807c841690a6347\jetified-play-services-base-17.2.1\AndroidManifest.xml:26:13-72
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9d661c53592b1f8279a38784a8da1d66\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+		ADDED from [com.google.android.gms:play-services-base:17.2.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\2c04380089422f54f807c841690a6347\jetified-play-services-base-17.2.1\AndroidManifest.xml:24:13-79
 uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
 ADDED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:26:5-110
 MERGED from [com.google.android.gms:play-services-measurement-impl:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\0e753631e3c20c64cc20739bbaeec97d\jetified-play-services-measurement-impl-18.0.0\AndroidManifest.xml:26:5-110
@@ -803,6 +905,34 @@ ADDED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\al
 		ADDED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:43:13-69
 	android:name
 		ADDED from [com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:40:13-87
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\71a6ffb984f8dafef942a7e114291f11\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5f9adc59636fb0ad2d1b182c3c34d7c8\jetified-transport-runtime-2.2.3\AndroidManifest.xml:33:13-132
 provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
 ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\9db893911385140e7a3088b651b5d305\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
 	android:authorities

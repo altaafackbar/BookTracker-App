@@ -60,6 +60,7 @@ public class AcceptRequestFragment extends Fragment {
     private String current_isbn;
     private String isbn;
     private FirebaseFirestore db;
+    private String requester_s;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -141,6 +142,7 @@ public class AcceptRequestFragment extends Fragment {
             viewHolder.accept_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    requester_s = getItem(position).requester;
                     Intent intent = new PlacePicker.IntentBuilder().setLatLong(40.748672, -73.985628)  // Initial Latitude and Longitude the Map will load into
                             .showLatLong(true)  // Show Coordinates in the Activity
                             .setMapZoom(12.0f)  // Map Zoom Level. Default: 14.0
@@ -156,7 +158,7 @@ public class AcceptRequestFragment extends Fragment {
                             .setMapType(MapType.NORMAL)
                             .onlyCoordinates(true)  //Get only Coordinates from Place Picker
                             .hideLocationButton(true)   //Hide Location Button (Default: false)
-                            .disableMarkerAnimation(true)   //Disable Marker Animation (Default: false)
+                            .disableMarkerAnimation(false)   //Disable Marker Animation (Default: false)
                             .build(getActivity());
                     startActivityForResult(intent, Constants.PLACE_PICKER_REQUEST);
                     doAccept(getItem(position).requester);
@@ -320,6 +322,33 @@ public class AcceptRequestFragment extends Fragment {
         if (requestCode == Constants.PLACE_PICKER_REQUEST) {
             if (resultCode == Activity.RESULT_OK && data != null) {
                 AddressData addressData = data.getParcelableExtra(Constants.ADDRESS_INTENT);
+                String pickupLat = String.valueOf(addressData.getLatitude());
+                String pickupLon = String.valueOf(addressData.getLongitude());
+                db = FirebaseFirestore.getInstance();
+                //set pickup location for owner
+                db.collection("Users")
+                        .document(MainActivity.current_user)
+                        .collection("Book Requests Received")
+                        .document(requester_s)
+                        .update("book.pickupLat",pickupLat);
+                db.collection("Users")
+                        .document(MainActivity.current_user)
+                        .collection("Book Requests Received")
+                        .document(requester_s)
+                        .update("book.pickupLon",pickupLon);
+
+                //set pickup location for borrower
+                db.collection("Users")
+                        .document(requester_s)
+                        .collection("Requested Books")
+                        .document(isbn)
+                        .update("book.pickupLat",pickupLat);
+                db.collection("Users")
+                        .document(requester_s)
+                        .collection("Requested Books")
+                        .document(isbn)
+                        .update("book.pickupLon",pickupLon);
+
                 Toast.makeText(getActivity(),addressData.toString(),Toast.LENGTH_SHORT).show();
             }
         } else {

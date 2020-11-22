@@ -2742,7 +2742,6 @@ id viewImage_request
 id viewProfileFragment
 id viewProfileFragment_to_bookPageFragment
 id viewProfileFragment_to_navigation_home
-id viewProfile_backButton
 id viewProfile_profilePicture
 id viewProfile_recyclerview_id
 id viewProfile_username
@@ -2831,6 +2830,7 @@ layout activity_main_screen
 layout activity_place_picker
 layout activity_profile
 layout activity_scan_barcode
+layout activity_search_profile
 layout book_adapter_view_layout
 layout borrow_list_item
 layout browser_actions_context_menu_page
@@ -2866,7 +2866,6 @@ layout fragment_notifications
 layout fragment_request_page
 layout fragment_request_tab
 layout fragment_track_page
-layout fragment_view_profile
 layout fui_activity_invisible
 layout fui_activity_register_email
 layout fui_activity_register_phone

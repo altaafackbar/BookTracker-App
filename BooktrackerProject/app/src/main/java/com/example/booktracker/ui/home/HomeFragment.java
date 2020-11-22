@@ -23,9 +23,8 @@ import com.example.booktracker.Book;
 import com.example.booktracker.BookSearch;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
-import com.example.booktracker.RecyclerViewAdapter;
 import com.example.booktracker.ScanBarcodeActivity;
-import com.example.booktracker.ViewProfileFragment;
+import com.example.booktracker.SearchProfile;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -49,7 +48,8 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FirebaseFirestore db;
     private EditText searchText;
-    private  EditText bookSearchText;
+    private EditText bookSearchText;
+    private EditText userSearchText;
     private String owner;
     public static String searchUser;
     private String status;
@@ -86,11 +86,14 @@ public class HomeFragment extends Fragment {
         });
         email.setText("Welcome back " + MainActivity.current_user);
 
+
         Button search = root.findViewById(R.id.searchUserButton);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { searchUser(); }
         });
+
+
 
         lendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +153,8 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+
+
         final Button BookSearchButton = root.findViewById(R.id.bookSearch);
         bookSearchText = root.findViewById(R.id.bookText);
         BookSearchButton.setOnClickListener(new View.OnClickListener() {
@@ -161,8 +166,11 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         return root;
     }
+
+
 
    public void searchUser(){
        db = FirebaseFirestore.getInstance();
@@ -181,12 +189,9 @@ public class HomeFragment extends Fragment {
                            searchUser = searchText.getText().toString();
 
 
-                           //Call to ViewProfileFragment
-                           ViewProfileFragment nextFrag= new ViewProfileFragment();
-                           getActivity().getSupportFragmentManager().beginTransaction()
-                                   .replace(((ViewGroup)getView().getParent()).getId(), nextFrag)
-                                   .addToBackStack(null)
-                                   .commit();
+                           //Call to SearchProfile Activity
+                           Intent intent = new Intent(getActivity(), SearchProfile.class);
+                           startActivity(intent);
 
 
                        } else {
@@ -206,6 +211,10 @@ public class HomeFragment extends Fragment {
        }
 
     }
+
+
+
+
 
     private void signOut(){
         MainActivity.current_user = null;

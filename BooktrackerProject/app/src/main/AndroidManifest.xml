@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".BookSearch"></activity>
+        <activity android:name=".SearchProfile"></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

@@ -88,7 +88,8 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
         });
     }
 
-
+//((ViewGroup)getView().getParent()).getId()
+//R.id.frameLayout
 
     @Override
     public int getItemCount() {

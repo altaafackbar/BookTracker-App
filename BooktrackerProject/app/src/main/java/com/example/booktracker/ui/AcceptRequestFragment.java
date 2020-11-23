@@ -25,6 +25,7 @@ import androidx.navigation.Navigation;
 import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
@@ -143,9 +144,9 @@ public class AcceptRequestFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     requester_s = getItem(position).requester;
-                    Intent intent = new PlacePicker.IntentBuilder().setLatLong(40.748672, -73.985628)  // Initial Latitude and Longitude the Map will load into
+                    Intent intent = new PlacePicker.IntentBuilder().setLatLong(53.5461, 113.4938)  // Initial Latitude and Longitude the Map will load into
                             .showLatLong(true)  // Show Coordinates in the Activity
-                            .setMapZoom(12.0f)  // Map Zoom Level. Default: 14.0
+                            .setMapZoom(20.0f)  // Map Zoom Level. Default: 14.0
                             .setAddressRequired(true) // Set If return only Coordinates if cannot fetch Address for the coordinates. Default: True
                             .hideMarkerShadow(true) // Hides the shadow under the map marker. Default: False
                             .setMarkerDrawable(R.drawable.ic_map_marker) // Change the default Marker Image

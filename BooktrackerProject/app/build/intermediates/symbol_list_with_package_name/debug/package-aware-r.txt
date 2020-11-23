@@ -2827,6 +2827,7 @@ layout activity_create_account
 layout activity_edit_profile
 layout activity_main
 layout activity_main_screen
+layout activity_pickup_location
 layout activity_place_picker
 layout activity_profile
 layout activity_scan_barcode

@@ -1,6 +1,8 @@
 package com.example.booktracker.ui.notifications;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,10 +20,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
+import com.example.booktracker.MainScreen;
 import com.example.booktracker.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -35,6 +40,7 @@ import java.util.List;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
+import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class NotificationRequestedTabFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -54,6 +60,8 @@ public class NotificationRequestedTabFragment extends Fragment {
     private String status;
     private String bookImg;
     private String owner;
+    private String pickupLat;
+    private String pickupLon;
     RequestedListAdapter myAdapter;
 
     //ArrayList<String> tempUnames = new ArrayList<String>(); //Temporary Usernames to add to list, to be replaced with requesters
@@ -153,12 +161,12 @@ public class NotificationRequestedTabFragment extends Fragment {
 
         @NonNull
         @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             RequestedViewHolder mainViewHolder = null;
             if(convertView ==null){
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 convertView = inflater.inflate(layout, parent, false);
-                RequestedViewHolder viewHolder = new RequestedViewHolder();
+                final RequestedViewHolder viewHolder = new RequestedViewHolder();
                 viewHolder.title = (TextView) convertView.findViewById(R.id.requested_book_title);
                 viewHolder.description = (TextView) convertView.findViewById(R.id.requested_book_description);
                 viewHolder.status = (TextView) convertView.findViewById(R.id.requested_book_status);
@@ -168,6 +176,38 @@ public class NotificationRequestedTabFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
+                        final Intent pickup = new Intent(getContext(), PickupLocation.class);
+                        db = FirebaseFirestore.getInstance();
+
+                        DocumentReference docRef = db.collection("Users")
+                                .document(MainActivity.current_user)
+                                .collection("Requested Books")
+                                .document(getItem(position).getIsbn());
+                        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+
+                                    if (document.exists()) {
+                                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+
+                                        pickupLat = document.get("book.pickupLat").toString();
+                                        pickupLon = document.get("book.pickupLon").toString();
+                                        pickup.putExtra("pickupLat",pickupLat);
+                                        pickup.putExtra("pickupLon",pickupLon);
+                                        Log.d(TAG, "onComplete: "+pickupLat+","+pickupLon);
+                                        startActivity(pickup);
+
+                                    } else {
+                                        Log.d(TAG, "No such document");
+                                    }
+                                } else {
+                                    Log.d(TAG, "get failed with ", task.getException());
+                                }
+                            }
+                        });
+
                     }
                 });
                 viewHolder.title.setText("Title: "+getItem(position).getTitle());

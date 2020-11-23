@@ -3,6 +3,9 @@
     package="com.example.booktracker">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,13 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BookSearch"></activity>
-        <activity android:name=".SearchProfile"></activity>
+        <activity android:name=".ui.notifications.PickupLocation"></activity>
+        <activity android:name=".BookSearch" />
+        <activity android:name=".SearchProfile" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCAU1JVmoL_s1fp-Lr11np7DZ781kH1bHM" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

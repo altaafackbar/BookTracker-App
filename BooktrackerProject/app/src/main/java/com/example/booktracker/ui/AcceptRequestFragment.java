@@ -144,7 +144,7 @@ public class AcceptRequestFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     requester_s = getItem(position).requester;
-                    Intent intent = new PlacePicker.IntentBuilder().setLatLong(53.5461, 113.4938)  // Initial Latitude and Longitude the Map will load into
+                    Intent intent = new PlacePicker.IntentBuilder().setLatLong(53.5461, -113.4938)  // Initial Latitude and Longitude the Map will load into
                             .showLatLong(true)  // Show Coordinates in the Activity
                             .setMapZoom(20.0f)  // Map Zoom Level. Default: 14.0
                             .setAddressRequired(true) // Set If return only Coordinates if cannot fetch Address for the coordinates. Default: True

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -23,9 +24,16 @@ import androidx.navigation.Navigation;
 import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -41,6 +49,7 @@ public class RequestPageFragment extends Fragment {
     private String isbn;
     private String img;
     private Bitmap bitmap;
+    private boolean isAccepted;
     private String owner;
     private FirebaseFirestore db;
 
@@ -146,28 +155,50 @@ public class RequestPageFragment extends Fragment {
                 popup.setVisibility(View.INVISIBLE);
             }
         });
+
         final Button requestBtn = view.findViewById(R.id.requestBook_button);
         requestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Map<String, Book> book = new HashMap<>();
-                Book newBook = new Book(title, author, isbn, status, owner);
-                newBook.setRequestStatus("Pending Request");
-                newBook.setRequestDate(new Date());
-                book.put("book",newBook);
-
                 //Add book to Requested Books of current user
+                isAccepted = false;
                 db = FirebaseFirestore.getInstance();
-                db.collection("Users").document(MainActivity.current_user)
+                db.collection("Users")
+                        .document(MainActivity.current_user)
                         .collection("Requested Books")
-                        .document(isbn).set(book);
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()){
+                                        for (QueryDocumentSnapshot document : task.getResult()) {
+                                            Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
+                                            Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
+                                            String requestStatus = (String) book.get("requestStatus");
+                                            String current_isbn = (String)book.get("isbn");
+                                            if (current_isbn.equals(isbn) && requestStatus.equals("Accepted")){
+                                                isAccepted = true;
+                                            }
+                                        }
+                                }
+                                else{
+                                    isAccepted = false;
+                                }
+                                if (!isAccepted){
+                                    Map<String, Book> book = new HashMap<>();
+                                    Book newBook = new Book(title, author, isbn, status, owner);
+                                    newBook.setRequestStatus("Pending Request");
+                                    newBook.setRequestDate(new Date());
+                                    book.put("book",newBook);
+                                    db = FirebaseFirestore.getInstance();
+                                    db.collection("Users").document(MainActivity.current_user)
+                                            .collection("Requested Books")
+                                            .document(isbn).set(book);
+                                }
+                            }
+                        });
 
-
-                //Add book to Book Requests Received of Owner
-                db.collection("Users").document(owner)
-                        .collection("Book Requests Received")
-                        .document(MainActivity.current_user).set(book);
-                Toast.makeText(getContext(), "Book Successfully Requested", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Requested", Toast.LENGTH_SHORT).show();
 
             }
         });

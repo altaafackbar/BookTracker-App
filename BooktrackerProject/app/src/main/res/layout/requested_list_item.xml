@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -44,8 +43,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Book Pickup"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/requested_book_status" />
+
+    <Button
+        android:id="@+id/scan_received_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan To Confirm Receival"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/requested_book_pickup_button"
         app:layout_constraintTop_toBottomOf="@+id/requested_book_status" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

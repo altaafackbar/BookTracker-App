@@ -42,6 +42,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/request_scan_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/holo_green_light"
+            android:text="Scan to Lend"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toStartOf="@+id/request_accept_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/request_date"
             android:layout_width="wrap_content"

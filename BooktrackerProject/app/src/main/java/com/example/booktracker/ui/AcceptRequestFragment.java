@@ -25,9 +25,12 @@ import androidx.navigation.Navigation;
 import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
+import com.example.booktracker.ScanBarcodeActivity;
+import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
@@ -139,6 +142,7 @@ public class AcceptRequestFragment extends Fragment {
             viewHolder.accept_btn = (Button)convertView.findViewById(R.id.request_accept_btn);
             viewHolder.decline_btn = (Button)convertView.findViewById(R.id.request_decline_btn);
             viewHolder.request_date = (TextView)convertView.findViewById(R.id.request_date);
+            viewHolder.scan_btn = (Button)convertView.findViewById(R.id.request_scan_btn);
 
             viewHolder.accept_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -179,9 +183,24 @@ public class AcceptRequestFragment extends Fragment {
                     myAdapter.notifyDataSetChanged();
                 }
             }));
+
+            viewHolder.scan_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    requester_s = getItem(position).requester;
+                    Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
+                    startActivityForResult(intent, 103);
+                    myAdapter.notifyDataSetChanged();
+                }
+            });
             viewHolder.r_username.setText("Requested By: "+getItem(position).requester);
             dateFor = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
             viewHolder.request_date.setText("Requested on: "+getItem(position).request_date.toString());
+            if(getItem(position).status.equals("Accepted")){
+                viewHolder.accept_btn.setText("View/Change Location");
+                viewHolder.decline_btn.setVisibility(View.GONE);
+                viewHolder.scan_btn.setVisibility(View.VISIBLE);
+            }
             convertView.setTag(viewHolder);
 
 
@@ -193,11 +212,13 @@ public class AcceptRequestFragment extends Fragment {
         TextView r_username;
         Button accept_btn;
         Button decline_btn;
+        Button scan_btn;
         TextView request_date;
     }
     private class RequestInfo{
         String requester;
         Date request_date;
+        String status;
     }
 
     private void getInfoFromDB(){
@@ -227,10 +248,11 @@ public class AcceptRequestFragment extends Fragment {
                                                 requestStatus = (String) book.get("requestStatus");
                                                 owner = (String)book.get("owner");
                                                 current_isbn = (String)book.get("isbn");
-                                                if (owner != null && requestStatus != null && requestStatus.equals("Pending Request") && owner.equals(MainActivity.current_user) && current_isbn.equals(isbn)) {
+                                                if (owner != null && requestStatus != null && (requestStatus.equals("Pending Request")||requestStatus.equals("Accepted")) && owner.equals(MainActivity.current_user) && current_isbn.equals(isbn)) {
                                                     RequestInfo newinfo = new RequestInfo();
                                                     newinfo.requester = uEmail;
                                                     newinfo.request_date = ((Timestamp)book.get("requestDate")).toDate();
+                                                    newinfo.status  = requestStatus;
                                                     requestInfoList.add(newinfo);
                                                 }
                                             }
@@ -274,7 +296,10 @@ public class AcceptRequestFragment extends Fragment {
                 .update("book.requestStatus","Accepted");
         //Modify the book property under the owner's collection
         db.collection("Users").document(MainActivity.current_user).collection("Books")
-                .document(isbn).update("book.status", "borrowed(pending)");
+                .document(isbn).update("book.status", "Accepted");
+        db.collection("Users").document(MainActivity.current_user).collection("Books")
+                .document(isbn).update("book.requester", requester);
+
 
         final CollectionReference collectionReference = db.collection("Users");
         collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -323,7 +348,30 @@ public class AcceptRequestFragment extends Fragment {
     }
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == Constants.PLACE_PICKER_REQUEST) {
+        if (requestCode == 103) {
+            if (resultCode == CommonStatusCodes.SUCCESS) {
+                if (data != null) {
+                    final Barcode barcode = data.getParcelableExtra("barcode"); //Contains barcode
+                    if (barcode.displayValue.equals(isbn)){
+                        db = FirebaseFirestore.getInstance();
+                        db.collection("Users")
+                                .document(MainActivity.current_user)
+                                .collection("Books")
+                                .document(isbn)
+                                .update("book.status","Borrowed (Pending)");
+                        db.collection("Users")
+                                .document(requester_s)
+                                .collection("Requested Books")
+                                .document(isbn)
+                                .update("book.status","Borrowed (Pending)");
+                        Toast.makeText(getActivity(),"Success!\n Please Allow the Borrower to Scan the Book",Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getActivity(),"ISBN does not match!!",Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }
+        else if (requestCode == Constants.PLACE_PICKER_REQUEST) {
             if (resultCode == Activity.RESULT_OK && data != null) {
                 AddressData addressData = data.getParcelableExtra(Constants.ADDRESS_INTENT);
                 String pickupLat = String.valueOf(addressData.getLatitude());

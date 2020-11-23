@@ -271,6 +271,9 @@ public class AcceptRequestFragment extends Fragment {
                 .collection("Requested Books")
                 .document(isbn)
                 .update("book.requestStatus","Accepted");
+        //Modify the book property under the owner's collection
+        db.collection("Users").document(MainActivity.current_user).collection("Books")
+                .document(isbn).update("book.status", "borrowed(pending)");
 
         final CollectionReference collectionReference = db.collection("Users");
         collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {

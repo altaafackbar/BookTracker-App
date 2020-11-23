@@ -29,6 +29,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -46,6 +48,7 @@ public class NotificationRequestedTabFragment extends Fragment {
     private FirebaseFirestore db;
     ArrayList<Book> bookList;
     private String title;
+    private String requestStatus;
     private String author;
     private String isbn;
     private String status;
@@ -109,15 +112,32 @@ public class NotificationRequestedTabFragment extends Fragment {
                                 status = (String)book.get("status");
                                 bookImg = (String) book.get("image");
                                 owner = (String) book.get("owner");
+                                requestStatus = (String)book.get("requestStatus");
                                 Book newBook = new Book(title, author, isbn, status, owner);
-                                newBook.setRequestStatus((String)book.get("requestStatus"));
+                                newBook.setRequestStatus(requestStatus);
                                 newBook.setImage(bookImg);
-                                bookList.add(newBook);
+                                if (requestStatus!=null && (requestStatus.equals("Accepted") || requestStatus.equals("Pending Request"))) {
+                                    bookList.add(newBook);
+                                }
 
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
+                        Collections.sort(bookList, new Comparator<Book>() {
+                            @Override
+                            public int compare(Book o1, Book o2) {
+                                return o1.getRequestStatus().compareTo(o2.getRequestStatus());
+                            }
+                        });
+                        /*
+                                                                Collections.sort(requestInfoList, new Comparator<RequestInfo>() {
+                                            @Override
+                                            public int compare(RequestInfo o1, RequestInfo o2) {
+                                                return o1.request_date.compareTo(o2.request_date);
+                                            }
+                                        });
+                         */
                         myAdapter.notifyDataSetChanged();
                     }
                 });
@@ -154,6 +174,9 @@ public class NotificationRequestedTabFragment extends Fragment {
                 viewHolder.owner.setText("Owner: " + getItem(position).getOwner());
                 viewHolder.description.setText("Description: ");
                 viewHolder.status.setText("Status: "+getItem(position).getRequestStatus());
+                if(getItem(position).getRequestStatus().equals("Accepted")){
+                    viewHolder.book_pickup_button.setVisibility(View.VISIBLE);
+                }
 
                 convertView.setTag(viewHolder);
             }

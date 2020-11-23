@@ -11,6 +11,7 @@ public class Book {
     private String owner;
     private String requestStatus;
     private Date requestDate;
+    private String requester;
 
     public Book(String title, String author, String isbn, String status, String owner) {
         this.title = title;
@@ -20,10 +21,19 @@ public class Book {
         this.owner = owner;
         this.requestStatus = null;
         this.requestDate = null;
+        this.requester = null;
     }
 
     public Date getRequestDate() {
         return requestDate;
+    }
+
+    public String getRequester() {
+        return requester;
+    }
+
+    public void setRequester(String requester) {
+        this.requester = requester;
     }
 
     public void setRequestDate(Date requestDate) {

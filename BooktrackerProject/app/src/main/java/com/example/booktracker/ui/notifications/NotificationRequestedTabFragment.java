@@ -22,8 +22,11 @@ import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.MainScreen;
 import com.example.booktracker.R;
+import com.example.booktracker.ScanBarcodeActivity;
+import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -36,6 +39,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -103,52 +108,7 @@ public class NotificationRequestedTabFragment extends Fragment {
         ListView listView = (ListView)view.findViewById(R.id.notificationRequestedListView);
         myAdapter = new RequestedListAdapter(getActivity(), R.layout.requested_list_item, bookList);
         listView.setAdapter(myAdapter);
-        db = FirebaseFirestore.getInstance();
-        db.collection("Users").document(MainActivity.current_user)
-                .collection("Requested Books")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
-                                Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
-                                isbn = document.getId();
-                                title = (String) book.get("title");
-                                author = (String) book.get("author");
-                                status = (String)book.get("status");
-                                bookImg = (String) book.get("image");
-                                owner = (String) book.get("owner");
-                                requestStatus = (String)book.get("requestStatus");
-                                Book newBook = new Book(title, author, isbn, status, owner);
-                                newBook.setRequestStatus(requestStatus);
-                                newBook.setImage(bookImg);
-                                if (requestStatus!=null && (requestStatus.equals("Accepted") || requestStatus.equals("Pending Request"))) {
-                                    bookList.add(newBook);
-                                }
-
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                        Collections.sort(bookList, new Comparator<Book>() {
-                            @Override
-                            public int compare(Book o1, Book o2) {
-                                return o1.getRequestStatus().compareTo(o2.getRequestStatus());
-                            }
-                        });
-                        /*
-                                                                Collections.sort(requestInfoList, new Comparator<RequestInfo>() {
-                                            @Override
-                                            public int compare(RequestInfo o1, RequestInfo o2) {
-                                                return o1.request_date.compareTo(o2.request_date);
-                                            }
-                                        });
-                         */
-                        myAdapter.notifyDataSetChanged();
-                    }
-                });
+        getInfoFromDB();
         return view;
     }
 
@@ -171,11 +131,11 @@ public class NotificationRequestedTabFragment extends Fragment {
                 viewHolder.description = (TextView) convertView.findViewById(R.id.requested_book_description);
                 viewHolder.status = (TextView) convertView.findViewById(R.id.requested_book_status);
                 viewHolder.owner = (TextView) convertView.findViewById(R.id.requested_book_owner);
+                viewHolder.scan_button = (Button) convertView.findViewById(R.id.scan_received_button);
                 viewHolder.book_pickup_button = (Button) convertView.findViewById(R.id.requested_book_pickup_button);
                 viewHolder.book_pickup_button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getContext(), "Button Clicked", Toast.LENGTH_SHORT).show();
                         final Intent pickup = new Intent(getContext(), PickupLocation.class);
                         db = FirebaseFirestore.getInstance();
 
@@ -210,12 +170,26 @@ public class NotificationRequestedTabFragment extends Fragment {
 
                     }
                 });
+                viewHolder.scan_button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        status = getItem(position).getStatus();
+                        isbn = getItem(position).getIsbn();
+                        owner = getItem(position).getOwner();
+                        author = getItem(position).getAuthor();
+                        title = getItem(position).getTitle();
+                        Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
+                        startActivityForResult(intent, 103);
+                        getInfoFromDB();
+                    }
+                });
                 viewHolder.title.setText("Title: "+getItem(position).getTitle());
                 viewHolder.owner.setText("Owner: " + getItem(position).getOwner());
                 viewHolder.description.setText("Description: ");
                 viewHolder.status.setText("Status: "+getItem(position).getRequestStatus());
                 if(getItem(position).getRequestStatus().equals("Accepted")){
                     viewHolder.book_pickup_button.setVisibility(View.VISIBLE);
+                    viewHolder.scan_button.setVisibility(View.VISIBLE);
                 }
 
                 convertView.setTag(viewHolder);
@@ -231,6 +205,99 @@ public class NotificationRequestedTabFragment extends Fragment {
         TextView description;
         TextView status;
         TextView owner;
+        Button scan_button;
         Button book_pickup_button;
+    }
+    private void getInfoFromDB(){
+        bookList.clear();
+        db = FirebaseFirestore.getInstance();
+        db.collection("Users").document(MainActivity.current_user)
+                .collection("Requested Books")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
+                                Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
+                                isbn = document.getId();
+                                title = (String) book.get("title");
+                                author = (String) book.get("author");
+                                status = (String)book.get("status");
+                                bookImg = (String) book.get("image");
+                                owner = (String) book.get("owner");
+                                requestStatus = (String)book.get("requestStatus");
+                                Book newBook = new Book(title, author, isbn, status, owner);
+                                newBook.setRequestStatus(requestStatus);
+                                newBook.setImage(bookImg);
+                                if (requestStatus!=null && (requestStatus.equals("Accepted") || requestStatus.equals("Pending Request"))) {
+                                    bookList.add(newBook);
+                                }
+
+                            }
+                            myAdapter.notifyDataSetChanged(); 
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                        Collections.sort(bookList, new Comparator<Book>() {
+                            @Override
+                            public int compare(Book o1, Book o2) {
+                                return o1.getRequestStatus().compareTo(o2.getRequestStatus());
+                            }
+                        });
+                        /*
+                                                                Collections.sort(requestInfoList, new Comparator<RequestInfo>() {
+                                            @Override
+                                            public int compare(RequestInfo o1, RequestInfo o2) {
+                                                return o1.request_date.compareTo(o2.request_date);
+                                            }
+                                        });
+                         */
+                    }
+                });
+    }
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == 103) {
+            if (resultCode == CommonStatusCodes.SUCCESS) {
+                if (data != null) {
+                    final Barcode barcode = data.getParcelableExtra("barcode"); //Contains barcode
+                    if (barcode.displayValue.equals(isbn)){
+                        Map<String, Book> book = new HashMap<>();
+                        Book newBook = new Book(title, author, isbn, "Borrowed", owner);
+                        newBook.setRequester(MainActivity.current_user);
+                        book.put("book",newBook);
+                        db = FirebaseFirestore.getInstance();
+                        db.collection("Users").document(MainActivity.current_user)
+                                .collection("Requested Books")
+                                .document(isbn).set(book);
+                        db.collection("Users")
+                                .document(MainActivity.current_user)
+                                .collection("Borrowed Books")
+                                .document(isbn)
+                                .set(book);
+                        db.collection("Users")
+                                .document(owner)
+                                .collection("Books Lent Out")
+                                .document(isbn)
+                                .set(book);
+                        db.collection("Users")
+                                .document(MainActivity.current_user)
+                                .collection("Requested Books")
+                                .document(isbn)
+                                .delete();
+                        db.collection("Users")
+                                .document(owner)
+                                .collection("Books")
+                                .document(isbn)
+                                .update("book.status","Borrowed");
+                        Toast.makeText(getActivity(),"Successfully Borrowed!",Toast.LENGTH_LONG).show();
+                        myAdapter.notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(getActivity(),"ISBN does not match!!",Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }
     }
 }

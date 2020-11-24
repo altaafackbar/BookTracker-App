@@ -35,8 +35,23 @@
         <action
             android:id="@+id/dashboard_to_bookPageFragment"
             app:destination="@id/bookPageFragment" />
+        <action
+            android:id="@+id/dashboard_to_lentOutFragment"
+            app:destination="@id/lentOutFragment" />
+        <action
+            android:id="@+id/dashboard_to_borrowingFragment"
+            app:destination="@id/borrowingFragment" />
     </fragment>
-
+    <fragment
+        android:id="@+id/lentOutFragment"
+        android:name="com.example.booktracker.ui.LentOutFragment"
+        android:label="Books Lent Out"
+        tools:layout="@layout/fragment_lent_out_page" />
+    <fragment
+        android:id="@+id/borrowingFragment"
+        android:name="com.example.booktracker.ui.BorrowingFragment"
+        android:label="Books Borrowed"
+        tools:layout="@layout/fragment_borrowing_page" />
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.booktracker.ui.notifications.NotificationsFragment"

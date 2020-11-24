@@ -364,7 +364,7 @@ public class AcceptRequestFragment extends Fragment {
                                 .collection("Requested Books")
                                 .document(isbn)
                                 .update("book.status","Borrowed (Pending)");
-                        Toast.makeText(getActivity(),"Success!\n Please Allow the Borrower to Scan the Book",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(),"Success!\nPlease Allow the Borrower to Scan the Book",Toast.LENGTH_LONG).show();
                     }else{
                         Toast.makeText(getActivity(),"ISBN does not match!!",Toast.LENGTH_LONG).show();
                     }

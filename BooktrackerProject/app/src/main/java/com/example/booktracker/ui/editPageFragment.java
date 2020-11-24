@@ -41,7 +41,7 @@ import static android.content.ContentValues.TAG;
 public class editPageFragment extends Fragment {
     private EditText author1;
     private EditText title1;
-    private  EditText isbn1;
+    private EditText isbn1;
     private String currentIsbn;
     private String originalTitle;
     private String originalAuthor;

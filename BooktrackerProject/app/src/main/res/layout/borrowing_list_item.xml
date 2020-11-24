@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title_borrowing_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/author_borrowing_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Author"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_borrowing_item" />
+
+    <TextView
+        android:id="@+id/isbn_borrowing_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="isbn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/author_borrowing_item" />
+
+    <TextView
+        android:id="@+id/owner_borrowing_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Owner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/isbn_borrowing_item" />
+
+    <TextView
+        android:id="@+id/confirm_message_borrowing_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scanned, waiting for owner to scan."
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/owner_borrowing_item" />
+
+    <Button
+        android:id="@+id/scan_button_borrowing_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan To Return"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_message_borrowing_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

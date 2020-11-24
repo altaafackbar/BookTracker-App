@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -57,6 +58,8 @@ public class DashboardFragment extends Fragment {
     Button filterAvailableBtn;
     Button filterAcceptedBtn;
     Button filterBorrowedBtn;
+    Button btnLendPage;
+    Button btnBorrowedPage;
     ListView tempListView;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -76,6 +79,8 @@ public class DashboardFragment extends Fragment {
         myAdapter = new RecyclerViewAdapter(getActivity(), bookList);
         myRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 3 ));
         myRecyclerview.setAdapter(myAdapter);
+        btnLendPage = root.findViewById(R.id.lent_out_page_btn);
+        btnBorrowedPage = root.findViewById(R.id.borrowing_page_btn);
         filterAllBtn = root.findViewById(R.id.filter_all_btn);
         filterAvailableBtn = root.findViewById(R.id.filter_available_btn);
         filterAcceptedBtn = root.findViewById(R.id.filter_accepted_btn);
@@ -145,6 +150,29 @@ public class DashboardFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        btnLendPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(root).navigate(R.id.dashboard_to_lentOutFragment);
+            }
+        });
+        btnBorrowedPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(root).navigate(R.id.dashboard_to_borrowingFragment);
+            }
+        });
+        /*
+                track_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("isbn", isbn);
+                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_acceptRequestFragment,args);
+            }
+        });
+         */
         return root;
     }
     private void filter(final String filterStatus){

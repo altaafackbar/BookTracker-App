@@ -3,6 +3,7 @@ package com.example.booktracker.ui;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -17,9 +18,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Map;
 
@@ -35,6 +43,8 @@ public class editPageFragment extends Fragment {
     private EditText title1;
     private  EditText isbn1;
     private String currentIsbn;
+    private String originalTitle;
+    private String originalAuthor;
     private FirebaseFirestore db;
     private Button addEditedbook;
     // TODO: Rename parameter arguments, choose names that match
@@ -92,12 +102,16 @@ public class editPageFragment extends Fragment {
 
         if (getArguments() != null){
             currentIsbn = getArguments().getString("editisbn");
+            originalAuthor = getArguments().getString("editauthor");
+            originalTitle= getArguments().getString("edittitle");
         }
 
         author1 = view.findViewById(R.id.edit_authorText);
         title1 = view.findViewById(R.id.edit_titleText);
         isbn1 = view.findViewById(R.id.edit_isbnText);
-
+        author1.setText(originalAuthor);
+        title1.setText(originalTitle);
+        isbn1.setText(currentIsbn);
         addEditedbook = view.findViewById(R.id.edit_add_button);
         addEditedbook.setOnClickListener(new View.OnClickListener() {
             @Override

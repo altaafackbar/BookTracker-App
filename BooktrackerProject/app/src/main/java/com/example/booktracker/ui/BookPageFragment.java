@@ -213,6 +213,8 @@ public class BookPageFragment extends Fragment {
             public void onClick(View v) {
                 Bundle args = new Bundle();
                 args.putString("editisbn", isbn);
+                args.putString("edittitle", title);
+                args.putString("editauthor", author);
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment,args);
             }
         });

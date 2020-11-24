@@ -70,6 +70,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 args.putString("title", myData.get(position).getTitle());
                 args.putString("author", myData.get(position).getAuthor());
                 args.putString("status", myData.get(position).getStatus());
+                if(myData.get(position).getStatus().equals("Borrowed")){
+                    args.putString("borrower",myData.get(position).getRequester());
+                }
                args.putString("isbn", myData.get(position).getIsbn());
                args.putString("img",myData.get(position).getImage());
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment, args);

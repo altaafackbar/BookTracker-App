@@ -23,7 +23,7 @@ public class NotificationsFragment extends Fragment {
     public TextView back;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private TabItem requestsTab, requestedTab;
+    private TabItem requestsTab, requestedTab, messagesTab;
     public NotificationPageAdapter pagerAdapter;
 
     private NotificationsViewModel notificationsViewModel;
@@ -78,6 +78,7 @@ public class NotificationsFragment extends Fragment {
         tabLayout = (TabLayout)view.findViewById(R.id.notification_tab_layout);
         requestsTab = (TabItem)view.findViewById(R.id.requests_tab);
         requestedTab = (TabItem)view.findViewById(R.id.requested_tab);
+        messagesTab = (TabItem)view.findViewById(R.id.messages_tab);
         viewPager = view.findViewById(R.id.notification_viewpager);
 
         pagerAdapter = new NotificationPageAdapter(getFragmentManager(), tabLayout.getTabCount());
@@ -93,6 +94,10 @@ public class NotificationsFragment extends Fragment {
                 else if (tab.getPosition() == 1){
                     pagerAdapter.notifyDataSetChanged();
                 }
+                else if (tab.getPosition() == 2){
+                    pagerAdapter.notifyDataSetChanged();
+                }
+
             }
 
             @Override

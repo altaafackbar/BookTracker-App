@@ -97,7 +97,7 @@ public class BookPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().popBackStackImmediate();
-              //  Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_dashboard);
+                //Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_dashboard);
             }
         });
         final Button track_button = view.findViewById(R.id.track_button);

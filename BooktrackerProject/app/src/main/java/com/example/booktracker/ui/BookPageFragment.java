@@ -40,6 +40,7 @@ public class BookPageFragment extends Fragment {
     private String title;
     private String author;
     private String status;
+    private String borrower;
     private String isbn;
     private String img;
     private Bitmap bitmap;
@@ -110,6 +111,7 @@ public class BookPageFragment extends Fragment {
         });
 
         final Button borrow_button = view.findViewById(R.id.borrow_btn);
+        borrow_button.setVisibility(View.INVISIBLE);
         borrow_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +128,9 @@ public class BookPageFragment extends Fragment {
             status = getArguments().getString("status");
             isbn = getArguments().getString("isbn");
             img = getArguments().getString("img");
+            borrower = getArguments().getString("borrower");
         }
+
         final ImageView bookCover = view.findViewById(R.id.book_cover);
         final ImageButton deleteButton = view.findViewById(R.id.deleteImage);
         final Drawable resImg = ResourcesCompat.getDrawable(getResources(), R.drawable.image_needed, null);
@@ -142,8 +146,11 @@ public class BookPageFragment extends Fragment {
         TextView authorView = view.findViewById(R.id.author_id);
         authorView.setText(author);
         TextView statusView = view.findViewById(R.id.textView_status);
-        statusView.setText("Status: "+status);
-
+        if (status.equals("Borrowed")){
+            statusView.setText("Status: Borrowed By "+ borrower);
+        }else {
+            statusView.setText("Status: " + status);
+        }
         TextView isbnView = view.findViewById(R.id.textView_isbn);
         isbnView.setText("ISBN: " + isbn);
         //if user clicks book cover, blow up image
@@ -209,6 +216,13 @@ public class BookPageFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment,args);
             }
         });
+        if(status.equals("Borrowed")){
+            edit.setVisibility(View.INVISIBLE);
+            deleteBook.setVisibility(View.INVISIBLE);
+            track_button.setVisibility(View.INVISIBLE);
+            deleteButton.setVisibility(View.INVISIBLE);
+
+        }
         return view;
 
     }
@@ -218,6 +232,8 @@ public class BookPageFragment extends Fragment {
         db.collection("Users").document(MainActivity.current_user).collection("Books")
                 .document(isbn).update("book.image", "");
     }
+
+
 
 
 }

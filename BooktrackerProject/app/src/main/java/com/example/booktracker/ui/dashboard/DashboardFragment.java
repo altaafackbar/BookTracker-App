@@ -1,6 +1,7 @@
 package com.example.booktracker.ui.dashboard;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +44,7 @@ public class DashboardFragment extends Fragment {
     private String author;
     private String isbn;
     private String status;
+    RecyclerViewAdapter myAdapter;
     private String bookImg;
     RecyclerView myRecyclerview;
     ArrayList<Book> bookList;
@@ -51,6 +53,10 @@ public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     Button returnButton;
+    Button filterAllBtn;
+    Button filterAvailableBtn;
+    Button filterAcceptedBtn;
+    Button filterBorrowedBtn;
     ListView tempListView;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -67,11 +73,82 @@ public class DashboardFragment extends Fragment {
         });
         bookList = new ArrayList<>();
         myRecyclerview = (RecyclerView) root.findViewById(R.id.recyclerview_id);
-        final RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getActivity(), bookList);
+        myAdapter = new RecyclerViewAdapter(getActivity(), bookList);
         myRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 3 ));
         myRecyclerview.setAdapter(myAdapter);
+        filterAllBtn = root.findViewById(R.id.filter_all_btn);
+        filterAvailableBtn = root.findViewById(R.id.filter_available_btn);
+        filterAcceptedBtn = root.findViewById(R.id.filter_accepted_btn);
+        filterBorrowedBtn = root.findViewById(R.id.filter_borrowed_btn);
+        filter("All");
 
+        myAdapter.notifyDataSetChanged();
 
+        filterAllBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filter("All");
+                filterAllBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterBorrowedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+
+            }
+        });
+        filterAvailableBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filter("available");
+                filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterAvailableBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterBorrowedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+
+            }
+        });
+        filterAcceptedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filter("Accepted");
+                filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterAcceptedBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                filterBorrowedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+
+            }
+        });
+        filterBorrowedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filter("Borrowed");
+                filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterBorrowedBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+            }
+        });
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
+                startActivityForResult(intent, 0);
+
+            }
+        });
+        Button editProfile = root.findViewById(R.id.editProfile);
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CreateAccount.class);
+                intent.putExtra("task", "edit");
+                startActivity(intent);
+            }
+        });
+        return root;
+    }
+    private void filter(final String filterStatus){
+        bookList.clear();
         db = FirebaseFirestore.getInstance();
         db.collection("Users").document(MainActivity.current_user)
                 .collection("Books")
@@ -89,57 +166,24 @@ public class DashboardFragment extends Fragment {
                                 status = (String)book.get("status");
                                 bookImg = (String) book.get("image");
                                 Book newBook = new Book(title, author, isbn,status, MainActivity.current_user);
+                                newBook.setRequester((String)book.get("requester"));
                                 newBook.setImage(bookImg);
-                                bookList.add(newBook);
+                                if (filterStatus.equals("All")){
+                                    bookList.add(newBook);
+                                }else if (filterStatus.equals(status)){
+                                    bookList.add(newBook);
+                                }
+                                myAdapter.notifyDataSetChanged();
 
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
-                        myAdapter.notifyDataSetChanged();
+
                     }
                 });
-
-//        tempListView = (ListView)root.findViewById(R.id.book_list);
-//        final ArrayList<String> tempArray = new ArrayList<>();
-//        tempArray.add("Book1");
-//        tempArray.add("Book2");
-//        ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,tempArray);
-//        tempListView.setAdapter(arrayAdapter);
-//
-//        tempListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getContext(),tempArray.get(position), Toast.LENGTH_SHORT).show();
-//                Navigation.findNavController(root).navigate(R.id.dashboard_to_bookPageFragment);
-//            }
-//        });
-////
-//        textView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Navigation.findNavController(root).navigate(R.id.dashboard_to_bookPageFragment);
-//            }
-//        });
-
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
-                startActivityForResult(intent, 0);
-            }
-        });
-        Button editProfile = root.findViewById(R.id.editProfile);
-        editProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CreateAccount.class);
-                intent.putExtra("task", "edit");
-                startActivity(intent);
-            }
-        });
-        return root;
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

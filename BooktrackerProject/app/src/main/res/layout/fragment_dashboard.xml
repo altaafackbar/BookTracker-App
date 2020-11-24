@@ -43,12 +43,29 @@
         android:background="#C0C0C0"
         app:layout_constraintStart_toEndOf="@+id/filter_available_btn"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <Button
+        android:id="@+id/lent_out_page_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Books Lent Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/borrowing_page_btn" />
+
+    <Button
+        android:id="@+id/borrowing_page_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Books Borrowed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/filter_borrowed_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight='.25'
-        android:text="Borrowed"
+        android:text="Lent"
         android:background="#C0C0C0"
         app:layout_constraintStart_toEndOf="@+id/filter_accepted_btn"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />

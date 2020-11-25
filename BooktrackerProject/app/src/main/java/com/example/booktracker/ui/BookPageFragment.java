@@ -215,6 +215,12 @@ public class BookPageFragment extends Fragment {
                 args.putString("editisbn", isbn);
                 args.putString("edittitle", title);
                 args.putString("editauthor", author);
+                if(img != null && !img.isEmpty()){
+                    args.putString("editImg", img);
+                }
+                else{
+                    args.putString("editImg", "");
+                }
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment,args);
             }
         });

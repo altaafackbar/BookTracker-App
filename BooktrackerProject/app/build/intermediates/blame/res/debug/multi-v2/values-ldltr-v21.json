@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Ian\\Desktop\\Newfolder3\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "C:\\Users\\altaa\\Desktop\\abkt\\againbkt\\booktracker\\BooktrackerProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ian\\.gradle\\caches\\transforms-2\\files-2.1\\b9c0dfc0e8adaeca43121c09410b9b17\\appcompat-1.2.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "C:\\Users\\altaa\\.gradle\\caches\\transforms-2\\files-2.1\\b9c0dfc0e8adaeca43121c09410b9b17\\appcompat-1.2.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

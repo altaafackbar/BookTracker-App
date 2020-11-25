@@ -2144,7 +2144,6 @@ id BOTTOM_START
 id CTRL
 id Constraint
 id FUNCTION
-id LendButton
 id META
 id NO_DEBUG
 id SHIFT
@@ -2155,6 +2154,7 @@ id SYM
 id TOP_END
 id TOP_START
 id accelerate
+id acceptButton
 id acceptRequestFragment
 id acceptRequestFragment_to_bookPageFragment
 id accessibility_action_clickable_span
@@ -2225,8 +2225,10 @@ id anonymous_button
 id asConfigured
 id async
 id authorText
+id author_borrowing_item
 id author_id
 id author_id_request
+id author_lent_item
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -2260,7 +2262,11 @@ id borrow_book_owner_pic
 id borrow_book_owner_username
 id borrow_btn
 id borrow_request_button
+id borrower_lent_item
 id borrower_text
+id borrowingFragment
+id borrowingPageListView
+id borrowing_page_btn
 id bottom
 id bounce
 id browser_actions_header_text
@@ -2301,6 +2307,7 @@ id clip_vertical
 id collapseActionView
 id confirmPassword
 id confirm_button
+id confirm_message_borrowing_item
 id confirmation_code
 id confirmation_code_layout
 id container
@@ -2316,6 +2323,8 @@ id customPanel
 id cut
 id dark
 id dashboard_to_bookPageFragment
+id dashboard_to_borrowingFragment
+id dashboard_to_lentOutFragment
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -2384,6 +2393,10 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id filter_accepted_btn
+id filter_all_btn
+id filter_available_btn
+id filter_borrowed_btn
 id fitToContents
 id fixed
 id flip
@@ -2427,6 +2440,8 @@ id info_layout
 id invisible
 id invisible_frame
 id isbnText
+id isbn_borrowing_item
+id isbn_lent_item
 id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
@@ -2435,6 +2450,9 @@ id labeled
 id largeLabel
 id layout
 id left
+id lentOutFragment
+id lentOutPageListView
+id lent_out_page_btn
 id light
 id line1
 id line3
@@ -2453,6 +2471,7 @@ id marker_shadow_image_view
 id masked
 id media_actions
 id message
+id messages_tab
 id middle
 id mini
 id mobile_navigation
@@ -2504,6 +2523,7 @@ id never
 id noScroll
 id none
 id normal
+id notificationMessagesListView
 id notificationRequestedListView
 id notificationRequestsListView
 id notification_background
@@ -2515,6 +2535,7 @@ id number
 id off
 id on
 id outline
+id owner_borrowing_item
 id packed
 id parallax
 id parent
@@ -2573,6 +2594,7 @@ id requestPageFragment_to_navigation_home
 id request_accept_btn
 id request_date
 id request_decline_btn
+id request_scan_btn
 id request_tab
 id requested_book_description
 id requested_book_owner
@@ -2601,6 +2623,9 @@ id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
 id scale
+id scan_button_borrowing_item
+id scan_button_lent_item
+id scan_received_button
 id screen
 id scroll
 id scrollIndicatorDown
@@ -2708,6 +2733,8 @@ id time
 id title
 id titleDividerNoCustom
 id titleText
+id title_borrowing_item
+id title_lent_item
 id title_template
 id toggle
 id top
@@ -2834,6 +2861,7 @@ layout activity_scan_barcode
 layout activity_search_profile
 layout book_adapter_view_layout
 layout borrow_list_item
+layout borrowing_list_item
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cardview_book_item
@@ -2857,10 +2885,13 @@ layout fragment_accept_request
 layout fragment_add
 layout fragment_book_borrow
 layout fragment_book_page
+layout fragment_borrowing_page
 layout fragment_dashboard
 layout fragment_edit_page
 layout fragment_history_tab
 layout fragment_home
+layout fragment_lent_out_page
+layout fragment_notification_messages
 layout fragment_notification_requested_tab
 layout fragment_notification_requests_tab
 layout fragment_notifications
@@ -2891,6 +2922,7 @@ layout fui_welcome_back_email_link_prompt_layout
 layout fui_welcome_back_idp_prompt_layout
 layout fui_welcome_back_password_prompt_layout
 layout history_list_item
+layout lent_out_list_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title

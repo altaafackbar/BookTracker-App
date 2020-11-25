@@ -77,7 +77,6 @@ public class HomeFragment extends Fragment {
          */
         searchText = root.findViewById(R.id.userSearch);
         Button sign_out_button = root.findViewById(R.id.sign_out_button2);
-        Button lendButton = root.findViewById(R.id.LendButton);
         Button acceptButton = root.findViewById(R.id.acceptButton);
         sign_out_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,15 +93,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) { searchUser(); }
         });
 
-
-
-        lendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
-                startActivityForResult(intent, 0);
-            }
-        });
 
         acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -233,45 +223,45 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         db = FirebaseFirestore.getInstance();
-        if (requestCode == 0) { //If the owner wants to lend a book.
-            if (resultCode == CommonStatusCodes.SUCCESS) {
-                if (data != null) {
-                    final Barcode barcode = data.getParcelableExtra("barcode"); //Contains barcode
-                    db.collection("Users").document(MainActivity.current_user)
-                            .collection("Books")
-                            .get()
-                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        for (QueryDocumentSnapshot document : task.getResult()) {
-                                            Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
-                                            Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
-                                                //Update as borrowed
-                                                owner = (String) book.get("owner");
-                                                status = (String) book.get("status");
-                                            //Check if the Owner is the one lending the book.
-                                            if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available")) {
-                                                    //Change status to borrowed
-                                                    db.collection("Users").document(MainActivity.current_user).collection("Books")
-                                                            .document(barcode.displayValue).update("book.status", "borrowed(pending)");
-                                                    Toast toast1 = Toast.makeText(getContext(), "Successfully lent!", Toast.LENGTH_SHORT);
-                                                    toast1.show();
-                                                }
-                                            //If owner is accepting a returned book
-                                            else if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available(pending)")) {
-                                                db.collection("Users").document(MainActivity.current_user).collection("Books")
-                                                        .document(barcode.displayValue).update("book.status", "available");
-                                                Toast toast1 = Toast.makeText(getContext(), "Successfully Accepted and returned!", Toast.LENGTH_SHORT);
-                                                toast1.show();
-                                            }
-                                        }
-                                    }
-                                }
-                            });
-                }
-            }
-        }
+//        if (requestCode == 0) { //If the owner wants to lend a book.
+//            if (resultCode == CommonStatusCodes.SUCCESS) {
+//                if (data != null) {
+//                    final Barcode barcode = data.getParcelableExtra("barcode"); //Contains barcode
+//                    db.collection("Users").document(MainActivity.current_user)
+//                            .collection("Books")
+//                            .get()
+//                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                    if (task.isSuccessful()) {
+//                                        for (QueryDocumentSnapshot document : task.getResult()) {
+//                                            Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
+//                                            Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
+//                                                //Update as borrowed
+//                                                owner = (String) book.get("owner");
+//                                                status = (String) book.get("status");
+//                                            //Check if the Owner is the one lending the book.
+//                                            if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available")) {
+//                                                    //Change status to borrowed
+//                                                    db.collection("Users").document(MainActivity.current_user).collection("Books")
+//                                                            .document(barcode.displayValue).update("book.status", "borrowed(pending)");
+//                                                    Toast toast1 = Toast.makeText(getContext(), "Successfully lent!", Toast.LENGTH_SHORT);
+//                                                    toast1.show();
+//                                                }
+//                                            //If owner is accepting a returned book
+//                                            else if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available(pending)")) {
+//                                                db.collection("Users").document(MainActivity.current_user).collection("Books")
+//                                                        .document(barcode.displayValue).update("book.status", "available");
+//                                                Toast toast1 = Toast.makeText(getContext(), "Successfully Accepted and returned!", Toast.LENGTH_SHORT);
+//                                                toast1.show();
+//                                            }
+//                                        }
+//                                    }
+//                                }
+//                            });
+//                }
+//            }
+//        }
         if (requestCode == 1) {
             Toast toast1 = Toast.makeText(getContext(), "request1", Toast.LENGTH_SHORT);
             toast1.show();
@@ -311,12 +301,19 @@ public class HomeFragment extends Fragment {
                                                                                         status = (String) book.get("status");
                                                                                         Toast toast21 = Toast.makeText(getContext(), owner + status, Toast.LENGTH_SHORT);
                                                                                         toast21.show();
-                                                                                        //Check if the Owner is the on
+                                                                                        //Requester accepts and accepted book
                                                                                         if (status!= null && status.equals("borrowed(pending)")) {
                                                                                             //Change status to borrowed
                                                                                             db.collection("Users").document(owner).collection("Books")
                                                                                                     .document(barcode.displayValue).update("book.status", "borrowed");
                                                                                             Toast toast1 = Toast.makeText(getContext(), "Successfully accepted and borrowed!", Toast.LENGTH_SHORT);
+                                                                                            toast1.show();
+                                                                                        }
+                                                                                        //Owner accepts a returned book
+                                                                                        else if (owner.equals(MainActivity.current_user) && status.equals("available(pending)")) {
+                                                                                            db.collection("Users").document(owner).collection("Books")
+                                                                                                    .document(barcode.displayValue).update("book.status", "available");
+                                                                                            Toast toast1 = Toast.makeText(getContext(), "Successfully accepted and returned!", Toast.LENGTH_SHORT);
                                                                                             toast1.show();
                                                                                         }
                                                                                     }

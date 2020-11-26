@@ -106,6 +106,7 @@ public class BookPageFragment extends Fragment {
             public void onClick(View v) {
                 Bundle args = new Bundle();
                 args.putString("isbn", isbn);
+                args.putString("title",title);
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_acceptRequestFragment,args);
             }
         });
@@ -227,9 +228,10 @@ public class BookPageFragment extends Fragment {
         if(status.equals("Borrowed") || status.equals("Accepted")){
             edit.setVisibility(View.INVISIBLE);
             deleteBook.setVisibility(View.INVISIBLE);
-            track_button.setVisibility(View.INVISIBLE);
             deleteButton.setVisibility(View.INVISIBLE);
-
+        }
+        if(status.equals("Accepted")){
+            track_button.setVisibility(View.INVISIBLE);
         }
         return view;
 

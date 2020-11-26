@@ -69,8 +69,6 @@ public class NotificationRequestedTabFragment extends Fragment {
     private String pickupLon;
     RequestedListAdapter myAdapter;
 
-    //ArrayList<String> tempUnames = new ArrayList<String>(); //Temporary Usernames to add to list, to be replaced with requesters
-
     public NotificationRequestedTabFragment() {
         // Required empty public constructor
     }

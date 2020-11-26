@@ -24,6 +24,7 @@ import androidx.navigation.Navigation;
 
 import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
+import com.example.booktracker.NotificationMessage;
 import com.example.booktracker.R;
 import com.example.booktracker.ScanBarcodeActivity;
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -48,6 +49,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -61,6 +63,7 @@ public class AcceptRequestFragment extends Fragment {
     private String requestStatus;
     ArrayList<RequestInfo> requestInfoList;
     RequestListAdapter myAdapter;
+    private String title;
     private String current_isbn;
     private String isbn;
     private FirebaseFirestore db;
@@ -112,6 +115,7 @@ public class AcceptRequestFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_accept_request, container, false);
         requestInfoList = new ArrayList<>();
         isbn = getArguments().getString("isbn");
+        title = getArguments().getString("title");
 
 
         ListView listView = (ListView)view.findViewById(R.id.requests_accept_list);
@@ -273,17 +277,26 @@ public class AcceptRequestFragment extends Fragment {
                 }
 
             }
-            
+
         });
     }
     private void doDecline(String requester){
         db = FirebaseFirestore.getInstance();
         Toast.makeText(getActivity(),requester,Toast.LENGTH_SHORT).show();
+
+        Map<String, NotificationMessage>  notification = new HashMap<>();
+        Date newDate = new Date();
+        NotificationMessage newNotificationMessage = new NotificationMessage("Book Request Declined", "Request Has Been Declined For\n"+title+"\n"+"isbn: "+isbn, newDate.toString());
+        notification.put("notification", newNotificationMessage);
         db.collection("Users")
                 .document(requester)
                 .collection("Requested Books")
                 .document(isbn)
-                .update("book.requestStatus","Declined");
+                .delete();
+        db.collection("Users")
+                .document(requester)
+                .collection("Notifications")
+                .document(newDate.toString()).set(notification);
     }
 
     private void doAccept(String requester){
@@ -294,6 +307,14 @@ public class AcceptRequestFragment extends Fragment {
                 .collection("Requested Books")
                 .document(isbn)
                 .update("book.requestStatus","Accepted");
+        Map<String, NotificationMessage>  notification = new HashMap<>();
+        Date newDate = new Date();
+        NotificationMessage newNotificationMessage = new NotificationMessage("Book Request Accepted!", "Request Has Been Accepted For\n"+title+"\n"+"isbn: "+isbn, newDate.toString());
+        notification.put("notification", newNotificationMessage);
+        db.collection("Users")
+                .document(requester)
+                .collection("Notifications")
+                .document(newDate.toString()).set(notification);
         //Modify the book property under the owner's collection
         db.collection("Users").document(MainActivity.current_user).collection("Books")
                 .document(isbn).update("book.status", "Accepted");
@@ -330,7 +351,15 @@ public class AcceptRequestFragment extends Fragment {
                                                             .document(uEmail)
                                                             .collection("Requested Books")
                                                             .document(isbn)
-                                                            .update("book.requestStatus","Declined");
+                                                            .delete();
+                                                    Map<String, NotificationMessage>  notification = new HashMap<>();
+                                                    Date newDate = new Date();
+                                                    NotificationMessage newNotificationMessage = new NotificationMessage("Book Request Declined", "Request Has Been Declined For\n"+title+"\n"+"isbn: "+isbn, newDate.toString());
+                                                    notification.put("notification", newNotificationMessage);
+                                                    db.collection("Users")
+                                                            .document(uEmail)
+                                                            .collection("Notifications")
+                                                            .document(newDate.toString()).set(notification);
                                                     getInfoFromDB();
 
                                                 }

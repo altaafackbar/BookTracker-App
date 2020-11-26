@@ -225,12 +225,12 @@ public class BookPageFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment,args);
             }
         });
-        if(status.equals("Borrowed") || status.equals("Accepted")){
+        if(!status.equals("available")){
             edit.setVisibility(View.INVISIBLE);
             deleteBook.setVisibility(View.INVISIBLE);
             deleteButton.setVisibility(View.INVISIBLE);
         }
-        if(status.equals("Accepted")){
+        if(status.equals("Borrowed")|| status.equals("Returned (Pending)")){
             track_button.setVisibility(View.INVISIBLE);
         }
         return view;

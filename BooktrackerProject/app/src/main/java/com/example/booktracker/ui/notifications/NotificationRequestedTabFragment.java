@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.MainScreen;
+import com.example.booktracker.NotificationMessage;
 import com.example.booktracker.R;
 import com.example.booktracker.ScanBarcodeActivity;
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -107,6 +108,7 @@ public class NotificationRequestedTabFragment extends Fragment {
         myAdapter = new RequestedListAdapter(getActivity(), R.layout.requested_list_item, bookList);
         listView.setAdapter(myAdapter);
         getInfoFromDB();
+        myAdapter.notifyDataSetChanged();
         return view;
     }
 
@@ -149,14 +151,16 @@ public class NotificationRequestedTabFragment extends Fragment {
 
                                     if (document.exists()) {
                                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-
-                                        pickupLat = document.get("book.pickupLat").toString();
-                                        pickupLon = document.get("book.pickupLon").toString();
-                                        pickup.putExtra("pickupLat",pickupLat);
-                                        pickup.putExtra("pickupLon",pickupLon);
-                                        Log.d(TAG, "onComplete: "+pickupLat+","+pickupLon);
-                                        startActivity(pickup);
-
+                                        if (document.get("book.pickupLat") == null || document.get("book.pickupLon") == null){
+                                            Toast.makeText(getActivity(), "Location Has Not Been Picked By Owner!", Toast.LENGTH_LONG).show();
+                                        }else {
+                                            pickupLat = document.get("book.pickupLat").toString();
+                                            pickupLon = document.get("book.pickupLon").toString();
+                                            pickup.putExtra("pickupLat", pickupLat);
+                                            pickup.putExtra("pickupLon", pickupLon);
+                                            Log.d(TAG, "onComplete: " + pickupLat + "," + pickupLon);
+                                            startActivity(pickup);
+                                        }
                                     } else {
                                         Log.d(TAG, "No such document");
                                     }
@@ -176,6 +180,7 @@ public class NotificationRequestedTabFragment extends Fragment {
                         owner = getItem(position).getOwner();
                         author = getItem(position).getAuthor();
                         title = getItem(position).getTitle();
+                        requestStatus = getItem(position).getRequestStatus();
                         Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
                         startActivityForResult(intent, 103);
                         getInfoFromDB();
@@ -244,14 +249,6 @@ public class NotificationRequestedTabFragment extends Fragment {
                                 return o1.getRequestStatus().compareTo(o2.getRequestStatus());
                             }
                         });
-                        /*
-                                                                Collections.sort(requestInfoList, new Comparator<RequestInfo>() {
-                                            @Override
-                                            public int compare(RequestInfo o1, RequestInfo o2) {
-                                                return o1.request_date.compareTo(o2.request_date);
-                                            }
-                                        });
-                         */
                     }
                 });
     }
@@ -261,36 +258,51 @@ public class NotificationRequestedTabFragment extends Fragment {
                 if (data != null) {
                     final Barcode barcode = data.getParcelableExtra("barcode"); //Contains barcode
                     if (barcode.displayValue.equals(isbn)){
-                        Map<String, Book> book = new HashMap<>();
-                        Book newBook = new Book(title, author, isbn, "Borrowed", owner);
-                        newBook.setRequester(MainActivity.current_user);
-                        book.put("book",newBook);
-                        db = FirebaseFirestore.getInstance();
-                        db.collection("Users").document(MainActivity.current_user)
-                                .collection("Requested Books")
-                                .document(isbn).set(book);
-                        db.collection("Users")
-                                .document(MainActivity.current_user)
-                                .collection("Borrowed Books")
-                                .document(isbn)
-                                .set(book);
-                        db.collection("Users")
-                                .document(owner)
-                                .collection("Books Lent Out")
-                                .document(isbn)
-                                .set(book);
-                        db.collection("Users")
-                                .document(MainActivity.current_user)
-                                .collection("Requested Books")
-                                .document(isbn)
-                                .delete();
-                        db.collection("Users")
-                                .document(owner)
-                                .collection("Books")
-                                .document(isbn)
-                                .update("book.status","Borrowed");
-                        Toast.makeText(getActivity(),"Successfully Borrowed!",Toast.LENGTH_LONG).show();
-                        myAdapter.notifyDataSetChanged();
+                        if(status.equals("Borrowed (Pending)")) {
+                            Map<String, Book> book = new HashMap<>();
+                            Book newBook = new Book(title, author, isbn, "Borrowed", owner);
+                            newBook.setRequester(MainActivity.current_user);
+                            book.put("book", newBook);
+                            db = FirebaseFirestore.getInstance();
+                            db.collection("Users").document(MainActivity.current_user)
+                                    .collection("Requested Books")
+                                    .document(isbn).set(book);
+                            db.collection("Users")
+                                    .document(MainActivity.current_user)
+                                    .collection("Borrowed Books")
+                                    .document(isbn)
+                                    .set(book);
+                            db.collection("Users")
+                                    .document(owner)
+                                    .collection("Books Lent Out")
+                                    .document(isbn)
+                                    .set(book);
+                            db.collection("Users")
+                                    .document(MainActivity.current_user)
+                                    .collection("Requested Books")
+                                    .document(isbn)
+                                    .delete();
+                            db.collection("Users")
+                                    .document(owner)
+                                    .collection("Books")
+                                    .document(isbn)
+                                    .update("book.status", "Borrowed");
+                            Toast.makeText(getActivity(), "Successfully Borrowed!", Toast.LENGTH_LONG).show();
+
+                            Map<String, NotificationMessage> notification = new HashMap<>();
+                            Date newDate = new Date();
+                            NotificationMessage newNotificationMessage = new NotificationMessage("Book Successfully Lent!", MainActivity.current_user + " has Received and Scanned the Following Book: \n" + title + "\n" + "isbn: " + isbn, newDate.toString());
+                            notification.put("notification", newNotificationMessage);
+                            db.collection("Users")
+                                    .document(owner)
+                                    .collection("Notifications")
+                                    .document(newDate.toString()).set(notification);
+                            myAdapter.notifyDataSetChanged();
+                        }
+                        else{
+                            Toast.makeText(getActivity(),"::::"+requestStatus,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(),"Owner have not scanned this book!!",Toast.LENGTH_LONG).show();
+                        }
                     }else{
                         Toast.makeText(getActivity(),"ISBN does not match!!",Toast.LENGTH_LONG).show();
                     }

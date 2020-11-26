@@ -45,6 +45,7 @@ public class DashboardFragment extends Fragment {
     private String author;
     private String isbn;
     private String status;
+    private String filterStatus;
     RecyclerViewAdapter myAdapter;
     private String bookImg;
     RecyclerView myRecyclerview;
@@ -85,14 +86,16 @@ public class DashboardFragment extends Fragment {
         filterAvailableBtn = root.findViewById(R.id.filter_available_btn);
         filterAcceptedBtn = root.findViewById(R.id.filter_accepted_btn);
         filterBorrowedBtn = root.findViewById(R.id.filter_borrowed_btn);
-        filter("All");
+        filterStatus = "All";
+        filter();
 
         myAdapter.notifyDataSetChanged();
 
         filterAllBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filter("All");
+                filterStatus = "All";
+                filter();
                 filterAllBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
                 filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
@@ -103,7 +106,8 @@ public class DashboardFragment extends Fragment {
         filterAvailableBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filter("available");
+                filterStatus = "available";
+                filter();
                 filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
                 filterAvailableBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
@@ -114,7 +118,8 @@ public class DashboardFragment extends Fragment {
         filterAcceptedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filter("Accepted");
+                filterStatus = "Accepted";
+                filter();
                 filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
                 filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
                 filterAcceptedBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
@@ -125,7 +130,8 @@ public class DashboardFragment extends Fragment {
         filterBorrowedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filter("Borrowed");
+                filterStatus = "Borrowed";
+                filter();
                 filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
                 filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
                 filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
@@ -175,7 +181,7 @@ public class DashboardFragment extends Fragment {
          */
         return root;
     }
-    private void filter(final String filterStatus){
+    private void filter(){
         bookList.clear();
         db = FirebaseFirestore.getInstance();
         db.collection("Users").document(MainActivity.current_user)
@@ -196,6 +202,11 @@ public class DashboardFragment extends Fragment {
                                 Book newBook = new Book(title, author, isbn,status, MainActivity.current_user);
                                 newBook.setRequester((String)book.get("requester"));
                                 newBook.setImage(bookImg);
+                                if (status.equals("Borrowed (Pending)")){
+                                    status = "Accepted";
+                                }else if(status.equals("Returned (Pending)")){
+                                    status = "Borrowed";
+                                }
                                 if (filterStatus.equals("All")){
                                     bookList.add(newBook);
                                 }else if (filterStatus.equals(status)){

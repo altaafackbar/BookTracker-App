@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
+import com.example.booktracker.NotificationMessage;
 import com.example.booktracker.R;
 import com.example.booktracker.ScanBarcodeActivity;
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -30,6 +31,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -206,6 +209,16 @@ public class LentOutFragment extends Fragment {
                                 .collection("Borrowed Books")
                                 .document(isbn)
                                 .delete();
+                        Map<String, NotificationMessage>  notification = new HashMap<>();
+                        Date newDate = new Date();
+                        NotificationMessage newNotificationMessage = new NotificationMessage("Book Returned!", MainActivity.current_user+" has Received and Scanned the Following Book: \n"+title+"\n"+"isbn: "+isbn, newDate.toString());
+                        notification.put("notification", newNotificationMessage);
+                        db.collection("Users")
+                                .document(borrower)
+                                .collection("Notifications")
+                                .document(newDate.toString())
+                                .set(notification);
+                        Toast.makeText(getActivity(),"Success!!",Toast.LENGTH_LONG).show();
                     }else{
                         Toast.makeText(getActivity(),"ISBN does not match!!",Toast.LENGTH_LONG).show();
                     }

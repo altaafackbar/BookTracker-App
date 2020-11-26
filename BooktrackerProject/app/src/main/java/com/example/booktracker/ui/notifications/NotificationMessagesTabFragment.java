@@ -90,6 +90,7 @@ public class NotificationMessagesTabFragment extends Fragment {
         ListView listView = (ListView)view.findViewById(R.id.notificationMessagesListView);
         listView.setAdapter(myAdapter);
         getInfoFromDB();
+        myAdapter.notifyDataSetChanged();
         return view;
     }
 

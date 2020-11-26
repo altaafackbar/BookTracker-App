@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.booktracker.Book;
 import com.example.booktracker.MainActivity;
+import com.example.booktracker.NotificationMessage;
 import com.example.booktracker.R;
 import com.example.booktracker.ScanBarcodeActivity;
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -32,6 +33,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -128,6 +131,7 @@ public class BorrowingFragment extends Fragment {
                     public void onClick(View v) {
                         isbn = getItem(position).getIsbn();
                         owner = getItem(position).getOwner();
+                        title = getItem(position).getTitle();
                         Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
                         startActivityForResult(intent, 103);
                         getInfoFromDB();
@@ -206,6 +210,14 @@ public class BorrowingFragment extends Fragment {
                                 .collection("Books Lent Out")
                                 .document(isbn)
                                 .update("book.status", "Returned (Pending)");
+                        Map<String, NotificationMessage>  notification = new HashMap<>();
+                        Date newDate = new Date();
+                        NotificationMessage newNotificationMessage = new NotificationMessage(title+" Scanned by "+MainActivity.current_user+" to be Returned!", "Please Scan The Following Book Upon Receival: \n"+title+"\n"+"isbn: "+isbn, newDate.toString());
+                        notification.put("notification", newNotificationMessage);
+                        db.collection("Users")
+                                .document(owner)
+                                .collection("Notifications")
+                                .document(newDate.toString()).set(notification);
                         Toast.makeText(getActivity(),"Success!\nWaiting For Owner to Scan the Book",Toast.LENGTH_LONG).show();
                     }else{
                         Toast.makeText(getActivity(),"ISBN does not match!!",Toast.LENGTH_LONG).show();

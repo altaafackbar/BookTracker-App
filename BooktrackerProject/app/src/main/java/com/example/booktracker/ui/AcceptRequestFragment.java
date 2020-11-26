@@ -393,6 +393,14 @@ public class AcceptRequestFragment extends Fragment {
                                 .collection("Requested Books")
                                 .document(isbn)
                                 .update("book.status","Borrowed (Pending)");
+                        Map<String, NotificationMessage>  notification = new HashMap<>();
+                        Date newDate = new Date();
+                        NotificationMessage newNotificationMessage = new NotificationMessage(title+" Scanned by \n"+MainActivity.current_user+" to be Lent!", "Please Scan The Following Book Upon Receival: \n"+title+"\n"+"isbn: "+isbn, newDate.toString());
+                        notification.put("notification", newNotificationMessage);
+                        db.collection("Users")
+                                .document(requester_s)
+                                .collection("Notifications")
+                                .document(newDate.toString()).set(notification);
                         Toast.makeText(getActivity(),"Success!\nPlease Allow the Borrower to Scan the Book",Toast.LENGTH_LONG).show();
                     }else{
                         Toast.makeText(getActivity(),"ISBN does not match!!",Toast.LENGTH_LONG).show();

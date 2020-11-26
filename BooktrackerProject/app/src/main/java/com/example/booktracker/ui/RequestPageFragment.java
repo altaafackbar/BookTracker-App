@@ -10,28 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import com.example.booktracker.Book;
+import com.example.booktracker.NotificationMessage;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -176,24 +169,30 @@ public class RequestPageFragment extends Fragment {
                                             Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
                                             String requestStatus = (String) book.get("requestStatus");
                                             String current_isbn = (String)book.get("isbn");
-                                            if (current_isbn.equals(isbn) && requestStatus.equals("Accepted")){
+                                            if (current_isbn.equals(isbn) && (requestStatus.equals("Accepted")||requestStatus.equals("Pending Request"))){
                                                 isAccepted = true;
                                             }
                                         }
                                 }
-                                else{
-                                    isAccepted = false;
-                                }
+
                                 if (!isAccepted){
                                     Map<String, Book> book = new HashMap<>();
                                     Book newBook = new Book(title, author, isbn, status, owner);
                                     newBook.setRequestStatus("Pending Request");
                                     newBook.setRequestDate(new Date());
                                     book.put("book",newBook);
+
+                                    Map<String, NotificationMessage>  notification = new HashMap<>();
+                                    Date newDate = new Date();
+                                    NotificationMessage newNotificationMessage = new NotificationMessage("New Book Request", "New Request Has Been Received For\n"+title+"\n"+"isbn: "+isbn, newDate.toString());
+                                    notification.put("notification", newNotificationMessage);
                                     db = FirebaseFirestore.getInstance();
                                     db.collection("Users").document(MainActivity.current_user)
                                             .collection("Requested Books")
                                             .document(isbn).set(book);
+                                    db.collection("Users").document(owner)
+                                            .collection("Notifications")
+                                            .document(newDate.toString()).set(notification);
                                 }
                             }
                         });

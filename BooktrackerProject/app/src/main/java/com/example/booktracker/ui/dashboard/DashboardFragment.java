@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,11 +31,8 @@ import com.example.booktracker.CreateAccount;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.example.booktracker.RecyclerViewAdapter;
-import com.example.booktracker.ScanBarcodeActivity;
-import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -59,7 +55,6 @@ public class DashboardFragment extends Fragment {
     private FirebaseFirestore db;
 
     private DashboardViewModel dashboardViewModel;
-    private Button returnButton;
     private Button filterAllBtn;
     private Button filterAvailableBtn;
     private Button filterAcceptedBtn;
@@ -72,7 +67,6 @@ public class DashboardFragment extends Fragment {
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         final TextView textView = root.findViewById(R.id.username);
-        returnButton = root.findViewById(R.id.returnButton);
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -144,14 +138,6 @@ public class DashboardFragment extends Fragment {
                 filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
                 filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
                 filterBorrowedBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
-
-            }
-        });
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
-                startActivityForResult(intent, 0);
 
             }
         });
@@ -228,58 +214,4 @@ public class DashboardFragment extends Fragment {
                 });
     }
 
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode==0) {
-            if (resultCode== CommonStatusCodes.SUCCESS) {
-                if(data!=null) {
-                    final Barcode barcode = data.getParcelableExtra("barcode");
-                    db = FirebaseFirestore.getInstance();
-                    db.collection("Users")
-                            .get()
-                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        for (final QueryDocumentSnapshot document : task.getResult()) {
-                                            Log.d(TAG, document.getId() + " => ");
-                                            db.collection("Users").document(document.getId())
-                                                    .collection("Books")
-                                                    .get()
-                                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                                        public void onComplete(@NonNull Task<QuerySnapshot> task1) {
-                                                            if (task1.isSuccessful()) {
-                                                                for (QueryDocumentSnapshot document1 : task1.getResult()) {
-                                                                    Map<String, Object> book1 = (Map<String, Object>) document1.getData().get("book");
-                                                                    title = (String) book1.get("title");
-                                                                    Log.d(TAG, document.getId() + " ISBN:" + document1.getId() + " ==> " + title);
-                                                                    if (barcode.displayValue.equals(document1.getId())) {
-                                                                        db.collection("Users").document(document.getId()).collection("Books")
-                                                                                .document(barcode.displayValue).update("book.status", "available(pending)");
-                                                                        Toast toast1 = Toast.makeText(getContext(), "Successfully Returned!!", Toast.LENGTH_SHORT);
-                                                                        toast1.show();
-                                                                    }
-
-                                                                }
-                                                            }
-                                                        }
-                                                    });
-
-
-                                        }
-                                    }
-                                }
-                            });
-                }
-                else {
-                    System.out.println("No barcode found");
-                }
-            }
-        }
-        else {
-
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
 }

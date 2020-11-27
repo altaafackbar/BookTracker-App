@@ -284,7 +284,6 @@ public class AcceptRequestFragment extends Fragment {
     private void doAccept(String requester){
         //Accepts the request and declines all other requests
         db = FirebaseFirestore.getInstance();
-        Toast.makeText(getActivity(),requester,Toast.LENGTH_SHORT).show();
         //Set requestStatus to accepted for the requester
         db.collection("Users")
                 .document(requester)
@@ -429,8 +428,6 @@ public class AcceptRequestFragment extends Fragment {
                         .collection("Requested Books")
                         .document(isbn)
                         .update("book.pickupLon",pickupLon);
-
-                Toast.makeText(getActivity(),addressData.toString(),Toast.LENGTH_SHORT).show();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

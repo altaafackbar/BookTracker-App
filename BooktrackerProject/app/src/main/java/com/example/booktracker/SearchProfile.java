@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.booktracker.ui.home.HomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -34,8 +35,9 @@ public class SearchProfile extends AppCompatActivity {
     private String status;
     private String bookImg;
     private TextView username;
-    RecyclerView profileRecyclerview;
-    ArrayList<Book> profileBookList;
+    private TextView phone;
+    private RecyclerView profileRecyclerview;
+    private ArrayList<Book> profileBookList;
     private FirebaseFirestore db;
     private BookRecyclerViewAdapter profileAdapter;
 
@@ -43,17 +45,31 @@ public class SearchProfile extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_profile);
+        db = FirebaseFirestore.getInstance();
 
 
         username = findViewById(R.id.viewProfile_username);
         username.setText(HomeFragment.searchUser);
+        phone = findViewById(R.id.viewProfile_phone);
+        db.collection("Users")
+                .document(HomeFragment.searchUser)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful()) {
+                            phone.setText(task.getResult().getString("UserNum"));
+
+                        }
+                    }
+                });
 
         profileBookList = new ArrayList<>();
         profileRecyclerview = findViewById(R.id.viewProfile_recyclerview_id);
         profileAdapter = new BookRecyclerViewAdapter (this,profileBookList);
         profileRecyclerview.setLayoutManager(new GridLayoutManager(this,3));
         profileRecyclerview.setAdapter(profileAdapter);
-        db = FirebaseFirestore.getInstance();
+
         //Retrieving the user's books from database
         db.collection("Users").document(HomeFragment.searchUser)
                 .collection("Books")

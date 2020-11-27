@@ -11,20 +11,22 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:text="Available Books"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/acceptButton" />
+        app:layout_constraintTop_toBottomOf="@+id/sign_out_button2" />
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:text="TextView"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,12 +34,11 @@
         android:id="@+id/sign_out_button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="5dp"
         android:text="Sign Out"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerview_id_home" />
+        app:layout_constraintTop_toBottomOf="@+id/bookText" />
 
     <EditText
         android:id="@+id/userSearch"
@@ -62,25 +63,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/userSearch" />
 
-    <Button
-        android:id="@+id/acceptButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Accept"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookSearch" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_id_home"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/sign_out_button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
@@ -99,8 +87,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Enter Book Keyword"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/bookSearch"
         app:layout_constraintEnd_toStartOf="@+id/bookSearch"
         app:layout_constraintStart_toStartOf="parent"

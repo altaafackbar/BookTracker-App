@@ -80,7 +80,7 @@
     <fragment
         android:id="@+id/editPageFragment"
         android:name="com.example.booktracker.ui.EditPageFragment"
-        android:label="fragment_edit_page"
+        android:label="Edit"
         tools:layout="@layout/fragment_edit_page" >
         <action
             android:id="@+id/editPageFragment_to_bookPageFragment"

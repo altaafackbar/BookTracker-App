@@ -1,3 +1,8 @@
+/**
+ *HomeViewModel
+ * ViewModel used in the HomeFragment
+ * Helps to manage the set up of the fragment
+ */
 package com.example.booktracker.ui.home;
 
 import androidx.lifecycle.LiveData;

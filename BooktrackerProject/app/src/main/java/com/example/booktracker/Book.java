@@ -1,8 +1,14 @@
+/**
+* Book
+* Used to create Book objects to be stored in Firestore when user adds a book
+* Contains simple getter/setter methods
+*/
 package com.example.booktracker;
 
 import java.util.Date;
 
 public class Book {
+    //Attributes of Book class
     private String title;
     private String author;
     private String isbn;
@@ -14,6 +20,7 @@ public class Book {
     private String requester;
 
     public Book(String title, String author, String isbn, String status, String owner) {
+        //Constructor
         this.title = title;
         this.author = author;
         this.isbn = isbn;

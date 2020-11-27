@@ -1,3 +1,8 @@
+/**
+*AddViewModel
+* A ViewModel for the add fragment
+* Helps with managing data in when adding books
+ */
 package com.example.booktracker.ui.add;
 
 import androidx.lifecycle.LiveData;

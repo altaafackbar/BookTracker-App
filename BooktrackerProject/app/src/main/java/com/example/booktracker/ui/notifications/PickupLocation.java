@@ -1,3 +1,8 @@
+/**
+ * PickupLocation
+ * Activity that shows the pickup location chosen by the owner
+ * of a book for a requester
+ */
 package com.example.booktracker.ui.notifications;
 
 import androidx.appcompat.app.AppCompatActivity;

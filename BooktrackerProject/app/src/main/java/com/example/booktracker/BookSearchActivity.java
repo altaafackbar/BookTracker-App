@@ -1,3 +1,8 @@
+/**
+* BookSearchActivity
+* This sets up the page that displays the results
+* of a book search.
+ */
 package com.example.booktracker;
 
 import androidx.annotation.NonNull;
@@ -9,13 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.booktracker.ui.home.HomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
@@ -30,7 +30,7 @@ import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
-public class BookSearch extends AppCompatActivity {
+public class BookSearchActivity extends AppCompatActivity {
     private String searchTerm;
     private TextView result;
     private String title;
@@ -47,7 +47,6 @@ public class BookSearch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_search);
-
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         result = findViewById(R.id.resultCount);
@@ -56,12 +55,17 @@ public class BookSearch extends AppCompatActivity {
             searchTerm =(String) bundle.get("searchTerm");
         }
         bookList = new ArrayList<>();
-        myRecyclerview = (RecyclerView) findViewById(R.id.bookSearch_recycler_view_id);
+        myRecyclerview = findViewById(R.id.bookSearch_recycler_view_id);
         myAdapter = new BookRecyclerViewAdapter(this, bookList);
         myRecyclerview.setLayoutManager(new GridLayoutManager(this, 3 ));
         myRecyclerview.setAdapter(myAdapter);
+
         db = FirebaseFirestore.getInstance();
         final CollectionReference collectionReference = db.collection("Users");
+        /*
+         * Getting search results from Firestore
+         * Adding the books that match the searchTerm into bookList
+         */
         collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {

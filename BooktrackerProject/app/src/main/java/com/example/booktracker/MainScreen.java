@@ -1,3 +1,8 @@
+/**
+*MainScreen
+*This is the main screen of the app
+*Sets up the navigation view and host for the app
+ */
 package com.example.booktracker;
 
 import android.os.Bundle;

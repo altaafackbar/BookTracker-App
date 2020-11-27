@@ -1,9 +1,14 @@
+/**
+*FetchBook
+* Attempts to fetch the fields/details of a book
+* when user is adding a new book.
+ */
 package com.example.booktracker;
 
-import android.net.Uri;
+
 import android.os.AsyncTask;
 import android.widget.EditText;
-import android.widget.TextView;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -46,11 +51,6 @@ public class FetchBook extends AsyncTask<String,Void,String>{
      */
     @Override
     protected String doInBackground(String... params) {
-
-        // Get the search string
-        String queryString = params[0];
-
-
         // Set up variables for the try block that need to be closed in the finally block.
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
@@ -58,7 +58,6 @@ public class FetchBook extends AsyncTask<String,Void,String>{
 
         // Attempt to query the Books API.
         try {
-
             URL requestURL = new URL("https://www.googleapis.com/books/v1/volumes?q=isbn:" + mBookInput.getText());
 
             // Open the network connection.

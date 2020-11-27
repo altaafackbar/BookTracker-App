@@ -1,3 +1,8 @@
+/**
+ * BorrowingFragment
+ * Fragment that displays the books the user is currently borrowing
+ * From here, users can scan a book in order to start the returning process
+ */
 package com.example.booktracker.ui;
 
 import android.content.Context;
@@ -30,7 +35,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,42 +45,23 @@ import java.util.Map;
 import static android.content.ContentValues.TAG;
 
 public class BorrowingFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    ArrayList<Book> bookList;
+    private ArrayList<Book> bookList;
     private FirebaseFirestore db;
     private String title;
     private String author;
     private String isbn;
     private String owner;
-    BorrowingListAdapter myAdapter;
+    private BorrowingListAdapter myAdapter;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public BorrowingFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BookPageFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BorrowingFragment newInstance(String param1, String param2) {
+
+    public static BorrowingFragment newInstance() {
         BorrowingFragment fragment = new BorrowingFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -84,10 +69,6 @@ public class BorrowingFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -96,7 +77,7 @@ public class BorrowingFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_borrowing_page, container, false);
         bookList = new ArrayList<>();
-        ListView listView = (ListView)view.findViewById(R.id.borrowingPageListView);
+        ListView listView = view.findViewById(R.id.borrowingPageListView);
         myAdapter = new BorrowingListAdapter(getActivity(), R.layout.borrowing_list_item, bookList);
         listView.setAdapter(myAdapter);
         getInfoFromDB();
@@ -105,6 +86,7 @@ public class BorrowingFragment extends Fragment {
     }
 
 
+    //BorrowingListAdapter used for displaying borrowed books in a listview
     private class BorrowingListAdapter extends ArrayAdapter<Book> {
         private int layout;
         public BorrowingListAdapter(@NonNull Context context, int resource, @NonNull List<Book> objects) {
@@ -115,47 +97,45 @@ public class BorrowingFragment extends Fragment {
         @NonNull
         @Override
         public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            BorrowingViewHolder mainViewHolder = null;
-            if(convertView == null){
-                LayoutInflater inflater = LayoutInflater.from(getContext());
-                convertView = inflater.inflate(layout, parent, false);
-                final BorrowingViewHolder viewHolder = new BorrowingViewHolder();
-                viewHolder.title = (TextView)convertView.findViewById(R.id.title_borrowing_item);
-                viewHolder.author = (TextView)convertView.findViewById(R.id.author_borrowing_item);
-                viewHolder.isbn = (TextView)convertView.findViewById(R.id.isbn_borrowing_item);
-                viewHolder.owner = (TextView)convertView.findViewById(R.id.owner_borrowing_item);
-                viewHolder.message = (TextView)convertView.findViewById(R.id.confirm_message_borrowing_item);
-                viewHolder.scan_return_btn = (Button)convertView.findViewById(R.id.scan_button_borrowing_item);
-                viewHolder.scan_return_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        isbn = getItem(position).getIsbn();
-                        owner = getItem(position).getOwner();
-                        title = getItem(position).getTitle();
-                        Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
-                        startActivityForResult(intent, 103);
-                        getInfoFromDB();
-                        myAdapter.notifyDataSetChanged();
-                    }
-                });
-                if (getItem(position).getStatus().equals("Returned (Pending)")){
-                    viewHolder.message.setVisibility(View.VISIBLE);
-                    viewHolder.scan_return_btn.setVisibility(View.GONE);
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(layout, parent, false);
+            final BorrowingViewHolder viewHolder = new BorrowingViewHolder();
+            viewHolder.title = convertView.findViewById(R.id.title_borrowing_item);
+            viewHolder.author = convertView.findViewById(R.id.author_borrowing_item);
+            viewHolder.isbn = convertView.findViewById(R.id.isbn_borrowing_item);
+            viewHolder.owner = convertView.findViewById(R.id.owner_borrowing_item);
+            viewHolder.message = convertView.findViewById(R.id.confirm_message_borrowing_item);
+            viewHolder.scan_return_btn = convertView.findViewById(R.id.scan_button_borrowing_item);
+            viewHolder.scan_return_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Scans the book to start the return process
+                    isbn = getItem(position).getIsbn();
+                    owner = getItem(position).getOwner();
+                    title = getItem(position).getTitle();
+                    Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
+                    startActivityForResult(intent, 103);
+                    getInfoFromDB();
+                    myAdapter.notifyDataSetChanged();
                 }
-                viewHolder.title.setText("Title: "+ getItem(position).getTitle());
-                viewHolder.author.setText("Author: "+getItem(position).getAuthor());
-                viewHolder.isbn.setText("ISBN: "+getItem(position).getIsbn());
-                viewHolder.owner.setText("Owner: "+getItem(position).getOwner());
-                convertView.setTag(viewHolder);
-
-            }else{
-                mainViewHolder = (BorrowingViewHolder) convertView.getTag();
+            });
+            if (getItem(position).getStatus().equals("Returned (Pending)")){
+                //Hide scan button if already scanned.
+                viewHolder.message.setVisibility(View.VISIBLE);
+                viewHolder.scan_return_btn.setVisibility(View.GONE);
             }
+            viewHolder.title.setText("Title: "+ getItem(position).getTitle());
+            viewHolder.author.setText("Author: "+getItem(position).getAuthor());
+            viewHolder.isbn.setText("ISBN: "+getItem(position).getIsbn());
+            viewHolder.owner.setText("Owner: "+getItem(position).getOwner());
+            convertView.setTag(viewHolder);
+
             return convertView;
         }
     }
 
-    public class BorrowingViewHolder{
+    //ViewHolder to hold and set the values of each item in the list
+    private class BorrowingViewHolder{
         TextView title;
         TextView author;
         TextView isbn;
@@ -165,6 +145,7 @@ public class BorrowingFragment extends Fragment {
     }
 
     private void getInfoFromDB(){
+        //clears the bookList then adds books to the bookList that are borrowed for the current user
         bookList.clear();
         db = FirebaseFirestore.getInstance();
         db.collection("Users")
@@ -194,12 +175,14 @@ public class BorrowingFragment extends Fragment {
     }
 
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        //Scans the book to begin the returning process
         if (requestCode == 103){
             if (resultCode == CommonStatusCodes.SUCCESS){
                 if (data!=null){
                     final Barcode barcode = data.getParcelableExtra("barcode");
                     if (barcode.displayValue.equals(isbn)){
                         db = FirebaseFirestore.getInstance();
+                        //Set the status to "Returned (Pending)" for the requester and the owner
                         db.collection("Users")
                                 .document(MainActivity.current_user)
                                 .collection("Borrowed Books")
@@ -214,6 +197,7 @@ public class BorrowingFragment extends Fragment {
                         Date newDate = new Date();
                         NotificationMessage newNotificationMessage = new NotificationMessage(title+" Scanned by "+MainActivity.current_user+" to be Returned!", "Please Scan The Following Book Upon Receival: \n"+title+"\n"+"isbn: "+isbn, newDate.toString());
                         notification.put("notification", newNotificationMessage);
+                        //Give the owner a notification to indicate starting of return process
                         db.collection("Users")
                                 .document(owner)
                                 .collection("Notifications")

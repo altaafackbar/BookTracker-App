@@ -1,3 +1,10 @@
+/**
+*HomeFragment
+* Sets up the layout and functions of the home screen
+* Allows users to search for books, and other users
+* Displays a list of available books
+* Allows user to sign out
+ */
 package com.example.booktracker.ui.home;
 
 import android.content.Intent;
@@ -20,12 +27,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.booktracker.AvailableRecyclerViewAdapter;
 import com.example.booktracker.Book;
-import com.example.booktracker.BookSearch;
+import com.example.booktracker.BookSearchActivity;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.example.booktracker.ScanBarcodeActivity;
 import com.example.booktracker.SearchProfile;
-import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -49,7 +55,6 @@ public class HomeFragment extends Fragment {
     private FirebaseFirestore db;
     private EditText searchText;
     private EditText bookSearchText;
-    private EditText userSearchText;
     private String owner;
     public static String searchUser;
     private String status;
@@ -66,15 +71,6 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
         final TextView email = root.findViewById(R.id.email);
-        /*
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-
-         */
         searchText = root.findViewById(R.id.userSearch);
         Button sign_out_button = root.findViewById(R.id.sign_out_button2);
         Button acceptButton = root.findViewById(R.id.acceptButton);
@@ -84,11 +80,12 @@ public class HomeFragment extends Fragment {
                 signOut();
             }
         });
-        email.setText("Welcome back " + MainActivity.current_user);
+        email.setText("Welcome Back \n" + MainActivity.current_user);
 
 
         Button search = root.findViewById(R.id.searchUserButton);
         search.setOnClickListener(new View.OnClickListener() {
+            //Searches for the user entered
             @Override
             public void onClick(View view) { searchUser(); }
         });
@@ -102,7 +99,7 @@ public class HomeFragment extends Fragment {
             }
         });
         bookList = new ArrayList<>();
-        myRecyclerview = (RecyclerView) root.findViewById(R.id.recyclerview_id_home);
+        myRecyclerview = root.findViewById(R.id.recyclerview_id_home);
         final AvailableRecyclerViewAdapter myAdapter = new AvailableRecyclerViewAdapter(getActivity(), bookList);
         myRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 3 ));
         myRecyclerview.setAdapter(myAdapter);
@@ -111,6 +108,7 @@ public class HomeFragment extends Fragment {
         collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException error) {
+                //Add all available books in the database to bookList.
                 bookList.clear();
                 ArrayList<String> userEmailList = new ArrayList<>();
                 for(QueryDocumentSnapshot doc: queryDocumentSnapshots)
@@ -159,8 +157,9 @@ public class HomeFragment extends Fragment {
         BookSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Searches and displays books with descriptions matching the entered terms
                 String searchTerm = bookSearchText.getText().toString();
-                Intent intent = new Intent(getActivity(), BookSearch.class);
+                Intent intent = new Intent(getActivity(), BookSearchActivity.class);
                 intent.putExtra("searchTerm", searchTerm);
                 startActivity(intent);
             }
@@ -172,6 +171,11 @@ public class HomeFragment extends Fragment {
 
 
    public void searchUser(){
+        /*
+        *Searches for an user according to the term entered
+        *Displays the user profile if search exists,
+        *otherwise give the appropriate error messages.
+         */
        db = FirebaseFirestore.getInstance();
        String searchTerm = searchText.getText().toString();
        if(!searchTerm.isEmpty()){
@@ -186,13 +190,9 @@ public class HomeFragment extends Fragment {
                            Toast toast = Toast.makeText(getContext(), "Username exists", Toast.LENGTH_SHORT);
                            toast.show();
                            searchUser = searchText.getText().toString();
-
-
                            //Call to SearchProfile Activity
                            Intent intent = new Intent(getActivity(), SearchProfile.class);
                            startActivity(intent);
-
-
                        } else {
                            Log.d("TAG", "Document does not exist!");
                            Toast toast = Toast.makeText(getContext(), "Username does not exist", Toast.LENGTH_SHORT);
@@ -212,10 +212,8 @@ public class HomeFragment extends Fragment {
     }
 
 
-
-
-
     private void signOut(){
+        //Signs an user out
         MainActivity.current_user = null;
         this.getActivity().finish();
     }
@@ -223,45 +221,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         db = FirebaseFirestore.getInstance();
-//        if (requestCode == 0) { //If the owner wants to lend a book.
-//            if (resultCode == CommonStatusCodes.SUCCESS) {
-//                if (data != null) {
-//                    final Barcode barcode = data.getParcelableExtra("barcode"); //Contains barcode
-//                    db.collection("Users").document(MainActivity.current_user)
-//                            .collection("Books")
-//                            .get()
-//                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                                    if (task.isSuccessful()) {
-//                                        for (QueryDocumentSnapshot document : task.getResult()) {
-//                                            Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
-//                                            Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
-//                                                //Update as borrowed
-//                                                owner = (String) book.get("owner");
-//                                                status = (String) book.get("status");
-//                                            //Check if the Owner is the one lending the book.
-//                                            if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available")) {
-//                                                    //Change status to borrowed
-//                                                    db.collection("Users").document(MainActivity.current_user).collection("Books")
-//                                                            .document(barcode.displayValue).update("book.status", "borrowed(pending)");
-//                                                    Toast toast1 = Toast.makeText(getContext(), "Successfully lent!", Toast.LENGTH_SHORT);
-//                                                    toast1.show();
-//                                                }
-//                                            //If owner is accepting a returned book
-//                                            else if (owner != null && owner.equals(MainActivity.current_user) && status!= null && status.equals("available(pending)")) {
-//                                                db.collection("Users").document(MainActivity.current_user).collection("Books")
-//                                                        .document(barcode.displayValue).update("book.status", "available");
-//                                                Toast toast1 = Toast.makeText(getContext(), "Successfully Accepted and returned!", Toast.LENGTH_SHORT);
-//                                                toast1.show();
-//                                            }
-//                                        }
-//                                    }
-//                                }
-//                            });
-//                }
-//            }
-//        }
         if (requestCode == 1) {
             Toast toast1 = Toast.makeText(getContext(), "request1", Toast.LENGTH_SHORT);
             toast1.show();

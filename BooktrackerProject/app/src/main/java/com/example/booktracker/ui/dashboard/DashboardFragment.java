@@ -1,3 +1,10 @@
+/**
+*DashboardFragment
+* Implements the functions of the dashboard fragment
+* Includes the display and filtering of an user's own books
+* Branches to other activities including, fragment_book_page,
+* books borrowed page, books lent out page, and edit profile page.
+ */
 package com.example.booktracker.ui.dashboard;
 
 import android.content.Intent;
@@ -8,7 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,22 +52,20 @@ public class DashboardFragment extends Fragment {
     private String isbn;
     private String status;
     private String filterStatus;
-    RecyclerViewAdapter myAdapter;
+    private RecyclerViewAdapter myAdapter;
     private String bookImg;
-    RecyclerView myRecyclerview;
-    ArrayList<Book> bookList;
+    private RecyclerView myRecyclerview;
+    private ArrayList<Book> bookList;
     private FirebaseFirestore db;
 
-
     private DashboardViewModel dashboardViewModel;
-    Button returnButton;
-    Button filterAllBtn;
-    Button filterAvailableBtn;
-    Button filterAcceptedBtn;
-    Button filterBorrowedBtn;
-    Button btnLendPage;
-    Button btnBorrowedPage;
-    ListView tempListView;
+    private Button returnButton;
+    private Button filterAllBtn;
+    private Button filterAvailableBtn;
+    private Button filterAcceptedBtn;
+    private Button filterBorrowedBtn;
+    private Button btnLendPage;
+    private Button btnBorrowedPage;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
@@ -76,7 +80,7 @@ public class DashboardFragment extends Fragment {
             }
         });
         bookList = new ArrayList<>();
-        myRecyclerview = (RecyclerView) root.findViewById(R.id.recyclerview_id);
+        myRecyclerview = root.findViewById(R.id.recyclerview_id);
         myAdapter = new RecyclerViewAdapter(getActivity(), bookList);
         myRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 3 ));
         myRecyclerview.setAdapter(myAdapter);
@@ -94,6 +98,7 @@ public class DashboardFragment extends Fragment {
         filterAllBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Shows all books; filters off, changes button color to show which filter is selected
                 filterStatus = "All";
                 filter();
                 filterAllBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
@@ -106,6 +111,7 @@ public class DashboardFragment extends Fragment {
         filterAvailableBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Shows available books, changes button color to show which filter is selected
                 filterStatus = "available";
                 filter();
                 filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
@@ -118,6 +124,7 @@ public class DashboardFragment extends Fragment {
         filterAcceptedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Shows accepted books, changes button color to show which filter is selected
                 filterStatus = "Accepted";
                 filter();
                 filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
@@ -130,6 +137,7 @@ public class DashboardFragment extends Fragment {
         filterBorrowedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Shows borrowed, changes button color to show which filter is selected
                 filterStatus = "Borrowed";
                 filter();
                 filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
@@ -151,6 +159,7 @@ public class DashboardFragment extends Fragment {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Edit button transitions user to edit profile page
                 Intent intent = new Intent(getActivity(), CreateAccount.class);
                 intent.putExtra("task", "edit");
                 startActivity(intent);
@@ -160,28 +169,24 @@ public class DashboardFragment extends Fragment {
         btnLendPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Transitions user to page showing books lent out where owners can scan to confirm returned
                 Navigation.findNavController(root).navigate(R.id.dashboard_to_lentOutFragment);
             }
         });
         btnBorrowedPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Transitions user to page showing books borrowed where borrowers can scan to return books
                 Navigation.findNavController(root).navigate(R.id.dashboard_to_borrowingFragment);
             }
         });
-        /*
-                track_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle args = new Bundle();
-                args.putString("isbn", isbn);
-                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_acceptRequestFragment,args);
-            }
-        });
-         */
         return root;
     }
     private void filter(){
+        /*Filters the bookList according to the value of filterStatus
+        * Clears the bookList then add books to the bookList from the user's books
+        * in the database matching the filter
+        */
         bookList.clear();
         db = FirebaseFirestore.getInstance();
         db.collection("Users").document(MainActivity.current_user)

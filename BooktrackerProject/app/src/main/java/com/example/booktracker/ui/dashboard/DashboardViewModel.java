@@ -1,3 +1,8 @@
+/**
+*DashboardViewModel
+* ViewModel used in the DashboardFragment
+* Helps manage the set up of the fragment
+ */
 package com.example.booktracker.ui.dashboard;
 
 import androidx.lifecycle.LiveData;

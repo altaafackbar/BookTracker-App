@@ -1,6 +1,10 @@
+/**
+*SearchProfile
+*Activity that displays the profile of a user and a list of their books
+*as a result of searching.
+ */
 package com.example.booktracker;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -24,13 +28,11 @@ import java.util.Map;
 import static android.content.ContentValues.TAG;
 
 public class SearchProfile extends AppCompatActivity {
-    private String searchTerm;
     private String title;
     private String author;
     private String isbn;
     private String status;
     private String bookImg;
-    //private Button back;
     private TextView username;
     RecyclerView profileRecyclerview;
     ArrayList<Book> profileBookList;
@@ -47,11 +49,12 @@ public class SearchProfile extends AppCompatActivity {
         username.setText(HomeFragment.searchUser);
 
         profileBookList = new ArrayList<>();
-        profileRecyclerview = (RecyclerView) findViewById(R.id.viewProfile_recyclerview_id);
+        profileRecyclerview = findViewById(R.id.viewProfile_recyclerview_id);
         profileAdapter = new BookRecyclerViewAdapter (this,profileBookList);
         profileRecyclerview.setLayoutManager(new GridLayoutManager(this,3));
         profileRecyclerview.setAdapter(profileAdapter);
         db = FirebaseFirestore.getInstance();
+        //Retrieving the user's books from database
         db.collection("Users").document(HomeFragment.searchUser)
                 .collection("Books")
                 .get()

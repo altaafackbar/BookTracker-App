@@ -1,7 +1,11 @@
+/**
+*BookRecyclerViewAdapter
+*Adapter that is used in displaying book results from
+*using search books and search user functions.
+ */
 package com.example.booktracker;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -17,12 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.booktracker.ui.BookPageFragment;
 import com.example.booktracker.ui.RequestPageFragment;
 
 import java.util.List;
@@ -30,11 +30,11 @@ import java.util.List;
 import static android.content.ContentValues.TAG;
 
 public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
-
     private Context myContext;
     private List<Book> myData;
 
     public BookRecyclerViewAdapter(Context myContext, List<Book> myData){
+        //Constructor
         this.myContext = myContext;
         this.myData = myData;
     }
@@ -42,7 +42,6 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
     @NonNull
     @Override
     public RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view;
         LayoutInflater myInflater = LayoutInflater.from(myContext);
         view = myInflater.inflate(R.layout.cardview_book_item, parent, false);
@@ -51,15 +50,12 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, final int position) {
-
         holder.tv_book_title.setText(myData.get(position).getTitle());
         String encodedString = myData.get(position).getImage();
-
         if(encodedString != null){
             Log.d(TAG, "onBindViewHolder: pic exists");
             byte [] encodeByte= Base64.decode(encodedString, Base64.DEFAULT);
             Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            //holder.img_book_thumbnail.setImageResource(Integer.parseInt(myData.get(position).getImage()));
             holder.img_book_thumbnail.setImageBitmap(bitmap);
         }
         else{
@@ -70,6 +66,10 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
 
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
+            /*
+            * Brings user to the RequestPageFragment where they can request available books
+            * when clicking on the cardView item.
+            */
             @Override
             public void onClick(View view) {
                 Bundle args = new Bundle();
@@ -91,25 +91,21 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
         });
     }
 
-//((ViewGroup)getView().getParent()).getId()
-//R.id.frameLayout
-
     @Override
     public int getItemCount() {
         return myData.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-
         TextView tv_book_title;
         ImageView img_book_thumbnail;
         CardView cardView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_book_title = (TextView) itemView.findViewById(R.id.book_title);
-            img_book_thumbnail = (ImageView) itemView.findViewById(R.id.book_img);
-            cardView = (CardView) itemView.findViewById(R.id.cardview_id);
+            tv_book_title = itemView.findViewById(R.id.book_title);
+            img_book_thumbnail = itemView.findViewById(R.id.book_img);
+            cardView = itemView.findViewById(R.id.cardview_id);
         }
     }
 }

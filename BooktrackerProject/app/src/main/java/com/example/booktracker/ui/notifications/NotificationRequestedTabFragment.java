@@ -106,7 +106,6 @@ public class NotificationRequestedTabFragment extends Fragment {
             convertView = inflater.inflate(layout, parent, false);
             final RequestedViewHolder viewHolder = new RequestedViewHolder();
             viewHolder.title = convertView.findViewById(R.id.requested_book_title);
-            viewHolder.description = convertView.findViewById(R.id.requested_book_description);
             viewHolder.status = convertView.findViewById(R.id.requested_book_status);
             viewHolder.owner = convertView.findViewById(R.id.requested_book_owner);
             viewHolder.scan_button = convertView.findViewById(R.id.scan_received_button);
@@ -167,7 +166,6 @@ public class NotificationRequestedTabFragment extends Fragment {
             });
             viewHolder.title.setText("Title: "+getItem(position).getTitle());
             viewHolder.owner.setText("Owner: " + getItem(position).getOwner());
-            viewHolder.description.setText("Description: ");
             viewHolder.status.setText("Status: "+getItem(position).getRequestStatus());
             if(getItem(position).getRequestStatus().equals("Accepted")){
                 viewHolder.book_pickup_button.setVisibility(View.VISIBLE);
@@ -183,7 +181,6 @@ public class NotificationRequestedTabFragment extends Fragment {
     //RequestedViewHolder helps to hold and set the values of each list item
     private class RequestedViewHolder{
         TextView title;
-        TextView description;
         TextView status;
         TextView owner;
         Button scan_button;

@@ -75,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_weight='.25'
             android:background="#FFFFFF"
+            android:textColor = "#733BD6"
             android:text="All" />
 
         <Button
@@ -82,7 +83,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight='.25'
-            android:background="#C0C0C0"
+            android:background="#FFFFFF"
+            android:textColor = "#BF676767"
             android:text="Available" />
 
         <Button
@@ -90,7 +92,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight='.25'
-            android:background="#C0C0C0"
+            android:background="#FFFFFF"
+            android:textColor = "#BF676767"
             android:text="Accepted" />
 
         <Button
@@ -98,7 +101,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight='.25'
-            android:background="#C0C0C0"
+            android:background="#FFFEFE"
+            android:textColor = "#BF676767"
             android:text="Lent" />
 
     </LinearLayout>

@@ -95,10 +95,10 @@ public class DashboardFragment extends Fragment {
                 //Shows all books; filters off, changes button color to show which filter is selected
                 filterStatus = "All";
                 filter();
-                filterAllBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                filterBorrowedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterAllBtn.setTextColor(Color.parseColor("#733BD6"));
+                filterAvailableBtn.setTextColor(Color.parseColor("#BF676767"));
+                filterAcceptedBtn.setTextColor(Color.parseColor("#BF676767"));
+                filterBorrowedBtn.setTextColor(Color.parseColor("#BF676767"));
 
             }
         });
@@ -108,10 +108,10 @@ public class DashboardFragment extends Fragment {
                 //Shows available books, changes button color to show which filter is selected
                 filterStatus = "available";
                 filter();
-                filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                filterAvailableBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                filterBorrowedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterAllBtn.setTextColor(Color.parseColor("#BF676767"));
+                filterAvailableBtn.setTextColor(Color.parseColor("#733BD6"));
+                filterAcceptedBtn.setTextColor(Color.parseColor("#BF676767"));
+                filterBorrowedBtn.setTextColor(Color.parseColor("#BF676767"));
 
             }
         });
@@ -121,10 +121,10 @@ public class DashboardFragment extends Fragment {
                 //Shows accepted books, changes button color to show which filter is selected
                 filterStatus = "Accepted";
                 filter();
-                filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                filterAcceptedBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                filterBorrowedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                filterAllBtn.setTextColor(Color.parseColor("#BF676767"));
+                filterAvailableBtn.setTextColor(Color.parseColor("#BF676767"));
+                filterAcceptedBtn.setTextColor(Color.parseColor("#733BD6"));
+                filterBorrowedBtn.setTextColor(Color.parseColor("#BF676767"));
 
             }
         });
@@ -134,10 +134,10 @@ public class DashboardFragment extends Fragment {
                 //Shows borrowed, changes button color to show which filter is selected
                 filterStatus = "Borrowed";
                 filter();
-                filterAllBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                filterAvailableBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                filterAcceptedBtn.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                filterBorrowedBtn.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                filterAllBtn.setTextColor(Color.parseColor("#BF676767"));
+                filterAvailableBtn.setTextColor(Color.parseColor("#BF676767"));
+                filterAcceptedBtn.setTextColor(Color.parseColor("#BF676767"));
+                filterBorrowedBtn.setTextColor(Color.parseColor("#733BD6"));
 
             }
         });

@@ -53,7 +53,7 @@ public class RequestPageFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static BookPageFragment newInstance(String param1, String param2) {
+    public static BookPageFragment newInstance() {
         BookPageFragment fragment = new BookPageFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -119,7 +119,7 @@ public class RequestPageFragment extends Fragment {
         });
 
         final Button requestBtn = view.findViewById(R.id.requestBook_button);
-        if(!status.equals("available")){
+        if(!status.equals("available") || MainActivity.current_user.equals(owner)){
             requestBtn.setVisibility(View.GONE);
         }
         requestBtn.setOnClickListener(new View.OnClickListener() {

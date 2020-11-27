@@ -23,6 +23,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
+import static android.telephony.PhoneNumberUtils.isGlobalPhoneNumber;
+
 public class CreateAccount extends AppCompatActivity {
     private EditText email;
     private EditText password;
@@ -106,8 +108,11 @@ public class CreateAccount extends AppCompatActivity {
         final String u_num = number.getText().toString();
         if(u_email.isEmpty() || u_pass.isEmpty() || u_num.isEmpty()){
             //if any fields are empty
-            Toast toast = Toast.makeText(getApplicationContext(), "Please fill out all required information", Toast.LENGTH_SHORT);
-            toast.show();
+            Toast.makeText(getApplicationContext(),
+                    "Please fill out all required information", Toast.LENGTH_SHORT).show();
+        }else if(!isGlobalPhoneNumber(u_num)||u_num.length()<7){
+            Toast.makeText(getApplicationContext(),
+                    "Please enter a valid phone number", Toast.LENGTH_SHORT).show();
         }
         else{
             final HashMap<String, String> data = new HashMap<>();
@@ -124,8 +129,9 @@ public class CreateAccount extends AppCompatActivity {
                         if (document.exists() && !intentTask.equals("edit")) {
                             //if we are creating an account and the usernamme is taken
                             Log.d("TAG", "Document exists!");
-                            Toast toast = Toast.makeText(getApplicationContext(), "Username unavailable, please choose another", Toast.LENGTH_SHORT);
-                            toast.show();
+                            Toast.makeText(getApplicationContext(),
+                                    "Username unavailable, please choose another", Toast.LENGTH_SHORT).show();
+
                         } else {
                             Log.d("TAG", "Document does not exist!");
                             if(intentTask.equals("edit")){
@@ -140,8 +146,9 @@ public class CreateAccount extends AppCompatActivity {
                                     startActivity(sign_in);
                                 }
                                 else{
-                                    Toast toast = Toast.makeText(getApplicationContext(), "The passwords do not match", Toast.LENGTH_SHORT);
-                                    toast.show();
+                                    Toast.makeText(getApplicationContext(),
+                                            "The passwords do not match", Toast.LENGTH_SHORT).show();
+
                                 }
 
                             }

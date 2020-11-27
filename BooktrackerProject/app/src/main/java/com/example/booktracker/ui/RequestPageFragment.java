@@ -70,13 +70,6 @@ public class RequestPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_request_page, container, false);
-        final TextView textView = view.findViewById(R.id.textView_back_request);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().popBackStackImmediate();
-            }
-        });
         final ImageView popup = view.findViewById(R.id.viewImage_request);
         popup.setVisibility(View.INVISIBLE);
         if (getArguments() != null){
@@ -126,6 +119,9 @@ public class RequestPageFragment extends Fragment {
         });
 
         final Button requestBtn = view.findViewById(R.id.requestBook_button);
+        if(!status.equals("available")){
+            requestBtn.setVisibility(View.GONE);
+        }
         requestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

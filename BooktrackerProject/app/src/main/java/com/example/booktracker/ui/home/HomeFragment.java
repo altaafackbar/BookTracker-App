@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
         final TextView email = root.findViewById(R.id.email);
         searchText = root.findViewById(R.id.userSearch);
         Button sign_out_button = root.findViewById(R.id.sign_out_button2);
-        Button acceptButton = root.findViewById(R.id.acceptButton);
+
         sign_out_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,14 +90,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) { searchUser(); }
         });
 
-
-        acceptButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
-                startActivityForResult(intent, 1);
-            }
-        });
         bookList = new ArrayList<>();
         myRecyclerview = root.findViewById(R.id.recyclerview_id_home);
         final AvailableRecyclerViewAdapter myAdapter = new AvailableRecyclerViewAdapter(getActivity(), bookList);
@@ -216,79 +208,5 @@ public class HomeFragment extends Fragment {
         //Signs an user out
         MainActivity.current_user = null;
         this.getActivity().finish();
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        db = FirebaseFirestore.getInstance();
-        if (requestCode == 1) {
-            Toast toast1 = Toast.makeText(getContext(), "request1", Toast.LENGTH_SHORT);
-            toast1.show();
-            final Barcode barcode = data.getParcelableExtra("barcode");
-            db = FirebaseFirestore.getInstance();
-            db.collection("Users")
-                    .get()
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-                                for (final QueryDocumentSnapshot document : task.getResult()) {
-                                    Log.d(TAG, document.getId() + " => ");
-                                    db.collection("Users").document(document.getId())
-                                            .collection("Books")
-                                            .get()
-                                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                                public void onComplete(@NonNull Task<QuerySnapshot> task1) {
-                                                    if (task1.isSuccessful()) {
-                                                        for (QueryDocumentSnapshot document1 : task1.getResult()) {
-                                                            Map<String, Object> book1 = (Map<String, Object>) document1.getData().get("book");
-                                                            title = (String) book1.get("title");
-                                                            Log.d(TAG, document.getId() + " ISBN:" + document1.getId() + " ==> " + title);
-                                                            if (barcode.displayValue.equals(document1.getId())) {
-                                                                db.collection("Users").document(document.getId())
-                                                                        .collection("Books")
-                                                                        .get()
-                                                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                                                            @Override
-                                                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                                                                if (task.isSuccessful()) {
-                                                                                    for (QueryDocumentSnapshot document : task.getResult()) {
-                                                                                        Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
-                                                                                        Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
-                                                                                        //Update as borrowed
-                                                                                        owner = (String) book.get("owner");
-                                                                                        status = (String) book.get("status");
-                                                                                        Toast toast21 = Toast.makeText(getContext(), owner + status, Toast.LENGTH_SHORT);
-                                                                                        toast21.show();
-                                                                                        //Requester accepts and accepted book
-                                                                                        if (status!= null && status.equals("borrowed(pending)")) {
-                                                                                            //Change status to borrowed
-                                                                                            db.collection("Users").document(owner).collection("Books")
-                                                                                                    .document(barcode.displayValue).update("book.status", "borrowed");
-                                                                                            Toast toast1 = Toast.makeText(getContext(), "Successfully accepted and borrowed!", Toast.LENGTH_SHORT);
-                                                                                            toast1.show();
-                                                                                        }
-                                                                                        //Owner accepts a returned book
-                                                                                        else if (owner.equals(MainActivity.current_user) && status.equals("available(pending)")) {
-                                                                                            db.collection("Users").document(owner).collection("Books")
-                                                                                                    .document(barcode.displayValue).update("book.status", "available");
-                                                                                            Toast toast1 = Toast.makeText(getContext(), "Successfully accepted and returned!", Toast.LENGTH_SHORT);
-                                                                                            toast1.show();
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        });
-                                                            }
-
-                                                        }
-                                                    }
-                                                }
-                                            });
-                                }
-                            }
-                        }
-                    });
-        }
     }
 }

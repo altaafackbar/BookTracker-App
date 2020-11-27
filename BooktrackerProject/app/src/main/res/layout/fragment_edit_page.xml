@@ -74,17 +74,6 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_isbnText" />
 
     <ImageView
-        android:id="@+id/edit_backArrow"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/ic_baseline_arrow_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
         android:id="@+id/edit_imageView"
         android:layout_width="150dp"
         android:layout_height="150dp"

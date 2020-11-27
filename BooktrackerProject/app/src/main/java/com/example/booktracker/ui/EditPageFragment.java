@@ -82,13 +82,6 @@ public class EditPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_edit_page, container, false);
-        final ImageView imageView = view.findViewById(R.id.edit_backArrow);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.editPageFragment_to_bookPageFragment);
-            }
-        });
 
         if (getArguments() != null){
             currentIsbn = getArguments().getString("editisbn");

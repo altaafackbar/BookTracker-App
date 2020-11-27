@@ -76,14 +76,6 @@ public class BookPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_book_page, container, false);
-        final TextView textView = view.findViewById(R.id.textView_back);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().popBackStackImmediate();
-                //Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_dashboard);
-            }
-        });
         final Button track_button = view.findViewById(R.id.track_button);
         track_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,14 +88,6 @@ public class BookPageFragment extends Fragment {
             }
         });
 
-        final Button borrow_button = view.findViewById(R.id.borrow_btn);
-        borrow_button.setVisibility(View.INVISIBLE);
-        borrow_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_borrowPageFragment);
-            }
-        });
 
 
         final ImageView popup = view.findViewById(R.id.viewImage);

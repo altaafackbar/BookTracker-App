@@ -88,12 +88,14 @@ public class BookSearchActivity extends AppCompatActivity {
                                             for (QueryDocumentSnapshot document : task.getResult()) {
                                                 //Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
                                                 Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
-                                                status = (String) book.get("status");
-                                                isbn = document.getId();
-                                                title = (String) book.get("title");
-                                                author = (String) book.get("author");
+                                                status = ((String)book.get("status"));
+                                                isbn = document.getId().toLowerCase();
+                                                title = ((String) book.get("title"));
+                                                author = ((String) book.get("author"));
                                                 //if search term matches any of author, title, or isbn, add them to list
-                                                if(author.contains(searchTerm) || title.contains(searchTerm) || isbn.contains(searchTerm)){
+                                                if(author.toLowerCase().contains(searchTerm.toLowerCase())
+                                                        || title.toLowerCase().contains(searchTerm.toLowerCase())
+                                                        || isbn.toLowerCase().contains(searchTerm.toLowerCase())){
                                                     if (status.equals("available") || status.equals("requested")) {
                                                         bookImg = (String) book.get("image");
                                                         owner = (String)book.get("owner");

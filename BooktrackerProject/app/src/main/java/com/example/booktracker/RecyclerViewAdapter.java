@@ -1,3 +1,11 @@
+/**
+*RecyclerViewAdapter
+* Used to create CardView of books owned by the user
+* This is used in the display of books in the dashboard fragment
+* On click, brings the user to Book Page Fragment where they can
+* track, edit, delete, and view thier own book.
+ */
+
 package com.example.booktracker;
 
 import android.content.Context;
@@ -10,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,7 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+        //Determines the layout of each item by referring to the cardview_book_item xml file
         View view;
         LayoutInflater myInflater = LayoutInflater.from(myContext);
         view = myInflater.inflate(R.layout.cardview_book_item, parent, false);
@@ -44,10 +51,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-
         holder.tv_book_title.setText(myData.get(position).getTitle());
         String encodedString = myData.get(position).getImage();
-
         if(encodedString != null){
             Log.d(TAG, "onBindViewHolder: pic exists");
             byte [] encodeByte=Base64.decode(encodedString, Base64.DEFAULT);
@@ -59,12 +64,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Log.d(TAG, "onBindViewHolder: pic doesnt exists");
         }
 
-
-
-
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Brings user to book page fragment for the book selected
                 Navigation.createNavigateOnClickListener(R.id.dashboard_to_bookPageFragment);
                 Bundle args = new Bundle();
                 args.putString("title", myData.get(position).getTitle());
@@ -88,7 +91,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-
+        //ViewHolder to contain the details of each item in the list
         TextView tv_book_title;
         ImageView img_book_thumbnail;
         CardView cardView;

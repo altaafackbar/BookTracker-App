@@ -1,3 +1,8 @@
+/**
+*NotificationPageAdapter
+* A FragmentPagerAdapter for fragments inside of fragments
+* Handles the changes of fragments in the notifications tab
+ */
 package com.example.booktracker.ui.notifications;
 
 import androidx.annotation.NonNull;

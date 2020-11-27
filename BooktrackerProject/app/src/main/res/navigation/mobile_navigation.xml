@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/requestPageFragment"
         android:name="com.example.booktracker.ui.RequestPageFragment"
-        android:label="Request Page"
+        android:label="Request"
         tools:layout="@layout/fragment_request_page" >
         <action
             android:id="@+id/requestPageFragment_to_navigation_home"
@@ -65,7 +65,7 @@
     <fragment
         android:id="@+id/bookPageFragment"
         android:name="com.example.booktracker.ui.BookPageFragment"
-        android:label="fragment_book_page"
+        android:label="Book"
         tools:layout="@layout/fragment_book_page" >
         <action
             android:id="@+id/bookPageFragment_to_dashboard"
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/editPageFragment"
-        android:name="com.example.booktracker.ui.editPageFragment"
+        android:name="com.example.booktracker.ui.EditPageFragment"
         android:label="fragment_edit_page"
         tools:layout="@layout/fragment_edit_page" >
         <action

@@ -1,8 +1,13 @@
+/**
+ * RequestPageFragment
+ * Users are brought to this Fragment once they click on an available book
+ * From here, the user can view the details of a book and
+ * request the book if desired.
+ */
 package com.example.booktracker.ui;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -15,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.booktracker.Book;
@@ -35,7 +39,6 @@ import java.util.Map;
 import static android.content.ContentValues.TAG;
 
 public class RequestPageFragment extends Fragment {
-    public TextView back;
     private String title;
     private String author;
     private String status;
@@ -46,34 +49,13 @@ public class RequestPageFragment extends Fragment {
     private String owner;
     private FirebaseFirestore db;
 
-    private boolean delete;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public RequestPageFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BookPageFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static BookPageFragment newInstance(String param1, String param2) {
         BookPageFragment fragment = new BookPageFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -81,10 +63,6 @@ public class RequestPageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -97,7 +75,6 @@ public class RequestPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().popBackStackImmediate();
-                //  Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_dashboard);
             }
         });
         final ImageView popup = view.findViewById(R.id.viewImage_request);
@@ -111,9 +88,8 @@ public class RequestPageFragment extends Fragment {
             owner = getArguments().getString("owner");
         }
         final ImageView bookCover = view.findViewById(R.id.book_cover_request);
-        final Drawable resImg = ResourcesCompat.getDrawable(getResources(), R.drawable.image_needed, null);
-        //if image exists, set the book cover to user image
         if(img != null && !img.isEmpty()){
+            //Set image for the book
             Log.d(TAG, "onBindViewHolder: pic exists");
             byte [] encodeByte= Base64.decode(img, Base64.DEFAULT);
             bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
@@ -164,6 +140,7 @@ public class RequestPageFragment extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                 if (task.isSuccessful()){
+                                    //Checks if user has already requested this book
                                         for (QueryDocumentSnapshot document : task.getResult()) {
                                             Log.d(TAG, document.getId() + " => " + document.getData().get("book"));
                                             Map<String, Object> book = (Map<String, Object>) document.getData().get("book");
@@ -176,6 +153,7 @@ public class RequestPageFragment extends Fragment {
                                 }
 
                                 if (!isAccepted){
+                                    //If user has not already requested this book and this book is not accepted
                                     Map<String, Book> book = new HashMap<>();
                                     Book newBook = new Book(title, author, isbn, status, owner);
                                     newBook.setRequestStatus("Pending Request");
@@ -187,18 +165,18 @@ public class RequestPageFragment extends Fragment {
                                     NotificationMessage newNotificationMessage = new NotificationMessage("New Book Request", "New Request Has Been Received For\n"+title+"\n"+"isbn: "+isbn, newDate.toString());
                                     notification.put("notification", newNotificationMessage);
                                     db = FirebaseFirestore.getInstance();
+                                    //Adds book to requester's Requested Books collection
                                     db.collection("Users").document(MainActivity.current_user)
                                             .collection("Requested Books")
                                             .document(isbn).set(book);
+                                    //Gives a notification to the owner to notify them that a book has been requested
                                     db.collection("Users").document(owner)
                                             .collection("Notifications")
                                             .document(newDate.toString()).set(notification);
                                 }
                             }
                         });
-
                 Toast.makeText(getContext(), "Requested", Toast.LENGTH_SHORT).show();
-
             }
         });
 

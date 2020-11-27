@@ -1,6 +1,9 @@
+/**
+*NotificationMessage
+* Used to create a notification object to be stored in database
+* Notification contains title, message, and string of date received
+ */
 package com.example.booktracker;
-
-import java.util.Date;
 
 public class NotificationMessage {
     private String title;
@@ -8,6 +11,7 @@ public class NotificationMessage {
     private String receiveDate;
 
     public NotificationMessage(String title, String message, String receiveDate) {
+        //Constructor
         this.title = title;
         this.message = message;
         this.receiveDate = receiveDate;

@@ -1,9 +1,14 @@
+/**
+ * BookPageFragment
+ * This fragment allows owners to view the details on their selected book
+ * Owners can Edit and Delete the selected book if it is available
+ * Owners can track the book to see who has requested this book
+ */
 package com.example.booktracker.ui;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -36,7 +41,6 @@ import static android.content.ContentValues.TAG;
  * create an instance of this fragment.
  */
 public class BookPageFragment extends Fragment {
-    public TextView back;
     private String title;
     private String author;
     private String status;
@@ -46,34 +50,16 @@ public class BookPageFragment extends Fragment {
     private Bitmap bitmap;
     private FirebaseFirestore db;
 
-    private boolean delete;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
 
     public BookPageFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BookPageFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BookPageFragment newInstance(String param1, String param2) {
+    public static BookPageFragment newInstance() {
         BookPageFragment fragment = new BookPageFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -82,8 +68,6 @@ public class BookPageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -104,6 +88,7 @@ public class BookPageFragment extends Fragment {
         track_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Brings the user to the track page for the book where they can see requesters of the book
                 Bundle args = new Bundle();
                 args.putString("isbn", isbn);
                 args.putString("title",title);
@@ -185,7 +170,7 @@ public class BookPageFragment extends Fragment {
         deleteBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               //delete = true;
+                //Deletes the book in the database for the user
                db = FirebaseFirestore.getInstance();
                db.collection("Users").document(MainActivity.current_user).collection("Books")
                        .document(isbn)
@@ -212,6 +197,7 @@ public class BookPageFragment extends Fragment {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Brings user to a Fragment where they can edit the book
                 Bundle args = new Bundle();
                 args.putString("editisbn", isbn);
                 args.putString("edittitle", title);
@@ -226,17 +212,20 @@ public class BookPageFragment extends Fragment {
             }
         });
         if(!status.equals("available")){
+            //Don't allow editing/deleting of books when book is not available
             edit.setVisibility(View.INVISIBLE);
             deleteBook.setVisibility(View.INVISIBLE);
             deleteButton.setVisibility(View.INVISIBLE);
         }
         if(status.equals("Borrowed")|| status.equals("Returned (Pending)")){
+            //Don't allow tracking requests of books already borrowed
             track_button.setVisibility(View.INVISIBLE);
         }
         return view;
 
     }
     public void deleteImage(){
+        //deletes the image of the book
         Log.d(TAG, "deleteImage: " + isbn);
         db = FirebaseFirestore.getInstance();
         db.collection("Users").document(MainActivity.current_user).collection("Books")

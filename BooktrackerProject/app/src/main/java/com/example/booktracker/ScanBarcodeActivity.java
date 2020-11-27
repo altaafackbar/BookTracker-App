@@ -1,3 +1,9 @@
+/**
+*ScanBarcodeActivity
+* Implements the scanning function that brings up the camera in order to
+* scan ISBN for books.
+* Used in the process of borrowing and returning.
+ */
 package com.example.booktracker;
 
 import android.Manifest;
@@ -30,11 +36,12 @@ public class ScanBarcodeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_barcode);
 
-        cameraPreview = (SurfaceView) findViewById(R.id.camera_preview);
+        cameraPreview = findViewById(R.id.camera_preview);
         createCameraSource();
     }
 
     private void createCameraSource() {
+        //Sets up barcodeDetector
         final BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(this).build();
         final CameraSource cameraSource = new CameraSource.Builder(this, barcodeDetector)
                 .setAutoFocusEnabled(true)
@@ -46,13 +53,6 @@ public class ScanBarcodeActivity extends Activity {
             public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
                 try {
                     if (ActivityCompat.checkSelfPermission(ScanBarcodeActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
                         ActivityCompat.requestPermissions(ScanBarcodeActivity.this, new String[]{Manifest.permission.CAMERA},
                                 MY_PERMISSION_REQUEST_CAMERA);
                         return;

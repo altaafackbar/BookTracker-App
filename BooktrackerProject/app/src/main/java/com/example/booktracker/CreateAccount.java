@@ -1,3 +1,7 @@
+/**
+*CreateAccount
+* Used in process of creating accounts and editing profiles.
+ */
 package com.example.booktracker;
 
 import androidx.annotation.NonNull;
@@ -18,7 +22,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
-//creates or edits account
+
 public class CreateAccount extends AppCompatActivity {
     private EditText email;
     private EditText password;
@@ -28,6 +32,11 @@ public class CreateAccount extends AppCompatActivity {
     private String intentTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*
+        * Creates the display, sets all fields to the
+        * current values in the database if user is
+        * editing, otherwise set to instruction messages
+         */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         Button sign_up = findViewById(R.id.sign_up);
@@ -46,6 +55,7 @@ public class CreateAccount extends AppCompatActivity {
         }
 
         if(intentTask != null && intentTask.equals("edit")){
+            //If this is an edit task
             db = FirebaseFirestore.getInstance();
             DocumentReference docIdRef = db.collection("Users").document(MainActivity.current_user);
             docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -87,6 +97,10 @@ public class CreateAccount extends AppCompatActivity {
         });
     }
     private void new_user(){
+        /*
+        * Takes care of account creation
+        * Ensures all fields are properly filled.
+         */
         final String u_email = email.getText().toString();
         final String u_pass = password.getText().toString();
         final String u_num = number.getText().toString();
@@ -139,7 +153,5 @@ public class CreateAccount extends AppCompatActivity {
                 }
             });
         }
-
-
     }
 }

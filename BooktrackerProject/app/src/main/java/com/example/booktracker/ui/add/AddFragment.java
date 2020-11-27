@@ -1,3 +1,8 @@
+/**
+*AddFragment
+* Fragment that allows the user to adds a new book to their collection
+* and store the book in the database
+ */
 package com.example.booktracker.ui.add;
 
 import android.app.Activity;
@@ -16,7 +21,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,12 +37,8 @@ import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
 import com.example.booktracker.ScanBarcodeActivity;
 import com.google.android.gms.common.api.CommonStatusCodes;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -68,7 +68,6 @@ public class AddFragment extends Fragment {
         addViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                //textView.setText(s);
             }
         });
         author = root.findViewById(R.id.authorText);
@@ -81,11 +80,13 @@ public class AddFragment extends Fragment {
         imgV = root.findViewById(R.id.imageView);
 
         image.setOnClickListener(new View.OnClickListener() {
+            //starts activity to get an image from gallery
             public void onClick(View v) {
                 startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
             }
         });
         scanButton.setOnClickListener(new View.OnClickListener() {
+            //starts activity to scan for isbn
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
@@ -111,16 +112,19 @@ public class AddFragment extends Fragment {
         return root;
     }
     public void addNewBook(){
+        //Attempts to add a new book using information entered
         String authorS = author.getText().toString();
         String titleS = title.getText().toString();
         String isbnS = isbn.getText().toString();
         String owner = MainActivity.current_user;
         String status = "available";
         if(authorS.isEmpty() || titleS.isEmpty() || isbnS.isEmpty()){
+            //If not all information is entered
             Toast toast = Toast.makeText(getContext(), "Please enter missing information", Toast.LENGTH_SHORT);
             toast.show();
         }
         else{
+            //Add new book to the user's database if book is valid
             Map<String, Book> book = new HashMap<>();
             Book bookObj = new Book(titleS, authorS, isbnS, status, owner);
             String imgString = null;
@@ -145,7 +149,9 @@ public class AddFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        //Implements the result of scanning a barcode as well as selecting a book image from gallery
         if (requestCode==0) {
+            //Scanning barcode: attempts to get an barcode and if successful, sets the fields for the new book
             if (resultCode== CommonStatusCodes.SUCCESS) {
                 if(data!=null) {
                     Barcode barcode = data.getParcelableExtra("barcode");
@@ -159,6 +165,7 @@ public class AddFragment extends Fragment {
             }
         }
         else if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
+            //Attempting to get an image from gallery
             Uri selectedImage = data.getData();
             Bitmap bitmap = null;
             try {

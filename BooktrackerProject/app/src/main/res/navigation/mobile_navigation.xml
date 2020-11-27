@@ -76,9 +76,6 @@
         <action
             android:id="@+id/bookPageFragment_to_acceptRequestFragment"
             app:destination="@id/acceptRequestFragment" />
-        <action
-            android:id="@+id/bookPageFragment_to_borrowPageFragment"
-            app:destination="@id/borrowPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/editPageFragment"
@@ -97,24 +94,6 @@
         <action
             android:id="@+id/acceptRequestFragment_to_bookPageFragment"
             app:destination="@id/acceptRequestFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/trackPageFragment"
-        android:name="com.example.booktracker.ui.BookTrackerFragment"
-        android:label="Book Tracker"
-        tools:layout="@layout/fragment_track_page" >
-        <action
-            android:id="@+id/trackPageFragment_to_bookPageFragment"
-            app:destination="@id/trackPageFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/borrowPageFragment"
-        android:name="com.example.booktracker.ui.BookBorrowFragment"
-        android:label="Available Owners"
-        tools:layout="@layout/fragment_book_borrow" >
-        <action
-            android:id="@+id/borrowPageFragment_to_bookPageFragment"
-            app:destination="@id/borrowPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewProfileFragment"

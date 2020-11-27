@@ -24,8 +24,6 @@ public class NotificationPageAdapter extends FragmentPagerAdapter {
             case 0:
                 return new NotificationMessagesTabFragment();
             case 1:
-                return new NotificationRequestsTabFragment();
-            case 2:
                 return new NotificationRequestedTabFragment();
             default:
                 return null;

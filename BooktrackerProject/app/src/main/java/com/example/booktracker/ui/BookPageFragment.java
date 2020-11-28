@@ -192,6 +192,24 @@ public class BookPageFragment extends Fragment {
                 else{
                     args.putString("editImg", "");
                 }
+                db = FirebaseFirestore.getInstance();
+                db.collection("Users").document(MainActivity.current_user).collection("Books")
+                        .document(isbn)
+                        .delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error deleting document", e);
+                            }
+                        });
+                Toast toast = Toast.makeText(getContext(), "Book is being edited", Toast.LENGTH_SHORT);
+                toast.show();
                 Navigation.findNavController(view).navigate(R.id.bookPageFragment_to_editPageFragment,args);
             }
         });

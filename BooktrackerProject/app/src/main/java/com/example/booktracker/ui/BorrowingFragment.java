@@ -115,8 +115,6 @@ public class BorrowingFragment extends Fragment {
                     title = getItem(position).getTitle();
                     Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
                     startActivityForResult(intent, 103);
-                    getInfoFromDB();
-                    myAdapter.notifyDataSetChanged();
                 }
             });
             if (getItem(position).getStatus().equals("Returned (Pending)")){
@@ -209,7 +207,6 @@ public class BorrowingFragment extends Fragment {
                 }
             }
         }
-        getInfoFromDB();
     }
 
 }

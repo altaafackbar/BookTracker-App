@@ -86,7 +86,6 @@ public class NotificationRequestedTabFragment extends Fragment {
         myAdapter = new RequestedListAdapter(getActivity(), R.layout.requested_list_item, bookList);
         listView.setAdapter(myAdapter);
         getInfoFromDB();
-        myAdapter.notifyDataSetChanged();
         return view;
     }
 
@@ -161,7 +160,6 @@ public class NotificationRequestedTabFragment extends Fragment {
                     requestStatus = getItem(position).getRequestStatus();
                     Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
                     startActivityForResult(intent, 103);
-                    getInfoFromDB();
                 }
             });
             viewHolder.title.setText("Title: "+getItem(position).getTitle());
@@ -171,7 +169,6 @@ public class NotificationRequestedTabFragment extends Fragment {
                 viewHolder.book_pickup_button.setVisibility(View.VISIBLE);
                 viewHolder.scan_button.setVisibility(View.VISIBLE);
             }
-
             convertView.setTag(viewHolder);
 
             return convertView;
@@ -284,7 +281,7 @@ public class NotificationRequestedTabFragment extends Fragment {
                             Toast.makeText(getActivity(),"Owner have not scanned this book!!",Toast.LENGTH_LONG).show();
                         }
                     }else{
-                        Toast.makeText(getActivity(),"ISBN does not match!!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(),"ISBN does not match!!\n"+isbn+"\n"+barcode.displayValue,Toast.LENGTH_LONG).show();
                     }
                 }
             }

@@ -9,10 +9,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -28,13 +30,20 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.booktracker.Book;
+import com.example.booktracker.FetchBook;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.R;
+import com.example.booktracker.ScanBarcodeActivity;
+import com.google.android.gms.common.api.CommonStatusCodes;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
@@ -57,11 +66,14 @@ public class EditPageFragment extends Fragment {
     private FirebaseFirestore db;
     private Button addEditedbook;
     private byte[] imageInfo;
+    private ImageView scanButton;
+    private ImageView imgV;
     private static final int GET_FROM_GALLERY = 1;
 
 
     public EditPageFragment() {
         // Required empty public constructor
+
     }
 
 
@@ -90,67 +102,103 @@ public class EditPageFragment extends Fragment {
             originalImg = getArguments().getString("editImg");
 
         }
-
         author1 = view.findViewById(R.id.edit_authorText);
         title1 = view.findViewById(R.id.edit_titleText);
         isbn1 = view.findViewById(R.id.edit_isbnText);
         imgv1 = view.findViewById(R.id.edit_imageView);
-        if(img1 != null && !img1.isEmpty()){
-            //load in the image
-            Log.d(TAG, "onBindViewHolder: pic exists in fragment");
-            byte [] encodeByte= Base64.decode(img1, Base64.DEFAULT);
-            bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            imgv1.setImageBitmap(bitmap);
-        }
+        //Log.i(TAG, "originalTitle: " + originalTitle);
         author1.setText(originalAuthor);
         title1.setText(originalTitle);
         isbn1.setText(currentIsbn);
         ImageButton editImage = view.findViewById(R.id.editImageButton);
+        scanButton = view.findViewById(R.id.edit_imageViewScan);
+
         editImage.setOnClickListener(new View.OnClickListener() {
+            //starts activity to get an image from gallery
             public void onClick(View v) {
-                //Allow user to pick an image from gallery
                 startActivityForResult(new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
+            }
+        });
+        scanButton.setOnClickListener(new View.OnClickListener() {
+            //starts activity to scan for isbn
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ScanBarcodeActivity.class);
+                startActivityForResult(intent, 0);
             }
         });
         addEditedbook = view.findViewById(R.id.edit_add_button);
         addEditedbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Updates the fields of the edited book in the database
-                String authorz = author1.getText().toString();
-                String titlez = title1.getText().toString();
-                String isbnz = isbn1.getText().toString();
-                String imgString = null;
-                if(imageInfo != null  && imageInfo.length > 0){
-                    Log.d(TAG, "addNewBook: book image is empty");
-                    imgString = Base64.encodeToString(imageInfo, Base64.DEFAULT);
-                }
-                else{
-                    imgString = "";
-                }
-                db = FirebaseFirestore.getInstance();
-                db.collection("Users").document(MainActivity.current_user)
-                        .collection("Books")
-                        .document(currentIsbn)
-                        .update(
-                                "book.title", titlez,
-                                "book.author", authorz,
-                                "book.isbn", isbnz,
-                                "book.image", imgString
-                        );
-                Toast toast = Toast.makeText(getContext(), "Book Successfully Edited", Toast.LENGTH_SHORT);
-                toast.show();
-                Navigation.findNavController(view).navigate(R.id.navigation_dashboard);
-           }
+                addNewBook();
+                Drawable resImg = ResourcesCompat.getDrawable(getResources(), R.drawable.image_needed, null);
+                imgv1.setImageDrawable(resImg);
+                Bundle args = new Bundle();
+                args.putString("key", title1.getText().toString());
+                Navigation.findNavController(view).navigate(R.id.navigation_dashboard, args);
+            }
         });
+
         return view;
     }
+    public void addNewBook(){
+        //Attempts to add a new book using information entered
+        String authorS = author1.getText().toString();
+        String titleS = title1.getText().toString();
+        String isbnS = isbn1.getText().toString();
+        String owner = MainActivity.current_user;
+        String status = "available";
+        if(authorS.isEmpty() || titleS.isEmpty() || isbnS.isEmpty()){
+            //If not all information is entered
+            Toast toast = Toast.makeText(getContext(), "Please enter missing information", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else{
+            //Add new book to the user's database if book is valid
+            Map<String, Book> book = new HashMap<>();
+            Book bookObj = new Book(titleS, authorS, isbnS, status, owner);
+            String imgString = null;
+            if(imageInfo != null  && imageInfo.length > 0){
+                Log.d(TAG, "addNewBook: book image is empty");
+                imgString = Base64.encodeToString(imageInfo, Base64.DEFAULT);
+            }
+            else{
+                imgString = "";
+            }
+            bookObj.setImage(imgString);
+            book.put("book", bookObj);
+            db = FirebaseFirestore.getInstance();
+            db.collection("Users").document(MainActivity.current_user)
+                    .collection("Books")
+                    .document(isbnS).set(book);
+            Toast toast = Toast.makeText(getContext(), "Book Successfully Added", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        //Activity to retrieve image from gallery
-        if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
+        //Implements the result of scanning a barcode as well as selecting a book image from gallery
+        if (requestCode==0) {
+            //Scanning barcode: attempts to get an barcode and if successful, sets the fields for the new book
+            if (resultCode== CommonStatusCodes.SUCCESS) {
+                if(data!=null) {
+                    Barcode barcode = data.getParcelableExtra("barcode");
+                    String queryString = barcode.displayValue;
+                    isbn1.setText(barcode.displayValue);
+                    new FetchBook(title1, author1, isbn1).execute(queryString);
+                }
+                else {
+                    isbn1.setText("Barcode not found");
+                }
+            }
+        }
+        else if(requestCode==GET_FROM_GALLERY && resultCode == Activity.RESULT_OK) {
+            //Attempting to get an image from gallery
             Uri selectedImage = data.getData();
-            Bitmap bitmap;
+            Bitmap bitmap = null;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getActivity().getContentResolver(), selectedImage);
                 imgv1.setImageBitmap(bitmap);
@@ -159,8 +207,10 @@ public class EditPageFragment extends Fragment {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 10, stream);
                 imageInfo = stream.toByteArray();
             } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (IOException e) {
+                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }

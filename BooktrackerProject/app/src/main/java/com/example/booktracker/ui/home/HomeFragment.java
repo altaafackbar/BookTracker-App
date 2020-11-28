@@ -151,9 +151,14 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 //Searches and displays books with descriptions matching the entered terms
                 String searchTerm = bookSearchText.getText().toString();
-                Intent intent = new Intent(getActivity(), BookSearchActivity.class);
-                intent.putExtra("searchTerm", searchTerm);
-                startActivity(intent);
+                if (!searchTerm.isEmpty()) {
+                    Intent intent = new Intent(getActivity(), BookSearchActivity.class);
+                    intent.putExtra("searchTerm", searchTerm);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getContext(),
+                            "Please enter a search term", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -197,8 +202,9 @@ public class HomeFragment extends Fragment {
            });
        }
        else{
-           Toast toast = Toast.makeText(getContext(), "Please enter a search term", Toast.LENGTH_SHORT);
-           toast.show();
+           Toast.makeText(getContext(),
+                   "Please enter a search term", Toast.LENGTH_SHORT).show();
+
        }
 
     }

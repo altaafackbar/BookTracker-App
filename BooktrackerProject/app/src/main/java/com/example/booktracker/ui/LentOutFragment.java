@@ -70,6 +70,15 @@ public class LentOutFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Sets up the layout of the LentOutFragment
+     * Where owners can see books they've lent out and
+     * scan books that have been returned
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,7 +93,9 @@ public class LentOutFragment extends Fragment {
 
     }
 
-    //LentOutListAdapter helps to display the Book inside of this list view
+    /**
+     * LentOutListAdapter helps to display the Book inside of this list view
+     */
     private class LentOutListAdapter extends ArrayAdapter<Book> {
         private int layout;
         public LentOutListAdapter(@NonNull Context context, int resource, @NonNull List<Book> objects) {
@@ -92,6 +103,14 @@ public class LentOutFragment extends Fragment {
             layout = resource;
         }
 
+        /**
+         * Allows us to determine what happens when a user clicks a button on the
+         * selected position.
+         * @param position
+         * @param convertView
+         * @param parent
+         * @return
+         */
         @NonNull
         @Override
         public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -128,7 +147,9 @@ public class LentOutFragment extends Fragment {
         }
     }
 
-    //LentViewHolder helps to hold and set data for each of the items in the list
+    /**
+     * LentViewHolder helps to hold and set data for each of the items in the list
+     */
     private class LentViewHolder{
         TextView title;
         TextView author;
@@ -137,8 +158,10 @@ public class LentOutFragment extends Fragment {
         Button scan_received_btn;
     }
 
+    /**
+     * Clears the list and re-adds all books lent out of the current user
+     */
     private void getInfoFromDB(){
-        //Clears the list and re-adds all books lent out of the current user
         bookList.clear();
         db = FirebaseFirestore.getInstance();
         db.collection("Users")
@@ -168,6 +191,13 @@ public class LentOutFragment extends Fragment {
                 });
     }
 
+    /**
+     * Implements the scan activity
+     * Allows owner to scan their books to have it returned
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         //Allows the owner to scan the book in order to have to book available again
         if(requestCode == 103){

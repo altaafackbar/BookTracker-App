@@ -1,3 +1,8 @@
+/**
+ * App
+ * This class sets up notification channels
+ * This allows users to receive push notifications
+ */
 package com.example.booktracker;
 
 import android.app.Application;

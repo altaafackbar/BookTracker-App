@@ -50,9 +50,6 @@ public class BookPageFragment extends Fragment {
     private Bitmap bitmap;
     private FirebaseFirestore db;
 
-
-
-
     public BookPageFragment() {
         // Required empty public constructor
     }
@@ -71,6 +68,15 @@ public class BookPageFragment extends Fragment {
         }
     }
 
+    /**
+     * Sets up the layout for the BookPageFragment
+     * Sets up the function of the buttons
+     * Also determines if certain buttons should be visible based on book status
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -226,8 +232,11 @@ public class BookPageFragment extends Fragment {
         return view;
 
     }
+
+    /**
+     * Deletes the image of the selected book
+     */
     public void deleteImage(){
-        //deletes the image of the book
         Log.d(TAG, "deleteImage: " + isbn);
         db = FirebaseFirestore.getInstance();
         db.collection("Users").document(MainActivity.current_user).collection("Books")

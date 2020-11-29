@@ -37,6 +37,12 @@ public class AvailableRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
         this.myData = myData;
     }
 
+    /**
+     * Links the view to the desired xml file for the item to be listed
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,6 +52,11 @@ public class AvailableRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
         return new RecyclerViewAdapter.MyViewHolder(view);
     }
 
+    /**
+     * Sets the image for each available book as well as the title
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, final int position) {
 
@@ -86,7 +97,7 @@ public class AvailableRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
         return myData.size();
     }
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        /*
+        /**
         * MyViewHolder is used to hold attributes to be shown/used
         * when displaying books in the home page
         */

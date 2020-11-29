@@ -71,6 +71,14 @@ public class BorrowingFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Sets up the layout for the BorrowingFragment
+     * Where borrower can see a list of books they've borrowed
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,7 +94,9 @@ public class BorrowingFragment extends Fragment {
     }
 
 
-    //BorrowingListAdapter used for displaying borrowed books in a listview
+    /**
+     * BorrowingListAdapter used for displaying borrowed books in a listview
+     */
     private class BorrowingListAdapter extends ArrayAdapter<Book> {
         private int layout;
         public BorrowingListAdapter(@NonNull Context context, int resource, @NonNull List<Book> objects) {
@@ -94,6 +104,13 @@ public class BorrowingFragment extends Fragment {
             layout = resource;
         }
 
+        /**
+         * Help to set/get the custom list item in the list to have different attributes
+         * @param position
+         * @param convertView
+         * @param parent
+         * @return
+         */
         @NonNull
         @Override
         public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -132,7 +149,9 @@ public class BorrowingFragment extends Fragment {
         }
     }
 
-    //ViewHolder to hold and set the values of each item in the list
+    /**
+     * ViewHolder to hold and set the values of each item in the list
+     */
     private class BorrowingViewHolder{
         TextView title;
         TextView author;
@@ -142,8 +161,11 @@ public class BorrowingFragment extends Fragment {
         Button scan_return_btn;
     }
 
+    /**
+     * Updates the values of the displayed list
+     * clears the bookList then adds books to the bookList that are borrowed for the current user
+     */
     private void getInfoFromDB(){
-        //clears the bookList then adds books to the bookList that are borrowed for the current user
         bookList.clear();
         db = FirebaseFirestore.getInstance();
         db.collection("Users")
@@ -172,6 +194,13 @@ public class BorrowingFragment extends Fragment {
                 });
     }
 
+    /**
+     * Implements the functions and result of the scanning activity
+     * where users can begin the book return process
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         //Scans the book to begin the returning process
         if (requestCode == 103){

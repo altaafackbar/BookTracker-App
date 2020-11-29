@@ -1,3 +1,7 @@
+/**
+ * ViewModel used in the NotificationsFragment
+ * Helps to manage the set up of the fragment
+ */
 package com.example.booktracker.ui.notifications;
 
 import androidx.lifecycle.LiveData;

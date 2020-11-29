@@ -59,6 +59,16 @@ public class DashboardFragment extends Fragment {
     private Button filterBorrowedBtn;
     private Button btnLendPage;
     private Button btnBorrowedPage;
+
+    /**
+     * This sets up the layout for the dashboard fragment
+     * Sets up on click listeners for buttons in this page
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
@@ -162,6 +172,12 @@ public class DashboardFragment extends Fragment {
         });
         return root;
     }
+
+    /**
+     * This filters the bookList according to the value of filterStatus
+     * Clears the bookList then add books to the bookList from the
+     * user's books in the database that matches the filter status.
+     */
     private void filter(){
         /*Filters the bookList according to the value of filterStatus
         * Clears the bookList then add books to the bookList from the user's books

@@ -26,6 +26,10 @@ public class PickupLocation extends AppCompatActivity
     // [START_EXCLUDE]
     // [START maps_marker_get_map_async]
     @Override
+
+    /**
+     * Set the view to be the map where user can view the location
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Retrieve the content view that renders the map.

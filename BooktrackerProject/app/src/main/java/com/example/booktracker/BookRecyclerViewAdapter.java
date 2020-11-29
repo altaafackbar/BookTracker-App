@@ -39,6 +39,12 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
         this.myData = myData;
     }
 
+    /**
+     * Links the view to the xml file for the layout of the item
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,6 +54,11 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
         return new RecyclerViewAdapter.MyViewHolder(view);
     }
 
+    /**
+     * Sets up the attributes of each item and their listeners
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, final int position) {
         holder.tv_book_title.setText(myData.get(position).getTitle());
@@ -61,10 +72,6 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
         else{
             Log.d(TAG, "onBindViewHolder: pic doesnt exists");
         }
-
-
-
-
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             /*
             * Brings user to the RequestPageFragment where they can request available books
@@ -96,6 +103,10 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
         return myData.size();
     }
 
+    /**
+     * MyViewHolder
+     * Holds the attributes needed for each item in the list to be displayed
+     */
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView tv_book_title;
         ImageView img_book_thumbnail;

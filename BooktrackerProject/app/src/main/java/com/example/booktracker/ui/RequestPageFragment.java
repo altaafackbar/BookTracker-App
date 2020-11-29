@@ -6,10 +6,8 @@
  */
 package com.example.booktracker.ui;
 
-import android.app.Notification;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -22,9 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.booktracker.Book;
@@ -42,7 +37,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
-import static com.example.booktracker.App.CHANNEL_1_ID;
 
 public class RequestPageFragment extends Fragment {
     public TextView back;
@@ -72,6 +66,15 @@ public class RequestPageFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Sets up the layout for the RequestPageFragment
+     * Where borrowers can view details of a book and request a book
+     * Sets the functions and visibility of the request button depending on status
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

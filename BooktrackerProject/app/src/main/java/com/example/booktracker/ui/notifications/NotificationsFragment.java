@@ -39,6 +39,14 @@ public class NotificationsFragment extends Fragment {
     }
 
 
+    /**
+     * Sets up the layout for the notifications fragment
+     * Shows the tabs inside of the fragment
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 

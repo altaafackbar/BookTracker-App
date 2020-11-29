@@ -17,6 +17,12 @@ public class NotificationPageAdapter extends FragmentPagerAdapter {
         super(fm);
         this.numOfTabs = numOfTabs;
     }
+
+    /**
+     * Determines what tab to open when a tab is selected
+     * @param position
+     * @return
+     */
     @NonNull
     @Override
     public Fragment getItem(int position) {

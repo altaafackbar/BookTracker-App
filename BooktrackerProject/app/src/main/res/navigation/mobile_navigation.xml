@@ -95,15 +95,4 @@
             android:id="@+id/acceptRequestFragment_to_bookPageFragment"
             app:destination="@id/acceptRequestFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/viewProfileFragment"
-        android:name="com.example.booktracker.ViewProfileFragment"
-        android:label="ViewProfileFragment" >
-        <action
-            android:id="@+id/viewProfileFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-        <action
-            android:id="@+id/viewProfileFragment_to_bookPageFragment"
-            app:destination="@id/bookPageFragment" />
-    </fragment>
 </navigation>

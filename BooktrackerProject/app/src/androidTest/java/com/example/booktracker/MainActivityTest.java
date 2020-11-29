@@ -50,7 +50,7 @@ public class MainActivityTest{
     }
     @Test
     public void sign_in(){
-        //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
+        //Asserts that the current activity is the MainActivity. Otherwise, show Wrong Activity
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
         solo.enterText((EditText) solo.getView(R.id.email2), "test4");
         solo.enterText((EditText) solo.getView(R.id.password), "4");
@@ -59,7 +59,7 @@ public class MainActivityTest{
     }
     @Test
     public void create_acc(){
-         //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
+         //Asserts that the current activity is the MainActivity. Otherwise, show Wrong Activity
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
         Random rand = new Random();
         // Obtain a number between [0 - 200].
@@ -162,7 +162,7 @@ public class MainActivityTest{
     public void search_user_test(){
         //Test search for existing user
 
-        //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
+        //Asserts that the current activity is the MainActivity. Otherwise, show Wrong Activity
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
         solo.enterText((EditText) solo.getView(R.id.email2), "test4");
         solo.enterText((EditText) solo.getView(R.id.password), "4");
@@ -182,7 +182,7 @@ public class MainActivityTest{
     public void search_user_exception() {
         //Test searches for non-existent user and empty search
 
-        //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
+        //Asserts that the current activity is the MainActivity. Otherwise, show Wrong Activity
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
         solo.enterText((EditText) solo.getView(R.id.email2), "test4");
         solo.enterText((EditText) solo.getView(R.id.password), "4");
@@ -207,7 +207,7 @@ public class MainActivityTest{
     public void search_book_test(){
         //Test Book search with a empty field, and valid term
 
-        //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
+        //Asserts that the current activity is the MainActivity. Otherwise, show Wrong Activity
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
         solo.enterText((EditText) solo.getView(R.id.email2), "test4");
         solo.enterText((EditText) solo.getView(R.id.password), "4");
@@ -593,7 +593,7 @@ public class MainActivityTest{
 
     @Test
     public void add_book(){
-        //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
+        //Asserts that the current activity is the MainActivity. Otherwise, show Wrong Activity
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
         solo.enterText((EditText) solo.getView(R.id.email2), "test4");
         solo.enterText((EditText) solo.getView(R.id.password), "4");

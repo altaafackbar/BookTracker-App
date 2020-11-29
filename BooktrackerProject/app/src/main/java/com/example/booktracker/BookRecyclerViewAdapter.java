@@ -43,7 +43,7 @@ public class BookRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAd
      * Links the view to the xml file for the layout of the item
      * @param parent
      * @param viewType
-     * @return
+     * @return ViewHolder for adapter
      */
     @NonNull
     @Override

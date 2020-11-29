@@ -41,7 +41,7 @@ public class AvailableRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerV
      * Links the view to the desired xml file for the item to be listed
      * @param parent
      * @param viewType
-     * @return
+     * @return ViewHolder for adapter
      */
     @NonNull
     @Override

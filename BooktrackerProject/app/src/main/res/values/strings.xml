@@ -4,9 +4,4 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="mark_borrow_btn">Mark as Borrowed</string>
-    <string name="mark_returned_btn">Mark as Returned</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis efficitur elementum. Fusce ac orci quis mauris tristique molestie. Curabitur massa magna, maximus sit amet consectetur sed, convallis vel elit. Vivamus ac velit sit amet augue sagittis eleifend. Morbi at est nec est consequat blandit lacinia id velit. In lacinia eget orci eu pharetra. Nulla at enim neque.  Etiam et lectus rutrum ligula lobortis ultricies quis vestibulum augue. Maecenas aliquet tristique laoreet. Vivamus tempor nisi ipsum, varius tincidunt leo iaculis et. Phasellus tristique nibh id velit pharetra pulvinar. Suspendisse blandit neque quis ex facilisis, a consectetur nulla suscipit. Aliquam odio mauris, laoreet non tempus et, facilisis non urna. Maecenas vel sapien vitae diam bibendum pulvinar. Sed rhoncus tincidunt ex, sed semper magna convallis eu. Mauris ullamcorper velit et leo congue cursus. Mauris ultricies libero ac urna blandit, sed tincidunt nisi elementum. Duis ultricies fermentum nisl, ut semper eros elementum vitae.  Maecenas venenatis in odio at faucibus. Phasellus ullamcorper quam at ex congue, non feugiat dolor scelerisque. In maximus nisl at velit condimentum aliquet. Aliquam quis est odio. Mauris sit amet mauris ut arcu porta lacinia. Phasellus iaculis ante et turpis ultricies ultricies. Integer sit amet neque non lectus consectetur molestie sed sed neque.</string>
 </resources>

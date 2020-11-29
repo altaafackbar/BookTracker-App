@@ -9,6 +9,7 @@
 
     <ImageView
         android:id="@+id/viewImage_request"
+        android:elevation="2dp"
         android:layout_width="329dp"
         android:layout_height="522dp"
         android:src="@drawable/border"

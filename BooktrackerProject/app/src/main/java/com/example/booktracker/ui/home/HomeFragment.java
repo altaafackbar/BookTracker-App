@@ -212,31 +212,24 @@ public class HomeFragment extends Fragment {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
                         newLength = notificationList.size();
-                        if (newLength > size){newNotification = true;}
+                        if (newLength > size){
+                            newNotification = true;
+                            notificationManager = NotificationManagerCompat.from(getActivity());
+                            Notification notification = new NotificationCompat.Builder(getActivity(), CHANNEL_1_ID)
+                                    .setSmallIcon(R.drawable.ic_baseline_new)
+                                    .setContentTitle(notificationList.get(newLength-1).getTitle())
+                                    .setContentText(notificationList.get(newLength-1).getMessage())
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+
+                            notificationManager.notify(1, notification);
+                        }
                         size = newLength;
                         Log.i(TAG, "SIZEed: "+ newLength + "length "+ size);
                     }
                 });
-
-
-        if (newNotification == true){
-            //Sends a notification if a new notification has been added
-            notificationManager = NotificationManagerCompat.from(getActivity());
-            String notificationTitle = "BookTracker";
-            String message = "New Notification!";
-            Notification notification = new NotificationCompat.Builder(getActivity(), CHANNEL_1_ID)
-                    .setSmallIcon(R.drawable.ic_baseline_new)
-                    .setContentTitle(notificationTitle)
-                    .setContentText(message)
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                    .build();
-
-            notificationManager.notify(1, notification);
-            newNotification = false;
-        }
-
-
+        newNotification = false;
         return root;
     }
 

@@ -57,13 +57,12 @@ import static com.example.booktracker.ui.notifications.NotificationMessagesTabFr
 
 public class HomeFragment extends Fragment {
     public static int size = 0;
+    public static int newLength = 0;
     private NotificationManagerCompat notificationManager;
     private ArrayList<NotificationMessage> notificationList;
     private String notificationTitle;
     private String message;
     private String date;
-    private int originalLength = 0;
-    private int newLength = 0;
     private FirebaseFirestore db2;
 
     private HomeViewModel homeViewModel;

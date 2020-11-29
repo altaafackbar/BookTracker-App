@@ -11,9 +11,6 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/navigation_home_to_viewProfileFragment"
-            app:destination="@id/viewProfileFragment" />
-        <action
             android:id="@+id/navigation_home_to_requestPageFragment"
             app:destination="@id/requestPageFragment" />
     </fragment>

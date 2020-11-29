@@ -134,54 +134,57 @@ public class EditPageFragment extends Fragment {
         addEditedbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addNewBook();
-                Drawable resImg = ResourcesCompat.getDrawable(getResources(), R.drawable.image_needed, null);
-                imgv1.setImageDrawable(resImg);
-                Bundle args = new Bundle();
-                args.putString("key", title1.getText().toString());
-                Navigation.findNavController(view).navigate(R.id.navigation_dashboard, args);
+                String authorS = author1.getText().toString();
+                String titleS = title1.getText().toString();
+                String isbnS = isbn1.getText().toString();
+                if(authorS.isEmpty() || titleS.isEmpty() || isbnS.isEmpty()){
+                    //If not all information is entered
+                    Toast toast = Toast.makeText(getContext(), "Please enter missing information", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else {
+                    addNewBook(titleS, authorS, isbnS);
+                    Drawable resImg = ResourcesCompat.getDrawable(getResources(), R.drawable.image_needed, null);
+                    imgv1.setImageDrawable(resImg);
+                    Bundle args = new Bundle();
+                    args.putString("key", title1.getText().toString());
+                    Navigation.findNavController(view).navigate(R.id.navigation_dashboard, args);
+                }
             }
         });
 
         return view;
     }
 
+
     /**
      * Attempts to add a new book using information entered
+     * @param titleS
+     * @param authorS
+     * @param isbnS
      */
-    public void addNewBook(){
-        String authorS = author1.getText().toString();
-        String titleS = title1.getText().toString();
-        String isbnS = isbn1.getText().toString();
+    public void addNewBook(String titleS, String authorS, String isbnS){
         String owner = MainActivity.current_user;
         String status = "available";
-        if(authorS.isEmpty() || titleS.isEmpty() || isbnS.isEmpty()){
-            //If not all information is entered
-            Toast toast = Toast.makeText(getContext(), "Please enter missing information", Toast.LENGTH_SHORT);
-            toast.show();
+        //Add new book to the user's database if book is valid
+        Map<String, Book> book = new HashMap<>();
+        Book bookObj = new Book(titleS, authorS, isbnS, status, owner);
+        String imgString = null;
+        if(imageInfo != null  && imageInfo.length > 0){
+            Log.d(TAG, "addNewBook: book image is empty");
+            imgString = Base64.encodeToString(imageInfo, Base64.DEFAULT);
         }
         else{
-            //Add new book to the user's database if book is valid
-            Map<String, Book> book = new HashMap<>();
-            Book bookObj = new Book(titleS, authorS, isbnS, status, owner);
-            String imgString = null;
-            if(imageInfo != null  && imageInfo.length > 0){
-                Log.d(TAG, "addNewBook: book image is empty");
-                imgString = Base64.encodeToString(imageInfo, Base64.DEFAULT);
-            }
-            else{
-                imgString = "";
-            }
-            bookObj.setImage(imgString);
-            book.put("book", bookObj);
-            db = FirebaseFirestore.getInstance();
-            db.collection("Users").document(MainActivity.current_user)
-                    .collection("Books")
-                    .document(isbnS).set(book);
-            Toast toast = Toast.makeText(getContext(), "Book Successfully Added", Toast.LENGTH_SHORT);
-            toast.show();
+            imgString = "";
         }
-
+        bookObj.setImage(imgString);
+        book.put("book", bookObj);
+        db = FirebaseFirestore.getInstance();
+        db.collection("Users").document(MainActivity.current_user)
+                .collection("Books")
+                .document(isbnS).set(book);
+        Toast toast = Toast.makeText(getContext(), "Book Successfully Added", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     /**

@@ -30,8 +30,9 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 /**
- * Test class for MainActivity. All the UI tests are written here. Robotium test framework is
- used
+ * Test class for MainActivity. All the UI tests are written here. Robotium test framework is used
+ * Note: Does not include tests for activities requiring use of the camera, map, or gallery.
+ *       Such tests were performed manually.
  */
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest{
@@ -46,14 +47,6 @@ public class MainActivityTest{
     @Before
     public void setUp() throws Exception{
         solo = new Solo(InstrumentationRegistry.getInstrumentation(),rule.getActivity());
-    }
-    /**
-     * Gets the Activity
-     * @throws Exception
-     */
-    //@Test
-    public void start() throws Exception{
-        Activity activity = rule.getActivity();
     }
     @Test
     public void sign_in(){
@@ -244,8 +237,7 @@ public class MainActivityTest{
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
         solo.clickOnView(solo.getView(R.id.navigation_dashboard));
 
-        Button edit_button = (Button) solo.getView(R.id.editProfile);
-        solo.clickOnView(edit_button);
+        solo.clickOnView(solo.getView(R.id.editProfile));
         //Should be in the Edit profile page (Same page as create account)
         solo.assertCurrentActivity("Edit profile screen", CreateAccount.class);
 
@@ -254,7 +246,7 @@ public class MainActivityTest{
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
 
         //Try emptying phone number, should fail and stay in same page
-        solo.clickOnView(edit_button);
+        solo.clickOnView(solo.getView(R.id.editProfile));
         solo.clearEditText((EditText)solo.getView(R.id.number));
         solo.clickOnView((Button) solo.getView(R.id.sign_up));
         solo.assertCurrentActivity("Edit profile screen", CreateAccount.class);
@@ -272,32 +264,48 @@ public class MainActivityTest{
         solo.assertCurrentActivity("Edit profile screen", MainScreen.class);
 
     }
+
     @Test
     public void filter_test(){
-        //Test to ensure filters don't crash
+        //Test filters are working, MUST HAVE TestOwner in database with pass 4
 
         //Signing in
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
-        solo.enterText((EditText) solo.getView(R.id.email2), "test4");
+        solo.enterText((EditText) solo.getView(R.id.email2), "TestOwner");
         solo.enterText((EditText) solo.getView(R.id.password), "4");
         solo.clickOnButton("SIGN IN"); //Click sign in Button
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
         solo.clickOnView(solo.getView(R.id.navigation_dashboard));
 
-        //Test filters aren't bugged.
+
         solo.clickOnView((Button) solo.getView(R.id.filter_all_btn));
+        //Makes sure that the filter is showing this book and can be clicked on
+        solo.clickOnText("TestAll");
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
         solo.clickOnView((Button) solo.getView(R.id.filter_available_btn));
+        //Makes sure filter is showing an available book and can be clicked on
+        solo.clickOnText("TestAvailable");
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
         solo.clickOnView((Button) solo.getView(R.id.filter_accepted_btn));
+        //Makes sure filter is showing an accepted book and can be clicked on
+        solo.clickOnText("TestAccepted");
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+
         solo.clickOnView((Button) solo.getView(R.id.filter_borrowed_btn));
+        solo.clickOnText("TestBorrowed");
+        //Makes sure filter is showing an borrowed book and can be clicked on
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
     }
 
     @Test
-    public void request_book_test(){
-        //Ensures Requesting books are working
+    public void request_book_from_profile(){
+        //Tests requesting of books through user profile after making a search, Must have TestOwner and test4
 
         //Signing in
         solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
@@ -306,12 +314,145 @@ public class MainActivityTest{
         solo.clickOnButton("SIGN IN"); //Click sign in Button
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
 
+        //Search for username
+        solo.enterText((EditText) solo.getView(R.id.userSearch), "TestOwner");
+        Button search_button = (Button) solo.getView(R.id.searchUserButton);
+        solo.clickOnView(search_button);
         //Selecting an available book
-        solo.clickInRecyclerView(1);
+        solo.clickOnText("RequestTest");
+
+        //Request it
+        solo.clickOnView( solo.getView(R.id.requestBook_button));
+
+        //Sign out
+        solo.goBack();
+        solo.goBack();
+        Button sign_out = (Button) solo.getView(R.id.sign_out_button2);
+        solo.clickOnView(sign_out);
+
+        //Sign in as owner
+        solo.clearEditText((EditText) solo.getView(R.id.email2));
+        solo.clearEditText((EditText) solo.getView(R.id.password));
+        solo.enterText((EditText) solo.getView(R.id.email2), "TestOwner");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
 
-        //Click request button
+        //Go to tracker page for requested book
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
+        solo.clickOnText("RequestTest");
+        solo.clickOnView(solo.getView(R.id.track_button));
+        //Make sure request was received and can be declined
+        solo.clickOnView(solo.getView(R.id.request_decline_btn));
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+    }
+
+    @Test
+    public void request_book_from_search(){
+        //Test Requesting of books through searching
+
+        //Signing in
+        solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        solo.enterText((EditText) solo.getView(R.id.email2), "test4");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Search for book
+        solo.enterText((EditText) solo.getView(R.id.bookText), "RequestTest");
+        Button search_button = (Button) solo.getView(R.id.bookSearch);
+        solo.clickOnView(search_button);
+        //Selecting an available book
+        solo.clickOnText("RequestTest",2);
+
+        //Request it
         solo.clickOnView((Button) solo.getView(R.id.requestBook_button));
+
+        //Sign out
+        solo.goBack();
+        solo.goBack();
+        Button sign_out = (Button) solo.getView(R.id.sign_out_button2);
+        solo.clickOnView(sign_out);
+
+        //Sign in as owner
+        solo.clearEditText((EditText) solo.getView(R.id.email2));
+        solo.clearEditText((EditText) solo.getView(R.id.password));
+        solo.enterText((EditText) solo.getView(R.id.email2), "TestOwner");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Go to tracker page for requested book
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
+        solo.clickOnText("RequestTest");
+        solo.clickOnView((Button)solo.getView(R.id.track_button));
+        //Make sure request was received and can be declined
+        solo.clickOnView((Button)solo.getView(R.id.request_decline_btn));
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+    }
+
+    @Test
+    public void alert_requested_tracker_tab_test(){
+        //Test that the alerts, tracker and requested tab in notifications tabs are updated properly upon accept/decline
+
+        //Signing in as requester
+        solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        solo.enterText((EditText) solo.getView(R.id.email2), "TestAlertRequester");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Select the book
+        solo.clickOnText("AlertBook");
+        //Request it
+        solo.clickOnView( solo.getView(R.id.requestBook_button));
+        //Go to notifications
+        solo.clickOnView(solo.getView(R.id.navigation_notifications));
+        //Go to requested tab
+        solo.clickOnText("Requested");
+        //Click on text to make sure it is there
+        solo.clickOnText("AlertBook");
+
+        //Sign out
+        solo.clickOnView(solo.getView(R.id.navigation_home));
+        solo.clickOnView(solo.getView(R.id.sign_out_button2));
+
+        //Sign in as owner
+        solo.clearEditText((EditText) solo.getView(R.id.email2));
+        solo.clearEditText((EditText) solo.getView(R.id.password));
+        solo.enterText((EditText) solo.getView(R.id.email2), "TestAlertOwner");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Go to notifications tab
+        solo.clickOnView(solo.getView(R.id.navigation_notifications));
+        //Click delete, works if notification was received
+        solo.clickOnView(solo.getView(R.id.notification_item_delete_btn));
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Go to dashboard->tracker to decline the book
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
+        solo.clickOnText("AlertBook");
+        solo.clickOnButton("Tracker");
+        solo.clickOnButton("Decline");
+
+        //Sign out
+        solo.clickOnView(solo.getView(R.id.navigation_home));
+        solo.clickOnView(solo.getView(R.id.sign_out_button2));
+
+        //Sign in as requester
+        solo.clearEditText((EditText) solo.getView(R.id.email2));
+        solo.clearEditText((EditText) solo.getView(R.id.password));
+        solo.enterText((EditText) solo.getView(R.id.email2), "TestAlertRequester");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Go to notifications tab
+        solo.clickOnView(solo.getView(R.id.navigation_notifications));
+        //Click delete, works if notification was received
+        solo.clickOnView(solo.getView(R.id.notification_item_delete_btn));
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
     }
 
@@ -332,6 +473,124 @@ public class MainActivityTest{
         solo.clickOnView(sign_out);
         solo.assertCurrentActivity("Should be in logged out screen", MainActivity.class);
     }
+
+    @Test
+    public void edit_book_test(){
+        //Tests the editing of a book with proper information filled in
+
+        //Signing in
+        solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        solo.enterText((EditText) solo.getView(R.id.email2), "test4");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Add a book
+        solo.clickOnView(solo.getView(R.id.navigation_add));
+        solo.enterText((EditText) solo.getView(R.id.authorText), "EditTesterAuthor");
+        solo.enterText((EditText) solo.getView(R.id.titleText), "EditTesterTitle");
+        solo.enterText((EditText) solo.getView(R.id.isbnText), "520505050");
+        solo.clickOnView(solo.getView(R.id.add_button));
+
+        //Go to dashboard and select the book
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
+        solo.clickOnText("EditTesterTitle");
+        solo.clickOnView(solo.getView(R.id.edit_button));
+
+        //Clear the fields, edit it, then click add
+        solo.clearEditText((EditText) solo.getView(R.id.edit_authorText));
+        solo.clearEditText((EditText) solo.getView(R.id.edit_titleText));
+        solo.clearEditText((EditText) solo.getView(R.id.edit_isbnText));
+        solo.enterText((EditText) solo.getView(R.id.edit_authorText), "NewAuthorEditTest");
+        solo.enterText((EditText) solo.getView(R.id.edit_titleText), "NewTitleEditTest");
+        solo.enterText((EditText) solo.getView(R.id.edit_isbnText), "02385002375");
+        solo.clickOnView(solo.getView(R.id.edit_add_button));
+
+        //Should be in dashboard, and we should be able to select the new title if successfully changed
+        solo.clickOnText("NewTitleEditTest");
+        //Delete the book
+        solo.clickOnView(solo.getView(R.id.deleteBook_button));
+    }
+    @Test
+    public void edit_book_test_exception(){
+        //Tests the editing of a book with missing fields
+
+        //Signing in
+        solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        solo.enterText((EditText) solo.getView(R.id.email2), "test4");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Add a book
+        solo.clickOnView(solo.getView(R.id.navigation_add));
+        solo.enterText((EditText) solo.getView(R.id.authorText), "EditTesterAuthor");
+        solo.enterText((EditText) solo.getView(R.id.titleText), "EditTesterTitle");
+        solo.enterText((EditText) solo.getView(R.id.isbnText), "520505050");
+        solo.clickOnView(solo.getView(R.id.add_button));
+
+        //Go to dashboard and select the book
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
+        solo.clickOnText("EditTesterTitle");
+        solo.clickOnView(solo.getView(R.id.edit_button));
+
+        //Clear the fields, edit it, then click add - Missing Title
+        solo.clearEditText((EditText) solo.getView(R.id.edit_authorText));
+        solo.clearEditText((EditText) solo.getView(R.id.edit_titleText));
+        solo.clearEditText((EditText) solo.getView(R.id.edit_isbnText));
+        solo.enterText((EditText) solo.getView(R.id.edit_authorText), "NewAuthorEditTest");
+        solo.enterText((EditText) solo.getView(R.id.edit_titleText), "");
+        solo.enterText((EditText) solo.getView(R.id.edit_isbnText), "02385002375");
+        solo.clickOnView(solo.getView(R.id.edit_add_button));
+
+        //Should still be in same page and can continue to edit text since add failed
+        //Clear the fields, edit it, then click add -Missing Author
+        solo.clearEditText((EditText) solo.getView(R.id.edit_authorText));
+        solo.clearEditText((EditText) solo.getView(R.id.edit_titleText));
+        solo.clearEditText((EditText) solo.getView(R.id.edit_isbnText));
+        solo.enterText((EditText) solo.getView(R.id.edit_authorText), "");
+        solo.enterText((EditText) solo.getView(R.id.edit_titleText), "NewTitleEditTest");
+        solo.enterText((EditText) solo.getView(R.id.edit_isbnText), "02385002375");
+        solo.clickOnView(solo.getView(R.id.edit_add_button));
+
+        //Should still be in same page and can continue to edit text since add failed
+        //Clear the fields, edit it, then click add - Proper fields
+        solo.clearEditText((EditText) solo.getView(R.id.edit_authorText));
+        solo.clearEditText((EditText) solo.getView(R.id.edit_titleText));
+        solo.clearEditText((EditText) solo.getView(R.id.edit_isbnText));
+        solo.enterText((EditText) solo.getView(R.id.edit_authorText), "NewAuthorEditTest");
+        solo.enterText((EditText) solo.getView(R.id.edit_titleText), "NewTitleEditTest");
+        solo.enterText((EditText) solo.getView(R.id.edit_isbnText), "02385002375");
+        solo.clickOnView(solo.getView(R.id.edit_add_button));
+
+        //Should work
+        //Should be in dashboard, and we should be able to select the new title if successfully changed
+        solo.clickOnText("NewTitleEditTest");
+        //Delete the book
+        solo.clickOnView(solo.getView(R.id.deleteBook_button));
+    }
+    @Test
+    public void borrowed_lent_page_test(){
+        //tests that the Books Borrowed and Books Lent out page are working
+
+        //Signing in
+        solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        solo.enterText((EditText) solo.getView(R.id.email2), "test4");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Go to dashboard and click books borrowed
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
+        solo.clickOnView(solo.getView(R.id.borrowing_page_btn));
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+
+        //Go back to dashboard and click books lent out
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
+        solo.clickOnView(solo.getView(R.id.lent_out_page_btn));
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+    }
+
     @Test
     public void add_book(){
         //Asserts that the current activity is the MainActivity. Otherwise, show “Wrong Activity”
@@ -350,8 +609,7 @@ public class MainActivityTest{
         solo.enterText((EditText) solo.getView(R.id.authorText), "TestAuthor");
         solo.enterText((EditText) solo.getView(R.id.titleText), "TestTitle");
         solo.enterText((EditText) solo.getView(R.id.isbnText), "0" + n);
-        Button add_book = (Button) solo.getView(R.id.add_button);
-        solo.clickOnView(add_book);
+        solo.clickOnView(solo.getView(R.id.add_button));
     }
 
     @Test
@@ -391,6 +649,24 @@ public class MainActivityTest{
         solo.clickOnView((Button) solo.getView(R.id.add_button));
         solo.clickOnView(solo.getView(R.id.navigation_add));
         solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+    }
+
+    @Test
+    public void test_delete_book(){
+        //Test deleting of books, requires test4 to have at least one available book 'TestTitle'
+        solo.assertCurrentActivity("Wrong Activity", MainActivity.class);
+        solo.enterText((EditText) solo.getView(R.id.email2), "test4");
+        solo.enterText((EditText) solo.getView(R.id.password), "4");
+        solo.clickOnButton("SIGN IN"); //Click sign in Button
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+        solo.clickOnView(solo.getView(R.id.navigation_dashboard));
+        //Click on book to be deleted
+        solo.clickOnText("TestTitle");
+        //Delete book
+        solo.clickOnView(solo.getView(R.id.deleteBook_button));
+        //Successful delete
+        solo.assertCurrentActivity("Should be in home screen", MainScreen.class);
+        //User should be in home page
     }
 
     /**

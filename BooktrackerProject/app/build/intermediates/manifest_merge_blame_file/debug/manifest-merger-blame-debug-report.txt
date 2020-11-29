@@ -44,82 +44,83 @@
 23-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\09a0c8e4a1aa3137ef91db6ddbc52ea5\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:26:22-107
 24
 25    <application
-25-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:10:5-45:19
-26        android:name="androidx.multidex.MultiDexApplication"
+25-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:10:5-46:19
+26        android:name="com.example.booktracker.App"
+26-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:11:9-28
 27        android:allowBackup="true"
-27-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:11:9-35
+27-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:12:9-35
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 28-->[androidx.core:core:1.3.1] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\38c4e2211f572c07747ccf408cd88ab2\core-1.3.1\AndroidManifest.xml:24:18-86
 29        android:debuggable="true"
 30        android:icon="@mipmap/ic_launcher"
-30-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:12:9-43
+30-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:13:9-43
 31        android:label="@string/app_name"
-31-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:13:9-41
+31-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:14:9-41
 32        android:roundIcon="@mipmap/ic_launcher_round"
-32-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:14:9-54
+32-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:15:9-54
 33        android:supportsRtl="true"
-33-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:15:9-35
+33-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:16:9-35
 34        android:testOnly="true"
 35        android:theme="@style/AppTheme" >
-35-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:16:9-40
+35-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:17:9-40
 36        <activity android:name="com.example.booktracker.ui.notifications.PickupLocation" />
-36-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:17:9-78
-36-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:17:19-66
-37        <activity android:name="com.example.booktracker.BookSearch" />
-37-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:18:9-48
-37-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:18:19-45
+36-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:18:9-78
+36-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:18:19-66
+37        <activity android:name="com.example.booktracker.BookSearchActivity" />
+37-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:19:9-56
+37-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:19:19-53
 38        <activity android:name="com.example.booktracker.SearchProfile" />
-38-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:19:9-51
-38-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:19:19-48
+38-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:20:9-51
+38-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:20:19-48
 39
 40        <meta-data
-40-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:21:9-23:71
+40-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:22:9-24:71
 41            android:name="com.google.android.geo.API_KEY"
-41-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:22:13-58
+41-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:23:13-58
 42            android:value="AIzaSyCAU1JVmoL_s1fp-Lr11np7DZ781kH1bHM" />
-42-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:23:13-68
+42-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:24:13-68
 43        <meta-data
-43-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:24:9-26:69
+43-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:25:9-27:69
 44            android:name="com.google.android.gms.version"
-44-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:25:13-58
+44-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:26:13-58
 45            android:value="@integer/google_play_services_version" />
-45-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:26:13-66
+45-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:27:13-66
 46        <meta-data
-46-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:27:9-29:39
+46-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:28:9-30:39
 47            android:name="com.google.android.gms.vision.DEPENDENCIES"
-47-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:28:13-70
+47-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:29:13-70
 48            android:value="barcode" />
-48-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:29:13-36
+48-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:30:13-36
 49
 50        <activity android:name="com.example.booktracker.CreateAccount" />
-50-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:31:9-51
-50-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:31:19-48
+50-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:32:9-51
+50-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:32:19-48
 51        <activity
-51-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:32:9-34:66
+51-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:33:9-35:66
 52            android:name="com.example.booktracker.MainScreen"
-52-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:33:13-39
+52-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:34:13-39
 53            android:label="@string/title_activity_main_screen" />
-53-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:34:13-63
+53-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:35:13-63
 54        <activity android:name="com.example.booktracker.MainActivity" >
-54-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:35:9-41:20
-54-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:35:19-47
+54-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:36:9-42:20
+54-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:36:19-47
 55            <intent-filter>
-55-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:36:13-40:29
+55-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:37:13-41:29
 56                <action android:name="android.intent.action.MAIN" />
-56-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:37:17-69
-56-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:37:25-66
+56-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:38:17-69
+56-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:38:25-66
 57
 58                <category android:name="android.intent.category.LAUNCHER" />
-58-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:39:17-77
-58-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:39:27-74
+58-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:40:17-77
+58-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:40:27-74
 59            </intent-filter>
 60        </activity>
 61        <activity
-61-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:42:9-44:44
+61-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:43:9-45:44
 62            android:name="com.example.booktracker.ScanBarcodeActivity"
-62-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:43:13-48
+62-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:44:13-48
 63            android:label="Scan Barcode" />
-63-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:44:13-41
+63-->C:\Users\altaa\Desktop\abkt\againbkt\booktracker\BooktrackerProject\app\src\main\AndroidManifest.xml:45:13-41
 64        <activity
 64-->[com.sucho:placepicker:1.1.2] C:\Users\altaa\.gradle\caches\transforms-2\files-2.1\5193f4d877cece75b1efc62615a176b2\jetified-placepicker-1.1.2\AndroidManifest.xml:12:9-14:67
 65            android:name="com.sucho.placepicker.PlacePickerActivity"

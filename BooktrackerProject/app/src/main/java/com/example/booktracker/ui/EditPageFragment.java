@@ -8,6 +8,7 @@ package com.example.booktracker.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -59,6 +60,7 @@ public class EditPageFragment extends Fragment {
     private String currentIsbn;
     private String originalTitle;
     private String originalAuthor;
+    private String originalImg;
     private FirebaseFirestore db;
     private Button addEditedbook;
     private byte[] imageInfo;
@@ -103,6 +105,7 @@ public class EditPageFragment extends Fragment {
             currentIsbn = getArguments().getString("editisbn");
             originalAuthor = getArguments().getString("editauthor");
             originalTitle= getArguments().getString("edittitle");
+            originalImg = getArguments().getString("editImg");
 
         }
         author1 = view.findViewById(R.id.edit_authorText);
@@ -113,6 +116,12 @@ public class EditPageFragment extends Fragment {
         author1.setText(originalAuthor);
         title1.setText(originalTitle);
         isbn1.setText(currentIsbn);
+        String imgString = null;
+        if(originalImg != null && !originalImg.isEmpty()){
+            byte [] encodeByte= Base64.decode(originalImg, Base64.DEFAULT);
+            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            imgv1.setImageBitmap(bitmap);
+        }
         ImageButton editImage = view.findViewById(R.id.editImageButton);
         scanButton = view.findViewById(R.id.edit_imageViewScan);
 
@@ -170,9 +179,14 @@ public class EditPageFragment extends Fragment {
         Map<String, Book> book = new HashMap<>();
         Book bookObj = new Book(titleS, authorS, isbnS, status, owner);
         String imgString = null;
+        //if a new image is being added
         if(imageInfo != null  && imageInfo.length > 0){
             Log.d(TAG, "addNewBook: book image is empty");
             imgString = Base64.encodeToString(imageInfo, Base64.DEFAULT);
+        }
+        //if there was an existing image
+        else if(originalImg != null && !originalImg.isEmpty()){
+            imgString = originalImg;
         }
         else{
             imgString = "";

@@ -151,6 +151,7 @@ androidx/viewpager/widget/ViewPager$DecorView.class
 androidx/viewpager2/widget/ViewPager2$OffscreenPageLimit.class
 androidx/viewpager2/widget/ViewPager2$Orientation.class
 androidx/viewpager2/widget/ViewPager2$ScrollState.class
+com/example/booktracker/App.class
 com/firebase/ui/auth/AuthUI$SupportedProvider.class
 com/firebase/ui/auth/ErrorCodes$Code.class
 com/google/android/datatransport/runtime/time/Monotonic.class

@@ -34,11 +34,9 @@ import com.example.booktracker.BookSearchActivity;
 import com.example.booktracker.MainActivity;
 import com.example.booktracker.NotificationMessage;
 import com.example.booktracker.R;
-import com.example.booktracker.ScanBarcodeActivity;
 import com.example.booktracker.SearchProfile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -86,7 +84,7 @@ public class HomeFragment extends Fragment {
      * @param inflater
      * @param container
      * @param savedInstanceState
-     * @return
+     * @return view
      */
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

@@ -21,7 +21,7 @@ public class NotificationPageAdapter extends FragmentPagerAdapter {
     /**
      * Determines what tab to open when a tab is selected
      * @param position
-     * @return
+     * @return Fragment clicked on position
      */
     @NonNull
     @Override

@@ -43,7 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
      * Determines the layout of each item by referring to the cardview_book_item xml file
      * @param parent
      * @param viewType
-     * @return
+     * @return ViewHolder
      */
     @NonNull
     @Override

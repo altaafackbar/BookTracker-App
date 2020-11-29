@@ -6,6 +6,7 @@
 package com.example.booktracker.ui.add;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -34,21 +37,38 @@ import androidx.navigation.Navigation;
 import com.example.booktracker.Book;
 import com.example.booktracker.FetchBook;
 import com.example.booktracker.MainActivity;
+import com.example.booktracker.NotificationMessage;
 import com.example.booktracker.R;
 import com.example.booktracker.ScanBarcodeActivity;
+import com.example.booktracker.ui.home.HomeFragment;
 import com.google.android.gms.common.api.CommonStatusCodes;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
+import static com.example.booktracker.App.CHANNEL_1_ID;
+import static com.example.booktracker.ui.home.HomeFragment.newLength;
+import static com.example.booktracker.ui.notifications.NotificationMessagesTabFragment.newNotification;
 
 public class AddFragment extends Fragment {
+    private NotificationManagerCompat notificationManager;
+    ArrayList<NotificationMessage> notificationList;
+    private String notificationTitle;
+    private FirebaseFirestore db2;
+    private String message;
+    private String date;
+
     private static final int GET_FROM_GALLERY = 1;
     private AddViewModel addViewModel;
     private Button addBook;
@@ -117,6 +137,49 @@ public class AddFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.navigation_dashboard, args);
             }
         });
+        notificationList = new ArrayList<>();
+        db2 = FirebaseFirestore.getInstance();
+        db2.collection("Users")
+                .document(MainActivity.current_user)
+                .collection("Notifications")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for (QueryDocumentSnapshot document:task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData().get("notification"));
+                                Map<String, Object> notification = (Map<String, Object>) document.getData().get("notification");
+                                notificationTitle = (String) notification.get("title");
+                                message = (String) notification.get("message");
+                                date = (String) notification.get("receiveDate");
+                                NotificationMessage newMessage = new NotificationMessage(notificationTitle, message, date);
+                                notificationList.add(newMessage);
+
+                            }
+                        }
+                        else{
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                        newLength = notificationList.size();
+                        if (newLength > HomeFragment.size){
+                            newNotification = true;
+                            notificationManager = NotificationManagerCompat.from(getActivity());
+                            Notification notification = new NotificationCompat.Builder(getActivity(), CHANNEL_1_ID)
+                                    .setSmallIcon(R.drawable.ic_baseline_new)
+                                    .setContentTitle(notificationList.get(newLength-1).getTitle())
+                                    .setContentText(notificationList.get(newLength-1).getMessage())
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+
+                            notificationManager.notify(1, notification);
+                        }
+                        HomeFragment.size = newLength;
+                        Log.i(TAG, "SIZEed: "+ newLength + "length "+ HomeFragment.size);
+                    }
+                });
+        newNotification = false;
 
         return root;
     }

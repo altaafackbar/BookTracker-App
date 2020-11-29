@@ -77,6 +77,15 @@ public class NotificationRequestedTabFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+    /**
+     * Sets up the layout of the requested tab
+     * where users can see the requests they've made
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -89,7 +98,9 @@ public class NotificationRequestedTabFragment extends Fragment {
         return view;
     }
 
-    //RequestedListAdapter that helps to display the fields of a request inside a listview item
+    /**
+     * RequestedListAdapter that helps to display the fields of a request inside a listview item
+     */
     private class RequestedListAdapter extends ArrayAdapter<Book>{
         private int layout;
         public RequestedListAdapter(@NonNull Context context, int resource, @NonNull List<Book> objects) {
@@ -97,6 +108,15 @@ public class NotificationRequestedTabFragment extends Fragment {
             layout = resource;
         }
 
+
+        /**
+         * Allows us to set the attributes of each list item independently
+         * at different positions
+         * @param position
+         * @param convertView
+         * @param parent
+         * @return
+         */
         @NonNull
         @Override
         public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -175,7 +195,9 @@ public class NotificationRequestedTabFragment extends Fragment {
         }
     }
 
-    //RequestedViewHolder helps to hold and set the values of each list item
+    /**
+     * RequestedViewHolder helps to hold and set the values of each list item
+     */
     private class RequestedViewHolder{
         TextView title;
         TextView status;
@@ -183,8 +205,11 @@ public class NotificationRequestedTabFragment extends Fragment {
         Button scan_button;
         Button book_pickup_button;
     }
+
+    /**
+     *Gets information to be displayed from the database and store it in the bookList
+     */
     private void getInfoFromDB(){
-        //Gets information to be displayed from the database and store it in the bookList
         bookList.clear();
         db = FirebaseFirestore.getInstance();
         db.collection("Users").document(MainActivity.current_user)
@@ -225,6 +250,14 @@ public class NotificationRequestedTabFragment extends Fragment {
                     }
                 });
     }
+
+    /**
+     * Handles what happens when a user selects to scan a book
+     * Allows user to scan book to confirm receival and change status in database accordingly
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         //Handles the result of scanning
         if (requestCode == 103) {

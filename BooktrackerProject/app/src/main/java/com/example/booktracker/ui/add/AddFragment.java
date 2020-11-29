@@ -54,12 +54,21 @@ public class AddFragment extends Fragment {
     private Button addBook;
     private EditText author;
     private EditText title;
-    private  EditText isbn;
+    private EditText isbn;
     private FirebaseFirestore db;
     private ImageView scanButton;
     private byte[] imageInfo;
     private ImageView imgV;
 
+    /**
+     * This sets up the layout for the fragment
+     * Sets up click listeners for buttons
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     *      Return the view root
+     */
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         addViewModel =
@@ -111,6 +120,12 @@ public class AddFragment extends Fragment {
 
         return root;
     }
+
+    /**
+     * This adds a new book into the database
+     * Makes checks to ensure all details of the book are given
+     * Stores the new book with status set to available
+     */
     public void addNewBook(){
         //Attempts to add a new book using information entered
         String authorS = author.getText().toString();
@@ -147,6 +162,15 @@ public class AddFragment extends Fragment {
 
     }
 
+    /**
+     * This brings the user to the scan barcode or gallery page
+     * depending on the requestCode.
+     * Allows users to add a image to their book or
+     * scan the isbn for book details.
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         //Implements the result of scanning a barcode as well as selecting a book image from gallery

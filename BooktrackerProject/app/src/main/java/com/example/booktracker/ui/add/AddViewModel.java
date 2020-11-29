@@ -1,7 +1,7 @@
 /**
 *AddViewModel
 * A ViewModel for the add fragment
-* Helps with managing data in when adding books
+* Helps with managing the fragment in adding books fragment
  */
 package com.example.booktracker.ui.add;
 

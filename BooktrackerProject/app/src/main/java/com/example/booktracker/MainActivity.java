@@ -40,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
     private Button create_acc_btn;
     private FirebaseFirestore db;
     public static String current_user;
+
+    /**
+     * Sets up the layout
+     * as well as listeners for the buttons
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Sets up buttons that handles account creation and sign in
@@ -61,17 +67,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Calls CreateAccount class to create a new user account
+     */
     private void create_account(){
-        //Calls CreateAccount class to create a new user account
         Intent new_user = new Intent(this, CreateAccount.class);
         new_user.setFlags(new_user.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
         startActivity(new_user);
     }
+    /**
+     *Attempts to sign user in using the email and pass entered
+     * Checks Firestore to ensure user has been registered
+     */
     private void signIn() {
-        /*
-        *Attempts to sign user in using the email and pass entered
-        * Checks Firestore to ensure user has been registered
-         */
         EditText email = findViewById(R.id.email2);
         EditText pass = findViewById(R.id.password);
         final String email_s = email.getText().toString();

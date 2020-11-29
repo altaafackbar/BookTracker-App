@@ -34,7 +34,7 @@ public class CreateAccount extends AppCompatActivity {
     private String intentTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*
+        /**
         * Creates the display, sets all fields to the
         * current values in the database if user is
         * editing, otherwise set to instruction messages
@@ -98,11 +98,11 @@ public class CreateAccount extends AppCompatActivity {
             }
         });
     }
+    /**
+     * Takes care of account creation
+     * Ensures all fields are properly filled.
+     */
     private void new_user(){
-        /*
-        * Takes care of account creation
-        * Ensures all fields are properly filled.
-         */
         final String u_email = email.getText().toString();
         final String u_pass = password.getText().toString();
         final String u_num = number.getText().toString();

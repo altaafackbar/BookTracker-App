@@ -41,6 +41,11 @@ public class SearchProfile extends AppCompatActivity {
     private FirebaseFirestore db;
     private BookRecyclerViewAdapter profileAdapter;
 
+    /**
+     * Sets up the view/layout of the SearchProfile
+     * where users can view the profile of a searched user
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

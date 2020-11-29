@@ -43,6 +43,12 @@ public class BookSearchActivity extends AppCompatActivity {
     ArrayList<Book> bookList;
     private FirebaseFirestore db;
     private BookRecyclerViewAdapter myAdapter;
+
+    /**
+     * Sets up the layout for the BookSearchActivity
+     * Sets the TextViews and list items using the RecyclerView
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -5,7 +5,6 @@
  */
 package com.example.booktracker.ui.notifications;
 
-import android.app.Notification;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,8 +18,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.booktracker.MainActivity;
@@ -39,20 +36,10 @@ import java.util.List;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
-import static com.example.booktracker.App.CHANNEL_1_ID;
 
 public class NotificationMessagesTabFragment extends Fragment {
-    private NotificationManagerCompat notificationManager;
-    private int size;
     public static Boolean newNotification = false;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private FirebaseFirestore db;
     private String title;
     private String message;
@@ -75,6 +62,15 @@ public class NotificationMessagesTabFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+
+    /**
+     * Sets up the layout for the Alerts tab
+     * set up the delete button for each message
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -90,7 +86,7 @@ public class NotificationMessagesTabFragment extends Fragment {
         return view;
     }
 
-    /*
+    /**
     *NotificationListAdapter
     * Helps to display the notification objects inside a listview
      */
@@ -101,6 +97,14 @@ public class NotificationMessagesTabFragment extends Fragment {
             layout = resource;
         }
 
+        /**
+         * Allows us to set the attributes of each list item at different positions
+         * in the list
+         * @param position
+         * @param convertView
+         * @param parent
+         * @return
+         */
         @NonNull
         @Override
         public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -134,20 +138,22 @@ public class NotificationMessagesTabFragment extends Fragment {
         }
     }
 
+    /**
+     * ViewHolder that helps to contain the attributes of each list item
+     */
     private class NotificationViewHolder{
-        //ViewHolder that helps to contain the attributes of each list item
         TextView title;
         TextView message;
         TextView date;
         Button deletebtn;
     }
 
+    /**
+     *Clears the notificationMessageList to be shown
+     *re-adds new notifications from the database of the user
+     * sort the list by date, descending
+     */
     private void getInfoFromDB(){
-        /*
-        *clears the notificationMessageList to be shown
-        *re-adds new notifications from the database of the user
-        * sort the list by date, descending
-         */
         notificationMessageList.clear();
         db = FirebaseFirestore.getInstance();
         db.collection("Users")

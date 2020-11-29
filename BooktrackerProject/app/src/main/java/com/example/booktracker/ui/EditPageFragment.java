@@ -8,7 +8,6 @@ package com.example.booktracker.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -56,18 +55,14 @@ public class EditPageFragment extends Fragment {
     private EditText author1;
     private EditText title1;
     private EditText isbn1;
-    private String img1;
     private ImageView imgv1;
-    private Bitmap bitmap;
     private String currentIsbn;
     private String originalTitle;
     private String originalAuthor;
-    private String originalImg;
     private FirebaseFirestore db;
     private Button addEditedbook;
     private byte[] imageInfo;
     private ImageView scanButton;
-    private ImageView imgV;
     private static final int GET_FROM_GALLERY = 1;
 
 
@@ -89,6 +84,15 @@ public class EditPageFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Sets up the layout in the EditPageFragment
+     * where users can edit descriptions of their book and change
+     * pictures
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -99,7 +103,6 @@ public class EditPageFragment extends Fragment {
             currentIsbn = getArguments().getString("editisbn");
             originalAuthor = getArguments().getString("editauthor");
             originalTitle= getArguments().getString("edittitle");
-            originalImg = getArguments().getString("editImg");
 
         }
         author1 = view.findViewById(R.id.edit_authorText);
@@ -142,8 +145,11 @@ public class EditPageFragment extends Fragment {
 
         return view;
     }
+
+    /**
+     * Attempts to add a new book using information entered
+     */
     public void addNewBook(){
-        //Attempts to add a new book using information entered
         String authorS = author1.getText().toString();
         String titleS = title1.getText().toString();
         String isbnS = isbn1.getText().toString();
@@ -178,6 +184,13 @@ public class EditPageFragment extends Fragment {
 
     }
 
+    /**
+     * Implements the functions of the barcode scan and picking images from the gallery
+     * based on the resultCode passed in
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         //Implements the result of scanning a barcode as well as selecting a book image from gallery

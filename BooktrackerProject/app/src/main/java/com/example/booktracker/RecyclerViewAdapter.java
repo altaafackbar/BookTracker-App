@@ -39,16 +39,26 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.myData = myData;
     }
 
+    /**
+     * Determines the layout of each item by referring to the cardview_book_item xml file
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //Determines the layout of each item by referring to the cardview_book_item xml file
         View view;
         LayoutInflater myInflater = LayoutInflater.from(myContext);
         view = myInflater.inflate(R.layout.cardview_book_item, parent, false);
         return new MyViewHolder(view);
     }
 
+    /**
+     * Sets the image of the book
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.tv_book_title.setText(myData.get(position).getTitle());
@@ -57,7 +67,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Log.d(TAG, "onBindViewHolder: pic exists");
             byte [] encodeByte=Base64.decode(encodedString, Base64.DEFAULT);
             Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-            //holder.img_book_thumbnail.setImageResource(Integer.parseInt(myData.get(position).getImage()));
             holder.img_book_thumbnail.setImageBitmap(bitmap);
         }
         else{
@@ -90,8 +99,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return myData.size();
     }
 
+    /**
+     * ViewHolder to contain the details of each item in the list
+     */
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        //ViewHolder to contain the details of each item in the list
         TextView tv_book_title;
         ImageView img_book_thumbnail;
         CardView cardView;

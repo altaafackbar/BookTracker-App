@@ -58,7 +58,7 @@ import static com.example.booktracker.ui.notifications.NotificationMessagesTabFr
 public class HomeFragment extends Fragment {
     public static int size = 0;
     private NotificationManagerCompat notificationManager;
-    ArrayList<NotificationMessage> notificationList;
+    private ArrayList<NotificationMessage> notificationList;
     private String notificationTitle;
     private String message;
     private String date;
@@ -77,9 +77,18 @@ public class HomeFragment extends Fragment {
     private String author;
     private String isbn;
     private String bookImg;
-    RecyclerView myRecyclerview;
-    ArrayList<Book> bookList;
+    private RecyclerView myRecyclerview;
+    private ArrayList<Book> bookList;
 
+    /**
+     * This sets up the layout in the home fragment
+     * Sets up all functions of the buttons on click
+     * Sets up the initial texts for TextView and edit boxes
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -90,13 +99,13 @@ public class HomeFragment extends Fragment {
         Button sign_out_button = root.findViewById(R.id.sign_out_button2);
 
         sign_out_button.setOnClickListener(new View.OnClickListener() {
+            //Signs the user out
             @Override
             public void onClick(View view) {
                 signOut();
             }
         });
         email.setText("Welcome Back \n" + MainActivity.current_user);
-
 
         Button search = root.findViewById(R.id.searchUserButton);
         search.setOnClickListener(new View.OnClickListener() {
@@ -178,10 +187,9 @@ public class HomeFragment extends Fragment {
         });
 
         notificationList = new ArrayList<>();
-//        //originalLength = 0;
-//        //notificationList.clear();
         db2 = FirebaseFirestore.getInstance();
         db2.collection("Users")
+                //Checks the db to see if new notifications has been added to sent push notifications
                 .document(MainActivity.current_user)
                 .collection("Notifications")
                 .get()
@@ -212,6 +220,7 @@ public class HomeFragment extends Fragment {
 
 
         if (newNotification == true){
+            //Sends a notification if a new notification has been added
             notificationManager = NotificationManagerCompat.from(getActivity());
             String notificationTitle = "BookTracker";
             String message = "New Notification!";
@@ -225,7 +234,6 @@ public class HomeFragment extends Fragment {
 
             notificationManager.notify(1, notification);
             newNotification = false;
-            //originalLength = newLength;
         }
 
 
@@ -234,13 +242,12 @@ public class HomeFragment extends Fragment {
 
 
 
-
+    /**
+     *Searches for an user according to the term entered
+     *Displays the user profile if search exists,
+     *otherwise give the appropriate error messages.
+     */
    public void searchUser(){
-        /*
-        *Searches for an user according to the term entered
-        *Displays the user profile if search exists,
-        *otherwise give the appropriate error messages.
-         */
        db = FirebaseFirestore.getInstance();
        String searchTerm = searchText.getText().toString();
        if(!searchTerm.isEmpty()){
@@ -278,6 +285,9 @@ public class HomeFragment extends Fragment {
     }
 
 
+    /**
+     * Brings an user back to the logged out page
+     */
     private void signOut(){
         //Signs an user out
         MainActivity.current_user = null;

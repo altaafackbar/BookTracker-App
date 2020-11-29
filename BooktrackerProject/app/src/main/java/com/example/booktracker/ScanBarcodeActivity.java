@@ -40,8 +40,10 @@ public class ScanBarcodeActivity extends Activity {
         createCameraSource();
     }
 
+    /**
+     * Sets up barcodeDetector
+     */
     private void createCameraSource() {
-        //Sets up barcodeDetector
         final BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(this).build();
         final CameraSource cameraSource = new CameraSource.Builder(this, barcodeDetector)
                 .setAutoFocusEnabled(true)
@@ -49,6 +51,10 @@ public class ScanBarcodeActivity extends Activity {
                 .build();
 
         cameraPreview.getHolder().addCallback(new SurfaceHolder.Callback() {
+            /**
+             * Checks if camera is successfully opened
+             * @param surfaceHolder
+             */
             @Override
             public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
                 try {
@@ -80,6 +86,10 @@ public class ScanBarcodeActivity extends Activity {
 
             }
 
+            /**
+             * Gets the barcode scanned
+             * @param detections
+             */
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> barcodes = detections.getDetectedItems();

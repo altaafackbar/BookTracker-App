@@ -57,11 +57,11 @@ import java.util.Map;
 import static android.content.ContentValues.TAG;
 
 public class AcceptRequestFragment extends Fragment {
-    SimpleDateFormat dateFor;
+    private SimpleDateFormat dateFor;
     private String owner;
     private String requestStatus;
-    ArrayList<RequestInfo> requestInfoList;
-    RequestListAdapter myAdapter;
+    private ArrayList<RequestInfo> requestInfoList;
+    private RequestListAdapter myAdapter;
     private String title;
     private String current_isbn;
     private String isbn;
@@ -83,6 +83,14 @@ public class AcceptRequestFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Sets up the layout for the AcceptRequestFragment
+     * where owners can decide to accept/decline requests
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -98,7 +106,9 @@ public class AcceptRequestFragment extends Fragment {
         return view;
     }
 
-    //RequestListAdapter to help display the request items inside a list
+    /**
+     * RequestListAdapter to help display the request items inside a list
+     */
     private class RequestListAdapter extends ArrayAdapter<RequestInfo> {
         private int layout;
         public RequestListAdapter(@NonNull Context context, int resource, @NonNull List<RequestInfo> objects) {
@@ -106,6 +116,14 @@ public class AcceptRequestFragment extends Fragment {
             layout = resource;
         }
 
+        /**
+         * Allows us to get the item in each list item to have different attributes
+         * and set up the buttons for them independently
+         * @param position
+         * @param convertView
+         * @param parent
+         * @return
+         */
         @NonNull
         @Override
         public View getView(final int position, @Nullable View convertView, @NonNull final ViewGroup parent) {
@@ -189,7 +207,10 @@ public class AcceptRequestFragment extends Fragment {
         }
     }
 
-    //ViewHolder to help hold the attributes of the list items
+    /**
+     * ViewHolder to help hold the attributes of the list items
+     */
+
     public class ViewHolder{
         ImageView profile_pic;
         TextView r_username;
@@ -198,15 +219,20 @@ public class AcceptRequestFragment extends Fragment {
         Button scan_btn;
         TextView request_date;
     }
-    //RequestInfo used to create an ArrayList of RequestInfo as a list to be displayed
+
+    /**
+     * RequestInfo used to create an ArrayList of RequestInfo as a list to be displayed
+     */
     private class RequestInfo{
         String requester;
         Date request_date;
         String status;
     }
 
+    /**
+     * Retrieves info from the database to be shown in the list of requests, sorted based on request date
+     */
     private void getInfoFromDB(){
-        //Retrieves info from the database to be shown in the list of requests, sorted based on request date
         db = FirebaseFirestore.getInstance();
         final CollectionReference collectionReference = db.collection("Users");
         collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -261,6 +287,11 @@ public class AcceptRequestFragment extends Fragment {
 
         });
     }
+
+    /**
+     * Declines a request on a book
+     * @param requester
+     */
     private void doDecline(String requester){
         //Declines a request on the book, updates database accordingly
         db = FirebaseFirestore.getInstance();
@@ -281,6 +312,10 @@ public class AcceptRequestFragment extends Fragment {
                 .document(newDate.toString()).set(notification);
     }
 
+    /**
+     * Accepts a request on a book, declines all other requests
+     * @param requester
+     */
     private void doAccept(String requester){
         //Accepts the request and declines all other requests
         db = FirebaseFirestore.getInstance();

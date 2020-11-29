@@ -7,6 +7,7 @@
  */
 package com.example.booktracker.ui.dashboard;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
@@ -27,8 +30,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.booktracker.Book;
 import com.example.booktracker.CreateAccount;
 import com.example.booktracker.MainActivity;
+import com.example.booktracker.NotificationMessage;
 import com.example.booktracker.R;
 import com.example.booktracker.RecyclerViewAdapter;
+import com.example.booktracker.ui.home.HomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -39,8 +44,19 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
+import static com.example.booktracker.App.CHANNEL_1_ID;
+import static com.example.booktracker.ui.home.HomeFragment.newLength;
+import static com.example.booktracker.ui.notifications.NotificationMessagesTabFragment.newNotification;
+
 
 public class DashboardFragment extends Fragment {
+    private NotificationManagerCompat notificationManager;
+    ArrayList<NotificationMessage> notificationList;
+    private String notificationTitle;
+    private FirebaseFirestore db2;
+    private String message;
+    private String date;
+
     private String title;
     private String author;
     private String isbn;
@@ -170,6 +186,49 @@ public class DashboardFragment extends Fragment {
                 Navigation.findNavController(root).navigate(R.id.dashboard_to_borrowingFragment);
             }
         });
+        notificationList = new ArrayList<>();
+        db2 = FirebaseFirestore.getInstance();
+        db2.collection("Users")
+                .document(MainActivity.current_user)
+                .collection("Notifications")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for (QueryDocumentSnapshot document:task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData().get("notification"));
+                                Map<String, Object> notification = (Map<String, Object>) document.getData().get("notification");
+                                notificationTitle = (String) notification.get("title");
+                                message = (String) notification.get("message");
+                                date = (String) notification.get("receiveDate");
+                                NotificationMessage newMessage = new NotificationMessage(notificationTitle, message, date);
+                                notificationList.add(newMessage);
+
+                            }
+                        }
+                        else{
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                        newLength = notificationList.size();
+                        if (newLength > HomeFragment.size){
+                            newNotification = true;
+                            notificationManager = NotificationManagerCompat.from(getActivity());
+                            Notification notification = new NotificationCompat.Builder(getActivity(), CHANNEL_1_ID)
+                                    .setSmallIcon(R.drawable.ic_baseline_new)
+                                    .setContentTitle(notificationList.get(newLength-1).getTitle())
+                                    .setContentText(notificationList.get(newLength-1).getMessage())
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+
+                            notificationManager.notify(1, notification);
+                        }
+                        HomeFragment.size = newLength;
+                        Log.i(TAG, "SIZEed: "+ newLength + "length "+ HomeFragment.size);
+                    }
+                });
+        newNotification = false;
         return root;
     }
 

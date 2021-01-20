@@ -1,5 +1,6 @@
 # BookTracker-App
 Android application where users can lend and borrow books. Uses NoSQL Firebase database to store information in real-time. 
+![Download APK](/BooktrackerProject/app/build/outputs/apk/debug/app-debug.apk)
 
 -Sign in
 
